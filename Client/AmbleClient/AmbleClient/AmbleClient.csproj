@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AccountOperation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AccountOperation.Designer.cs">
+      <DependentUpon>AccountOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddModifyAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddModifyAccount.Designer.cs">
+      <DependentUpon>AddModifyAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +72,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Admin\AccountOperation.resx">
+      <DependentUpon>AccountOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AddModifyAccount.resx">
+      <DependentUpon>AddModifyAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,6 +102,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Personal\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

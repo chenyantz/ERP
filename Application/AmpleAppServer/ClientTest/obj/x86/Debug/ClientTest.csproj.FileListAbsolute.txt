@@ -1,0 +1,11 @@
+C:\My Work\ERP\Application\AmpleAppServer\ClientTest\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\My Work\ERP\Application\AmpleAppServer\ClientTest\obj\x86\Debug\ClientTest.Form1.resources
+C:\My Work\ERP\Application\AmpleAppServer\ClientTest\obj\x86\Debug\ClientTest.Properties.Resources.resources
+C:\My Work\ERP\Application\AmpleAppServer\ClientTest\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\My Work\ERP\Application\AmpleAppServer\ClientTest\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\My Work\ERP\Application\AmpleAppServer\ClientTest\bin\Debug\ClientTest.exe
+C:\My Work\ERP\Application\AmpleAppServer\ClientTest\bin\Debug\ClientTest.pdb
+C:\My Work\ERP\Application\AmpleAppServer\ClientTest\bin\Debug\AmpleAppServer.exe
+C:\My Work\ERP\Application\AmpleAppServer\ClientTest\bin\Debug\AmpleAppServer.pdb
+C:\My Work\ERP\Application\AmpleAppServer\ClientTest\obj\x86\Debug\ClientTest.exe
+C:\My Work\ERP\Application\AmpleAppServer\ClientTest\obj\x86\Debug\ClientTest.pdb

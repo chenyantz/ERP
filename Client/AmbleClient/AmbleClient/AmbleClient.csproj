@@ -34,8 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AmpleAppServer">
+      <HintPath>..\..\..\Application\AmpleAppServer\AmpleAppServer\bin\Debug\AmpleAppServer.exe</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,18 +50,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AccountMainFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AccountMainFrame.Designer.cs">
+      <DependentUpon>AccountMainFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Admin\AccountOperation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin\AccountOperation.Designer.cs">
       <DependentUpon>AccountOperation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\AddModifyAccount.cs">
+    <Compile Include="Admin\ModifyAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\AddModifyAccount.Designer.cs">
-      <DependentUpon>AddModifyAccount.cs</DependentUpon>
-    </Compile>
+    <Compile Include="global.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,11 +83,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Admin\AccountMainFrame.resx">
+      <DependentUpon>AccountMainFrame.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\AccountOperation.resx">
       <DependentUpon>AccountOperation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Admin\AddModifyAccount.resx">
-      <DependentUpon>AddModifyAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

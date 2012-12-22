@@ -20,5 +20,23 @@ namespace AmbleClient
         {
 
         }
+
+        private void viewEditAccountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AmbleClient.Admin.AccountMainFrame accountOpFrame = new Admin.AccountMainFrame();
+            accountOpFrame.MdiParent = this;
+            accountOpFrame.Show();
+
+        }
+
+        private void MainFrame_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainFrame_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

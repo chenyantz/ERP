@@ -30,18 +30,18 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buyersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.financesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.warehousesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewEditAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerManagermentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rFQViewNewSOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sOViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buyersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendorManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.financesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.warehousesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewEditAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,6 +71,24 @@
             this.salesToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.salesToolStripMenuItem.Text = "Sales";
             // 
+            // customerManagermentToolStripMenuItem
+            // 
+            this.customerManagermentToolStripMenuItem.Name = "customerManagermentToolStripMenuItem";
+            this.customerManagermentToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.customerManagermentToolStripMenuItem.Text = "Customer Managerment";
+            // 
+            // rFQViewNewSOToolStripMenuItem
+            // 
+            this.rFQViewNewSOToolStripMenuItem.Name = "rFQViewNewSOToolStripMenuItem";
+            this.rFQViewNewSOToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.rFQViewNewSOToolStripMenuItem.Text = "RFQ View, New SO";
+            // 
+            // sOViewToolStripMenuItem
+            // 
+            this.sOViewToolStripMenuItem.Name = "sOViewToolStripMenuItem";
+            this.sOViewToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.sOViewToolStripMenuItem.Text = "SO View";
+            // 
             // buyersToolStripMenuItem
             // 
             this.buyersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -78,6 +96,12 @@
             this.buyersToolStripMenuItem.Name = "buyersToolStripMenuItem";
             this.buyersToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.buyersToolStripMenuItem.Text = "Buyers";
+            // 
+            // vendorManagementToolStripMenuItem
+            // 
+            this.vendorManagementToolStripMenuItem.Name = "vendorManagementToolStripMenuItem";
+            this.vendorManagementToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.vendorManagementToolStripMenuItem.Text = "Vendor Management";
             // 
             // financesToolStripMenuItem
             // 
@@ -99,6 +123,13 @@
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.adminToolStripMenuItem.Text = "Admin";
             // 
+            // viewEditAccountToolStripMenuItem
+            // 
+            this.viewEditAccountToolStripMenuItem.Name = "viewEditAccountToolStripMenuItem";
+            this.viewEditAccountToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.viewEditAccountToolStripMenuItem.Text = "View Accounts";
+            this.viewEditAccountToolStripMenuItem.Click += new System.EventHandler(this.viewEditAccountToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -107,47 +138,17 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.helpToolStripMenuItem.Text = "Personal";
             // 
-            // viewEditAccountToolStripMenuItem
-            // 
-            this.viewEditAccountToolStripMenuItem.Name = "viewEditAccountToolStripMenuItem";
-            this.viewEditAccountToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.viewEditAccountToolStripMenuItem.Text = "View Accounts";
-            // 
-            // helpToolStripMenuItem1
-            // 
-            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem1.Text = "Help";
-            // 
             // changePasswordToolStripMenuItem
             // 
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
             this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
             // 
-            // customerManagermentToolStripMenuItem
+            // helpToolStripMenuItem1
             // 
-            this.customerManagermentToolStripMenuItem.Name = "customerManagermentToolStripMenuItem";
-            this.customerManagermentToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.customerManagermentToolStripMenuItem.Text = "Customer Managerment";
-            // 
-            // rFQViewNewSOToolStripMenuItem
-            // 
-            this.rFQViewNewSOToolStripMenuItem.Name = "rFQViewNewSOToolStripMenuItem";
-            this.rFQViewNewSOToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.rFQViewNewSOToolStripMenuItem.Text = "RFQ View, New SO";
-            // 
-            // sOViewToolStripMenuItem
-            // 
-            this.sOViewToolStripMenuItem.Name = "sOViewToolStripMenuItem";
-            this.sOViewToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.sOViewToolStripMenuItem.Text = "SO View";
-            // 
-            // vendorManagementToolStripMenuItem
-            // 
-            this.vendorManagementToolStripMenuItem.Name = "vendorManagementToolStripMenuItem";
-            this.vendorManagementToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.vendorManagementToolStripMenuItem.Text = "Vendor Management";
+            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem1.Text = "Help";
             // 
             // MainFrame
             // 
@@ -159,7 +160,9 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainFrame";
             this.Text = "Amble Electonics Asia Limited";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainFrame_FormClosed);
             this.Load += new System.EventHandler(this.MainFrame_Load);
+            this.Leave += new System.EventHandler(this.MainFrame_Leave);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

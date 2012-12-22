@@ -2,7 +2,6 @@ C:\My Work\ERP\Client\AmbleClient\AmbleClient\bin\Debug\AmbleClient.exe
 C:\My Work\ERP\Client\AmbleClient\AmbleClient\bin\Debug\AmbleClient.pdb
 C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Admin.AccountOperation.resources
-C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Admin.AddModifyAccount.resources
 C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Login.resources
 C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.MainFrame.resources
 C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Properties.Resources.resources
@@ -10,3 +9,6 @@ C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\GenerateResource.rea
 C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.exe
 C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.pdb
+C:\My Work\ERP\Client\AmbleClient\AmbleClient\bin\Debug\AmpleAppServer.exe
+C:\My Work\ERP\Client\AmbleClient\AmbleClient\bin\Debug\AmpleAppServer.pdb
+C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Admin.AccountMainFrame.resources

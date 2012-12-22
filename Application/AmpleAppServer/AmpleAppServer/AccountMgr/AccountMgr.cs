@@ -95,9 +95,32 @@ namespace AmpleAppServer.AccountMgr
 
            return db.GetDataSet("select * from account", "test");
         
-       
+      
         }
+       public DataTable ReturnWholeAccountTable()
+       {
+           return db.GetDataTable("select * from account", "AccountTable");
+       
+       }
 
+       public bool AddAnAccount(string accountName,string password,string email,int job,int superviser)
+       {
+           string strSql = "INSERT INTO account(accountName,accountPassword,email,job,superviser)VALUES('" + accountName + "','" + password+ "','" +
+               email + "'," + job + "," + superviser + ")";
+           if (db.ExecDataBySql(strSql) > 0)
+               return true;
+                    
+           return false;
+       }
+       public bool ModifyAnAccount(int id,string accountName,string password,string email,int job,int superviser)
+       {
+           string strSql = "UPDATE account SET accountName='" + accountName + "',accountPassword='" + password + "',email='" + email + "',job="
+               + job + ",superviser=" + superviser + "   WHERE id="+id;
+           if (db.ExecDataBySql(strSql) > 0)
+               return true;
+           return false;
+
+       }
 
 
     }

@@ -2,12 +2,14 @@ CREATE DATABASE shenzhenERP ;
 USE shenzhenERP ;
 
 CREATE TABLE account (
-  accountName VARCHAR (255) PRIMARY KEY,
+  id SMALLINT AUTO_INCREMENT PRIMARY KEY,
+  accountName VARCHAR (255) ,
   accountPassword VARCHAR (255),
   email VARCHAR (255),
-  job TINYINT
-  /*0:admin, 1:sales, 2:saleManager,3:buyer,4:buyerManager. 5:warehouse 6,warehouseManager. 7:financial 8;financial manager
+  job TINYINT,
+  /*0:admin, 1:boss,2:sales, 3:saleManager,4:buyer,5:buyerManager. 6:warehouse 7,warehouseManager. 8:financial 9;financial manager
 */
+  superviser SMALLINT
 ) ;
 
 CREATE TABLE custVendor(

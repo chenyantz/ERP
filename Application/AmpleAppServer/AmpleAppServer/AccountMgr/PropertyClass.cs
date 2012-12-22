@@ -8,7 +8,7 @@ namespace AmpleAppServer.AccountMgr
     /// <summary>
     /// 表示若干属性的类
     /// </summary>
-    public class PropertyClass
+    public class PropertyClass:System.MarshalByRefObject
     {
         private  int userId;
         /// <summary>

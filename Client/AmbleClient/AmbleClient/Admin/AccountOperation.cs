@@ -82,12 +82,12 @@ namespace AmbleClient.Admin
             }
             //check the integry
 
-            if (textBox1.Text.Trim() == null)
+            if (String.IsNullOrWhiteSpace(textBox1.Text.Trim()))
             {
                 MessageBox.Show("Please input the name");
             
             }
-            if (maskedTextBox1.Text.Trim() == null)
+            if (String.IsNullOrWhiteSpace(maskedTextBox1.Text.Trim()))
             {
                 MessageBox.Show("Please input the password");
             

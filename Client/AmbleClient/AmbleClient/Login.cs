@@ -64,5 +64,27 @@ namespace AmbleClient
             this.Close();
 
         }
+
+        //enter enter
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                maskedTextBox1.Focus();
+            }
+        }
+
+        private void maskedTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BtnLogin_Click(sender, e);
+            }
+        }
+
+        
+
+
+
     }
 }

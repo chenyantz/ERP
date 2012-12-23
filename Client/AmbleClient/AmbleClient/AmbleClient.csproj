@@ -34,7 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AmpleAppServer">
+    <Reference Include="AmpleAppServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <ExecutableExtension>.exe</ExecutableExtension>
       <HintPath>..\..\..\Application\AmpleAppServer\AmpleAppServer\bin\Debug\AmpleAppServer.exe</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -68,6 +70,18 @@
     <Compile Include="Admin\ModifyAccount.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="custVendor\customerVendorMainFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="custVendor\customerVendorMainFrame.Designer.cs">
+      <DependentUpon>customerVendorMainFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="custVendor\customerVendorOperation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="custVendor\customerVendorOperation.Designer.cs">
+      <DependentUpon>customerVendorOperation.cs</DependentUpon>
+    </Compile>
     <Compile Include="global.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -88,6 +102,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\AccountOperation.resx">
       <DependentUpon>AccountOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="custVendor\customerVendorMainFrame.resx">
+      <DependentUpon>customerVendorMainFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="custVendor\customerVendorOperation.resx">
+      <DependentUpon>customerVendorOperation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

@@ -8,7 +8,7 @@
     <ProjectGuid>{D4335027-CA9A-41C7-85A8-D83DCB4B5AE1}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AmpleAppServer</RootNamespace>
+    <RootNamespace>AmbleAppServer</RootNamespace>
     <AssemblyName>AmpleAppServer</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
@@ -67,6 +67,7 @@
     <Compile Include="ComClass\CommonUse.cs" />
     <Compile Include="ComClass\OperatorFile.cs" />
     <Compile Include="AccountMgr\PropertyClass.cs" />
+    <Compile Include="customerVendorMgr\CustomerVendorMgr.cs" />
     <Compile Include="DataClass\DataClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

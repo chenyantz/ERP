@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
-using AmpleAppServer.AccountMgr;
+using AmbleAppServer.AccountMgr;
 
 namespace AmbleClient.Admin
 {
@@ -98,8 +98,7 @@ namespace AmbleClient.Admin
             addMAccount.SetAccountMgr(mgr,originalTable);
             addMAccount.ShowDialog();
             FillTheDatagrid();
-
-
+          
 
         }
 
@@ -111,6 +110,15 @@ namespace AmbleClient.Admin
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            AccountOperation addMAccount = new ModifyAccount(e.RowIndex);
+            addMAccount.SetAccountMgr(mgr, originalTable);
+            addMAccount.ShowDialog();
+            FillTheDatagrid();
+
         }
     }
 }

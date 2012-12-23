@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
-using AmpleAppServer.AccountMgr;
+using AmbleAppServer.AccountMgr;
 
 
 namespace ClientTest

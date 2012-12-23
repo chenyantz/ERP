@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using System.Linq;
 using System.Text;
 
-namespace AmpleAppServer.ComClass
+namespace AmbleAppServer.ComClass
 {
     public class OperatorFile
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Data;
 using MySql.Data.MySqlClient;
 
-namespace AmpleAppServer.DataClass
+namespace AmbleAppServer.DataClass
 {
     /// <summary>
     /// 主要用于数据的基础操作
@@ -235,6 +235,32 @@ namespace AmpleAppServer.DataClass
 
             return dt; //dt.Rows.Count可能等于零
         }
+
+
+        public DataTable GetDataTable(List<string> strSqlCodes, string strTableName)
+        {
+            DataTable dt = null;
+            MySqlDataAdapter sda = null;
+
+            dt = new DataTable("strTableName");
+            try
+            {
+                foreach (string strSqlCode in strSqlCodes)
+                {
+                    sda = new MySqlDataAdapter(strSqlCode, m_Conn);
+                    sda.Fill(dt);
+                }
+                
+             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return dt; //dt.Rows.Count可能等于零
+        }
+
+
 
         /// <summary>
         /// 通过存储过程，得到DataTable实例

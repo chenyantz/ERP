@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
-using AmpleAppServer.AccountMgr;
+using AmbleAppServer.AccountMgr;
 
 
 namespace AmbleClient
@@ -38,8 +38,16 @@ namespace AmbleClient
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            accountProperty=mgr.CheckNameAndPasswd(textBox1.Text.Trim(), maskedTextBox1.Text.Trim());
+            try
+            {
+                accountProperty = mgr.CheckNameAndPasswd(textBox1.Text.Trim(), maskedTextBox1.Text.Trim());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Can not connect to the server");
             
+            }
+
             if (accountProperty== null)
             {
                 MessageBox.Show("Invalid Name or Password");
@@ -48,6 +56,7 @@ namespace AmbleClient
             else
             {
                 MainFrame mainFrame = new MainFrame();
+                mainFrame.SetProperty(this.accountProperty);
                 this.Hide();
                 mainFrame.Show();
                              

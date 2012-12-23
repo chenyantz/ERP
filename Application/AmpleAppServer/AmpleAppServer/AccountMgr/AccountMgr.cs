@@ -12,7 +12,7 @@ using MySql.Data.MySqlClient;
 
 
 
-namespace AmpleAppServer.AccountMgr
+namespace AmbleAppServer.AccountMgr
 {
     public class AccountMgr:System.MarshalByRefObject
     {
@@ -85,7 +85,6 @@ namespace AmpleAppServer.AccountMgr
            {
            sdr.Close();
            }
-
            return true;
        }
        
@@ -122,6 +121,44 @@ namespace AmpleAppServer.AccountMgr
 
        }
 
+       public List<int> GetAllSubsId(int id)
+       {
+               
+           
+           List<int> allSubsId = new List<int>();
+           allSubsId.Add(id);
+           int numberOfSubs = allSubsId.Count; int newAddedIds = 0;
+
+           for (int startIndex = 0;numberOfSubs>startIndex;)
+           { 
+              string strSql = "select id from account where superviser=" +allSubsId[startIndex];
+              DataTable dt = db.GetDataTable(strSql,"idTable");
+           if (dt.Rows.Count > 0)
+           {
+               foreach (DataRow dr in dt.Rows)
+               {
+                   int subId = int.Parse(dr["id"].ToString());
+                   if (!allSubsId.Contains(subId))
+                   {
+                       allSubsId.Add(subId);
+                       newAddedIds++;
+
+                   }
+                   
+               }
+           
+           }
+         numberOfSubs = allSubsId.Count;
+         startIndex = numberOfSubs - newAddedIds + 1;
+        }
+
+           return allSubsId;           
+       
+       }
+
+
 
     }
 }
+;
+

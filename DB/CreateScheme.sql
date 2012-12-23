@@ -1,4 +1,4 @@
-CREATE DATABASE shenzhenERP ;
+`shenzhenerp`CREATE DATABASE shenzhenERP ;
 USE shenzhenERP ;
 
 CREATE TABLE account (
@@ -12,29 +12,30 @@ CREATE TABLE account (
   superviser SMALLINT
 ) ;
 
-CREATE TABLE custVendor(
- 
-  cvtype TINYINT, /*0,customer, 1, vendor*/
-  cvname VARCHAR(255),
-  country VARCHAR(255),
+CREATE TABLE custVendor (
+  cvtype TINYINT,
+  /*0,customer, 1, vendor*/
+  cvname VARCHAR (255),
+  country VARCHAR (255),
   rate TINYINT,
-  term VARCHAR(255),
-  contact1 VARCHAR(65535),
-  contact2 VARCHAR(65535),
-  phone1 VARCHAR(255),
-  phone2 VARCHAR(255),
-  cellphone VARCHAR(255),
-  fax VARCHAR(255),
-  email1 VARCHAR(255),
-  email2 VARCHAR(255),
-  updateName VARCHAR(255),
+  term VARCHAR (255),
+  contact1 VARCHAR (65535),
+  contact2 VARCHAR (65535),
+  phone1 VARCHAR (255),
+  phone2 VARCHAR (255),
+  cellphone VARCHAR (255),
+  fax VARCHAR (255),
+  email1 VARCHAR (255),
+  email2 VARCHAR (255),
+  ownerName SMALLINT,  
+  lastUpdateName SMALLINT,
   lastUpdateDate DATE,
-  blacklisted TINYINT, /*0: no, 1:yes*/
+  blacklisted TINYINT,
+  /*0: no, 1:yes*/
   amount INT,
-  notes VARCHAR(65535),
-  
-  CONSTRAINT pk_cvtype_cvname PRIMARY KEY (cvtype,cvname)
-);
+  notes VARCHAR (65535),
+  CONSTRAINT pk_cvtype_cvname PRIMARY KEY (cvtype, cvname)
+) ;
 
 CREATE TABLE rfq(
 

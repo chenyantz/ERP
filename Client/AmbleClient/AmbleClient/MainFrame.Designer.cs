@@ -76,6 +76,7 @@
             this.customerManagermentToolStripMenuItem.Name = "customerManagermentToolStripMenuItem";
             this.customerManagermentToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.customerManagermentToolStripMenuItem.Text = "Customer Managerment";
+            this.customerManagermentToolStripMenuItem.Click += new System.EventHandler(this.customerManagermentToolStripMenuItem_Click);
             // 
             // rFQViewNewSOToolStripMenuItem
             // 
@@ -102,6 +103,7 @@
             this.vendorManagementToolStripMenuItem.Name = "vendorManagementToolStripMenuItem";
             this.vendorManagementToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.vendorManagementToolStripMenuItem.Text = "Vendor Management";
+            this.vendorManagementToolStripMenuItem.Click += new System.EventHandler(this.vendorManagementToolStripMenuItem_Click);
             // 
             // financesToolStripMenuItem
             // 

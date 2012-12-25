@@ -37,14 +37,13 @@ namespace AmbleClient.custVendor
                 this.radioButton1.Text = "Include Subordinates' Vendors";
                 this.radioButton2.Text = "Only List My Vendors";
             }
-            radioButton1.Checked = true;
 
         }
 
         private void customerVendorMainFrame_Load(object sender, EventArgs e)
         {
             userTable = GlobalRemotingClient.GetAccountMgr().ReturnWholeAccountTable();
-           
+                    
             //Add columns to DataGridview
             showTable = new DataTable();
             showTable.Columns.AddRange(
@@ -68,12 +67,14 @@ namespace AmbleClient.custVendor
                     new DataColumn("Amount",typeof(int)),
                     new DataColumn("Notes",typeof(string))
                 });
-            
-            FillTheDataGrid();
+
+            radioButton1.Checked = true;// Note, this will call FillDataGrid();
 
         }
         private void FillTheDataGrid()
         {
+
+            this.showTable.Clear();
 
             if (radioButton1.Checked)
             {
@@ -90,6 +91,7 @@ namespace AmbleClient.custVendor
                            join userrow2 in userTable.AsEnumerable() on cvrow["lastUpdateName"] equals userrow2["id"]
                        select new
                        {
+                           
                            name = cvrow["cvname"],
                            country = cvrow["country"],
                            rate=cvrow["rate"],
@@ -105,25 +107,69 @@ namespace AmbleClient.custVendor
                            ownerName=userrow["accountName"],
                            lastUpdateName=userrow2.Field<string>("accountName"),
                            lastUpdateDate=cvrow.Field<DateTime>("lastUpdateDate"),
-                           blacklisted = ((cvrow.Field<int?>("blacklisted") == 0 || cvrow.Field<int?>("blacklisted") == null)? "No" : "Yes"),
-                           amount=cvrow.Field<int?>("amount"),
+                           blacklisted =((DBNull.Value.Equals(cvrow["blacklisted"])||Convert.ToInt32(cvrow["blacklisted"])==0)? "No" : "Yes"),
+                           amount=cvrow["amount"],
                            notes=cvrow["notes"]
                        };
             
            foreach(var row in showRows)
            {
                showTable.Rows.Add(row.name, row.country, row.rate,row.term, row.contact1, row.contact2, row.phone1, row.phone2, row.cellphone,
-                   row.fax, row.email1, row.email2, row.ownerName, row.lastUpdateName,row.lastUpdateDate, row.blacklisted, row.amount, row.notes);
+                  row.fax, row.email1, row.email2, row.ownerName, row.lastUpdateName,row.lastUpdateDate, row.blacklisted, row.amount, row.notes);
 
            }
            
-            dataGridView1.DataSource = showTable;
+           dataGridView1.DataSource = showTable;
             //列宽自适应
             for (int i = 0; i < dataGridView1.ColumnCount; i++)
             {
                 dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
 
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            customerVendorOperation addOpframe = new AddCustomerVendor(customerOrVendor,userId);
+            addOpframe.ShowDialog();
+            FillTheDataGrid();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked == true)
+            {
+                radioButton2.Checked = false;
+            }
+            else
+            {
+                radioButton2.Checked = true;
+            }
+            FillTheDataGrid();
+
+
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked == true)
+            {
+                radioButton1.Checked = false;
+            }
+            else
+            {
+                radioButton1.Checked = true;
+            }
+            FillTheDataGrid();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            customerVendorOperation modifyOpFrame = new ModifyCustomerVendor();
+            modifyOpFrame.ShowDialog();
+            FillTheDataGrid();
 
         }
 

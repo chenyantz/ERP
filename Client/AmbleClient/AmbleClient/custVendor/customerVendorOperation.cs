@@ -30,5 +30,25 @@ namespace AmbleClient.custVendor
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Save();
+            this.Close();
+
+
+
+
+
+        }
+        protected virtual void Save()
+        { 
+         //get the 
+        
+        
+        }
+
+
+
     }
 }

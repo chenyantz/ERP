@@ -70,6 +70,9 @@
     <Compile Include="Admin\ModifyAccount.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="custVendor\AddCustomerVendor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="custVendor\customerVendorMainFrame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +84,9 @@
     </Compile>
     <Compile Include="custVendor\customerVendorOperation.Designer.cs">
       <DependentUpon>customerVendorOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="custVendor\ModifyCustomerVendor.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="global.cs" />
     <Compile Include="Login.cs">
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\AccountOperation.resx">
       <DependentUpon>AccountOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="custVendor\AddCustomerVendor.resx">
+      <DependentUpon>AddCustomerVendor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="custVendor\customerVendorMainFrame.resx">
       <DependentUpon>customerVendorMainFrame.cs</DependentUpon>

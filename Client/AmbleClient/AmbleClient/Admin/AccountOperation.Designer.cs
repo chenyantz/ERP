@@ -127,6 +127,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.White;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(199, 29);
             this.textBox1.Name = "textBox1";
@@ -143,6 +144,7 @@
             // 
             // maskedTextBox1
             // 
+            this.maskedTextBox1.BackColor = System.Drawing.Color.White;
             this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maskedTextBox1.Location = new System.Drawing.Point(199, 68);
             this.maskedTextBox1.Name = "maskedTextBox1";
@@ -152,6 +154,7 @@
             // 
             // maskedTextBox2
             // 
+            this.maskedTextBox2.BackColor = System.Drawing.Color.White;
             this.maskedTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maskedTextBox2.Location = new System.Drawing.Point(199, 104);
             this.maskedTextBox2.Name = "maskedTextBox2";
@@ -161,6 +164,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.BackColor = System.Drawing.Color.White;
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;

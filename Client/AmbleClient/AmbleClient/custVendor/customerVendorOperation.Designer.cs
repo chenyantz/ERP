@@ -48,24 +48,24 @@
             this.label18 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.tbCountry = new System.Windows.Forms.TextBox();
+            this.tbRating = new System.Windows.Forms.TextBox();
+            this.tbTerm = new System.Windows.Forms.TextBox();
+            this.tbContact1 = new System.Windows.Forms.TextBox();
+            this.tbContact2 = new System.Windows.Forms.TextBox();
+            this.tbPhone1 = new System.Windows.Forms.TextBox();
+            this.tbPhone2 = new System.Windows.Forms.TextBox();
+            this.tbCell = new System.Windows.Forms.TextBox();
+            this.tbFax = new System.Windows.Forms.TextBox();
+            this.tbEmail1 = new System.Windows.Forms.TextBox();
+            this.tbEmail2 = new System.Windows.Forms.TextBox();
+            this.tbLastUpdateName = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.tbLastUpdateDate = new System.Windows.Forms.TextBox();
+            this.tbAmount = new System.Windows.Forms.TextBox();
+            this.tbNotes = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -252,15 +252,18 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(673, 468);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 35);
             this.button1.TabIndex = 18;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(814, 468);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(81, 35);
@@ -268,157 +271,183 @@
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // tbName
             // 
-            this.textBox1.Location = new System.Drawing.Point(202, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(252, 20);
-            this.textBox1.TabIndex = 20;
+            this.tbName.BackColor = System.Drawing.Color.White;
+            this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbName.Location = new System.Drawing.Point(202, 33);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(252, 26);
+            this.tbName.TabIndex = 20;
             // 
-            // textBox2
+            // tbCountry
             // 
-            this.textBox2.Location = new System.Drawing.Point(593, 32);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(251, 20);
-            this.textBox2.TabIndex = 21;
+            this.tbCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCountry.Location = new System.Drawing.Point(593, 32);
+            this.tbCountry.Name = "tbCountry";
+            this.tbCountry.Size = new System.Drawing.Size(251, 26);
+            this.tbCountry.TabIndex = 21;
             // 
-            // textBox3
+            // tbRating
             // 
-            this.textBox3.Location = new System.Drawing.Point(202, 67);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(252, 20);
-            this.textBox3.TabIndex = 22;
+            this.tbRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbRating.Location = new System.Drawing.Point(202, 67);
+            this.tbRating.Name = "tbRating";
+            this.tbRating.Size = new System.Drawing.Size(252, 26);
+            this.tbRating.TabIndex = 22;
             // 
-            // textBox4
+            // tbTerm
             // 
-            this.textBox4.Location = new System.Drawing.Point(593, 67);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(251, 20);
-            this.textBox4.TabIndex = 23;
+            this.tbTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTerm.Location = new System.Drawing.Point(593, 67);
+            this.tbTerm.Name = "tbTerm";
+            this.tbTerm.Size = new System.Drawing.Size(251, 26);
+            this.tbTerm.TabIndex = 23;
             // 
-            // textBox5
+            // tbContact1
             // 
-            this.textBox5.Location = new System.Drawing.Point(202, 102);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(252, 20);
-            this.textBox5.TabIndex = 24;
+            this.tbContact1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbContact1.Location = new System.Drawing.Point(202, 102);
+            this.tbContact1.Name = "tbContact1";
+            this.tbContact1.Size = new System.Drawing.Size(252, 26);
+            this.tbContact1.TabIndex = 24;
             // 
-            // textBox6
+            // tbContact2
             // 
-            this.textBox6.Location = new System.Drawing.Point(593, 102);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(251, 20);
-            this.textBox6.TabIndex = 25;
+            this.tbContact2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbContact2.Location = new System.Drawing.Point(593, 102);
+            this.tbContact2.Name = "tbContact2";
+            this.tbContact2.Size = new System.Drawing.Size(251, 26);
+            this.tbContact2.TabIndex = 25;
             // 
-            // textBox7
+            // tbPhone1
             // 
-            this.textBox7.Location = new System.Drawing.Point(202, 136);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(252, 20);
-            this.textBox7.TabIndex = 26;
+            this.tbPhone1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPhone1.Location = new System.Drawing.Point(202, 136);
+            this.tbPhone1.Name = "tbPhone1";
+            this.tbPhone1.Size = new System.Drawing.Size(252, 26);
+            this.tbPhone1.TabIndex = 26;
             // 
-            // textBox8
+            // tbPhone2
             // 
-            this.textBox8.Location = new System.Drawing.Point(593, 138);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(251, 20);
-            this.textBox8.TabIndex = 27;
+            this.tbPhone2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPhone2.Location = new System.Drawing.Point(593, 138);
+            this.tbPhone2.Name = "tbPhone2";
+            this.tbPhone2.Size = new System.Drawing.Size(251, 26);
+            this.tbPhone2.TabIndex = 27;
             // 
-            // textBox9
+            // tbCell
             // 
-            this.textBox9.Location = new System.Drawing.Point(202, 169);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(252, 20);
-            this.textBox9.TabIndex = 28;
+            this.tbCell.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCell.Location = new System.Drawing.Point(202, 169);
+            this.tbCell.Name = "tbCell";
+            this.tbCell.Size = new System.Drawing.Size(252, 26);
+            this.tbCell.TabIndex = 28;
             // 
-            // textBox10
+            // tbFax
             // 
-            this.textBox10.Location = new System.Drawing.Point(593, 169);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(251, 20);
-            this.textBox10.TabIndex = 29;
+            this.tbFax.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbFax.Location = new System.Drawing.Point(593, 169);
+            this.tbFax.Name = "tbFax";
+            this.tbFax.Size = new System.Drawing.Size(251, 26);
+            this.tbFax.TabIndex = 29;
             // 
-            // textBox11
+            // tbEmail1
             // 
-            this.textBox11.Location = new System.Drawing.Point(202, 202);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(252, 20);
-            this.textBox11.TabIndex = 30;
+            this.tbEmail1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbEmail1.Location = new System.Drawing.Point(202, 202);
+            this.tbEmail1.Name = "tbEmail1";
+            this.tbEmail1.Size = new System.Drawing.Size(252, 26);
+            this.tbEmail1.TabIndex = 30;
             // 
-            // textBox12
+            // tbEmail2
             // 
-            this.textBox12.Location = new System.Drawing.Point(593, 202);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(251, 20);
-            this.textBox12.TabIndex = 31;
+            this.tbEmail2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbEmail2.Location = new System.Drawing.Point(593, 202);
+            this.tbEmail2.Name = "tbEmail2";
+            this.tbEmail2.Size = new System.Drawing.Size(251, 26);
+            this.tbEmail2.TabIndex = 31;
             // 
-            // textBox13
+            // tbLastUpdateName
             // 
-            this.textBox13.Location = new System.Drawing.Point(202, 243);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(252, 20);
-            this.textBox13.TabIndex = 32;
+            this.tbLastUpdateName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbLastUpdateName.Location = new System.Drawing.Point(202, 243);
+            this.tbLastUpdateName.Name = "tbLastUpdateName";
+            this.tbLastUpdateName.ReadOnly = true;
+            this.tbLastUpdateName.Size = new System.Drawing.Size(252, 26);
+            this.tbLastUpdateName.TabIndex = 32;
             // 
             // comboBox1
             // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(593, 243);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(251, 21);
+            this.comboBox1.Size = new System.Drawing.Size(251, 28);
             this.comboBox1.TabIndex = 33;
             // 
-            // textBox14
+            // tbLastUpdateDate
             // 
-            this.textBox14.Location = new System.Drawing.Point(202, 274);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(252, 20);
-            this.textBox14.TabIndex = 34;
+            this.tbLastUpdateDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbLastUpdateDate.Location = new System.Drawing.Point(202, 274);
+            this.tbLastUpdateDate.Name = "tbLastUpdateDate";
+            this.tbLastUpdateDate.ReadOnly = true;
+            this.tbLastUpdateDate.Size = new System.Drawing.Size(252, 26);
+            this.tbLastUpdateDate.TabIndex = 34;
             // 
-            // textBox15
+            // tbAmount
             // 
-            this.textBox15.Location = new System.Drawing.Point(593, 274);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(251, 20);
-            this.textBox15.TabIndex = 35;
+            this.tbAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAmount.Location = new System.Drawing.Point(593, 274);
+            this.tbAmount.Name = "tbAmount";
+            this.tbAmount.Size = new System.Drawing.Size(251, 26);
+            this.tbAmount.TabIndex = 35;
             // 
-            // textBox16
+            // tbNotes
             // 
-            this.textBox16.Location = new System.Drawing.Point(202, 310);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(252, 20);
-            this.textBox16.TabIndex = 36;
+            this.tbNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNotes.Location = new System.Drawing.Point(202, 362);
+            this.tbNotes.Multiline = true;
+            this.tbNotes.Name = "tbNotes";
+            this.tbNotes.Size = new System.Drawing.Size(642, 78);
+            this.tbNotes.TabIndex = 37;
             // 
-            // textBox17
+            // comboBox2
             // 
-            this.textBox17.Location = new System.Drawing.Point(202, 362);
-            this.textBox17.Multiline = true;
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(642, 78);
-            this.textBox17.TabIndex = 37;
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "No",
+            "Yes"});
+            this.comboBox2.Location = new System.Drawing.Point(202, 308);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(252, 28);
+            this.comboBox2.TabIndex = 38;
             // 
             // customerVendorOperation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(952, 515);
-            this.Controls.Add(this.textBox17);
-            this.Controls.Add(this.textBox16);
-            this.Controls.Add(this.textBox15);
-            this.Controls.Add(this.textBox14);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.tbNotes);
+            this.Controls.Add(this.tbAmount);
+            this.Controls.Add(this.tbLastUpdateDate);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.textBox12);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbLastUpdateName);
+            this.Controls.Add(this.tbEmail2);
+            this.Controls.Add(this.tbEmail1);
+            this.Controls.Add(this.tbFax);
+            this.Controls.Add(this.tbCell);
+            this.Controls.Add(this.tbPhone2);
+            this.Controls.Add(this.tbPhone1);
+            this.Controls.Add(this.tbContact2);
+            this.Controls.Add(this.tbContact1);
+            this.Controls.Add(this.tbTerm);
+            this.Controls.Add(this.tbRating);
+            this.Controls.Add(this.tbCountry);
+            this.Controls.Add(this.tbName);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label18);
@@ -469,23 +498,23 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox17;
+        protected System.Windows.Forms.TextBox tbName;
+        protected System.Windows.Forms.TextBox tbCountry;
+        protected System.Windows.Forms.TextBox tbRating;
+        protected System.Windows.Forms.TextBox tbTerm;
+        protected System.Windows.Forms.TextBox tbContact1;
+        protected System.Windows.Forms.TextBox tbContact2;
+        protected System.Windows.Forms.TextBox tbPhone1;
+        protected System.Windows.Forms.TextBox tbPhone2;
+        protected System.Windows.Forms.TextBox tbCell;
+        protected System.Windows.Forms.TextBox tbFax;
+        protected System.Windows.Forms.TextBox tbEmail1;
+        protected System.Windows.Forms.TextBox tbEmail2;
+        protected System.Windows.Forms.TextBox tbLastUpdateName;
+        protected System.Windows.Forms.ComboBox comboBox1;
+        protected System.Windows.Forms.TextBox tbLastUpdateDate;
+        protected System.Windows.Forms.TextBox tbAmount;
+        protected System.Windows.Forms.TextBox tbNotes;
+        protected System.Windows.Forms.ComboBox comboBox2;
     }
 }

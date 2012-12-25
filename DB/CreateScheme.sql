@@ -29,9 +29,9 @@ CREATE TABLE custVendor (
   email2 VARCHAR (255),
   ownerName SMALLINT,  
   lastUpdateName SMALLINT,
-  lastUpdateDate DATE,
+  lastUpdateDate DATETIME,
   blacklisted TINYINT,
-  /*0: no, 1:yes*/
+  /*0: no, 1:yes*/3
   amount INT,
   notes VARCHAR (65535),
   CONSTRAINT pk_cvtype_cvname PRIMARY KEY (cvtype, cvname)

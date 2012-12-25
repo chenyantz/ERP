@@ -54,7 +54,7 @@ namespace AmbleClient.Admin
 
             int id =int.Parse( dt.Rows[rowIndex]["id"].ToString());
 
-            mgr.ModifyAnAccount(id,textBox1.Text.Trim(), maskedTextBox1.Text.Trim(), textBox2.Text.Trim(),
+            GlobalRemotingClient.GetAccountMgr().ModifyAnAccount(id,textBox1.Text.Trim(), maskedTextBox1.Text.Trim(), textBox2.Text.Trim(),
                             GetJobIdFromJobName(comboBox1.Text), GetIdFromName(comboBox2.Text));
            
         }

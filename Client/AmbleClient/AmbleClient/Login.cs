@@ -17,16 +17,11 @@ namespace AmbleClient
     public partial class Login : Form
     {
 
-        AccountMgr mgr;
         PropertyClass accountProperty;
         
         public Login()
         {
             InitializeComponent();
-           ChannelServices.RegisterChannel(new TcpClientChannel(),false);
-            mgr = (AccountMgr)Activator.GetObject(typeof(AccountMgr),
-            "tcp://192.168.1.104:1111/AccountMgr");
-
 
         }
 
@@ -40,7 +35,7 @@ namespace AmbleClient
         {
             try
             {
-                accountProperty = mgr.CheckNameAndPasswd(textBox1.Text.Trim(), maskedTextBox1.Text.Trim());
+                accountProperty =GlobalRemotingClient.GetAccountMgr().CheckNameAndPasswd(textBox1.Text.Trim(), maskedTextBox1.Text.Trim());
             }
             catch (Exception ex)
             {

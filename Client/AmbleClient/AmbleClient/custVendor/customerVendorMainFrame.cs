@@ -36,7 +36,7 @@ namespace AmbleClient.custVendor
                 this.radioButton1.Text = "Include Subordinates' Vendors";
                 this.radioButton2.Text = "Only List My Vendors";
             }
-           cvMgr=(CustomerVendorMgr)Activator.GetObject(typeof(AccountMgr),
+           cvMgr=(CustomerVendorMgr)Activator.GetObject(typeof(CustomerVendorMgr),
             "tcp://192.168.1.104:1111/CustomerVendorMgr");
 
         }

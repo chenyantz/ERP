@@ -68,6 +68,14 @@ namespace AmbleAppServer.customerVendorMgr
            
        }
 
+       public DataTable GetMyCustomerOrVendor(int cvtype, int id)
+       {
+           string strSql = "select * from custVendor where cvtype=" + cvtype + " and ownerName=" + id;
+           return db.GetDataTable(strSql, "custVendor");
+       
+       }
+
+
 
 
        public bool ModifyCustomerOrVendor(int cvtype,string previousName,string cvname, string country, int rate, string term,

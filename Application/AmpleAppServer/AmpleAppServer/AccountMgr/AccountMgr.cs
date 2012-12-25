@@ -39,12 +39,12 @@ namespace AmbleAppServer.AccountMgr
             if(sdr.HasRows)
             {
             accountClass=new PropertyClass();
-            accountClass.UserId=(int)sdr["id"];
+            accountClass.UserId=sdr.GetInt32("id");
             accountClass.AccountName=name.Trim();
             accountClass.AccountPassword=password.Trim();
             accountClass.Email=sdr["email"].ToString();
-            accountClass.Job=(int)sdr["job"];
-            accountClass.Superviser=(int)sdr["superviser"];
+            accountClass.Job=sdr.GetInt32("job");;
+            accountClass.Superviser=sdr.GetInt32("superviser");
             }
         }
            catch(Exception ex)
@@ -130,14 +130,15 @@ namespace AmbleAppServer.AccountMgr
            int numberOfSubs = allSubsId.Count; int newAddedIds = 0;
 
            for (int startIndex = 0;numberOfSubs>startIndex;)
-           { 
+           {
+               newAddedIds = 0;
               string strSql = "select id from account where superviser=" +allSubsId[startIndex];
               DataTable dt = db.GetDataTable(strSql,"idTable");
            if (dt.Rows.Count > 0)
            {
                foreach (DataRow dr in dt.Rows)
                {
-                   int subId = int.Parse(dr["id"].ToString());
+                   int subId = Convert.ToInt32(dr["id"]);
                    if (!allSubsId.Contains(subId))
                    {
                        allSubsId.Add(subId);
@@ -149,7 +150,7 @@ namespace AmbleAppServer.AccountMgr
            
            }
          numberOfSubs = allSubsId.Count;
-         startIndex = numberOfSubs - newAddedIds + 1;
+         startIndex = numberOfSubs - newAddedIds;
         }
 
            return allSubsId;           

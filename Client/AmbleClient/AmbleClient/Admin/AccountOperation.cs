@@ -14,8 +14,7 @@ namespace AmbleClient.Admin
     public partial class AccountOperation : Form
     {
      
-      public  AccountMgr mgr;
-      public  DataTable dt;
+           public  DataTable dt;
       
         
         public AccountOperation()
@@ -25,10 +24,9 @@ namespace AmbleClient.Admin
         }
 
 
-        public void SetAccountMgr(AccountMgr mgr,DataTable dt)
+        public void SetDataTable(DataTable dt)
         {
-            this.mgr = mgr;
-            this.dt = dt;
+           this.dt = dt;
         }
                 
         private void AddModifyAccount_Load(object sender, EventArgs e)

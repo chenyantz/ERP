@@ -15,14 +15,11 @@ namespace AmbleClient.Admin
 {
     public partial class AccountMainFrame : Form
     {
-        AccountMgr mgr; DataTable originalTable;
+        DataTable originalTable;
 
         public AccountMainFrame()
         {
             InitializeComponent();
-           // ChannelServices.RegisterChannel(new TcpClientChannel(), false);
-            mgr = (AccountMgr)Activator.GetObject(typeof(AccountMgr),
-            "tcp://192.168.1.104:1111/AccountMgr");
 
         }
 
@@ -36,7 +33,7 @@ namespace AmbleClient.Admin
         {
             //fill the datagrid view
 
-            originalTable = mgr.ReturnWholeAccountTable();
+            originalTable = GlobalRemotingClient.GetAccountMgr().ReturnWholeAccountTable();
 
             DataTable showTable = new DataTable();
             showTable.Columns.Add("Name");
@@ -83,7 +80,7 @@ namespace AmbleClient.Admin
         {
             //Add an account
             AccountOperation addMAccount = new AddAccount();
-            addMAccount.SetAccountMgr(mgr,originalTable);
+            addMAccount.SetDataTable(originalTable);
             addMAccount.ShowDialog();
 
             FillTheDatagrid();
@@ -95,7 +92,7 @@ namespace AmbleClient.Admin
             //Modify the current account;
             int rowIndex=dataGridView1.CurrentRow.Index;
             AccountOperation addMAccount=new ModifyAccount(rowIndex);
-            addMAccount.SetAccountMgr(mgr,originalTable);
+            addMAccount.SetDataTable(originalTable);
             addMAccount.ShowDialog();
             FillTheDatagrid();
           
@@ -115,7 +112,7 @@ namespace AmbleClient.Admin
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             AccountOperation addMAccount = new ModifyAccount(e.RowIndex);
-            addMAccount.SetAccountMgr(mgr, originalTable);
+            addMAccount.SetDataTable(originalTable);
             addMAccount.ShowDialog();
             FillTheDatagrid();
 

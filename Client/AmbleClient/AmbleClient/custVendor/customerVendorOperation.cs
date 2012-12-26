@@ -11,6 +11,10 @@ namespace AmbleClient.custVendor
 {
     public partial class customerVendorOperation : Form
     {
+       protected int customerOrVendor;
+       protected int userId;
+        
+        
         public customerVendorOperation()
         {
             InitializeComponent();
@@ -24,6 +28,13 @@ namespace AmbleClient.custVendor
         private void customerVendorOperation_Load(object sender, EventArgs e)
         {
 
+            FillTheTextboxs();
+
+        }
+
+        protected virtual void FillTheTextboxs()
+        { 
+        
         }
 
         private void label8_Click(object sender, EventArgs e)
@@ -36,16 +47,16 @@ namespace AmbleClient.custVendor
             Save();
             this.Close();
 
-
-
-
-
+            
         }
         protected virtual void Save()
         { 
-         //get the 
-        
-        
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
 

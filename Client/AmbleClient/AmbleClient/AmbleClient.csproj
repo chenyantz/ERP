@@ -118,6 +118,9 @@
     <EmbeddedResource Include="custVendor\customerVendorOperation.resx">
       <DependentUpon>customerVendorOperation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="custVendor\ModifyCustomerVendor.resx">
+      <DependentUpon>ModifyCustomerVendor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

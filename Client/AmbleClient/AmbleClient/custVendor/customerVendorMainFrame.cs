@@ -17,6 +17,7 @@ namespace AmbleClient.custVendor
         DataTable userTable;
         DataTable orginateCustomerVendorTable;
         DataTable showTable;
+      
         
         
         public customerVendorMainFrame(int customerOrVendor,int userId)
@@ -167,12 +168,43 @@ namespace AmbleClient.custVendor
 
         private void button2_Click(object sender, EventArgs e)
         {
-            customerVendorOperation modifyOpFrame = new ModifyCustomerVendor();
+            int rowIndex = dataGridView1.CurrentRow.Index;
+            
+            customerVendorOperation modifyOpFrame = new ModifyCustomerVendor(GetDataRowInShowTableFromIndex(rowIndex),customerOrVendor,userId);
             modifyOpFrame.ShowDialog();
             FillTheDataGrid();
 
         }
 
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+          customerVendorOperation ModifyOpFrame = new ModifyCustomerVendor(GetDataRowInShowTableFromIndex(e.RowIndex),customerOrVendor,userId);
+          ModifyOpFrame.ShowDialog();
+          FillTheDataGrid();
+        }
+
+        private DataRow GetDataRowInShowTableFromIndex(int rowIndex)
+        { 
+         //get the primary key in datagridview
+            string companyName = dataGridView1["Company Name", rowIndex].Value.ToString();
+
+            var dataRows = showTable.AsEnumerable().Where<DataRow>(row => row["Company Name"].ToString() == companyName);
+            return dataRows.First<DataRow>();
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DataRow dr = GetDataRowInShowTableFromIndex(this.dataGridView1.CurrentRow.Index);
+            GlobalRemotingClient.GetCustomerVendorMgr().DeleteCustomerOrVendor(customerOrVendor, dr["Compnay Name"].ToString());
+            FillTheDataGrid();
+            
+        }
 
 
     }

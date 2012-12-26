@@ -109,12 +109,12 @@ namespace AmbleAppServer.customerVendorMgr
 
        public bool ModifyCustomerOrVendor(int cvtype,string previousName,string cvname, string country, int? rate, string term,
              string contact1, string contact2, string phone1, string phone2, string cellphone, string fax,
-            string email1, string email2, int ownerName, int lastUpdateName, DateTime lastUpdateDate, int blacklisted,
+            string email1, string email2,int lastUpdateName, DateTime lastUpdateDate, int blacklisted,
             int? amount, string notes)
        {
-           string strSql = "UPDATE custVendor SET cvname='" + cvname + "',country='" + country + "',rate=" + rate + ",term='" + term + "',contact1='" + contact1 + "',contact2'" +
-               contact2 + "',phone1='" + phone1 + "',phone2='" + phone2 + "',cellphone='" + cellphone + "',fax='" + fax + "',email='" + email1 + "',email2='" + email2 + "',ownerName=" + ownerName + ",lastUpdateName=" + lastUpdateName +
-               ",lastUpdateDate='" + lastUpdateDate.ToString() + "',blackListed=" + blacklisted + ",amount=" + amount + ",notes='" + notes + " WHERE cvtype=" + cvname + " and cvName=" + previousName;
+           string strSql = "UPDATE custVendor SET cvname='" + cvname + "',country='" + country + "',rate=" + (rate.HasValue?rate.ToString():"null") + ",term='" + term + "',contact1='" + contact1 + "',contact2='" +
+               contact2 + "',phone1='" + phone1 + "',phone2='" + phone2 + "',cellphone='" + cellphone + "',fax='" + fax + "',email1='" + email1 + "',email2='" + email2 + "',lastUpdateName=" + lastUpdateName +
+               ",lastUpdateDate='" + lastUpdateDate.ToString() + "',blackListed=" + blacklisted + ",amount=" + (amount.HasValue?amount.ToString():"null") + ",notes='" + notes + "' WHERE cvtype=" + cvtype + " and cvName='" + previousName+"'";
  
            if (db.ExecDataBySql(strSql) > 0)
                return true;

@@ -11,7 +11,7 @@ using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using AmbleAppServer.AccountMgr;
 
-namespace AmbleClient.Admin
+namespace AmbleClient.Admin.backup
 {
     public partial class AccountMainFrame : Form
     {
@@ -78,12 +78,24 @@ namespace AmbleClient.Admin
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Add an account
+            AccountOperation addMAccount = new AddAccount();
+            addMAccount.SetDataTable(originalTable);
+            addMAccount.ShowDialog();
+
+            FillTheDatagrid();
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            //Modify the current account;
+            int rowIndex=dataGridView1.CurrentRow.Index;
+            AccountOperation addMAccount=new ModifyAccount(rowIndex);
+            addMAccount.SetDataTable(originalTable);
+            addMAccount.ShowDialog();
+            FillTheDatagrid();
+          
 
         }
 
@@ -104,26 +116,6 @@ namespace AmbleClient.Admin
             addMAccount.ShowDialog();
             FillTheDatagrid();
 
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            //Add an account
-            AccountOperation addMAccount = new AddAccount();
-            addMAccount.SetDataTable(originalTable);
-            addMAccount.ShowDialog();
-
-            FillTheDatagrid();
-        }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            //Modify the current account;
-            int rowIndex = dataGridView1.CurrentRow.Index;
-            AccountOperation addMAccount = new ModifyAccount(rowIndex);
-            addMAccount.SetDataTable(originalTable);
-            addMAccount.ShowDialog();
-            FillTheDatagrid();
         }
     }
 }

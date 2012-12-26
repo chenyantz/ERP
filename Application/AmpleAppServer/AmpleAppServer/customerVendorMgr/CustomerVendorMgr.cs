@@ -130,19 +130,6 @@ namespace AmbleAppServer.customerVendorMgr
                return true;
            return false;
        }
-
-
-     //  public Datatable 
-
-
-
-
-
-
-
-
-
-
-
+ 
     }
 }

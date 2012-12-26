@@ -28,16 +28,16 @@ namespace AmbleClient.custVendor
             if (customerOrVendor == 0)
             {
                 this.Text = "View Customers";
-                this.radioButton1.Text = "Include Subordinates' Customers";
-                this.radioButton2.Text = "Only List My Customers";
-
-            }
+                this.toolStripComboBox1.Items.Add("Include Subordinates' Customers");
+                this.toolStripComboBox1.Items.Add("Only List My Customers");
+            }  
             else
             {
                 this.Text = "View Vendors";
-                this.radioButton1.Text = "Include Subordinates' Vendors";
-                this.radioButton2.Text = "Only List My Vendors";
+                this.toolStripComboBox1.Items.Add("Include Subordinates' Vendors");
+                this.toolStripComboBox1.Items.Add("Only List My Vendors");
             }
+           
 
         }
 
@@ -69,7 +69,7 @@ namespace AmbleClient.custVendor
                     new DataColumn("Notes",typeof(string))
                 });
 
-            radioButton1.Checked = true;// Note, this will call FillDataGrid();
+            this.toolStripComboBox1.SelectedIndex = 0; //auto call FillTheDataGrid();
 
         }
         private void FillTheDataGrid()
@@ -77,11 +77,11 @@ namespace AmbleClient.custVendor
 
             this.showTable.Clear();
 
-            if (radioButton1.Checked)
+            if (toolStripComboBox1.SelectedIndex==0)
             {
                 orginateCustomerVendorTable = GlobalRemotingClient.GetCustomerVendorMgr().GetTheCustomersOrVendorsICanSee(customerOrVendor, userId);
             }
-            else if (radioButton2.Checked)
+            else if (toolStripComboBox1.SelectedIndex==1)
             {
                 orginateCustomerVendorTable = GlobalRemotingClient.GetCustomerVendorMgr().GetMyCustomerOrVendor(customerOrVendor, userId);
             
@@ -130,51 +130,6 @@ namespace AmbleClient.custVendor
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            customerVendorOperation addOpframe = new AddCustomerVendor(customerOrVendor,userId);
-            addOpframe.ShowDialog();
-            FillTheDataGrid();
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButton1.Checked == true)
-            {
-                radioButton2.Checked = false;
-            }
-            else
-            {
-                radioButton2.Checked = true;
-            }
-            FillTheDataGrid();
-
-
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioButton2.Checked == true)
-            {
-                radioButton1.Checked = false;
-            }
-            else
-            {
-                radioButton1.Checked = true;
-            }
-            FillTheDataGrid();
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            int rowIndex = dataGridView1.CurrentRow.Index;
-            
-            customerVendorOperation modifyOpFrame = new ModifyCustomerVendor(GetDataRowInShowTableFromIndex(rowIndex),customerOrVendor,userId);
-            modifyOpFrame.ShowDialog();
-            FillTheDataGrid();
-
-        }
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -193,17 +148,33 @@ namespace AmbleClient.custVendor
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+
+        private void toolStripComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.Close();
+            FillTheDataGrid();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            customerVendorOperation addOpframe = new AddCustomerVendor(customerOrVendor, userId);
+            addOpframe.ShowDialog();
+            FillTheDataGrid();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            int rowIndex = dataGridView1.CurrentRow.Index;
+
+            customerVendorOperation modifyOpFrame = new ModifyCustomerVendor(GetDataRowInShowTableFromIndex(rowIndex), customerOrVendor, userId);
+            modifyOpFrame.ShowDialog();
+            FillTheDataGrid();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
         {
             DataRow dr = GetDataRowInShowTableFromIndex(this.dataGridView1.CurrentRow.Index);
             GlobalRemotingClient.GetCustomerVendorMgr().DeleteCustomerOrVendor(customerOrVendor, dr["Compnay Name"].ToString());
             FillTheDataGrid();
-            
         }
 
 

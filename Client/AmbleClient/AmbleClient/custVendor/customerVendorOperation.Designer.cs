@@ -430,7 +430,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(952, 515);
+            this.ClientSize = new System.Drawing.Size(952, 521);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.tbNotes);
             this.Controls.Add(this.tbAmount);
@@ -469,6 +469,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "customerVendorOperation";
             this.Text = "custVendor OP";
             this.Load += new System.EventHandler(this.customerVendorOperation_Load);

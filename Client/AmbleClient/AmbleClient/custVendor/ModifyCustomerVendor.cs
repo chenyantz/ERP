@@ -14,11 +14,10 @@ namespace AmbleClient.custVendor
        
 
 
-        public ModifyCustomerVendor(DataRow dr,int customerOrVendor,int userId)
+        public ModifyCustomerVendor(DataRow dr,int customerOrVendor)
         {
             this.selectedDr = dr;
             base.customerOrVendor=customerOrVendor;
-            base.userId=userId;
         
         }
 
@@ -69,7 +68,7 @@ namespace AmbleClient.custVendor
 
         GlobalRemotingClient.GetCustomerVendorMgr().ModifyCustomerOrVendor(customerOrVendor,selectedDr["Company Name"].ToString(),tbName.Text.Trim(),
             tbCountry.Text.Trim(),            String.IsNullOrWhiteSpace(tbRating.Text.Trim())?(int?)null:int.Parse(tbRating.Text.Trim()), tbTerm.Text.Trim(), tbContact1.Text.Trim(), tbContact2.Text.Trim(), tbPhone1.Text.Trim(),
-                tbPhone2.Text.Trim(), tbCell.Text.Trim(), tbFax.Text.Trim(), tbEmail1.Text.Trim(), tbEmail2.Text.Trim(), userId,DateTime.Now,
+                tbPhone2.Text.Trim(), tbCell.Text.Trim(), tbFax.Text.Trim(), tbEmail1.Text.Trim(), tbEmail2.Text.Trim(), UserInfo.UserId,DateTime.Now,
                 comboBox2.SelectedText.Trim()=="Yes"?1:0,
                 String.IsNullOrWhiteSpace(tbAmount.Text.Trim()) ? (int?)null : int.Parse(tbAmount.Text.Trim()), 
                 tbNotes.Text.Trim());

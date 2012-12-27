@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using MySql.Data.MySqlClient;
+using AmbleAppServer.ComClass;
 
 namespace AmbleAppServer.DataClass
 {
@@ -20,8 +21,14 @@ namespace AmbleAppServer.DataClass
         /// </summary>
         public DataBase()
         {
+
+            string strServer = OperatorFile.GetIniFileString("DataBase", "Server", "", Environment.CurrentDirectory + "\\AmbleAppServer.ini");
+            //获取登录用户
+            string strUserID = OperatorFile.GetIniFileString("DataBase", "UserID", "", Environment.CurrentDirectory + "\\AmbleAppserver.ini");
+            //获取登录密码
+            string strPwd = OperatorFile.GetIniFileString("DataBase", "Pwd", "", Environment.CurrentDirectory + "\\AmbleAppserver.ini");
             //数据库连接字符串
-            string strConn = "Server = " + "localhost" + ";Database=shenzhenerp;User id=" + "root" + ";PWD=" + "chenlq";
+            string strConn = "Server = " +strServer + ";Database=shenzhenerp;User id=" + strUserID + ";PWD=" + strPwd;
 
             try
             {

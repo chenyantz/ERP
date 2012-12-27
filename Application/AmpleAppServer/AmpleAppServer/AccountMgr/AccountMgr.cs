@@ -25,6 +25,16 @@ namespace AmbleAppServer.AccountMgr
           
         }
 
+        public bool ChangePasswd(int id, string passwd)
+        {
+            string strSql = string.Format("update account set accoutPassword='{0}' where accountName={1}", passwd, id);
+             if (db.ExecDataBySql(strSql) > 0)
+               return true;
+          
+           return false;
+        
+        }
+
 
        //when check name and password, get the user's information
        public PropertyClass CheckNameAndPasswd(string name,string password)
@@ -111,6 +121,8 @@ namespace AmbleAppServer.AccountMgr
                     
            return false;
        }
+
+
        public bool ModifyAnAccount(int id,string accountName,string password,string email,int job,int superviser)
        {
            string strSql = "UPDATE account SET accountName='" + accountName + "',accountPassword='" + password + "',email='" + email + "',job="
@@ -123,9 +135,7 @@ namespace AmbleAppServer.AccountMgr
 
        public List<int> GetAllSubsId(int id)
        {
-               
-           
-           List<int> allSubsId = new List<int>();
+            List<int> allSubsId = new List<int>();
            allSubsId.Add(id);
            int numberOfSubs = allSubsId.Count; int newAddedIds = 0;
 

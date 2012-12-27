@@ -36,10 +36,13 @@ namespace AmbleClient
             try
             {
                 accountProperty =GlobalRemotingClient.GetAccountMgr().CheckNameAndPasswd(textBox1.Text.Trim(), maskedTextBox1.Text.Trim());
+                UserInfo.UserId = accountProperty.UserId;
+                UserInfo.UserName = accountProperty.AccountName;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Can not connect to the server");
+                MessageBox.Show("Can not connect to the server.Please contact the admin");
+                return;
             
             }
 
@@ -51,16 +54,11 @@ namespace AmbleClient
             else
             {
                 MainFrame mainFrame = new MainFrame();
-                mainFrame.SetProperty(this.accountProperty);
                 this.Hide();
                 mainFrame.Show();
-                             
-            
+           
             }
-    
-
-
-
+  
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)

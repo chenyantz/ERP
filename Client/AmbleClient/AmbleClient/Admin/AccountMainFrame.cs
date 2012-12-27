@@ -99,6 +99,9 @@ namespace AmbleClient.Admin
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if (e.RowIndex < 0)
+                return; //this happens when doubleclick the column head;
+
             AccountOperation addMAccount = new ModifyAccount(e.RowIndex);
             addMAccount.SetDataTable(originalTable);
             addMAccount.ShowDialog();

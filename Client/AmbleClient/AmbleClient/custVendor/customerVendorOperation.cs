@@ -12,10 +12,7 @@ namespace AmbleClient.custVendor
     public partial class customerVendorOperation : Form
     {
        protected int customerOrVendor;
-       protected int userId;
-        
-        
-        public customerVendorOperation()
+         public customerVendorOperation()
         {
             InitializeComponent();
         }

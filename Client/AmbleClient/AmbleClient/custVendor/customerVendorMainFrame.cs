@@ -13,18 +13,16 @@ namespace AmbleClient.custVendor
     public partial class customerVendorMainFrame : Form
     {
         int customerOrVendor;
-        int userId;
         DataTable userTable;
         DataTable orginateCustomerVendorTable;
         DataTable showTable;
       
         
         
-        public customerVendorMainFrame(int customerOrVendor,int userId)
+        public customerVendorMainFrame(int customerOrVendor)
         {
             InitializeComponent();
             this.customerOrVendor = customerOrVendor;//0:customer, 1:vendor
-            this.userId = userId;
             if (customerOrVendor == 0)
             {
                 this.Text = "View Customers";
@@ -79,11 +77,11 @@ namespace AmbleClient.custVendor
 
             if (toolStripComboBox1.SelectedIndex==0)
             {
-                orginateCustomerVendorTable = GlobalRemotingClient.GetCustomerVendorMgr().GetTheCustomersOrVendorsICanSee(customerOrVendor, userId);
+                orginateCustomerVendorTable = GlobalRemotingClient.GetCustomerVendorMgr().GetTheCustomersOrVendorsICanSee(customerOrVendor, UserInfo.UserId);
             }
             else if (toolStripComboBox1.SelectedIndex==1)
             {
-                orginateCustomerVendorTable = GlobalRemotingClient.GetCustomerVendorMgr().GetMyCustomerOrVendor(customerOrVendor, userId);
+                orginateCustomerVendorTable = GlobalRemotingClient.GetCustomerVendorMgr().GetMyCustomerOrVendor(customerOrVendor, UserInfo.UserId);
             
             }
 
@@ -133,7 +131,11 @@ namespace AmbleClient.custVendor
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-          customerVendorOperation ModifyOpFrame = new ModifyCustomerVendor(GetDataRowInShowTableFromIndex(e.RowIndex),customerOrVendor,userId);
+            if (e.RowIndex < 0)
+            {
+                return; //this happens when double click the column head.
+            }
+          customerVendorOperation ModifyOpFrame = new ModifyCustomerVendor(GetDataRowInShowTableFromIndex(e.RowIndex),customerOrVendor);
           ModifyOpFrame.ShowDialog();
           FillTheDataGrid();
         }
@@ -156,7 +158,7 @@ namespace AmbleClient.custVendor
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            customerVendorOperation addOpframe = new AddCustomerVendor(customerOrVendor, userId);
+            customerVendorOperation addOpframe = new AddCustomerVendor(customerOrVendor);
             addOpframe.ShowDialog();
             FillTheDataGrid();
         }
@@ -165,7 +167,7 @@ namespace AmbleClient.custVendor
         {
             int rowIndex = dataGridView1.CurrentRow.Index;
 
-            customerVendorOperation modifyOpFrame = new ModifyCustomerVendor(GetDataRowInShowTableFromIndex(rowIndex), customerOrVendor, userId);
+            customerVendorOperation modifyOpFrame = new ModifyCustomerVendor(GetDataRowInShowTableFromIndex(rowIndex), customerOrVendor);
             modifyOpFrame.ShowDialog();
             FillTheDataGrid();
         }

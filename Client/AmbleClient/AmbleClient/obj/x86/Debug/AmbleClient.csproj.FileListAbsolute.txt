@@ -16,3 +16,4 @@ C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.custVend
 C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.custVendor.customerVendorOperation.resources
 C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.custVendor.AddCustomerVendor.resources
 C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.custVendor.ModifyCustomerVendor.resources
+C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Settings.PasswordChange.resources

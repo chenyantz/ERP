@@ -74,21 +74,21 @@
             // customerManagermentToolStripMenuItem
             // 
             this.customerManagermentToolStripMenuItem.Name = "customerManagermentToolStripMenuItem";
-            this.customerManagermentToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.customerManagermentToolStripMenuItem.Text = "Customer Managerment";
+            this.customerManagermentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.customerManagermentToolStripMenuItem.Text = "Customer Info";
             this.customerManagermentToolStripMenuItem.Click += new System.EventHandler(this.customerManagermentToolStripMenuItem_Click);
             // 
             // rFQViewNewSOToolStripMenuItem
             // 
             this.rFQViewNewSOToolStripMenuItem.Name = "rFQViewNewSOToolStripMenuItem";
-            this.rFQViewNewSOToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.rFQViewNewSOToolStripMenuItem.Text = "RFQ View, New SO";
+            this.rFQViewNewSOToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rFQViewNewSOToolStripMenuItem.Text = "RFQ ";
             // 
             // sOViewToolStripMenuItem
             // 
             this.sOViewToolStripMenuItem.Name = "sOViewToolStripMenuItem";
-            this.sOViewToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.sOViewToolStripMenuItem.Text = "SO View";
+            this.sOViewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sOViewToolStripMenuItem.Text = "SO";
             // 
             // buyersToolStripMenuItem
             // 
@@ -137,14 +137,15 @@
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.changePasswordToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.helpToolStripMenuItem.Text = "Personal";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.helpToolStripMenuItem.Text = "Settings";
             // 
             // changePasswordToolStripMenuItem
             // 
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
             this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem1
             // 

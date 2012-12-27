@@ -5,6 +5,7 @@ using System.Text;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
+using System.Windows;
 using AmbleAppServer.AccountMgr;
 using AmbleAppServer.customerVendorMgr;
 
@@ -15,6 +16,16 @@ namespace AmbleClient
     { admin=0,boss,sales,saleManager,buyer,buyerManager,warehousekeeper,wareshousekeeperManager,financial,financialManager
     
     }
+
+    public static class UserInfo
+    {
+        public static int UserId;
+        public static string UserName;
+    
+    }
+
+
+
     public static class GlobalRemotingClient
     {
 

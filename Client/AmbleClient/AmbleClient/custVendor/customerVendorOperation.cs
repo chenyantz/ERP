@@ -39,12 +39,63 @@ namespace AmbleClient.custVendor
 
         }
 
+        private bool ValidateValues()
+        {
+
+            //check if rating and amout are numbers.
+            if (string.IsNullOrWhiteSpace(tbName.Text.Trim()))
+            {
+                MessageBox.Show("The compnay name can not be empty");
+                tbName.Focus();
+                return false;
+            }
+
+
+            int temp;
+            if (!(string.IsNullOrWhiteSpace(tbRating.Text.Trim())))
+            {
+                if (!int.TryParse(tbRating.Text.Trim(), out temp))
+                {
+                    // tbRating.Focus();
+                    MessageBox.Show("Please input a number for the rating,not more than 100");
+                    tbRating.Focus();
+                    return false;
+                }
+                else
+                {
+                    if (temp > 100)//Rate的取值不可过大
+                    {
+                        MessageBox.Show("Invalid value for the rating,should be less than 100");
+                        tbRating.Focus();
+                        return false;
+                    }
+
+                }
+
+            }
+
+            if (!(string.IsNullOrWhiteSpace(tbAmount.Text.Trim())))
+            {
+                if (!int.TryParse(tbAmount.Text.Trim(), out temp))
+                {
+                    // tbRating.Focus();
+                    MessageBox.Show("Please input a number for the Amount");
+                    tbAmount.Focus();
+                    return false;
+                }
+            }
+            return true;
+        
+        }
+
+
+
         private void button1_Click(object sender, EventArgs e)
         {
+            if (!ValidateValues())
+                return;
             Save();
             this.Close();
-
-            
         }
         protected virtual void Save()
         { 
@@ -55,8 +106,6 @@ namespace AmbleClient.custVendor
         {
             this.Close();
         }
-
-
 
     }
 }

@@ -65,7 +65,5 @@ namespace AmbleClient.custVendor
             this.PerformLayout();
 
         }
-
-
     }
 }

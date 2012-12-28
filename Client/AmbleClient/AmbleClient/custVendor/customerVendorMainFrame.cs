@@ -49,6 +49,7 @@ namespace AmbleClient.custVendor
                 new DataColumn[]{
                     new DataColumn("Company Name",typeof(string)),
                     new DataColumn("Country",typeof(string)),
+                    new DataColumn("Company Number",typeof(string)),
                     new DataColumn("Rate",typeof(int)),
                     new DataColumn("Term",typeof(string)),
                     new DataColumn("Contact 1",typeof(string)),
@@ -93,6 +94,7 @@ namespace AmbleClient.custVendor
                            
                            name = cvrow["cvname"],
                            country = cvrow["country"],
+                           number=cvrow["cvnumber"],
                            rate=cvrow["rate"],
                            term=cvrow["term"],
                            contact1=cvrow["contact1"],
@@ -113,7 +115,7 @@ namespace AmbleClient.custVendor
             
            foreach(var row in showRows)
            {
-               showTable.Rows.Add(row.name, row.country, row.rate,row.term, row.contact1, row.contact2, row.phone1, row.phone2, row.cellphone,
+               showTable.Rows.Add(row.name, row.country,row.number, row.rate,row.term, row.contact1, row.contact2, row.phone1, row.phone2, row.cellphone,
                   row.fax, row.email1, row.email2, row.ownerName, row.lastUpdateName,row.lastUpdateDate, row.blacklisted, row.amount, row.notes);
 
            }
@@ -144,9 +146,20 @@ namespace AmbleClient.custVendor
         { 
          //get the primary key in datagridview
             string companyName = dataGridView1["Company Name", rowIndex].Value.ToString();
+            string ownerName=dataGridView1["Owner Name",rowIndex].Value.ToString();
 
-            var dataRows = showTable.AsEnumerable().Where<DataRow>(row => row["Company Name"].ToString() == companyName);
-            return dataRows.First<DataRow>();
+            var dataRows = showTable.AsEnumerable().Where<DataRow>(row => (row["Company Name"].ToString() == companyName) && (row["Owner Name"].ToString()==ownerName));
+            if (dataRows.Count<DataRow>() == 1)//如果只有一行纪录，就可以确定,大部分情况如此。
+            {
+                return dataRows.First<DataRow>();
+            }
+            else
+            {
+                MessageBox.Show("error, the select count is not 1");
+                return null;
+            
+            }
+
 
         }
 

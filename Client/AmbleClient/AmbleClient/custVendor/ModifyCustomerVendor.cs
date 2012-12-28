@@ -32,6 +32,7 @@ namespace AmbleClient.custVendor
             //Bind the info of Datarow to control
             tbName.Text = selectedDr["Company Name"].ToString();
             tbCountry.Text = selectedDr["Country"].ToString();
+            tbNumber.Text = selectedDr["Company Number"].ToString();
             tbRating.Text = selectedDr["Rate"].ToString();
             tbTerm.Text = selectedDr["Term"].ToString();
             tbContact1.Text = selectedDr["Contact 1"].ToString();
@@ -56,7 +57,7 @@ namespace AmbleClient.custVendor
             //First check if the Name exist?
           if(tbName.Text.Trim()!=selectedDr["Company Name"].ToString())
           {
-            if (GlobalRemotingClient.GetCustomerVendorMgr().IsCvtypeandCvNameExist(customerOrVendor, tbName.Text.Trim()))
+            if (GlobalRemotingClient.GetCustomerVendorMgr().IsCvtypeandCvNameExist(customerOrVendor,tbName.Text.Trim(),UserInfo.UserId))
             {
                 MessageBox.Show("The company name already exists.");
                 tbName.Focus();
@@ -67,11 +68,11 @@ namespace AmbleClient.custVendor
           }
 
         GlobalRemotingClient.GetCustomerVendorMgr().ModifyCustomerOrVendor(customerOrVendor,selectedDr["Company Name"].ToString(),tbName.Text.Trim(),
-            tbCountry.Text.Trim(),            String.IsNullOrWhiteSpace(tbRating.Text.Trim())?(int?)null:int.Parse(tbRating.Text.Trim()), tbTerm.Text.Trim(), tbContact1.Text.Trim(), tbContact2.Text.Trim(), tbPhone1.Text.Trim(),
+            tbCountry.Text.Trim(),tbNumber.Text.Trim(),String.IsNullOrWhiteSpace(tbRating.Text.Trim())?(int?)null:int.Parse(tbRating.Text.Trim()), tbTerm.Text.Trim(), tbContact1.Text.Trim(), tbContact2.Text.Trim(), tbPhone1.Text.Trim(),
                 tbPhone2.Text.Trim(), tbCell.Text.Trim(), tbFax.Text.Trim(), tbEmail1.Text.Trim(), tbEmail2.Text.Trim(), UserInfo.UserId,DateTime.Now,
                 comboBox2.SelectedText.Trim()=="Yes"?1:0,
                 String.IsNullOrWhiteSpace(tbAmount.Text.Trim()) ? (int?)null : int.Parse(tbAmount.Text.Trim()), 
-                tbNotes.Text.Trim());
+                tbNotes.Text.Trim(),UserInfo.UserId);
           
 
 

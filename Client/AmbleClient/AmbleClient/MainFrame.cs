@@ -66,5 +66,12 @@ namespace AmbleClient
            
 
         }
+
+        private void assignCustomerVendorNumberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Finances.FinancesView financeView = new Finances.FinancesView();
+            financeView.MdiParent = this;
+            financeView.Show();
+        }
     }
 }

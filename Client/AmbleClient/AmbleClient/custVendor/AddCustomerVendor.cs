@@ -33,17 +33,15 @@ namespace AmbleClient.custVendor
         {
             //check if name exist
 
-            if(GlobalRemotingClient.GetCustomerVendorMgr().IsCvtypeandCvNameExist(customerOrVendor,tbName.Text.Trim()))
+            if(GlobalRemotingClient.GetCustomerVendorMgr().IsCvtypeandCvNameExist(customerOrVendor,tbName.Text.Trim(),UserInfo.UserId))
             {
                
-                MessageBox.Show("The company name already exists.");
+                MessageBox.Show("The company name already exists in your customer list.");
                 tbName.Focus();
                 return;
             
             }
-              
-            
-            GlobalRemotingClient.GetCustomerVendorMgr().AddCustomerOrVendor(customerOrVendor, tbName.Text.Trim(), tbCountry.Text.Trim(),
+              GlobalRemotingClient.GetCustomerVendorMgr().AddCustomerOrVendor(customerOrVendor, tbName.Text.Trim(), tbCountry.Text.Trim(),tbNumber.Text.Trim(),
                 String.IsNullOrWhiteSpace(tbRating.Text.Trim())?(int?)null:int.Parse(tbRating.Text.Trim()), tbTerm.Text.Trim(), tbContact1.Text.Trim(), tbContact2.Text.Trim(), tbPhone1.Text.Trim(),
                 tbPhone2.Text.Trim(), tbCell.Text.Trim(), tbFax.Text.Trim(), tbEmail1.Text.Trim(), tbEmail2.Text.Trim(), UserInfo.UserId, UserInfo.UserId,DateTime.Now,
                 comboBox2.SelectedText.Trim()=="Yes"?1:0,

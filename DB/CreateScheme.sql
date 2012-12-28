@@ -12,11 +12,15 @@ CREATE TABLE account (
   superviser SMALLINT
 ) ;
 
+
+
+
 CREATE TABLE custVendor (
   cvtype TINYINT,
   /*0,customer, 1, vendor*/
   cvname VARCHAR (255),
   country VARCHAR (255),
+  cvnumber VARCHAR(255),
   rate TINYINT,
   term VARCHAR (255),
   contact1 VARCHAR (65535),
@@ -34,7 +38,7 @@ CREATE TABLE custVendor (
   /*0: no, 1:yes*/3
   amount INT,
   notes VARCHAR (65535),
-  CONSTRAINT pk_cvtype_cvname PRIMARY KEY (cvtype, cvname)
+  CONSTRAINT pk_cvtype_cvname_ownerName PRIMARY KEY (cvtype,cvname,ownerName)
 ) ;
 
 CREATE TABLE rfq(

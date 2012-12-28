@@ -17,44 +17,16 @@ namespace AmbleAppServer.customerVendorMgr
               
        }
 
-       public bool AddCustomerOrVendor(int cvtype, string cvname, string country, int? rate, string term,
+       public bool AddCustomerOrVendor(int cvtype, string cvname, string country, string cvnumber,int? rate, string term,
              string contact1, string contact2, string phone1, string phone2, string cellphone, string fax,
             string email1, string email2, int ownerName, int lastUpdateName, DateTime lastUpdateDate, int blacklisted,
             int? amount, string notes)
        {
 
-           string strSql="";
-
-           if (rate.HasValue && amount.HasValue)
-           {
-               strSql = "INSERT INTO custVendor VALUES(" + cvtype + ",'" + cvname + "','" + country + "'," + rate + ",'" + term + "','" + contact1 + "','" +
+           string strSql="INSERT INTO custVendor VALUES(" + cvtype + ",'" + cvname + "','" + country +"','"+cvnumber+ "'," + (rate.HasValue?rate.ToString():"null") + ",'" + term + "','" + contact1 + "','" +
                    contact2 + "','" + phone1 + "','" + phone2 + "','" + cellphone + "','" + fax + "','" + email1 + "','" + email2 + "'," + ownerName + "," + lastUpdateName +
-                   ",'" + lastUpdateDate.ToString() + "'," + blacklisted + "," + amount + ",'" + notes + "')";
-           }
-           else if (rate.HasValue)
-           {
-               strSql = "INSERT INTO custVendor(cvtype,cvname,country,rate,term,contact1,contact2,phone1,phone2,cellphone,fax,email1,email2,ownerName,lastUpdateName,lastUpdateDate,blacklisted,notes) VALUES(" 
-                      + cvtype + ",'" + cvname + "','" + country + "'," + rate + ",'" + term + "','" + contact1 + "','" +
-                      contact2 + "','" + phone1 + "','" + phone2 + "','" + cellphone + "','" + fax + "','" + email1 + "','" + email2 + "'," + ownerName + "," + lastUpdateName +
-                      ",'" + lastUpdateDate.ToString() + "'," + blacklisted + ",'" + notes + "')";
-           }
-           else if (amount.HasValue)
-           {
-               strSql = "INSERT INTO custVendor(cvtype,cvname,country,term,contact1,contact2,phone1,phone2,cellphone,fax,email1,email2,ownerName,lastUpdateName,lastUpdateDate,blacklisted,amount,notes) VALUES("
-                   + cvtype + ",'" + cvname + "','" + country + "','" + term + "','" + contact1 + "','" +
-                      contact2 + "','" + phone1 + "','" + phone2 + "','" + cellphone + "','" + fax + "','" + email1 + "','" + email2 + "'," + ownerName + "," + lastUpdateName +
-                      ",'" + lastUpdateDate.ToString() + "'," + blacklisted + "," + amount + ",'" + notes + "')";
-
-           }
-           else
-           {
-               strSql = "INSERT INTO custVendor(cvtype,cvname,country,term,contact1,contact2,phone1,phone2,cellphone,fax,email1,email2,ownerName,lastUpdateName,lastUpdateDate,blacklisted,notes) VALUES("
-                       + cvtype + ",'" + cvname + "','" + country + "','" + term + "','" + contact1 + "','" +
-                          contact2 + "','" + phone1 + "','" + phone2 + "','" + cellphone + "','" + fax + "','" + email1 + "','" + email2 + "'," + ownerName + "," + lastUpdateName +
-                          ",'" + lastUpdateDate.ToString() + "'," + blacklisted + ",'" + notes + "')";
-
-           
-           }
+                   ",'" + lastUpdateDate.ToString() + "'," + blacklisted + "," + (amount.HasValue?amount.ToString():"null") + ",'" + notes + "')";
+          
 
           if( db.ExecDataBySql(strSql)>0)
               return  true;
@@ -62,9 +34,9 @@ namespace AmbleAppServer.customerVendorMgr
            return false;
 
        }
-       public bool IsCvtypeandCvNameExist(int cvtype, string cvName)
+       public bool IsCvtypeandCvNameExist(int cvtype, string cvName,int userId)
        {
-           string strSql = "select * from custVendor WHERE cvtype=" + cvtype + " AND cvname='" + cvtype + "'";
+           string strSql = "select * from custVendor WHERE cvtype=" + cvtype + " AND cvname='" + cvName + "' And ownerName="+userId;
            DataTable dt = db.GetDataTable(strSql, "CheckCvNameAndCvType");
            if(dt.Rows.Count>0)
              return true;
@@ -97,6 +69,19 @@ namespace AmbleAppServer.customerVendorMgr
            
        }
 
+       public DataTable GetTheCompanyNecessaryInfoForFinance()
+       {
+           string strSql = "select cvtype,cvname,country,cvnumber,ownerName from custVendor";
+           return db.GetDataTable(strSql, "custVendorForFinance");
+       }
+       public bool AssignCompanyNumberByFinance(int cvtype,string cvname,int ownerName,string cvNumber)
+       {
+           string strSql = string.Format("update custVendor set cvNumber='{0}' where cvtype={1} and cvname='{2}' and ownerName={3}", cvNumber, cvtype, cvname, ownerName);
+         if (db.ExecDataBySql(strSql) > 0)
+             return true;
+           return false;
+       }
+
        public DataTable GetMyCustomerOrVendor(int cvtype, int id)
        {
            string strSql = "select * from custVendor where cvtype=" + cvtype + " and ownerName=" + id;
@@ -107,14 +92,14 @@ namespace AmbleAppServer.customerVendorMgr
 
 
 
-       public bool ModifyCustomerOrVendor(int cvtype,string previousName,string cvname, string country, int? rate, string term,
+       public bool ModifyCustomerOrVendor(int cvtype,string previousName,string cvname, string country,string cvnumber, int? rate, string term,
              string contact1, string contact2, string phone1, string phone2, string cellphone, string fax,
             string email1, string email2,int lastUpdateName, DateTime lastUpdateDate, int blacklisted,
-            int? amount, string notes)
+            int? amount, string notes,int userId)
        {
-           string strSql = "UPDATE custVendor SET cvname='" + cvname + "',country='" + country + "',rate=" + (rate.HasValue?rate.ToString():"null") + ",term='" + term + "',contact1='" + contact1 + "',contact2='" +
+           string strSql = "UPDATE custVendor SET cvname='" + cvname + "',country='" + country +"',cvnumber='"+cvnumber+ "',rate=" + (rate.HasValue?rate.ToString():"null") + ",term='" + term + "',contact1='" + contact1 + "',contact2='" +
                contact2 + "',phone1='" + phone1 + "',phone2='" + phone2 + "',cellphone='" + cellphone + "',fax='" + fax + "',email1='" + email1 + "',email2='" + email2 + "',lastUpdateName=" + lastUpdateName +
-               ",lastUpdateDate='" + lastUpdateDate.ToString() + "',blackListed=" + blacklisted + ",amount=" + (amount.HasValue?amount.ToString():"null") + ",notes='" + notes + "' WHERE cvtype=" + cvtype + " and cvName='" + previousName+"'";
+               ",lastUpdateDate='" + lastUpdateDate.ToString() + "',blackListed=" + blacklisted + ",amount=" + (amount.HasValue?amount.ToString():"null") + ",notes='" + notes + "' WHERE cvtype=" + cvtype + " and cvName='" + previousName+"' and ownerName="+userId;
  
            if (db.ExecDataBySql(strSql) > 0)
                return true;

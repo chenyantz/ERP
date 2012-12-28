@@ -41,7 +41,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -61,22 +60,23 @@
             this.tbEmail1 = new System.Windows.Forms.TextBox();
             this.tbEmail2 = new System.Windows.Forms.TextBox();
             this.tbLastUpdateName = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tbLastUpdateDate = new System.Windows.Forms.TextBox();
             this.tbAmount = new System.Windows.Forms.TextBox();
             this.tbNotes = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tbNumber = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(44, 33);
+            this.label1.Location = new System.Drawing.Point(39, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 20);
+            this.label1.Size = new System.Drawing.Size(132, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Company Name:";
+            this.label1.Text = "Company Name:*";
             // 
             // label2
             // 
@@ -92,7 +92,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(110, 67);
+            this.label3.Location = new System.Drawing.Point(487, 72);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 20);
             this.label3.TabIndex = 2;
@@ -103,7 +103,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(498, 67);
+            this.label4.Location = new System.Drawing.Point(498, 242);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 20);
             this.label4.TabIndex = 3;
@@ -200,16 +200,6 @@
             this.label13.TabIndex = 12;
             this.label13.Text = "Last  Update By:";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(495, 243);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(52, 20);
-            this.label14.TabIndex = 13;
-            this.label14.Text = "#POs:";
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -292,18 +282,18 @@
             // tbRating
             // 
             this.tbRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbRating.Location = new System.Drawing.Point(190, 66);
+            this.tbRating.Location = new System.Drawing.Point(571, 66);
             this.tbRating.Name = "tbRating";
             this.tbRating.Size = new System.Drawing.Size(252, 26);
-            this.tbRating.TabIndex = 22;
+            this.tbRating.TabIndex = 23;
             // 
             // tbTerm
             // 
             this.tbTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTerm.Location = new System.Drawing.Point(572, 64);
+            this.tbTerm.Location = new System.Drawing.Point(572, 243);
             this.tbTerm.Name = "tbTerm";
             this.tbTerm.Size = new System.Drawing.Size(251, 26);
-            this.tbTerm.TabIndex = 23;
+            this.tbTerm.TabIndex = 33;
             // 
             // tbContact1
             // 
@@ -378,15 +368,6 @@
             this.tbLastUpdateName.Size = new System.Drawing.Size(252, 26);
             this.tbLastUpdateName.TabIndex = 32;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(572, 242);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(251, 28);
-            this.comboBox1.TabIndex = 33;
-            // 
             // tbLastUpdateDate
             // 
             this.tbLastUpdateDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -399,7 +380,7 @@
             // tbAmount
             // 
             this.tbAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAmount.Location = new System.Drawing.Point(572, 273);
+            this.tbAmount.Location = new System.Drawing.Point(572, 275);
             this.tbAmount.Name = "tbAmount";
             this.tbAmount.Size = new System.Drawing.Size(251, 26);
             this.tbAmount.TabIndex = 35;
@@ -426,16 +407,35 @@
             this.comboBox2.Size = new System.Drawing.Size(252, 28);
             this.comboBox2.TabIndex = 38;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(25, 66);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(140, 20);
+            this.label14.TabIndex = 39;
+            this.label14.Text = "Company Number:";
+            // 
+            // tbNumber
+            // 
+            this.tbNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNumber.Location = new System.Drawing.Point(190, 64);
+            this.tbNumber.Name = "tbNumber";
+            this.tbNumber.Size = new System.Drawing.Size(252, 26);
+            this.tbNumber.TabIndex = 22;
+            // 
             // customerVendorOperation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 521);
+            this.Controls.Add(this.tbNumber);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.tbNotes);
             this.Controls.Add(this.tbAmount);
             this.Controls.Add(this.tbLastUpdateDate);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.tbLastUpdateName);
             this.Controls.Add(this.tbEmail2);
             this.Controls.Add(this.tbEmail1);
@@ -455,7 +455,6 @@
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -494,7 +493,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
@@ -514,10 +512,11 @@
         protected System.Windows.Forms.TextBox tbEmail1;
         protected System.Windows.Forms.TextBox tbEmail2;
         protected System.Windows.Forms.TextBox tbLastUpdateName;
-        protected System.Windows.Forms.ComboBox comboBox1;
         protected System.Windows.Forms.TextBox tbLastUpdateDate;
         protected System.Windows.Forms.TextBox tbAmount;
         protected System.Windows.Forms.TextBox tbNotes;
         protected System.Windows.Forms.ComboBox comboBox2;
+        protected System.Windows.Forms.Label label14;
+        protected System.Windows.Forms.TextBox tbNumber;
     }
 }

@@ -88,6 +88,13 @@
     <Compile Include="custVendor\ModifyCustomerVendor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Finances\CustomerVenderPrimaryKey.cs" />
+    <Compile Include="Finances\FinancesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Finances\FinancesView.Designer.cs">
+      <DependentUpon>FinancesView.cs</DependentUpon>
+    </Compile>
     <Compile Include="global.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -126,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="custVendor\ModifyCustomerVendor.resx">
       <DependentUpon>ModifyCustomerVendor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Finances\FinancesView.resx">
+      <DependentUpon>FinancesView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

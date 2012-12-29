@@ -73,5 +73,12 @@ namespace AmbleClient
             financeView.MdiParent = this;
             financeView.Show();
         }
+
+        private void rFQViewNewSOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Sales.RFQView rfqView = new Sales.RFQView();
+            rfqView.MdiParent = this;
+            rfqView.Show();
+        }
     }
 }

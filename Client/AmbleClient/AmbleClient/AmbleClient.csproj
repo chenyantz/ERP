@@ -108,6 +108,12 @@
     <Compile Include="MainFrame.Designer.cs">
       <DependentUpon>MainFrame.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sales\RFQView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\RFQView.Designer.cs">
+      <DependentUpon>RFQView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings\PasswordChange.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainFrame.resx">
       <DependentUpon>MainFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\RFQView.resx">
+      <DependentUpon>RFQView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\PasswordChange.resx">
       <DependentUpon>PasswordChange.cs</DependentUpon>

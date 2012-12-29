@@ -28,8 +28,7 @@ namespace AmbleClient.Finances
 
         private void FinancesView_Load(object sender, EventArgs e)
         {
-            customerVendorTable = GlobalRemotingClient.GetCustomerVendorMgr().GetTheCompanyNecessaryInfoForFinance();
-            userTable = GlobalRemotingClient.GetAccountMgr().ReturnWholeAccountTable();
+           
 
             FillTheDataGrid();
 
@@ -37,6 +36,9 @@ namespace AmbleClient.Finances
 
         private void FillTheDataGrid()
         {
+            customerVendorTable = GlobalRemotingClient.GetCustomerVendorMgr().GetTheCompanyNecessaryInfoForFinance();
+            userTable = GlobalRemotingClient.GetAccountMgr().ReturnWholeAccountTable();
+            
             dataGridView1.Rows.Clear();
             dataGridView1.CellValueChanged -= dataGridView1_CellValueChanged;
 

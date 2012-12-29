@@ -56,6 +56,7 @@ namespace AmbleClient
                 MainFrame mainFrame = new MainFrame();
                 this.Hide();
                 mainFrame.Show();
+               
            
             }
   

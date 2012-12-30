@@ -89,9 +89,6 @@ namespace AmbleAppServer.customerVendorMgr
        
        }
 
-
-
-
        public bool ModifyCustomerOrVendor(int cvtype,string previousName,string cvname, string country,string cvnumber, int? rate, string term,
              string contact1, string contact2, string phone1, string phone2, string cellphone, string fax,
             string email1, string email2,int lastUpdateName, DateTime lastUpdateDate, int blacklisted,

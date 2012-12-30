@@ -118,7 +118,7 @@ namespace AmbleClient.Finances
                 var rowsForShowTable = from cvRow in customerVendorTable.AsEnumerable()
                                        join userRow in userTable.AsEnumerable()
                                        on cvRow["ownerName"] equals userRow["id"]
-                                       where userRow["accountName"].ToString().Contains(filterText)
+                                       where userRow["accountName"].ToString().ToLower().Contains(filterText.ToLower())
                                        select
                                         new
                                         {

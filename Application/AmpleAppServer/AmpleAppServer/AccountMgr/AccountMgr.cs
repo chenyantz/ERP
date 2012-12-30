@@ -27,7 +27,7 @@ namespace AmbleAppServer.AccountMgr
 
         public bool ChangePasswd(int id, string passwd)
         {
-            string strSql = string.Format("update account set accoutPassword='{0}' where accountName={1}", passwd, id);
+            string strSql = string.Format("update account set accoutPassword='{0}' where accountNamqe={1}", passwd, id);
              if (db.ExecDataBySql(strSql) > 0)
                return true;
           

@@ -8,6 +8,7 @@ using System.Runtime.Remoting.Channels.Tcp;
 using System.Windows;
 using AmbleAppServer.AccountMgr;
 using AmbleAppServer.customerVendorMgr;
+using AmbleAppServer.RfqMgr;
 
 namespace AmbleClient
 
@@ -31,7 +32,7 @@ namespace AmbleClient
 
         private static AccountMgr mgr = null;
         private static CustomerVendorMgr cvMgr = null;
-
+        private static RfqMgr rfqMgr = null;
 
         public static AccountMgr GetAccountMgr()
         {
@@ -39,7 +40,7 @@ namespace AmbleClient
             {
                 ChannelServices.RegisterChannel(new TcpClientChannel(), false);
                 mgr = (AccountMgr)Activator.GetObject(typeof(AccountMgr),
-               "tcp://192.168.1.104:1111/AccountMgr");
+               "tcp://192.168.15.103:1111/AccountMgr");
                 return mgr;
             }
             else
@@ -54,12 +55,28 @@ namespace AmbleClient
             if (cvMgr == null)
             {
                 cvMgr = (CustomerVendorMgr)Activator.GetObject(typeof(CustomerVendorMgr),
-                  "tcp://192.168.1.104:1111/CustomerVendorMgr");
+                  "tcp://192.168.15.103:1111/CustomerVendorMgr");
                 return cvMgr;
             }
             else
             {
                 return cvMgr;
+            }
+
+
+        }
+
+        public static RfqMgr GetRfqMgr()
+        {
+            if (rfqMgr == null)
+            {
+                rfqMgr = (RfqMgr)Activator.GetObject(typeof(RfqMgr),
+                  "tcp://192.168.15.103:1111/RfqMgr");
+                return rfqMgr;
+            }
+            else
+            {
+                return rfqMgr;
             }
 
 

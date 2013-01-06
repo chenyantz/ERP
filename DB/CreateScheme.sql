@@ -44,21 +44,57 @@ CREATE TABLE custVendor (
 CREATE TABLE rfq(
 
 rfqNo INT PRIMARY KEY AUTO_INCREMENT,
+customerName VARCHAR(255),
 partNo VARCHAR(255),
+salesId SMALLINT,
+contact VARCHAR(65535),
+project VARCHAR(255),
+rohs TINYINT, /* 0 no-rohs, 1:rohs*/
+phone VARCHAR(255),
+fax VARCHAR(255),
+email VARCHAR(255),
+rfqdate DATE,
+priority TINYINT, /* 1:cost down, 2:shortage, 3:history*/
+dockdate DATE,
 mfg VARCHAR(20),
-dc SMALLINT,
+dc VARCHAR(20),
+custPartNo VARCHAR(255),
+genPartNo VARCHAR(255),
+alt VARCHAR(255),
 qty SMALLINT,
+packaging VARCHAR(255),
+targetPrice FLOAT,
 resale FLOAT,
 cost FLOAT,
-customername VARCHAR(255),
-rfqdate DATE,
-rfqstate TINYINT, /* to do continued for the states*/
-pa VARCHAR(255), /*assign to which buyer*/
-rohs TINYINT, /* 0 no-rohs, 1:rohs*/
-rpr TINYINT, /* 1:cost down, 2:shortage, 3:history*/
-alt VARCHAR(255),
-assign VARCHAR(255)
+firstPA SMALLINT,
+secondPA SMALLINT
 );
+
+
+
+CREATE TABLE rfqApprove
+(
+rfqNo INT,`account`
+ApprovedBy SMALLINT,
+rfqState TINYINT,/* to do continued for the states*/
+);
+
+
+CREATE TABLE rfqInfoAndHistory
+(
+rfqNo INT,
+infoToCustomer MEDIUMTEXT,
+infoToInternal MEDIUMTEXT,
+routingHistory MEDIUMTEXT
+);
+
+CREATE TABLE rfqCopy(
+saleId SMALLINT PRIMARY KEY,
+rfqNo INT
+);
+
+/*procedure for rfqcopy*/
+
 
 
 

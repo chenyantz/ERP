@@ -51,26 +51,44 @@ namespace AmbleAppServer.RfqMgr
         }
 
 
-        public DataTable GetMyRfqDataTableAccordingToPageNumber(int salesId,int pageNumber,int itemsPerPage)
+        public DataTable GetMyRfqDataTableAccordingToPageNumber(int salesId, int pageNumber, int itemsPerPage, string filterColumn, string filterString)
         {
-            string strSql = string.Format("select * from rfq r left join rfqStateRecord rsr on r.rfqNo=rsr.rfqNo where salesId={0} limit{1},{2}", salesId, (pageNumber - 1) * itemsPerPage, itemsPerPage);
-         return  db.GetDataTable(strSql,"Table"+pageNumber);
+            string strSql;
+           if ((!string.IsNullOrEmpty(filterColumn)) && (!(string.IsNullOrEmpty(filterString))))
+            {
+                strSql = string.Format("select * from rfq r left join rfqStateRecord rsr on r.rfqNo=rsr.rfqNo where {0} like '%{1}%' and salesId={2} limit {3},{4}",filterColumn,filterString,salesId, pageNumber * itemsPerPage, itemsPerPage);
+     
+            }   
+           else
+           {
+               strSql= string.Format("select * from rfq r left join rfqStateRecord rsr on r.rfqNo=rsr.rfqNo where salesId={0} limit {1},{2}", salesId, pageNumber* itemsPerPage, itemsPerPage);
+           }
+            return  db.GetDataTable(strSql,"Table"+pageNumber);
         }
 
-        public DataTable GetICanSeeRfqDataTableAccordingToPageNumber(int salesId, int pageNumber, int itemsPerPage)
+        public DataTable GetICanSeeRfqDataTableAccordingToPageNumber(int salesId, int pageNumber, int itemsPerPage, string filterColumn, string filterString)
         {
             AmbleAppServer.AccountMgr.AccountMgr accountMgr = new AccountMgr.AccountMgr();
 
             List<int> subIds = accountMgr.GetAllSubsId(salesId);
 
             StringBuilder sb = new StringBuilder();
-            sb.Append("select * from rfq r left join rfqStateRecord rsr on r.rfqNo=rsr.rfqNo where salesId="+subIds[0]);
+
+            if ((!string.IsNullOrEmpty(filterColumn)) && (!(string.IsNullOrEmpty(filterString))))
+            {
+                sb.Append(string.Format("select * from rfq r left join rfqStateRecord rsr on r.rfqNo=rsr.rfqNo where {0} like '%{1}%' and ( salesId={2}",filterColumn,filterString,subIds[0]));
+            }
+            else
+            {
+                sb.Append("select * from rfq r left join rfqStateRecord rsr on r.rfqNo=rsr.rfqNo where ( salesId=" + subIds[0]);
+            }
+            
             if (subIds.Count() > 1)
             {
                 for (int i = 1; i < subIds.Count(); i++)
                     sb.Append(" or salesId=" + subIds[i]);
              }
-            sb.Append(string.Format("  limit {0},{1}", pageNumber, itemsPerPage));
+            sb.Append(string.Format(")  limit {0},{1}", pageNumber*itemsPerPage, itemsPerPage));
 
             return db.GetDataTable(sb.ToString(), "Table" + pageNumber);
 

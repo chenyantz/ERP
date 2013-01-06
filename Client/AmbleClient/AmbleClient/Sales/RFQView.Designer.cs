@@ -114,6 +114,10 @@
             // 
             // toolStripComboBox1
             // 
+            this.toolStripComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBox1.Items.AddRange(new object[] {
+            "Part No.",
+            "Customer Name"});
             this.toolStripComboBox1.Name = "toolStripComboBox1";
             this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
             // 
@@ -136,6 +140,7 @@
             this.tsbApply.Name = "tsbApply";
             this.tsbApply.Size = new System.Drawing.Size(42, 22);
             this.tsbApply.Text = "Apply";
+            this.tsbApply.Click += new System.EventHandler(this.tsbApply_Click);
             // 
             // tsbClear
             // 
@@ -145,6 +150,7 @@
             this.tsbClear.Name = "tsbClear";
             this.tsbClear.Size = new System.Drawing.Size(38, 22);
             this.tsbClear.Text = "Clear";
+            this.tsbClear.Click += new System.EventHandler(this.tsbClear_Click);
             // 
             // dataGridView1
             // 
@@ -248,8 +254,12 @@
             "All RFQ I Can See",
             "My RFQ"});
             this.tscbAllOrMine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tscbAllOrMine.Items.AddRange(new object[] {
+            "All RFQs I Can See",
+            "My RFQ"});
             this.tscbAllOrMine.Name = "tscbAllOrMine";
-            this.tscbAllOrMine.Size = new System.Drawing.Size(121, 25);
+            this.tscbAllOrMine.Size = new System.Drawing.Size(125, 25);
+            this.tscbAllOrMine.SelectedIndexChanged += new System.EventHandler(this.tscbAllOrMine_SelectedIndexChanged);
             // 
             // toolStripSeparator3
             // 
@@ -283,6 +293,7 @@
             this.tsbMoveFirst.Name = "tsbMoveFirst";
             this.tsbMoveFirst.Size = new System.Drawing.Size(30, 22);
             this.tsbMoveFirst.Text = "|<<";
+            this.tsbMoveFirst.Click += new System.EventHandler(this.tsbMoveFirst_Click);
             // 
             // tsbMovePre
             // 
@@ -292,6 +303,7 @@
             this.tsbMovePre.Name = "tsbMovePre";
             this.tsbMovePre.Size = new System.Drawing.Size(23, 22);
             this.tsbMovePre.Text = "<";
+            this.tsbMovePre.Click += new System.EventHandler(this.tsbMovePre_Click);
             // 
             // tstbCurrentPage
             // 
@@ -305,6 +317,7 @@
             this.tslCount.Name = "tslCount";
             this.tslCount.Size = new System.Drawing.Size(29, 22);
             this.tslCount.Text = "/ {0}";
+            this.tslCount.Click += new System.EventHandler(this.tslCount_Click);
             // 
             // tsbMoveNext
             // 
@@ -314,6 +327,7 @@
             this.tsbMoveNext.Name = "tsbMoveNext";
             this.tsbMoveNext.Size = new System.Drawing.Size(23, 22);
             this.tsbMoveNext.Text = ">";
+            this.tsbMoveNext.Click += new System.EventHandler(this.tsbMoveNext_Click);
             // 
             // tsbMoveLast
             // 
@@ -323,6 +337,7 @@
             this.tsbMoveLast.Name = "tsbMoveLast";
             this.tsbMoveLast.Size = new System.Drawing.Size(30, 22);
             this.tsbMoveLast.Text = ">>|";
+            this.tsbMoveLast.Click += new System.EventHandler(this.tsbMoveLast_Click);
             // 
             // toolStripSeparator4
             // 
@@ -339,6 +354,7 @@
             // 
             this.toolStripTextBox2.Name = "toolStripTextBox2";
             this.toolStripTextBox2.Size = new System.Drawing.Size(30, 25);
+            this.toolStripTextBox2.Text = "30";
             // 
             // tsbSet
             // 
@@ -348,6 +364,7 @@
             this.tsbSet.Name = "tsbSet";
             this.tsbSet.Size = new System.Drawing.Size(27, 22);
             this.tsbSet.Text = "Set";
+            this.tsbSet.Click += new System.EventHandler(this.tsbSet_Click);
             // 
             // RFQView
             // 

@@ -67,17 +67,10 @@ targetPrice FLOAT,
 resale FLOAT,
 cost FLOAT,
 firstPA SMALLINT,
-secondPA SMALLINT
+secondPA SMALLINT,
+rfqStates TINYINT /*0 new : 1 routed 2,Route 3,Quote 4, closed 5, has SO, 6 SO Approved*/
 );
 
-
-
-CREATE TABLE rfqApprove
-(
-rfqNo INT,`account`
-ApprovedBy SMALLINT,
-rfqState TINYINT,/* to do continued for the states*/
-);
 
 
 CREATE TABLE rfqInfoAndHistory

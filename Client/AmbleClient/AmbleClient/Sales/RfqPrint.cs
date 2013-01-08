@@ -9,11 +9,17 @@ using System.Windows.Forms;
 
 namespace AmbleClient.Sales
 {
-    public partial class RFQView : Form
+    public partial class RfqPrint : Form
     {
-        public RFQView()
+        public RfqPrint()
         {
             InitializeComponent();
+        }
+
+        private void RfqPrint_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
         }
     }
 }

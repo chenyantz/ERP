@@ -76,7 +76,7 @@ namespace AmbleClient
 
         private void rFQViewNewSOToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Sales.RFQView rfqView = new Sales.RFQView();
+            Sales.RFQListView rfqView = new Sales.RFQListView();
             rfqView.MdiParent = this;
             rfqView.Show();
         }

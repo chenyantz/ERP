@@ -39,9 +39,12 @@
       <ExecutableExtension>.exe</ExecutableExtension>
       <HintPath>..\..\..\Application\AmpleAppServer\AmpleAppServer\bin\Debug\AmpleAppServer.exe</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -108,6 +111,30 @@
     <Compile Include="MainFrame.Designer.cs">
       <DependentUpon>MainFrame.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sales\NewRfq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\NewRfq.Designer.cs">
+      <DependentUpon>NewRfq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\RfqItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sales\RfqItems.Designer.cs">
+      <DependentUpon>RfqItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\RFQListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\RFQListView.Designer.cs">
+      <DependentUpon>RFQListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\RfqPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\RfqPrint.Designer.cs">
+      <DependentUpon>RfqPrint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sales\RFQView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +175,19 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainFrame.resx">
       <DependentUpon>MainFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\NewRfq.resx">
+      <DependentUpon>NewRfq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\Report1.rdlc" />
+    <EmbeddedResource Include="Sales\RfqItems.resx">
+      <DependentUpon>RfqItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\RFQListView.resx">
+      <DependentUpon>RFQListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\RfqPrint.resx">
+      <DependentUpon>RfqPrint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\RFQView.resx">
       <DependentUpon>RFQView.cs</DependentUpon>

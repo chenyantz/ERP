@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace AmbleClient.Sales
 {
-    public partial class RFQView : Form
+    public partial class NewRfq : Form
     {
-        public RFQView()
+        public NewRfq()
         {
             InitializeComponent();
         }

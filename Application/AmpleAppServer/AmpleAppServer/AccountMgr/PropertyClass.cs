@@ -8,7 +8,9 @@ namespace AmbleAppServer.AccountMgr
     /// <summary>
     /// 表示若干属性的类
     /// </summary>
-    public class PropertyClass:System.MarshalByRefObject
+    /// 
+    [Serializable]
+    public class PropertyClass
     {
         private  int userId;
         /// <summary>

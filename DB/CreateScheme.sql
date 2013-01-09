@@ -54,7 +54,7 @@ phone VARCHAR(255),
 fax VARCHAR(255),
 email VARCHAR(255),
 rfqdate DATE,
-priority TINYINT, /* 1:cost down, 2:shortage, 3:history*/
+priority TINYINT, /*0:cost down, 1:shortage, 2:history*/
 dockdate DATE,
 mfg VARCHAR(20),
 dc VARCHAR(20),
@@ -68,14 +68,17 @@ resale FLOAT,
 cost FLOAT,
 firstPA SMALLINT,
 secondPA SMALLINT,
-rfqStates TINYINT /*0 new : 1 routed 2,Route 3,Quote 4, closed 5, has SO, 6 SO Approved*/
+rfqStates TINYINT, /*0 new : 1 routed 2,Route 3,Quote 4, closed 5, has SO, 6 SO Approved*/
+infoToCustomer MEDIUMTEXT,
+infoToInternal MEDIUMTEXT,
+routingHistory MEDIUMTEXT
 );
 
 
 
 CREATE TABLE rfqInfoAndHistory
 (
-rfqNo INT,
+
 infoToCustomer MEDIUMTEXT,
 infoToInternal MEDIUMTEXT,
 routingHistory MEDIUMTEXT

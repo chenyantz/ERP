@@ -20,5 +20,22 @@ namespace AmbleClient.Sales
         {
             rfqItems1.NewRfqFill();
         }
+
+        private void tsbSave_Click(object sender, EventArgs e)
+        {
+            if (rfqItems1.SaveInfo())
+            {
+                MessageBox.Show("The RFQ has been saved successfully");
+            
+            }
+            rfqItems1.NewRfqFill();
+
+
+        }
+
+        private void tsbClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

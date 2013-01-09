@@ -75,11 +75,11 @@
             this.tbAltPA = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.textBox25 = new System.Windows.Forms.TextBox();
+            this.tbToCustomer = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.textBox26 = new System.Windows.Forms.TextBox();
+            this.tbToInternal = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.textBox27 = new System.Windows.Forms.TextBox();
+            this.tbRoutingHistory = new System.Windows.Forms.TextBox();
             this.cbCloseReason = new System.Windows.Forms.ComboBox();
             this.cbSales = new System.Windows.Forms.ComboBox();
             this.cbPriority = new System.Windows.Forms.ComboBox();
@@ -471,13 +471,13 @@
             this.label26.TabIndex = 80;
             this.label26.Text = "Customer:";
             // 
-            // textBox25
+            // tbToCustomer
             // 
-            this.textBox25.Location = new System.Drawing.Point(121, 345);
-            this.textBox25.Multiline = true;
-            this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new System.Drawing.Size(709, 42);
-            this.textBox25.TabIndex = 81;
+            this.tbToCustomer.Location = new System.Drawing.Point(121, 345);
+            this.tbToCustomer.Multiline = true;
+            this.tbToCustomer.Name = "tbToCustomer";
+            this.tbToCustomer.Size = new System.Drawing.Size(709, 42);
+            this.tbToCustomer.TabIndex = 81;
             // 
             // label27
             // 
@@ -488,13 +488,13 @@
             this.label27.TabIndex = 82;
             this.label27.Text = "Internal";
             // 
-            // textBox26
+            // tbToInternal
             // 
-            this.textBox26.Location = new System.Drawing.Point(121, 408);
-            this.textBox26.Multiline = true;
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(709, 48);
-            this.textBox26.TabIndex = 83;
+            this.tbToInternal.Location = new System.Drawing.Point(121, 408);
+            this.tbToInternal.Multiline = true;
+            this.tbToInternal.Name = "tbToInternal";
+            this.tbToInternal.Size = new System.Drawing.Size(709, 48);
+            this.tbToInternal.TabIndex = 83;
             // 
             // label28
             // 
@@ -505,13 +505,14 @@
             this.label28.TabIndex = 84;
             this.label28.Text = "Routing History:";
             // 
-            // textBox27
+            // tbRoutingHistory
             // 
-            this.textBox27.Location = new System.Drawing.Point(121, 472);
-            this.textBox27.Multiline = true;
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(709, 53);
-            this.textBox27.TabIndex = 85;
+            this.tbRoutingHistory.Location = new System.Drawing.Point(121, 472);
+            this.tbRoutingHistory.Multiline = true;
+            this.tbRoutingHistory.Name = "tbRoutingHistory";
+            this.tbRoutingHistory.ReadOnly = true;
+            this.tbRoutingHistory.Size = new System.Drawing.Size(709, 53);
+            this.tbRoutingHistory.TabIndex = 85;
             // 
             // cbCloseReason
             // 
@@ -559,11 +560,11 @@
             this.Controls.Add(this.cbPriority);
             this.Controls.Add(this.cbSales);
             this.Controls.Add(this.cbCloseReason);
-            this.Controls.Add(this.textBox27);
+            this.Controls.Add(this.tbRoutingHistory);
             this.Controls.Add(this.label28);
-            this.Controls.Add(this.textBox26);
+            this.Controls.Add(this.tbToInternal);
             this.Controls.Add(this.label27);
-            this.Controls.Add(this.textBox25);
+            this.Controls.Add(this.tbToCustomer);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.tbAltPA);
@@ -668,11 +669,11 @@
         private System.Windows.Forms.TextBox tbAltPA;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox textBox25;
+        private System.Windows.Forms.TextBox tbToCustomer;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox textBox26;
+        private System.Windows.Forms.TextBox tbToInternal;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox textBox27;
+        private System.Windows.Forms.TextBox tbRoutingHistory;
         private System.Windows.Forms.ComboBox cbCloseReason;
         private System.Windows.Forms.ComboBox cbSales;
         private System.Windows.Forms.ComboBox cbPriority;

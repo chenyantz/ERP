@@ -5,7 +5,8 @@ using System.Text;
 
 namespace AmbleAppServer.RfqMgr
 {
-   public class Rfq:System.MarshalByRefObject
+    [Serializable]
+    public class Rfq
     {
        public int rfqNo;
        public string customerName;
@@ -33,5 +34,8 @@ namespace AmbleAppServer.RfqMgr
        public int? firstPA;
        public int? secondPA;
        public int rfqStates;
+       public string infoToCustomer;
+       public string infoToInternal;
+       public string routingHistory;
    }
 }

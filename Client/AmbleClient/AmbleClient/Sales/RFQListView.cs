@@ -214,6 +214,18 @@ namespace AmbleClient.Sales
 
         }
 
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            //get the rfqId, the primary key
+            DataRow dr = tableCurrentPage.Rows[rowIndex];
+            int rfqId = Convert.ToInt32(dr["rfqNo"]);
+
+            RFQView rfqView = new RFQView(rfqId);
+            rfqView.ShowDialog();
+
+        }
+
 
 
 

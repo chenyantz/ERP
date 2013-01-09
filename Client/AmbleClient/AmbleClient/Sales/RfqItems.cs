@@ -23,12 +23,12 @@ namespace AmbleClient.Sales
         {
             
         }
-        public void SaveInfo()
+        public bool SaveInfo()
         {
             CheckItems();
             
             Rfq rfq=new Rfq();
-            rfq.customerName = tbCustomer.Text.Trim();
+                        rfq.customerName = tbCustomer.Text.Trim();
             rfq.salesId = mySubs[cbSales.SelectedIndex];
             rfq.project = tbProject.Text.Trim();
             rfq.contact = tbContact.Text.Trim();
@@ -97,8 +97,12 @@ namespace AmbleClient.Sales
             {
                 rfq.cost = float.Parse(tbCost.Text.Trim());
             }
+            rfq.infoToCustomer = tbToCustomer.Text;
+            rfq.infoToInternal = tbToInternal.Text;
+            rfq.routingHistory = UserInfo.UserName.ToString() + "   Create the RFQ\n";
+            
 
-            GlobalRemotingClient.GetRfqMgr().SaveRfq(rfq);
+          return  GlobalRemotingClient.GetRfqMgr().SaveRfq(rfq);
 
 
            // rfq.salesId
@@ -108,7 +112,14 @@ namespace AmbleClient.Sales
         {
             cbCloseReason.Enabled = false;
             tbRfqDate.ReadOnly = true; tbRfqDate.Enabled = false;
-
+            //clear all the necessary textbox
+            tbCustomer.Clear();
+            tbProject.Clear();
+            tbContact.Clear();
+            tbPhone.Clear();
+            tbFax.Clear();
+            tbEmail.Clear();
+            
         //Fill the cbSale;
             //获得下级号和名字
           mySubs = GlobalRemotingClient.GetAccountMgr().GetAllSubsId(UserInfo.UserId);

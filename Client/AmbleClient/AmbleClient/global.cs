@@ -73,6 +73,7 @@ namespace AmbleClient
             {
                 rfqMgr = (RfqMgr)Activator.GetObject(typeof(RfqMgr),
                   "tcp://192.168.15.103:1111/RfqMgr");
+             
                 return rfqMgr;
             }
             else

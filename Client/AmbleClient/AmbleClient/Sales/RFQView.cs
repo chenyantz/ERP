@@ -11,9 +11,15 @@ namespace AmbleClient.Sales
 {
     public partial class RFQView : Form
     {
-        public RFQView()
+        int rfqId;
+        public RFQView(int rfqId)
         {
             InitializeComponent();
+            this.rfqId = rfqId;
+        
         }
+
+
+
     }
 }

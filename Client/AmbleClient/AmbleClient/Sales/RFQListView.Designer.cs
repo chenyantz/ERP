@@ -187,6 +187,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -222,6 +224,7 @@
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Location = new System.Drawing.Point(12, 53);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -230,69 +233,83 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1070, 436);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
             // PartNo
             // 
             this.PartNo.HeaderText = "Part #";
             this.PartNo.Name = "PartNo";
+            this.PartNo.ReadOnly = true;
             // 
             // Mfg
             // 
             this.Mfg.HeaderText = "Mgf";
             this.Mfg.Name = "Mfg";
+            this.Mfg.ReadOnly = true;
             // 
             // Dc
             // 
             this.Dc.HeaderText = "D/C";
             this.Dc.Name = "Dc";
+            this.Dc.ReadOnly = true;
             // 
             // Qty
             // 
             this.Qty.HeaderText = "Qty";
             this.Qty.Name = "Qty";
+            this.Qty.ReadOnly = true;
             // 
             // Resale
             // 
             this.Resale.HeaderText = "Resale";
             this.Resale.Name = "Resale";
+            this.Resale.ReadOnly = true;
             // 
             // Cost
             // 
             this.Cost.HeaderText = "Cost";
             this.Cost.Name = "Cost";
+            this.Cost.ReadOnly = true;
             // 
             // Customer
             // 
             this.Customer.HeaderText = "Customer";
             this.Customer.Name = "Customer";
+            this.Customer.ReadOnly = true;
             // 
             // Date
             // 
             this.Date.HeaderText = "Date";
             this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
             // 
             // SalePerson
             // 
             this.SalePerson.HeaderText = "S/P";
             this.SalePerson.Name = "SalePerson";
+            this.SalePerson.ReadOnly = true;
             // 
             // RfqStates
             // 
             this.RfqStates.HeaderText = "RFQ States";
             this.RfqStates.Name = "RfqStates";
+            this.RfqStates.ReadOnly = true;
             // 
             // Rohs
             // 
             this.Rohs.HeaderText = "RoHS";
             this.Rohs.Name = "Rohs";
+            this.Rohs.ReadOnly = true;
             // 
             // Alt
             // 
             this.Alt.HeaderText = "Alt";
             this.Alt.Name = "Alt";
+            this.Alt.ReadOnly = true;
             // 
             // toolStrip1
             // 

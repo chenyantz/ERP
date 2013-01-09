@@ -16,9 +16,14 @@ namespace AmbleAppServer.RfqMgr
 
         public bool SaveRfq(Rfq rfq)
         {
-        string strSql=string.Format("insert into rfq(customerName,partNo,salesId,contact,project,rohs,phone,fax,email,rfqdate,priority,dockdate,mfg,dc,custPartNo,genPartNo,alt,qty,packaging,targetPrice,resale,cost,firstPA,secondPA,rfqStates) "
-            +" values({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24})",
-            rfq.customerName,rfq.partNo,rfq.salesId,rfq.contact,rfq.project,rfq.rohs,rfq.phone,rfq.fax,rfq.email,rfq.rfqdate.Date.ToShortDateString(),rfq.priority,rfq.dockdate.Date.ToShortDateString(),rfq.mfg,rfq.dc,rfq.custPartNo,rfq.genPartNo,rfq.alt,rfq.qty,rfq.packaging,rfq.targetPrice,rfq.resale,rfq.cost,rfq.firstPA,rfq.secondPA,rfq.rfqStates);
+        string strSql=string.Format("insert into rfq(customerName,partNo,salesId,contact,project,rohs,phone,fax,email,rfqdate,priority,dockdate,mfg,dc,custPartNo,genPartNo,alt,qty,packaging,targetPrice,resale,cost,firstPA,secondPA,rfqStates,infoToCustomer,infoToInternal,routingHistory) "
+            +" values('{0}','{1}',{2},'{3}','{4}',{5},'{6}','{7}','{8}','{9}',{10},'{11}','{12}','{13}','{14}','{15}','{16}',{17},'{18}',{19},{20},{21},{22},{23},{24},'{25}','{26}','{27}')",
+            rfq.customerName,rfq.partNo,rfq.salesId,rfq.contact,rfq.project,rfq.rohs,rfq.phone,rfq.fax,rfq.email,rfq.rfqdate.Date.ToShortDateString(),
+            rfq.priority.HasValue?rfq.priority.Value.ToString():"null",rfq.dockdate.Date.ToShortDateString(),rfq.mfg,rfq.dc,rfq.custPartNo,rfq.genPartNo,rfq.alt,
+            rfq.qty.HasValue?rfq.qty.Value.ToString():"null",rfq.packaging,rfq.targetPrice.HasValue?rfq.targetPrice.Value.ToString():"null",
+            rfq.resale.HasValue?rfq.resale.Value.ToString():"null",rfq.cost.HasValue?rfq.cost.Value.ToString():"null",
+            rfq.firstPA.HasValue?rfq.firstPA.Value.ToString():"null",rfq.secondPA.HasValue?rfq.secondPA.Value.ToString():"null",rfq.rfqStates,rfq.infoToCustomer,rfq.infoToInternal,rfq.routingHistory
+            );
        
         int row=db.ExecDataBySql(strSql);
             if(row==1)

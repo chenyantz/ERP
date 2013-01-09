@@ -15,5 +15,10 @@ namespace AmbleClient.Sales
         {
             InitializeComponent();
         }
+
+        private void NewRfq_Load(object sender, EventArgs e)
+        {
+            rfqItems1.NewRfqFill();
+        }
     }
 }

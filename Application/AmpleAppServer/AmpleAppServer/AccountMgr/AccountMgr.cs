@@ -168,6 +168,30 @@ namespace AmbleAppServer.AccountMgr
        }
 
 
+       public Dictionary<int, string> GetIdsAndNames(List<int> ids)
+       {
+           Dictionary<int,string> IdsAndNames=new Dictionary<int,string>();
+           string strSql = "select id,accountName from account";
+           DataTable dt = db.GetDataTable(strSql, "table");
+
+           foreach (int id in ids)
+           {
+               foreach (DataRow dr in dt.Rows)
+               {
+                   if (Convert.ToInt32(dr["id"]) == id)
+                   {
+                       IdsAndNames.Add(id, dr["accountName"].ToString());
+                   }
+               
+               }
+           
+           
+           }
+           return IdsAndNames;
+       
+       }
+
+
 
     }
 }

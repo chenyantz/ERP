@@ -71,6 +71,7 @@
     <Compile Include="DataClass\DataClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RfqMgr\Rfq.cs" />
     <Compile Include="RfqMgr\RfqMgr.cs" />
   </ItemGroup>
   <ItemGroup>

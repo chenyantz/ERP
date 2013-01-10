@@ -34,6 +34,7 @@ namespace AmbleAppServer.RfqMgr
        public int? firstPA;
        public int? secondPA;
        public int rfqStates;
+       public int? closeReason;
        public string infoToCustomer;
        public string infoToInternal;
        public string routingHistory;

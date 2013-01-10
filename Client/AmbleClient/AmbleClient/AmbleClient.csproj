@@ -111,35 +111,56 @@
     <Compile Include="MainFrame.Designer.cs">
       <DependentUpon>MainFrame.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sales\NewRfq.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\NewRfq.Designer.cs">
-      <DependentUpon>NewRfq.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\RfqItems.cs">
+    <Compile Include="RfqGui\BuyerManagerRfqItems.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Sales\RfqItems.Designer.cs">
+    <Compile Include="RfqGui\BuyerManagerRfqListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfqGui\BuyerRfqItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RfqGui\BuyerRfqListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfqGui\NewRfq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfqGui\NewRfq.Designer.cs">
+      <DependentUpon>NewRfq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RfqGui\RfqItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RfqGui\RfqItems.Designer.cs">
       <DependentUpon>RfqItems.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sales\RFQListView.cs">
+    <Compile Include="RfqGui\RFQListView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sales\RFQListView.Designer.cs">
+    <Compile Include="RfqGui\RFQListView.Designer.cs">
       <DependentUpon>RFQListView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sales\RfqPrint.cs">
+    <Compile Include="RfqGui\RfqPrint.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sales\RfqPrint.Designer.cs">
+    <Compile Include="RfqGui\RfqPrint.Designer.cs">
       <DependentUpon>RfqPrint.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sales\RFQView.cs">
+    <Compile Include="RfqGui\RFQView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sales\RFQView.Designer.cs">
+    <Compile Include="RfqGui\RFQView.Designer.cs">
       <DependentUpon>RFQView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RfqGui\SalesNewRfqItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RfqGui\SalesRfqItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RfqGui\SalesRfqListView.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Settings\PasswordChange.cs">
       <SubType>Form</SubType>
@@ -176,20 +197,26 @@
     <EmbeddedResource Include="MainFrame.resx">
       <DependentUpon>MainFrame.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\NewRfq.resx">
+    <EmbeddedResource Include="RfqGui\BuyerManagerRfqListView.resx">
+      <DependentUpon>BuyerManagerRfqListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfqGui\BuyerRfqListView.resx">
+      <DependentUpon>BuyerRfqListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfqGui\NewRfq.resx">
       <DependentUpon>NewRfq.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\Report1.rdlc" />
-    <EmbeddedResource Include="Sales\RfqItems.resx">
+    <EmbeddedResource Include="RfqGui\Report1.rdlc" />
+    <EmbeddedResource Include="RfqGui\RfqItems.resx">
       <DependentUpon>RfqItems.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\RFQListView.resx">
+    <EmbeddedResource Include="RfqGui\RFQListView.resx">
       <DependentUpon>RFQListView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\RfqPrint.resx">
+    <EmbeddedResource Include="RfqGui\RfqPrint.resx">
       <DependentUpon>RfqPrint.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\RFQView.resx">
+    <EmbeddedResource Include="RfqGui\RFQView.resx">
       <DependentUpon>RFQView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\PasswordChange.resx">

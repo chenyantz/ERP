@@ -45,7 +45,88 @@ namespace AmbleAppServer.RfqMgr
        }
 
 
+       public bool ChangeRfqState(int rfqState,int rfqId)
+       {
+           string strSql = string.Format("update rfq set rfqStates={0} where rfqNo={1}", rfqState, rfqId);
+           if (db.ExecDataBySql(strSql) == 1)
+               return true;
+           return false;
+       }
 
+       public Rfq GetRfqAccordingToRfqId(int rfqId)
+       {
+           string strSql = string.Format("select * from rfq where rfqNo={0}", rfqId);
+           DataTable dt = db.GetDataTable(strSql, "tempTable");
+           DataRow dr = dt.Rows[0];
+           Rfq rfq = new Rfq();
+
+           rfq.customerName=dr["customerName"].ToString();
+           rfq.partNo=dr["partNo"].ToString();
+           rfq.salesId=Convert.ToInt32(dr["salesId"]);
+           rfq.contact=dr["contact"].ToString();
+           rfq.project=dr["project"].ToString();
+           rfq.rohs=Convert.ToInt32(dr["rohs"]);
+           rfq.phone=dr["phone"].ToString();
+           rfq.fax=dr["fax"].ToString();
+           rfq.email=dr["email"].ToString();
+           rfq.rfqdate=Convert.ToDateTime(dr["rfqdate"]);
+           if(dr["priority"]==DBNull.Value)
+           {
+               rfq.priority=null;
+           }
+           else
+           {
+            rfq.priority=Convert.ToInt32(dr["priority"]);
+           }
+           rfq.dockdate=Convert.ToDateTime(dr["dockdate"]);
+           rfq.mfg=dr["mfg"].ToString();
+           rfq.dc=dr["dc"].ToString();
+           rfq.custPartNo=dr["custPartNo"].ToString();
+           rfq.genPartNo=dr["genPartNo"].ToString();
+           rfq.alt=dr["alt"].ToString();
+           if(dr["qty"]==DBNull.Value)
+               rfq.qty=null;
+           else
+               rfq.qty=Convert.ToInt32(dr["qty"]);
+
+           rfq.packaging=dr["packaging"].ToString();
+
+           if(dr["targetPrice"]==DBNull.Value)
+               rfq.targetPrice=null;
+           else
+               rfq.targetPrice=Convert.ToSingle(dr["targetPrice"]);
+
+            if(dr["cost"]==DBNull.Value)
+               rfq.cost=null;
+           else
+               rfq.cost=Convert.ToSingle(dr["cost"]);
+
+            if(dr["resale"]==DBNull.Value)
+               rfq.resale=null;
+           else
+               rfq.resale=Convert.ToSingle(dr["resale"]);
+
+            if(dr["firstPA"]==DBNull.Value)
+               rfq.firstPA=null;
+           else
+               rfq.firstPA=Convert.ToInt32(dr["firstPA"]);
+            if(dr["secondPA"]==DBNull.Value)
+               rfq.secondPA=null;
+           else
+               rfq.secondPA=Convert.ToInt32(dr["secondPA"]);
+
+           rfq.rfqStates=Convert.ToInt32(dr["rfqStates"]);
+           rfq.infoToCustomer=dr["infoToCustomer"].ToString();
+           rfq.infoToInternal=dr["infoToInternal"].ToString();
+           rfq.routingHistory=dr["routingHistory"].ToString();
+
+           if (dr["closeReason"] == DBNull.Value)
+               rfq.closeReason = null;
+           else
+               rfq.closeReason = Convert.ToInt32(dr["closeReason"]);
+          
+           return rfq;
+       }
 
         public int GetThePageCountOfDataTable(int itemsPerPage,int salesId,string filterColumn,string filterString)
         { int count=0;
@@ -130,7 +211,7 @@ namespace AmbleAppServer.RfqMgr
         //delete all the previous record
             string strSql=string.Format("delete from rfqCopy where salesId={0}",salesId);
             db.ExecDataBySql(strSql);
-            strSql=string.Format("insert into rfqCopy values({0},{1})",rfqNo,salesId);
+            strSql=string.Format("insert into rfqCopy values({0},{1})",salesId,rfqNo);
             db.ExecDataBySql(strSql);
         }
 
@@ -147,15 +228,13 @@ namespace AmbleAppServer.RfqMgr
          }
         }
 
-        public DataTable GetTheCopiedRecord(int salesId)
+        public int GetRfqIdOfTheCopiedRecord(int salesId)
         {
-        
-        return null;
+            string strSql = string.Format("select rfqNo from rfqCopy where salesId={0}", salesId);
+            return (int)db.GetSingleObject(strSql);
+
         }
-
-
-
-
+      
 
 
     }

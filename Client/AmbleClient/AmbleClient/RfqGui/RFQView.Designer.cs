@@ -1,4 +1,4 @@
-﻿namespace AmbleClient.Sales
+﻿namespace AmbleClient.RfqGui
 {
     partial class RFQView
     {
@@ -33,13 +33,13 @@
             this.tsbRoute = new System.Windows.Forms.ToolStripButton();
             this.tsbQuote = new System.Windows.Forms.ToolStripButton();
             this.tsbCopy = new System.Windows.Forms.ToolStripButton();
-            this.tsbPaste = new System.Windows.Forms.ToolStripButton();
             this.tsbSo = new System.Windows.Forms.ToolStripButton();
             this.tsbUpdate = new System.Windows.Forms.ToolStripButton();
             this.tsbViewSo = new System.Windows.Forms.ToolStripButton();
             this.tsbPrint = new System.Windows.Forms.ToolStripButton();
+            this.tsbCloseRfq = new System.Windows.Forms.ToolStripButton();
+            this.rfqItems1 = new AmbleClient.RfqGui.SalesRfqItems();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
-            this.rfqItems1 = new AmbleClient.Sales.RfqItems();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,10 +50,10 @@
             this.tsbQuote,
             this.tsbUpdate,
             this.tsbCopy,
-            this.tsbPaste,
             this.tsbSo,
             this.tsbViewSo,
             this.tsbPrint,
+            this.tsbCloseRfq,
             this.tsbClose});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -69,6 +69,7 @@
             this.tsbRoute.Name = "tsbRoute";
             this.tsbRoute.Size = new System.Drawing.Size(42, 22);
             this.tsbRoute.Text = "Route";
+            this.tsbRoute.Click += new System.EventHandler(this.tsbRoute_Click);
             // 
             // tsbQuote
             // 
@@ -78,6 +79,7 @@
             this.tsbQuote.Name = "tsbQuote";
             this.tsbQuote.Size = new System.Drawing.Size(44, 22);
             this.tsbQuote.Text = "Quote";
+            this.tsbQuote.Click += new System.EventHandler(this.tsbQuote_Click);
             // 
             // tsbCopy
             // 
@@ -87,15 +89,7 @@
             this.tsbCopy.Name = "tsbCopy";
             this.tsbCopy.Size = new System.Drawing.Size(39, 22);
             this.tsbCopy.Text = "Copy";
-            // 
-            // tsbPaste
-            // 
-            this.tsbPaste.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbPaste.Image = ((System.Drawing.Image)(resources.GetObject("tsbPaste.Image")));
-            this.tsbPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbPaste.Name = "tsbPaste";
-            this.tsbPaste.Size = new System.Drawing.Size(39, 22);
-            this.tsbPaste.Text = "Paste";
+            this.tsbCopy.Click += new System.EventHandler(this.tsbCopy_Click);
             // 
             // tsbSo
             // 
@@ -114,6 +108,7 @@
             this.tsbUpdate.Name = "tsbUpdate";
             this.tsbUpdate.Size = new System.Drawing.Size(49, 22);
             this.tsbUpdate.Text = "Update";
+            this.tsbUpdate.Click += new System.EventHandler(this.tsbUpdate_Click);
             // 
             // tsbViewSo
             // 
@@ -133,14 +128,14 @@
             this.tsbPrint.Size = new System.Drawing.Size(36, 22);
             this.tsbPrint.Text = "Print";
             // 
-            // tsbClose
+            // tsbCloseRfq
             // 
-            this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
-            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(40, 22);
-            this.tsbClose.Text = "Close";
+            this.tsbCloseRfq.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbCloseRfq.Image = ((System.Drawing.Image)(resources.GetObject("tsbCloseRfq.Image")));
+            this.tsbCloseRfq.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCloseRfq.Name = "tsbCloseRfq";
+            this.tsbCloseRfq.Size = new System.Drawing.Size(65, 22);
+            this.tsbCloseRfq.Text = "Close RFQ";
             // 
             // rfqItems1
             // 
@@ -149,6 +144,15 @@
             this.rfqItems1.Name = "rfqItems1";
             this.rfqItems1.Size = new System.Drawing.Size(912, 555);
             this.rfqItems1.TabIndex = 1;
+            // 
+            // tsbClose
+            // 
+            this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
+            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbClose.Name = "tsbClose";
+            this.tsbClose.Size = new System.Drawing.Size(40, 22);
+            this.tsbClose.Text = "Close";
             // 
             // RFQView
             // 
@@ -159,6 +163,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "RFQView";
             this.Text = "RFQView";
+            this.Load += new System.EventHandler(this.RFQView_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -173,11 +178,11 @@
         private System.Windows.Forms.ToolStripButton tsbQuote;
         private System.Windows.Forms.ToolStripButton tsbUpdate;
         private System.Windows.Forms.ToolStripButton tsbCopy;
-        private System.Windows.Forms.ToolStripButton tsbPaste;
         private System.Windows.Forms.ToolStripButton tsbSo;
         private System.Windows.Forms.ToolStripButton tsbViewSo;
         private System.Windows.Forms.ToolStripButton tsbPrint;
+        private System.Windows.Forms.ToolStripButton tsbCloseRfq;
+        private SalesRfqItems rfqItems1;
         private System.Windows.Forms.ToolStripButton tsbClose;
-        private RfqItems rfqItems1;
     }
 }

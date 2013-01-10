@@ -1,31 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 using AmbleAppServer.RfqMgr;
 
-namespace AmbleClient.Sales
+namespace AmbleClient.RfqGui
 {
-    public partial class RfqItems : UserControl
+    public class SalesNewRfqItems:RfqItems
     {
-        List<int> mySubs;
-        
-        public RfqItems()
-        {
-            InitializeComponent();
-        }
 
-        private void RfqItems_Load(object sender, EventArgs e)
-        {
-            
+        public SalesNewRfqItems()
+        { 
+        
         }
-        public bool SaveInfo()
+ 
+    public bool SaveInfo()
         {
-            CheckItems();
+            base.CheckItems();
             
             Rfq rfq=new Rfq();
                         rfq.customerName = tbCustomer.Text.Trim();
@@ -99,7 +90,7 @@ namespace AmbleClient.Sales
             }
             rfq.infoToCustomer = tbToCustomer.Text;
             rfq.infoToInternal = tbToInternal.Text;
-            rfq.routingHistory = UserInfo.UserName.ToString() + "   Create the RFQ\n";
+            rfq.routingHistory =DateTime.Now.ToShortDateString()+":"+UserInfo.UserName.ToString() + ":Create the RFQ\n";
             
 
           return  GlobalRemotingClient.GetRfqMgr().SaveRfq(rfq);
@@ -108,7 +99,7 @@ namespace AmbleClient.Sales
            // rfq.salesId
         }
 
-        public void NewRfqFill()
+    public void NewRfqFill()
         {
             cbCloseReason.Enabled = false;
             tbRfqDate.ReadOnly = true; tbRfqDate.Enabled = false;
@@ -119,6 +110,26 @@ namespace AmbleClient.Sales
             tbPhone.Clear();
             tbFax.Clear();
             tbEmail.Clear();
+            cbPriority.SelectedIndex = -1;
+            cbRohs.Checked = false;
+            tbPartNo.Clear();
+            tbMfg.Clear();
+            tbDc.Clear();
+            tbCustPartNo.Clear();
+            tbGenPartNo.Clear();
+            tbAlt.Clear();
+            tbQuantity.Clear();
+            tbPartNo.Clear();
+            tbTargetPrice.Clear();
+            tbResale.Clear();
+            tbCost.Clear();
+            tbPrimaryPA.Clear();
+            tbAltPA.Clear();
+            cbCloseReason.SelectedIndex = -1;
+            tbToCustomer.Clear();
+            tbToInternal.Clear();
+            tbRoutingHistory.Clear();
+
             
         //Fill the cbSale;
             //获得下级号和名字
@@ -133,24 +144,5 @@ namespace AmbleClient.Sales
 
         }
 
-
-        public void FillTheTable()
-        { }
-
-
-
-        public void CheckItems()
-        { }
-
-        public void UpdateInfo()
-        { }
-
-        public void RouteRfq()
-        { }
-
-
-
-
-    
-    }
+   }
 }

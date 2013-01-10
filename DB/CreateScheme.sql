@@ -66,26 +66,20 @@ packaging VARCHAR(255),
 targetPrice FLOAT,
 resale FLOAT,
 cost FLOAT,
-firstPA SMALLINT,
+firstPA SMALLINT,`rfq`
 secondPA SMALLINT,
-rfqStates TINYINT, /*0 new : 1 routed 2,Route 3,Quote 4, closed 5, has SO, 6 SO Approved*/
+rfqStates TINYINT, /*0 new : 1,Route 2,Quote 3, closed 4, has SO, 5 SO Approved*/
 infoToCustomer MEDIUMTEXT,
 infoToInternal MEDIUMTEXT,
-routingHistory MEDIUMTEXT
+routingHistory MEDIUMTEXT,
+closeReason TINYINT  /*0 Price to high;1 L/T too long; 2 D/C too old; 3 Packing issue; 4 Demand gone; 5 Others*/
 );
 
 
-
-CREATE TABLE rfqInfoAndHistory
-(
-
-infoToCustomer MEDIUMTEXT,
-infoToInternal MEDIUMTEXT,
-routingHistory MEDIUMTEXT
-);
+SELECT * FROM rfq
 
 CREATE TABLE rfqCopy(
-saleId SMALLINT PRIMARY KEY,
+salesId SMALLINT PRIMARY KEY,
 rfqNo INT
 );
 

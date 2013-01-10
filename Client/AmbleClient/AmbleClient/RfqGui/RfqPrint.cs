@@ -7,19 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace AmbleClient.Sales
+namespace AmbleClient.RfqGui
 {
-    public partial class RFQView : Form
+    public partial class RfqPrint : Form
     {
-        int rfqId;
-        public RFQView(int rfqId)
+        public RfqPrint()
         {
             InitializeComponent();
-            this.rfqId = rfqId;
-        
         }
 
+        private void RfqPrint_Load(object sender, EventArgs e)
+        {
 
-
+            this.reportViewer1.RefreshReport();
+        }
     }
 }

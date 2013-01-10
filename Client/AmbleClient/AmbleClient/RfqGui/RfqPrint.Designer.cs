@@ -1,4 +1,4 @@
-﻿namespace AmbleClient.Sales
+﻿namespace AmbleClient.RfqGui
 {
     partial class RfqPrint
     {

@@ -18,10 +18,12 @@ C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.custVend
 C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.custVendor.ModifyCustomerVendor.resources
 C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Settings.PasswordChange.resources
 C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Finances.FinancesView.resources
-C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Sales.RFQView.resources
-C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Sales.RfqItems.resources
-C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Sales.RFQListView.resources
-C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Sales.RfqPrint.resources
 C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\RdlCompile.cache
 C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\RdlCompile.compiled
-C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Sales.NewRfq.resources
+C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.NewRfq.resources
+C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.RfqItems.resources
+C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.RFQListView.resources
+C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.RfqPrint.resources
+C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.RFQView.resources
+C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.BuyerManagerRfqListView.resources
+C:\My Work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.BuyerRfqListView.resources

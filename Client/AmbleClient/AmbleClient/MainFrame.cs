@@ -76,9 +76,27 @@ namespace AmbleClient
 
         private void rFQViewNewSOToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Sales.RFQListView rfqView = new Sales.RFQListView();
+            RfqGui.SalesRfqListView rfqView = new RfqGui.SalesRfqListView();
             rfqView.MdiParent = this;
             rfqView.Show();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (UserInfo.Job == (int)JobDescription.buyer)
+            {
+                RfqGui.BuyerRfqListView rfqView = new RfqGui.BuyerRfqListView();
+                rfqView.MdiParent = this;
+                rfqView.Show();
+            }
+            else
+            {
+                RfqGui.BuyerManagerRfqListView rfqView = new RfqGui.BuyerManagerRfqListView();
+                rfqView.MdiParent = this;
+                rfqView.Show();
+            }
+
+
         }
     }
 }

@@ -35,15 +35,16 @@
             this.sOViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buyersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendorManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.financesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.assignCustomerVendorNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.warehousesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewEditAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.assignCustomerVendorNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,7 +77,7 @@
             // customerManagermentToolStripMenuItem
             // 
             this.customerManagermentToolStripMenuItem.Name = "customerManagermentToolStripMenuItem";
-            this.customerManagermentToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.customerManagermentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.customerManagermentToolStripMenuItem.Text = "Customer Info";
             this.customerManagermentToolStripMenuItem.Click += new System.EventHandler(this.customerManagermentToolStripMenuItem_Click);
             // 
@@ -90,12 +91,13 @@
             // sOViewToolStripMenuItem
             // 
             this.sOViewToolStripMenuItem.Name = "sOViewToolStripMenuItem";
-            this.sOViewToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.sOViewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.sOViewToolStripMenuItem.Text = "SO";
             // 
             // buyersToolStripMenuItem
             // 
             this.buyersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
             this.vendorManagementToolStripMenuItem,
             this.pOToolStripMenuItem});
             this.buyersToolStripMenuItem.Name = "buyersToolStripMenuItem";
@@ -109,6 +111,12 @@
             this.vendorManagementToolStripMenuItem.Text = "Vendor Management";
             this.vendorManagementToolStripMenuItem.Click += new System.EventHandler(this.vendorManagementToolStripMenuItem_Click);
             // 
+            // pOToolStripMenuItem
+            // 
+            this.pOToolStripMenuItem.Name = "pOToolStripMenuItem";
+            this.pOToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.pOToolStripMenuItem.Text = "PO";
+            // 
             // financesToolStripMenuItem
             // 
             this.financesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -116,6 +124,13 @@
             this.financesToolStripMenuItem.Name = "financesToolStripMenuItem";
             this.financesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.financesToolStripMenuItem.Text = "Finances";
+            // 
+            // assignCustomerVendorNumberToolStripMenuItem
+            // 
+            this.assignCustomerVendorNumberToolStripMenuItem.Name = "assignCustomerVendorNumberToolStripMenuItem";
+            this.assignCustomerVendorNumberToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
+            this.assignCustomerVendorNumberToolStripMenuItem.Text = "Assign customer/Vendor Number";
+            this.assignCustomerVendorNumberToolStripMenuItem.Click += new System.EventHandler(this.assignCustomerVendorNumberToolStripMenuItem_Click);
             // 
             // warehousesToolStripMenuItem
             // 
@@ -159,18 +174,12 @@
             this.helpToolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem1.Text = "Help";
             // 
-            // assignCustomerVendorNumberToolStripMenuItem
+            // toolStripMenuItem1
             // 
-            this.assignCustomerVendorNumberToolStripMenuItem.Name = "assignCustomerVendorNumberToolStripMenuItem";
-            this.assignCustomerVendorNumberToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
-            this.assignCustomerVendorNumberToolStripMenuItem.Text = "Assign customer/Vendor Number";
-            this.assignCustomerVendorNumberToolStripMenuItem.Click += new System.EventHandler(this.assignCustomerVendorNumberToolStripMenuItem_Click);
-            // 
-            // pOToolStripMenuItem
-            // 
-            this.pOToolStripMenuItem.Name = "pOToolStripMenuItem";
-            this.pOToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.pOToolStripMenuItem.Text = "PO";
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
+            this.toolStripMenuItem1.Text = "RFQ";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // MainFrame
             // 
@@ -210,5 +219,6 @@
         private System.Windows.Forms.ToolStripMenuItem vendorManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem assignCustomerVendorNumberToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pOToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }

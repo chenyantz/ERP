@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using AmbleAppServer.RfqMgr;
 
-namespace AmbleClient.Sales
+namespace AmbleClient.RfqGui
 {
     public partial class RFQListView : Form
     {
@@ -101,8 +101,9 @@ namespace AmbleClient.Sales
                      dr["resale"].ToString(),
                      dr["cost"].ToString(),
                      dr["customerName"].ToString(),
+                    // DateTime.Parse(dr["rfqDate"].ToString()).ToShortDateString(),
                      dr["rfqDate"].ToString(),
-                     dr["salesId"]==DBNull.Value? null:idToName[Convert.ToInt32(dr["salesId"])],
+                    dr["salesId"]==DBNull.Value? null:idToName[Convert.ToInt32(dr["salesId"])],
                      dr["rfqState"].ToString(),
                      (dr["rohs"]==DBNull.Value|| Convert.ToInt32(dr["rohs"])==0)? 0:1,
                      dr["alt"].ToString()
@@ -214,7 +215,9 @@ namespace AmbleClient.Sales
 
         }
 
-        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
             //get the rfqId, the primary key
@@ -223,7 +226,6 @@ namespace AmbleClient.Sales
 
             RFQView rfqView = new RFQView(rfqId);
             rfqView.ShowDialog();
-
         }
 
 

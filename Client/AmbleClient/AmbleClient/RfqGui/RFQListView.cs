@@ -54,19 +54,35 @@ namespace AmbleClient.RfqGui
             }
         }
 
+        public virtual int GetPageCount(int itemsPerPage, string filterColumn, string filterString, bool includeSubs)
+        {
 
 
+            return 0;
+        }
+
+        public virtual DataTable GetDataTableAccordingToPageNumber(int itemsPerPage, int currentPage, string filterColumn, string filterString, bool includeSubs)
+        {
+
+            return null;
+        }
+            
 
         private void CountPageAndShowDataGridView()
         {
             if (tscbAllOrMine.SelectedIndex == 0)
             {
-                totalPage = GlobalRemotingClient.GetRfqMgr().GetThePageCountOfDataTable(this.itemsPerPage, UserInfo.UserId, this.filterColumn, this.filterString);
+                //totalPage = GlobalRemotingClient.GetRfqMgr().GetThePageCountOfDataTable(this.itemsPerPage, UserInfo.UserId, this.filterColumn, this.filterString);
+                totalPage = GetPageCount(this.itemsPerPage, this.filterColumn, this.filterString, true);
+
+            
             }
             else if (tscbAllOrMine.SelectedIndex == 1)
             {
-                totalPage = GlobalRemotingClient.GetRfqMgr().GetThePageCountOfDataTablePerSale(this.itemsPerPage, UserInfo.UserId, this.filterColumn, this.filterString);
-             }
+               // totalPage = GlobalRemotingClient.GetRfqMgr().GetThePageCountOfDataTablePerSale(this.itemsPerPage, UserInfo.UserId, this.filterColumn, this.filterString);
+                totalPage = GetPageCount(this.itemsPerPage, this.filterColumn, this.filterString, false);
+            
+            }
             tslCount.Text = "/ {"+totalPage+"}";
             tstbCurrentPage.Text = "0";
             BindTheDataToDataGridView();
@@ -78,11 +94,13 @@ namespace AmbleClient.RfqGui
            
             if (tscbAllOrMine.SelectedIndex == 0)
             {
-                tableCurrentPage = GlobalRemotingClient.GetRfqMgr().GetICanSeeRfqDataTableAccordingToPageNumber(UserInfo.UserId, currentPage, this.itemsPerPage, filterColumn, filterString);
+                //tableCurrentPage = GlobalRemotingClient.GetRfqMgr().GetICanSeeRfqDataTableAccordingToPageNumber(UserInfo.UserId, currentPage, this.itemsPerPage, filterColumn, filterString);
+                tableCurrentPage = GetDataTableAccordingToPageNumber(itemsPerPage, currentPage, filterColumn, filterString, true);
             }
             else if (tscbAllOrMine.SelectedIndex == 1)
             {
-                tableCurrentPage = GlobalRemotingClient.GetRfqMgr().GetMyRfqDataTableAccordingToPageNumber(UserInfo.UserId, currentPage, this.itemsPerPage, filterColumn, filterString);
+               // tableCurrentPage = GlobalRemotingClient.GetRfqMgr().GetMyRfqDataTableAccordingToPageNumber(UserInfo.UserId, currentPage, this.itemsPerPage, filterColumn, filterString);
+                tableCurrentPage = GetDataTableAccordingToPageNumber(itemsPerPage, currentPage, filterColumn, filterString, false);
             }
             else
             { 

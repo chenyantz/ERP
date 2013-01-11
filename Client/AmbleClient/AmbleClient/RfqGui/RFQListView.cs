@@ -19,6 +19,8 @@ namespace AmbleClient.RfqGui
         Dictionary<int,string> idToName=new Dictionary<int,string>();
         int currentPage=0;
         int totalPage=0;
+
+        List<RfqStatesEnum> rfqStatesSelected = new List<RfqStatesEnum>();
         
         
         
@@ -40,6 +42,7 @@ namespace AmbleClient.RfqGui
             tscbAllOrMine.SelectedIndex = 0;
             tscbAllOrMine.SelectedIndexChanged += tscbAllOrMine_SelectedIndexChanged;
             FillTheIdNameDict();
+            GetRfqStatesSelected();
             CountPageAndShowDataGridView();
         }
 
@@ -54,14 +57,14 @@ namespace AmbleClient.RfqGui
             }
         }
 
-        public virtual int GetPageCount(int itemsPerPage, string filterColumn, string filterString, bool includeSubs)
+        public virtual int GetPageCount(int itemsPerPage, string filterColumn, string filterString,List<RfqStatesEnum> selections,bool includeSubs)
         {
 
 
             return 0;
         }
 
-        public virtual DataTable GetDataTableAccordingToPageNumber(int itemsPerPage, int currentPage, string filterColumn, string filterString, bool includeSubs)
+        public virtual DataTable GetDataTableAccordingToPageNumber(int itemsPerPage, int currentPage, string filterColumn, string filterString,List<RfqStatesEnum> selections, bool includeSubs)
         {
 
             return null;
@@ -73,14 +76,14 @@ namespace AmbleClient.RfqGui
             if (tscbAllOrMine.SelectedIndex == 0)
             {
                 //totalPage = GlobalRemotingClient.GetRfqMgr().GetThePageCountOfDataTable(this.itemsPerPage, UserInfo.UserId, this.filterColumn, this.filterString);
-                totalPage = GetPageCount(this.itemsPerPage, this.filterColumn, this.filterString, true);
+                totalPage = GetPageCount(this.itemsPerPage, this.filterColumn, this.filterString,rfqStatesSelected, true);
 
             
             }
             else if (tscbAllOrMine.SelectedIndex == 1)
             {
                // totalPage = GlobalRemotingClient.GetRfqMgr().GetThePageCountOfDataTablePerSale(this.itemsPerPage, UserInfo.UserId, this.filterColumn, this.filterString);
-                totalPage = GetPageCount(this.itemsPerPage, this.filterColumn, this.filterString, false);
+                totalPage = GetPageCount(this.itemsPerPage, this.filterColumn, this.filterString,rfqStatesSelected, false);
             
             }
             tslCount.Text = "/ {"+totalPage+"}";
@@ -122,7 +125,7 @@ namespace AmbleClient.RfqGui
                     // DateTime.Parse(dr["rfqDate"].ToString()).ToShortDateString(),
                      dr["rfqDate"].ToString(),
                     dr["salesId"]==DBNull.Value? null:idToName[Convert.ToInt32(dr["salesId"])],
-                     dr["rfqState"].ToString(),
+                     dr["rfqStates"].ToString(),
                      (dr["rohs"]==DBNull.Value|| Convert.ToInt32(dr["rohs"])==0)? 0:1,
                      dr["alt"].ToString()
                     );
@@ -246,6 +249,34 @@ namespace AmbleClient.RfqGui
             rfqView.ShowDialog();
         }
 
+        private void tscbAllOrMine_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void rfqStatesSelectedChanged(object sender, EventArgs e)
+        {
+            GetRfqStatesSelected();
+            CountPageAndShowDataGridView();
+
+        }
+        private void GetRfqStatesSelected()
+        {
+            rfqStatesSelected.Clear();
+            if (cbNew.Checked)
+                rfqStatesSelected.Add(RfqStatesEnum.New);
+            if (cbRouted.Checked)
+                rfqStatesSelected.Add(RfqStatesEnum.Routed);
+            if (cbQuoted.Checked)
+                rfqStatesSelected.Add(RfqStatesEnum.Quoted);
+            if (cbHasSo.Checked)
+                rfqStatesSelected.Add(RfqStatesEnum.HasSO);
+            if (cbSoApproved.Checked)
+                rfqStatesSelected.Add(RfqStatesEnum.SoApproved);
+            if (cbClosed.Checked)
+                rfqStatesSelected.Add(RfqStatesEnum.Closed);
+        
+        }
 
 
 

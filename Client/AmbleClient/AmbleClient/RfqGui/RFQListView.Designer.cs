@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RFQListView));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.tsbNewRfq = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -58,7 +58,6 @@
             this.RfqStates = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rohs = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Alt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbMoveFirst = new System.Windows.Forms.ToolStripButton();
             this.tsbMovePre = new System.Windows.Forms.ToolStripButton();
             this.tstbCurrentPage = new System.Windows.Forms.ToolStripTextBox();
@@ -69,9 +68,18 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
             this.tsbSet = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.cbClosed = new System.Windows.Forms.CheckBox();
+            this.cbSoApproved = new System.Windows.Forms.CheckBox();
+            this.cbHasSo = new System.Windows.Forms.CheckBox();
+            this.cbQuoted = new System.Windows.Forms.CheckBox();
+            this.cbRouted = new System.Windows.Forms.CheckBox();
+            this.cbNew = new System.Windows.Forms.CheckBox();
             this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip2
@@ -101,7 +109,7 @@
             this.tsbNewRfq.Image = ((System.Drawing.Image)(resources.GetObject("tsbNewRfq.Image")));
             this.tsbNewRfq.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNewRfq.Name = "tsbNewRfq";
-            this.tsbNewRfq.Size = new System.Drawing.Size(60, 22);
+            this.tsbNewRfq.Size = new System.Drawing.Size(65, 22);
             this.tsbNewRfq.Text = "New RFQ";
             this.tsbNewRfq.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -113,7 +121,7 @@
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(28, 22);
+            this.toolStripLabel2.Size = new System.Drawing.Size(29, 22);
             this.toolStripLabel2.Text = "List:";
             // 
             // tscbAllOrMine
@@ -128,6 +136,7 @@
             this.tscbAllOrMine.Name = "tscbAllOrMine";
             this.tscbAllOrMine.Size = new System.Drawing.Size(125, 25);
             this.tscbAllOrMine.SelectedIndexChanged += new System.EventHandler(this.tscbAllOrMine_SelectedIndexChanged);
+            this.tscbAllOrMine.Click += new System.EventHandler(this.tscbAllOrMine_Click);
             // 
             // toolStripSeparator3
             // 
@@ -137,7 +146,7 @@
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(52, 22);
+            this.toolStripLabel3.Size = new System.Drawing.Size(56, 22);
             this.toolStripLabel3.Text = "Filter By:";
             // 
             // toolStripComboBox1
@@ -152,7 +161,7 @@
             // toolStripLabel4
             // 
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(70, 22);
+            this.toolStripLabel4.Size = new System.Drawing.Size(76, 22);
             this.toolStripLabel4.Text = "Filter String:";
             // 
             // toolStripTextBox1
@@ -166,7 +175,7 @@
             this.tsbApply.Image = ((System.Drawing.Image)(resources.GetObject("tsbApply.Image")));
             this.tsbApply.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbApply.Name = "tsbApply";
-            this.tsbApply.Size = new System.Drawing.Size(42, 22);
+            this.tsbApply.Size = new System.Drawing.Size(44, 22);
             this.tsbApply.Text = "Apply";
             this.tsbApply.Click += new System.EventHandler(this.tsbApply_Click);
             // 
@@ -176,7 +185,7 @@
             this.tsbClear.Image = ((System.Drawing.Image)(resources.GetObject("tsbClear.Image")));
             this.tsbClear.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClear.Name = "tsbClear";
-            this.tsbClear.Size = new System.Drawing.Size(38, 22);
+            this.tsbClear.Size = new System.Drawing.Size(41, 22);
             this.tsbClear.Text = "Clear";
             this.tsbClear.Click += new System.EventHandler(this.tsbClear_Click);
             // 
@@ -192,14 +201,14 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PartNo,
@@ -214,27 +223,27 @@
             this.RfqStates,
             this.Rohs,
             this.Alt});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 53);
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 78);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1070, 436);
+            this.dataGridView1.Size = new System.Drawing.Size(1070, 373);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
@@ -311,32 +320,13 @@
             this.Alt.Name = "Alt";
             this.Alt.ReadOnly = true;
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbMoveFirst,
-            this.tsbMovePre,
-            this.tstbCurrentPage,
-            this.tslCount,
-            this.tsbMoveNext,
-            this.tsbMoveLast,
-            this.toolStripSeparator4,
-            this.toolStripLabel1,
-            this.toolStripTextBox2,
-            this.tsbSet});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 25);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1082, 25);
-            this.toolStrip1.TabIndex = 5;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
             // tsbMoveFirst
             // 
             this.tsbMoveFirst.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbMoveFirst.Image = ((System.Drawing.Image)(resources.GetObject("tsbMoveFirst.Image")));
             this.tsbMoveFirst.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbMoveFirst.Name = "tsbMoveFirst";
-            this.tsbMoveFirst.Size = new System.Drawing.Size(30, 22);
+            this.tsbMoveFirst.Size = new System.Drawing.Size(32, 22);
             this.tsbMoveFirst.Text = "|<<";
             this.tsbMoveFirst.Click += new System.EventHandler(this.tsbMoveFirst_Click);
             // 
@@ -360,7 +350,7 @@
             // tslCount
             // 
             this.tslCount.Name = "tslCount";
-            this.tslCount.Size = new System.Drawing.Size(29, 22);
+            this.tslCount.Size = new System.Drawing.Size(31, 22);
             this.tslCount.Text = "/ {0}";
             this.tslCount.Click += new System.EventHandler(this.tslCount_Click);
             // 
@@ -380,7 +370,7 @@
             this.tsbMoveLast.Image = ((System.Drawing.Image)(resources.GetObject("tsbMoveLast.Image")));
             this.tsbMoveLast.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbMoveLast.Name = "tsbMoveLast";
-            this.tsbMoveLast.Size = new System.Drawing.Size(30, 22);
+            this.tsbMoveLast.Size = new System.Drawing.Size(32, 22);
             this.tsbMoveLast.Text = ">>|";
             this.tsbMoveLast.Click += new System.EventHandler(this.tsbMoveLast_Click);
             // 
@@ -392,7 +382,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(88, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(98, 22);
             this.toolStripLabel1.Text = "Items Per Page:";
             // 
             // toolStripTextBox2
@@ -407,15 +397,122 @@
             this.tsbSet.Image = ((System.Drawing.Image)(resources.GetObject("tsbSet.Image")));
             this.tsbSet.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSet.Name = "tsbSet";
-            this.tsbSet.Size = new System.Drawing.Size(27, 22);
+            this.tsbSet.Size = new System.Drawing.Size(29, 22);
             this.tsbSet.Text = "Set";
             this.tsbSet.Click += new System.EventHandler(this.tsbSet_Click);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbMoveFirst,
+            this.tsbMovePre,
+            this.tstbCurrentPage,
+            this.tslCount,
+            this.tsbMoveNext,
+            this.tsbMoveLast,
+            this.toolStripSeparator4,
+            this.toolStripLabel1,
+            this.toolStripTextBox2,
+            this.tsbSet});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 50);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(345, 25);
+            this.toolStrip1.TabIndex = 5;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.cbClosed);
+            this.panel1.Controls.Add(this.cbSoApproved);
+            this.panel1.Controls.Add(this.cbHasSo);
+            this.panel1.Controls.Add(this.cbQuoted);
+            this.panel1.Controls.Add(this.cbRouted);
+            this.panel1.Controls.Add(this.cbNew);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 25);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1082, 25);
+            this.panel1.TabIndex = 6;
+            // 
+            // cbClosed
+            // 
+            this.cbClosed.AutoSize = true;
+            this.cbClosed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbClosed.Location = new System.Drawing.Point(390, 3);
+            this.cbClosed.Name = "cbClosed";
+            this.cbClosed.Size = new System.Drawing.Size(64, 19);
+            this.cbClosed.TabIndex = 5;
+            this.cbClosed.Text = "Closed";
+            this.cbClosed.UseVisualStyleBackColor = true;
+            this.cbClosed.CheckStateChanged += new System.EventHandler(this.rfqStatesSelectedChanged);
+            // 
+            // cbSoApproved
+            // 
+            this.cbSoApproved.AutoSize = true;
+            this.cbSoApproved.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSoApproved.Location = new System.Drawing.Point(287, 3);
+            this.cbSoApproved.Name = "cbSoApproved";
+            this.cbSoApproved.Size = new System.Drawing.Size(97, 19);
+            this.cbSoApproved.TabIndex = 4;
+            this.cbSoApproved.Text = "SO Approved";
+            this.cbSoApproved.UseVisualStyleBackColor = true;
+            this.cbSoApproved.CheckStateChanged += new System.EventHandler(this.rfqStatesSelectedChanged);
+            // 
+            // cbHasSo
+            // 
+            this.cbHasSo.AutoSize = true;
+            this.cbHasSo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbHasSo.Location = new System.Drawing.Point(213, 3);
+            this.cbHasSo.Name = "cbHasSo";
+            this.cbHasSo.Size = new System.Drawing.Size(68, 19);
+            this.cbHasSo.TabIndex = 3;
+            this.cbHasSo.Text = "Has SO";
+            this.cbHasSo.UseVisualStyleBackColor = true;
+            this.cbHasSo.CheckStateChanged += new System.EventHandler(this.rfqStatesSelectedChanged);
+            // 
+            // cbQuoted
+            // 
+            this.cbQuoted.AutoSize = true;
+            this.cbQuoted.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbQuoted.Location = new System.Drawing.Point(141, 3);
+            this.cbQuoted.Name = "cbQuoted";
+            this.cbQuoted.Size = new System.Drawing.Size(66, 19);
+            this.cbQuoted.TabIndex = 2;
+            this.cbQuoted.Text = "Quoted";
+            this.cbQuoted.UseVisualStyleBackColor = true;
+            this.cbQuoted.CheckStateChanged += new System.EventHandler(this.rfqStatesSelectedChanged);
+            // 
+            // cbRouted
+            // 
+            this.cbRouted.AutoSize = true;
+            this.cbRouted.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbRouted.Location = new System.Drawing.Point(69, 3);
+            this.cbRouted.Name = "cbRouted";
+            this.cbRouted.Size = new System.Drawing.Size(66, 19);
+            this.cbRouted.TabIndex = 1;
+            this.cbRouted.Text = "Routed";
+            this.cbRouted.UseVisualStyleBackColor = true;
+            this.cbRouted.CheckStateChanged += new System.EventHandler(this.rfqStatesSelectedChanged);
+            // 
+            // cbNew
+            // 
+            this.cbNew.AutoSize = true;
+            this.cbNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbNew.Location = new System.Drawing.Point(12, 3);
+            this.cbNew.Name = "cbNew";
+            this.cbNew.Size = new System.Drawing.Size(51, 19);
+            this.cbNew.TabIndex = 0;
+            this.cbNew.Text = "New";
+            this.cbNew.UseVisualStyleBackColor = true;
+            this.cbNew.CheckedChanged += new System.EventHandler(this.rfqStatesSelectedChanged);
+            // 
             // RFQListView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 488);
+            this.ClientSize = new System.Drawing.Size(1082, 450);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip2);
@@ -427,6 +524,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -460,7 +559,6 @@
         private System.Windows.Forms.ToolStripComboBox tscbAllOrMine;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbMoveFirst;
         private System.Windows.Forms.ToolStripButton tsbMovePre;
         private System.Windows.Forms.ToolStripTextBox tstbCurrentPage;
@@ -471,6 +569,14 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
         private System.Windows.Forms.ToolStripButton tsbSet;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.Panel panel1;
+        protected System.Windows.Forms.CheckBox cbNew;
+        protected System.Windows.Forms.CheckBox cbClosed;
+        protected System.Windows.Forms.CheckBox cbSoApproved;
+        protected System.Windows.Forms.CheckBox cbHasSo;
+        protected System.Windows.Forms.CheckBox cbQuoted;
+        protected System.Windows.Forms.CheckBox cbRouted;
 
 
     }

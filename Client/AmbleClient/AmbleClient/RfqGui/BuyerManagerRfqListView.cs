@@ -12,6 +12,17 @@ namespace AmbleClient.RfqGui
             tsbNewRfq.Enabled = false;
         }
 
+      public override int GetPageCount(int itemsPerPage, string filterColumn, string filterString, bool includeSubs)
+      {
 
+
+          return 0;
+
+      }
+
+
+
+
+        
     }
 }

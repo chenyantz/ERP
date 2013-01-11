@@ -39,4 +39,16 @@ namespace AmbleAppServer.RfqMgr
        public string infoToInternal;
        public string routingHistory;
    }
+
+    public enum RfqStatesEnum 
+    { 
+     New=0,
+     Routed=1,
+     Quoted=2,
+     HasSO=3,
+    SoApproved=4,
+    Closed=5
+    };
+
+
 }

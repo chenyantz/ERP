@@ -9,3 +9,13 @@ C:\My Work\ERP\Application\AmpleAppServer\ClientTest\bin\Debug\AmpleAppServer.ex
 C:\My Work\ERP\Application\AmpleAppServer\ClientTest\bin\Debug\AmpleAppServer.pdb
 C:\My Work\ERP\Application\AmpleAppServer\ClientTest\obj\x86\Debug\ClientTest.exe
 C:\My Work\ERP\Application\AmpleAppServer\ClientTest\obj\x86\Debug\ClientTest.pdb
+E:\My work\ERP\Application\AmpleAppServer\ClientTest\bin\Debug\ClientTest.exe
+E:\My work\ERP\Application\AmpleAppServer\ClientTest\bin\Debug\ClientTest.pdb
+E:\My work\ERP\Application\AmpleAppServer\ClientTest\bin\Debug\AmpleAppServer.exe
+E:\My work\ERP\Application\AmpleAppServer\ClientTest\bin\Debug\AmpleAppServer.pdb
+E:\My work\ERP\Application\AmpleAppServer\ClientTest\obj\x86\Debug\ClientTest.csprojResolveAssemblyReference.cache
+E:\My work\ERP\Application\AmpleAppServer\ClientTest\obj\x86\Debug\ClientTest.Form1.resources
+E:\My work\ERP\Application\AmpleAppServer\ClientTest\obj\x86\Debug\ClientTest.Properties.Resources.resources
+E:\My work\ERP\Application\AmpleAppServer\ClientTest\obj\x86\Debug\ClientTest.csproj.GenerateResource.Cache
+E:\My work\ERP\Application\AmpleAppServer\ClientTest\obj\x86\Debug\ClientTest.exe
+E:\My work\ERP\Application\AmpleAppServer\ClientTest\obj\x86\Debug\ClientTest.pdb

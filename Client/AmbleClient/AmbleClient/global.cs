@@ -41,7 +41,7 @@ namespace AmbleClient
             {
                 ChannelServices.RegisterChannel(new TcpClientChannel(), false);
                 mgr = (AccountMgr)Activator.GetObject(typeof(AccountMgr),
-               "tcp://192.168.15.103:1111/AccountMgr");
+               "tcp://localhost:1111/AccountMgr");
                 return mgr;
             }
             else
@@ -56,7 +56,7 @@ namespace AmbleClient
             if (cvMgr == null)
             {
                 cvMgr = (CustomerVendorMgr)Activator.GetObject(typeof(CustomerVendorMgr),
-                  "tcp://192.168.15.103:1111/CustomerVendorMgr");
+                  "tcp://localhost:1111/CustomerVendorMgr");
                 return cvMgr;
             }
             else
@@ -72,7 +72,7 @@ namespace AmbleClient
             if (rfqMgr == null)
             {
                 rfqMgr = (RfqMgr)Activator.GetObject(typeof(RfqMgr),
-                  "tcp://192.168.15.103:1111/RfqMgr");
+                  "tcp://localhost:1111/RfqMgr");
              
                 return rfqMgr;
             }

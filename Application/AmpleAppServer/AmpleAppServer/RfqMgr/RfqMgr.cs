@@ -128,6 +128,8 @@ namespace AmbleAppServer.RfqMgr
            return rfq;
        }
 
+
+       //for sales manager
         public int GetThePageCountOfDataTable(int itemsPerPage,int salesId,string filterColumn,string filterString)
         { int count=0;
                      //get the subs IDs include himself
@@ -143,6 +145,7 @@ namespace AmbleAppServer.RfqMgr
         
         }
 
+       //for sale
         public int GetThePageCountOfDataTablePerSale(int itemsPerPage,int salesId,string filterColumn,string filterString)
         { 
           //Get the account of dataset  of rfq
@@ -162,22 +165,23 @@ namespace AmbleAppServer.RfqMgr
          
         }
 
-
+       //for sales manager
         public DataTable GetMyRfqDataTableAccordingToPageNumber(int salesId, int pageNumber, int itemsPerPage, string filterColumn, string filterString)
         {
             string strSql;
            if ((!string.IsNullOrEmpty(filterColumn)) && (!(string.IsNullOrEmpty(filterString))))
             {
-                strSql = string.Format("select * from rfq r left join rfqStateRecord rsr on r.rfqNo=rsr.rfqNo where {0} like '%{1}%' and salesId={2} limit {3},{4}",filterColumn,filterString,salesId, pageNumber * itemsPerPage, itemsPerPage);
+                strSql = string.Format("select * from rfq where {0} like '%{1}%' and salesId={2} limit {3},{4}",filterColumn,filterString,salesId, pageNumber * itemsPerPage, itemsPerPage);
      
             }   
            else
            {
-               strSql= string.Format("select * from rfq r left join rfqStateRecord rsr on r.rfqNo=rsr.rfqNo where salesId={0} limit {1},{2}", salesId, pageNumber* itemsPerPage, itemsPerPage);
+               strSql= string.Format("select * from rfq where salesId={0} limit {1},{2}", salesId, pageNumber* itemsPerPage, itemsPerPage);
            }
             return  db.GetDataTable(strSql,"Table"+pageNumber);
         }
 
+       //for sale
         public DataTable GetICanSeeRfqDataTableAccordingToPageNumber(int salesId, int pageNumber, int itemsPerPage, string filterColumn, string filterString)
         {
             AmbleAppServer.AccountMgr.AccountMgr accountMgr = new AccountMgr.AccountMgr();
@@ -188,11 +192,11 @@ namespace AmbleAppServer.RfqMgr
 
             if ((!string.IsNullOrEmpty(filterColumn)) && (!(string.IsNullOrEmpty(filterString))))
             {
-                sb.Append(string.Format("select * from rfq r left join rfqStateRecord rsr on r.rfqNo=rsr.rfqNo where {0} like '%{1}%' and ( salesId={2}",filterColumn,filterString,subIds[0]));
+                sb.Append(string.Format("select * from rfq where {0} like '%{1}%' and ( salesId={2}",filterColumn,filterString,subIds[0]));
             }
             else
             {
-                sb.Append("select * from rfq r left join rfqStateRecord rsr on r.rfqNo=rsr.rfqNo where ( salesId=" + subIds[0]);
+                sb.Append("select * from rfq where ( salesId=" + subIds[0]);
             }
             
             if (subIds.Count() > 1)
@@ -205,6 +209,49 @@ namespace AmbleAppServer.RfqMgr
             return db.GetDataTable(sb.ToString(), "Table" + pageNumber);
 
         }
+
+       //for buyer Manager
+        public int BMGetThePageCountOfDataTable(int itemsPerPage,string filterColumn, string filterString)
+        {
+            //Get the account of dataset  of rfq
+            string strSql;
+            if ((!string.IsNullOrEmpty(filterColumn)) && (!(string.IsNullOrEmpty(filterString))))
+            {
+                strSql = string.Format("select count(*) from rfq where {0} like '%{1}%'", filterColumn, filterString);
+
+            }
+            else
+            {
+                strSql = "select count(*) from rfq ";
+            }
+            int count = Convert.ToInt32(db.GetSingleObject(strSql));
+            return (int)(Math.Ceiling((double)count / (double)itemsPerPage));
+        
+        }
+
+        public DataTable BMGetRfqDataTableAccordingToPageNumber(int pageNumber, int itemsPerPage, string filterColumn, string filterString)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            if ((!string.IsNullOrEmpty(filterColumn)) && (!(string.IsNullOrEmpty(filterString))))
+            {
+                //sb.Append(string.Format("select * from rfq where {0} like '%{1}%' and ( salesId={2}", filterColumn, filterString, subIds[0]));
+            }
+            else
+            {
+               // sb.Append("select * from rfq where ( salesId=" + subIds[0]);
+            }
+
+            sb.Append(string.Format(")  limit {0},{1}", pageNumber * itemsPerPage, itemsPerPage));
+
+            return db.GetDataTable(sb.ToString(), "Table" + pageNumber);
+        
+        }
+
+      //For buyer
+
+
+
 
         public void CopyRfq(int rfqNo,int salesId)
         {

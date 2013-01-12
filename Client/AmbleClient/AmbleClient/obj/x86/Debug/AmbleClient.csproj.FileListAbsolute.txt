@@ -57,3 +57,6 @@ E:\My work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\RdlCompile.cache
 E:\My work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\RdlCompile.compiled
 E:\My work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.BuyerManagerRfqView.resources
 E:\My work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.BuyerRfqView.resources
+E:\My work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Offer.NewOffer.resources
+E:\My work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Offer.OfferItems.resources
+E:\My work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Offer.OfferList.resources

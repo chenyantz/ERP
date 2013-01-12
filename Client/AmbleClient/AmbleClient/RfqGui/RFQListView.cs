@@ -292,6 +292,8 @@ namespace AmbleClient.RfqGui
                 rfqStatesSelected.Add(RfqStatesEnum.New);
             if (cbRouted.Checked)
                 rfqStatesSelected.Add(RfqStatesEnum.Routed);
+            if (cbOffered.Checked)
+                rfqStatesSelected.Add(RfqStatesEnum.Offered);
             if (cbQuoted.Checked)
                 rfqStatesSelected.Add(RfqStatesEnum.Quoted);
             if (cbHasSo.Checked)

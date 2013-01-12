@@ -44,10 +44,11 @@ namespace AmbleAppServer.RfqMgr
     { 
      New=0,
      Routed=1,
-     Quoted=2,
-     HasSO=3,
-    SoApproved=4,
-    Closed=5
+     Offered=2,
+     Quoted=3,
+     HasSO=4,
+    SoApproved=5,
+    Closed=6
     };
 
 

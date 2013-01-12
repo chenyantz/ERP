@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RFQListView));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.tsbNewRfq = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -46,6 +46,20 @@
             this.tsbClear = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.PartNo = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Mfg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Resale = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SalePerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RfqStates = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rohs = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Alt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrimaryPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AltPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsbMoveFirst = new System.Windows.Forms.ToolStripButton();
             this.tsbMovePre = new System.Windows.Forms.ToolStripButton();
             this.tstbCurrentPage = new System.Windows.Forms.ToolStripTextBox();
@@ -64,20 +78,7 @@
             this.cbQuoted = new System.Windows.Forms.CheckBox();
             this.cbRouted = new System.Windows.Forms.CheckBox();
             this.cbNew = new System.Windows.Forms.CheckBox();
-            this.PartNo = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Mfg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Resale = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SalePerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RfqStates = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rohs = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Alt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrimaryPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AltPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbOffered = new System.Windows.Forms.CheckBox();
             this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -203,14 +204,14 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PartNo,
@@ -227,30 +228,114 @@
             this.Alt,
             this.PrimaryPA,
             this.AltPA});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Location = new System.Drawing.Point(0, 78);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1070, 373);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // PartNo
+            // 
+            this.PartNo.HeaderText = "Part #";
+            this.PartNo.Name = "PartNo";
+            this.PartNo.ReadOnly = true;
+            // 
+            // Mfg
+            // 
+            this.Mfg.HeaderText = "Mgf";
+            this.Mfg.Name = "Mfg";
+            this.Mfg.ReadOnly = true;
+            // 
+            // Dc
+            // 
+            this.Dc.HeaderText = "D/C";
+            this.Dc.Name = "Dc";
+            this.Dc.ReadOnly = true;
+            // 
+            // Qty
+            // 
+            this.Qty.HeaderText = "Qty";
+            this.Qty.Name = "Qty";
+            this.Qty.ReadOnly = true;
+            // 
+            // Resale
+            // 
+            this.Resale.HeaderText = "Resale";
+            this.Resale.Name = "Resale";
+            this.Resale.ReadOnly = true;
+            // 
+            // Cost
+            // 
+            this.Cost.HeaderText = "Cost";
+            this.Cost.Name = "Cost";
+            this.Cost.ReadOnly = true;
+            // 
+            // Customer
+            // 
+            this.Customer.HeaderText = "Customer";
+            this.Customer.Name = "Customer";
+            this.Customer.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            // 
+            // SalePerson
+            // 
+            this.SalePerson.HeaderText = "S/P";
+            this.SalePerson.Name = "SalePerson";
+            this.SalePerson.ReadOnly = true;
+            // 
+            // RfqStates
+            // 
+            this.RfqStates.HeaderText = "RFQ States";
+            this.RfqStates.Name = "RfqStates";
+            this.RfqStates.ReadOnly = true;
+            // 
+            // Rohs
+            // 
+            this.Rohs.HeaderText = "RoHS";
+            this.Rohs.Name = "Rohs";
+            this.Rohs.ReadOnly = true;
+            // 
+            // Alt
+            // 
+            this.Alt.HeaderText = "Alt";
+            this.Alt.Name = "Alt";
+            this.Alt.ReadOnly = true;
+            // 
+            // PrimaryPA
+            // 
+            this.PrimaryPA.HeaderText = "Primary P/A";
+            this.PrimaryPA.Name = "PrimaryPA";
+            this.PrimaryPA.ReadOnly = true;
+            // 
+            // AltPA
+            // 
+            this.AltPA.HeaderText = "Alt P/A";
+            this.AltPA.Name = "AltPA";
+            this.AltPA.ReadOnly = true;
             // 
             // tsbMoveFirst
             // 
@@ -355,6 +440,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cbOffered);
             this.panel1.Controls.Add(this.cbClosed);
             this.panel1.Controls.Add(this.cbSoApproved);
             this.panel1.Controls.Add(this.cbHasSo);
@@ -371,7 +457,7 @@
             // 
             this.cbClosed.AutoSize = true;
             this.cbClosed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbClosed.Location = new System.Drawing.Point(390, 3);
+            this.cbClosed.Location = new System.Drawing.Point(463, 3);
             this.cbClosed.Name = "cbClosed";
             this.cbClosed.Size = new System.Drawing.Size(64, 19);
             this.cbClosed.TabIndex = 5;
@@ -383,7 +469,7 @@
             // 
             this.cbSoApproved.AutoSize = true;
             this.cbSoApproved.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSoApproved.Location = new System.Drawing.Point(287, 3);
+            this.cbSoApproved.Location = new System.Drawing.Point(351, 3);
             this.cbSoApproved.Name = "cbSoApproved";
             this.cbSoApproved.Size = new System.Drawing.Size(97, 19);
             this.cbSoApproved.TabIndex = 4;
@@ -395,7 +481,7 @@
             // 
             this.cbHasSo.AutoSize = true;
             this.cbHasSo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbHasSo.Location = new System.Drawing.Point(213, 3);
+            this.cbHasSo.Location = new System.Drawing.Point(277, 3);
             this.cbHasSo.Name = "cbHasSo";
             this.cbHasSo.Size = new System.Drawing.Size(68, 19);
             this.cbHasSo.TabIndex = 3;
@@ -407,7 +493,7 @@
             // 
             this.cbQuoted.AutoSize = true;
             this.cbQuoted.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbQuoted.Location = new System.Drawing.Point(141, 3);
+            this.cbQuoted.Location = new System.Drawing.Point(205, 3);
             this.cbQuoted.Name = "cbQuoted";
             this.cbQuoted.Size = new System.Drawing.Size(66, 19);
             this.cbQuoted.TabIndex = 2;
@@ -419,7 +505,7 @@
             // 
             this.cbRouted.AutoSize = true;
             this.cbRouted.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbRouted.Location = new System.Drawing.Point(69, 3);
+            this.cbRouted.Location = new System.Drawing.Point(61, 3);
             this.cbRouted.Name = "cbRouted";
             this.cbRouted.Size = new System.Drawing.Size(66, 19);
             this.cbRouted.TabIndex = 1;
@@ -439,89 +525,17 @@
             this.cbNew.UseVisualStyleBackColor = true;
             this.cbNew.CheckedChanged += new System.EventHandler(this.rfqStatesSelectedChanged);
             // 
-            // PartNo
+            // cbOffered
             // 
-            this.PartNo.HeaderText = "Part #";
-            this.PartNo.Name = "PartNo";
-            this.PartNo.ReadOnly = true;
-            // 
-            // Mfg
-            // 
-            this.Mfg.HeaderText = "Mgf";
-            this.Mfg.Name = "Mfg";
-            this.Mfg.ReadOnly = true;
-            // 
-            // Dc
-            // 
-            this.Dc.HeaderText = "D/C";
-            this.Dc.Name = "Dc";
-            this.Dc.ReadOnly = true;
-            // 
-            // Qty
-            // 
-            this.Qty.HeaderText = "Qty";
-            this.Qty.Name = "Qty";
-            this.Qty.ReadOnly = true;
-            // 
-            // Resale
-            // 
-            this.Resale.HeaderText = "Resale";
-            this.Resale.Name = "Resale";
-            this.Resale.ReadOnly = true;
-            // 
-            // Cost
-            // 
-            this.Cost.HeaderText = "Cost";
-            this.Cost.Name = "Cost";
-            this.Cost.ReadOnly = true;
-            // 
-            // Customer
-            // 
-            this.Customer.HeaderText = "Customer";
-            this.Customer.Name = "Customer";
-            this.Customer.ReadOnly = true;
-            // 
-            // Date
-            // 
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            // 
-            // SalePerson
-            // 
-            this.SalePerson.HeaderText = "S/P";
-            this.SalePerson.Name = "SalePerson";
-            this.SalePerson.ReadOnly = true;
-            // 
-            // RfqStates
-            // 
-            this.RfqStates.HeaderText = "RFQ States";
-            this.RfqStates.Name = "RfqStates";
-            this.RfqStates.ReadOnly = true;
-            // 
-            // Rohs
-            // 
-            this.Rohs.HeaderText = "RoHS";
-            this.Rohs.Name = "Rohs";
-            this.Rohs.ReadOnly = true;
-            // 
-            // Alt
-            // 
-            this.Alt.HeaderText = "Alt";
-            this.Alt.Name = "Alt";
-            this.Alt.ReadOnly = true;
-            // 
-            // PrimaryPA
-            // 
-            this.PrimaryPA.HeaderText = "Primary P/A";
-            this.PrimaryPA.Name = "PrimaryPA";
-            this.PrimaryPA.ReadOnly = true;
-            // 
-            // AltPA
-            // 
-            this.AltPA.HeaderText = "Alt P/A";
-            this.AltPA.Name = "AltPA";
-            this.AltPA.ReadOnly = true;
+            this.cbOffered.AutoSize = true;
+            this.cbOffered.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbOffered.Location = new System.Drawing.Point(133, 3);
+            this.cbOffered.Name = "cbOffered";
+            this.cbOffered.Size = new System.Drawing.Size(66, 19);
+            this.cbOffered.TabIndex = 6;
+            this.cbOffered.Text = "Offered";
+            this.cbOffered.UseVisualStyleBackColor = true;
+            this.cbOffered.CheckedChanged += new System.EventHandler(this.rfqStatesSelectedChanged);
             // 
             // RFQListView
             // 
@@ -595,6 +609,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Alt;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrimaryPA;
         private System.Windows.Forms.DataGridViewTextBoxColumn AltPA;
+        protected System.Windows.Forms.CheckBox cbOffered;
 
 
     }

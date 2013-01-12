@@ -67,6 +67,7 @@
             this.tsbOffer.Name = "tsbOffer";
             this.tsbOffer.Size = new System.Drawing.Size(75, 22);
             this.tsbOffer.Text = "Enter Offer";
+            this.tsbOffer.Click += new System.EventHandler(this.tsbOffer_Click);
             // 
             // tsbClose
             // 

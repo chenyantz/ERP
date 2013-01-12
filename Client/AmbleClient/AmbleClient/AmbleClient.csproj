@@ -111,6 +111,27 @@
     <Compile Include="MainFrame.Designer.cs">
       <DependentUpon>MainFrame.cs</DependentUpon>
     </Compile>
+    <Compile Include="Offer\BuyerOfferItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Offer\NewOffer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Offer\NewOffer.Designer.cs">
+      <DependentUpon>NewOffer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Offer\OfferItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Offer\OfferItems.Designer.cs">
+      <DependentUpon>OfferItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Offer\OfferList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Offer\OfferList.Designer.cs">
+      <DependentUpon>OfferList.cs</DependentUpon>
+    </Compile>
     <Compile Include="RfqGui\BuyerManagerRfqItems.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -208,6 +229,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainFrame.resx">
       <DependentUpon>MainFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Offer\NewOffer.resx">
+      <DependentUpon>NewOffer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Offer\OfferItems.resx">
+      <DependentUpon>OfferItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Offer\OfferList.resx">
+      <DependentUpon>OfferList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RfqGui\BuyerManagerRfqListView.resx">
       <DependentUpon>BuyerManagerRfqListView.cs</DependentUpon>

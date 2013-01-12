@@ -76,19 +76,27 @@ namespace AmbleClient.RfqGui
             if (tscbAllOrMine.SelectedIndex == 0)
             {
                 //totalPage = GlobalRemotingClient.GetRfqMgr().GetThePageCountOfDataTable(this.itemsPerPage, UserInfo.UserId, this.filterColumn, this.filterString);
-                totalPage = GetPageCount(this.itemsPerPage, this.filterColumn, this.filterString,rfqStatesSelected, true);
+                totalPage = GetPageCount(this.itemsPerPage, this.filterColumn, this.filterString,rfqStatesSelected,true);
 
             
             }
             else if (tscbAllOrMine.SelectedIndex == 1)
             {
                // totalPage = GlobalRemotingClient.GetRfqMgr().GetThePageCountOfDataTablePerSale(this.itemsPerPage, UserInfo.UserId, this.filterColumn, this.filterString);
-                totalPage = GetPageCount(this.itemsPerPage, this.filterColumn, this.filterString,rfqStatesSelected, false);
+                totalPage = GetPageCount(this.itemsPerPage, this.filterColumn, this.filterString,rfqStatesSelected,false);
             
             }
             tslCount.Text = "/ {"+totalPage+"}";
             tstbCurrentPage.Text = "0";
-            BindTheDataToDataGridView();
+
+            if (totalPage == 0)
+            {
+                dataGridView1.Rows.Clear();
+            }
+            else
+            {
+                BindTheDataToDataGridView();
+            }
         }
 
         private void BindTheDataToDataGridView()
@@ -98,22 +106,24 @@ namespace AmbleClient.RfqGui
             if (tscbAllOrMine.SelectedIndex == 0)
             {
                 //tableCurrentPage = GlobalRemotingClient.GetRfqMgr().GetICanSeeRfqDataTableAccordingToPageNumber(UserInfo.UserId, currentPage, this.itemsPerPage, filterColumn, filterString);
-                tableCurrentPage = GetDataTableAccordingToPageNumber(itemsPerPage, currentPage, filterColumn, filterString, true);
+                tableCurrentPage = GetDataTableAccordingToPageNumber(itemsPerPage, currentPage, filterColumn, filterString,rfqStatesSelected,true);
             }
             else if (tscbAllOrMine.SelectedIndex == 1)
             {
                // tableCurrentPage = GlobalRemotingClient.GetRfqMgr().GetMyRfqDataTableAccordingToPageNumber(UserInfo.UserId, currentPage, this.itemsPerPage, filterColumn, filterString);
-                tableCurrentPage = GetDataTableAccordingToPageNumber(itemsPerPage, currentPage, filterColumn, filterString, false);
+                tableCurrentPage = GetDataTableAccordingToPageNumber(itemsPerPage, currentPage, filterColumn, filterString,rfqStatesSelected,false);
             }
             else
             { 
               //for further use
                 return;
             }
-
+            if (tableCurrentPage == null)
+                return;
 
             foreach(DataRow dr in tableCurrentPage.Rows)
             {
+                Enum.GetName(typeof(RfqStatesEnum), 0);
                 dataGridView1.Rows.Add
                     (dr["partNo"].ToString(),
                      dr["mfg"].ToString(),
@@ -125,9 +135,12 @@ namespace AmbleClient.RfqGui
                     // DateTime.Parse(dr["rfqDate"].ToString()).ToShortDateString(),
                      dr["rfqDate"].ToString(),
                     dr["salesId"]==DBNull.Value? null:idToName[Convert.ToInt32(dr["salesId"])],
-                     dr["rfqStates"].ToString(),
+                     //dr["rfqStates"].ToString(),
+                      Enum.GetName(typeof(RfqStatesEnum),Convert.ToInt32(dr["rfqStates"])),
                      (dr["rohs"]==DBNull.Value|| Convert.ToInt32(dr["rohs"])==0)? 0:1,
-                     dr["alt"].ToString()
+                     dr["alt"].ToString(),
+                    dr["firstPA"] == DBNull.Value ? null : idToName[Convert.ToInt32(dr["firstPA"])],
+                    dr["secondPA"] == DBNull.Value ? null : idToName[Convert.ToInt32(dr["secondPA"])]
                     );
 
              }
@@ -241,13 +254,25 @@ namespace AmbleClient.RfqGui
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
+            if (rowIndex < 0)
+                return;
             //get the rfqId, the primary key
             DataRow dr = tableCurrentPage.Rows[rowIndex];
             int rfqId = Convert.ToInt32(dr["rfqNo"]);
 
-            RFQView rfqView = new RFQView(rfqId);
-            rfqView.ShowDialog();
+            CellDoubleClickShow(rfqId);
+           // RFQView rfqView = new RFQView(rfqId);
+           // rfqView.ShowDialog();
         }
+
+        public virtual void CellDoubleClickShow(int rfqId)
+        { 
+        
+        
+        }
+
+
+
 
         private void tscbAllOrMine_Click(object sender, EventArgs e)
         {

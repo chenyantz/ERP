@@ -40,11 +40,11 @@ namespace AmbleClient.RfqGui
            
             if (includeSubs)
             {
-                return GlobalRemotingClient.GetRfqMgr().GetThePageCountOfDataTable(itemsPerPage, UserInfo.UserId,filterColumn,filterString);
+                return GlobalRemotingClient.GetRfqMgr().GetThePageCountOfDataTable(itemsPerPage, UserInfo.UserId,filterColumn,filterString,selections);
             }
             else
             { 
-              return GlobalRemotingClient.GetRfqMgr().GetThePageCountOfDataTablePerSale(itemsPerPage, UserInfo.UserId,filterColumn,filterString);
+              return GlobalRemotingClient.GetRfqMgr().GetThePageCountOfDataTablePerSale(itemsPerPage, UserInfo.UserId,filterColumn,filterString,selections);
             }
         }
 
@@ -52,15 +52,22 @@ namespace AmbleClient.RfqGui
         {   
             if (includeSubs)
             {
-                return  GlobalRemotingClient.GetRfqMgr().GetICanSeeRfqDataTableAccordingToPageNumber(UserInfo.UserId, currentPage, itemsPerPage, filterColumn, filterString);
+                return  GlobalRemotingClient.GetRfqMgr().GetICanSeeRfqDataTableAccordingToPageNumber(UserInfo.UserId, currentPage, itemsPerPage, filterColumn, filterString,selections);
             }
             else 
             {
-                return GlobalRemotingClient.GetRfqMgr().GetMyRfqDataTableAccordingToPageNumber(UserInfo.UserId, currentPage, itemsPerPage, filterColumn, filterString);
+                return GlobalRemotingClient.GetRfqMgr().GetMyRfqDataTableAccordingToPageNumber(UserInfo.UserId, currentPage, itemsPerPage, filterColumn, filterString,selections);
             }
 
         }
 
+
+        public override void CellDoubleClickShow(int rfqId)
+        {
+            RFQView rfqView = new RFQView(rfqId);
+            rfqView.ShowDialog();
+
+        }
 
 
     }

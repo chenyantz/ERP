@@ -55,3 +55,5 @@ E:\My work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Properti
 E:\My work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.csproj.GenerateResource.Cache
 E:\My work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\RdlCompile.cache
 E:\My work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\RdlCompile.compiled
+E:\My work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.BuyerManagerRfqView.resources
+E:\My work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.BuyerRfqView.resources

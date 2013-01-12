@@ -8,7 +8,7 @@ namespace AmbleClient.RfqGui
 {
     public class SalesNewRfqItems:RfqItems
     {
-
+        List<int> mySubs;
         public SalesNewRfqItems()
         { 
         
@@ -123,8 +123,8 @@ namespace AmbleClient.RfqGui
             tbTargetPrice.Clear();
             tbResale.Clear();
             tbCost.Clear();
-            tbPrimaryPA.Clear();
-            tbAltPA.Clear();
+            cbPrimaryPA.Text = "";
+            cbAltPA.Text = "";
             cbCloseReason.SelectedIndex = -1;
             tbToCustomer.Clear();
             tbToInternal.Clear();

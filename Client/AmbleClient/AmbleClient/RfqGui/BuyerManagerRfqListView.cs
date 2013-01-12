@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
+using AmbleAppServer.RfqMgr;
 
 namespace AmbleClient.RfqGui
 {
@@ -9,17 +11,48 @@ namespace AmbleClient.RfqGui
     {
         public BuyerManagerRfqListView()
         {
-            tsbNewRfq.Enabled = false;
+           //freeze newRFQ
+            //Freeze only list my RFQ
+            base.tsbNewRfq.Enabled = false;
+            base.tscbAllOrMine.Enabled = false;
+            
+            
+            cbNew.CheckedChanged -= rfqStatesSelectedChanged;
+            cbRouted.CheckedChanged -= rfqStatesSelectedChanged;
+            cbQuoted.CheckedChanged -= rfqStatesSelectedChanged;
+            cbHasSo.CheckedChanged -= rfqStatesSelectedChanged;
+            cbSoApproved.CheckedChanged -= rfqStatesSelectedChanged;
+            cbClosed.CheckedChanged -= rfqStatesSelectedChanged;
+
+            base.cbNew.Checked = true;
+            base.cbRouted.Checked = true;
+            base.cbQuoted.Checked = false;
+            base.cbHasSo.Checked = false;
+            base.cbSoApproved.Checked = false;
+            base.cbClosed.Checked = false;
+
+            cbNew.CheckedChanged += rfqStatesSelectedChanged;
+            cbRouted.CheckedChanged += rfqStatesSelectedChanged;
+            cbQuoted.CheckedChanged += rfqStatesSelectedChanged;
+            cbHasSo.CheckedChanged += rfqStatesSelectedChanged;
+            cbSoApproved.CheckedChanged += rfqStatesSelectedChanged;
+            cbClosed.CheckedChanged += rfqStatesSelectedChanged;
         }
 
-      public override int GetPageCount(int itemsPerPage, string filterColumn, string filterString, bool includeSubs)
+      public override int GetPageCount(int itemsPerPage, string filterColumn, string filterString,List<RfqStatesEnum> selections,bool includeSubs)
       {
-
-
-          return 0;
-
+          return GlobalRemotingClient.GetRfqMgr().BMGetThePageCountOfDataTable(itemsPerPage, filterColumn, filterString, selections);
+  
       }
-
+      public override DataTable GetDataTableAccordingToPageNumber(int itemsPerPage, int currentPage, string filterColumn, string filterString, List<RfqStatesEnum> selections, bool includeSubs)
+      {
+          return GlobalRemotingClient.GetRfqMgr().BMGetRfqDataTableAccordingToPageNumber(currentPage, itemsPerPage, filterColumn, filterString, selections);
+      }
+      public override void CellDoubleClickShow(int rfqId)
+      {
+          BuyerManagerRfqView rfqView = new BuyerManagerRfqView(rfqId);
+          rfqView.ShowDialog();
+      }
 
 
 

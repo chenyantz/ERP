@@ -123,6 +123,18 @@
     <Compile Include="RfqGui\BuyerRfqListView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="RfqGui\BuyerRfqView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfqGui\BuyerRfqView.Designer.cs">
+      <DependentUpon>BuyerRfqView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RfqGui\BuyerManagerRfqView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfqGui\BuyerManagerRfqView.Designer.cs">
+      <DependentUpon>BuyerManagerRfqView.cs</DependentUpon>
+    </Compile>
     <Compile Include="RfqGui\NewRfq.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,8 +212,14 @@
     <EmbeddedResource Include="RfqGui\BuyerManagerRfqListView.resx">
       <DependentUpon>BuyerManagerRfqListView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RfqGui\BuyerManagerRfqView.resx">
+      <DependentUpon>BuyerManagerRfqView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RfqGui\BuyerRfqListView.resx">
       <DependentUpon>BuyerRfqListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfqGui\BuyerRfqView.resx">
+      <DependentUpon>BuyerRfqView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RfqGui\NewRfq.resx">
       <DependentUpon>NewRfq.cs</DependentUpon>

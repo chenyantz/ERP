@@ -12,8 +12,7 @@ namespace AmbleClient.RfqGui
 {
     public partial class RfqItems : UserControl
     {
-       protected List<int> mySubs; 
-    
+        
         public RfqItems()
         {
             InitializeComponent();
@@ -24,8 +23,10 @@ namespace AmbleClient.RfqGui
             
         }
 
-        public void FillTheTable(AmbleAppServer.RfqMgr.Rfq rfq)
+
+        public virtual void FillTheTable(AmbleAppServer.RfqMgr.Rfq rfq)
         {
+           /*
             tbCustomer.Text = rfq.customerName;
             //select the sales ID
             //获得下级号和名字
@@ -46,6 +47,7 @@ namespace AmbleClient.RfqGui
                 }
 
             }
+            * */
             tbProject.Text = rfq.project;
             tbContact.Text = rfq.contact;
             tbPhone.Text = rfq.phone;
@@ -66,8 +68,8 @@ namespace AmbleClient.RfqGui
             tbTargetPrice.Text = rfq.targetPrice.ToString();
             tbResale.Text = rfq.resale.ToString();
             tbCost.Text = rfq.cost.ToString();
-            tbPrimaryPA.Text = rfq.firstPA.ToString();
-            tbAltPA.Text = rfq.secondPA.ToString();
+           // tbPrimaryPA.Text = rfq.firstPA.ToString();
+            //tbAltPA.Text = rfq.secondPA.ToString();
             cbCloseReason.SelectedIndex = (rfq.closeReason.HasValue ? rfq.closeReason.Value : -1);
             tbToCustomer.Text = rfq.infoToCustomer;
             tbToInternal.Text = rfq.infoToInternal;

@@ -70,9 +70,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.tbCost = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.tbPrimaryPA = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.tbAltPA = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.tbToCustomer = new System.Windows.Forms.TextBox();
@@ -84,6 +82,8 @@
             this.cbSales = new System.Windows.Forms.ComboBox();
             this.cbPriority = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cbPrimaryPA = new System.Windows.Forms.ComboBox();
+            this.cbAltPA = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label15
@@ -420,7 +420,7 @@
             // tbTargetPrice
             // 
             this.tbTargetPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTargetPrice.Location = new System.Drawing.Point(110, 244);
+            this.tbTargetPrice.Location = new System.Drawing.Point(110, 247);
             this.tbTargetPrice.Name = "tbTargetPrice";
             this.tbTargetPrice.Size = new System.Drawing.Size(178, 21);
             this.tbTargetPrice.TabIndex = 69;
@@ -471,15 +471,6 @@
             this.label23.TabIndex = 74;
             this.label23.Text = "Primary P/A:";
             // 
-            // tbPrimaryPA
-            // 
-            this.tbPrimaryPA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPrimaryPA.Location = new System.Drawing.Point(110, 280);
-            this.tbPrimaryPA.Name = "tbPrimaryPA";
-            this.tbPrimaryPA.ReadOnly = true;
-            this.tbPrimaryPA.Size = new System.Drawing.Size(178, 21);
-            this.tbPrimaryPA.TabIndex = 75;
-            // 
             // label24
             // 
             this.label24.AutoSize = true;
@@ -489,15 +480,6 @@
             this.label24.Size = new System.Drawing.Size(44, 15);
             this.label24.TabIndex = 76;
             this.label24.Text = "Alt P/A:";
-            // 
-            // tbAltPA
-            // 
-            this.tbAltPA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAltPA.Location = new System.Drawing.Point(386, 273);
-            this.tbAltPA.Name = "tbAltPA";
-            this.tbAltPA.ReadOnly = true;
-            this.tbAltPA.Size = new System.Drawing.Size(173, 21);
-            this.tbAltPA.TabIndex = 77;
             // 
             // label25
             // 
@@ -579,7 +561,7 @@
             this.cbCloseReason.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCloseReason.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCloseReason.FormattingEnabled = true;
-            this.cbCloseReason.Location = new System.Drawing.Point(681, 273);
+            this.cbCloseReason.Location = new System.Drawing.Point(681, 279);
             this.cbCloseReason.Name = "cbCloseReason";
             this.cbCloseReason.Size = new System.Drawing.Size(144, 23);
             this.cbCloseReason.TabIndex = 86;
@@ -616,10 +598,28 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(173, 21);
             this.dateTimePicker1.TabIndex = 89;
             // 
+            // cbPrimaryPA
+            // 
+            this.cbPrimaryPA.FormattingEnabled = true;
+            this.cbPrimaryPA.Location = new System.Drawing.Point(110, 281);
+            this.cbPrimaryPA.Name = "cbPrimaryPA";
+            this.cbPrimaryPA.Size = new System.Drawing.Size(178, 20);
+            this.cbPrimaryPA.TabIndex = 90;
+            // 
+            // cbAltPA
+            // 
+            this.cbAltPA.FormattingEnabled = true;
+            this.cbAltPA.Location = new System.Drawing.Point(386, 281);
+            this.cbAltPA.Name = "cbAltPA";
+            this.cbAltPA.Size = new System.Drawing.Size(173, 20);
+            this.cbAltPA.TabIndex = 91;
+            // 
             // RfqItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbAltPA);
+            this.Controls.Add(this.cbPrimaryPA);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.cbPriority);
             this.Controls.Add(this.cbSales);
@@ -631,9 +631,7 @@
             this.Controls.Add(this.tbToCustomer);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.label25);
-            this.Controls.Add(this.tbAltPA);
             this.Controls.Add(this.label24);
-            this.Controls.Add(this.tbPrimaryPA);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.tbCost);
             this.Controls.Add(this.label22);
@@ -728,9 +726,7 @@
         protected System.Windows.Forms.Label label22;
         public System.Windows.Forms.TextBox tbCost;
         protected System.Windows.Forms.Label label23;
-        public System.Windows.Forms.TextBox tbPrimaryPA;
         protected System.Windows.Forms.Label label24;
-        public System.Windows.Forms.TextBox tbAltPA;
         protected System.Windows.Forms.Label label25;
         protected System.Windows.Forms.Label label26;
         public System.Windows.Forms.TextBox tbToCustomer;
@@ -739,8 +735,10 @@
         protected System.Windows.Forms.Label label28;
         public System.Windows.Forms.TextBox tbRoutingHistory;
         public System.Windows.Forms.ComboBox cbCloseReason;
-        public System.Windows.Forms.ComboBox cbSales;
+        protected System.Windows.Forms.ComboBox cbSales;
         public System.Windows.Forms.ComboBox cbPriority;
         public System.Windows.Forms.DateTimePicker dateTimePicker1;
+        public System.Windows.Forms.ComboBox cbPrimaryPA;
+        public System.Windows.Forms.ComboBox cbAltPA;
     }
 }

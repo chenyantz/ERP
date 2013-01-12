@@ -44,10 +44,34 @@ namespace AmbleAppServer.RfqMgr
             return false;
        }
 
-
-       public bool ChangeRfqState(int rfqState,int rfqId)
+       public bool AssignPAForRfq(int rfqId, int? firstPA, int? secondPA)
        {
-           string strSql = string.Format("update rfq set rfqStates={0} where rfqNo={1}", rfqState, rfqId);
+           string strSql;
+           if (firstPA.HasValue&&secondPA.HasValue)
+           { 
+            strSql=string.Format("update rfq set firstPA={0},secondPA={1} where rfqNo={2}",firstPA.Value,secondPA.Value,rfqId);
+           }
+           else if (firstPA.HasValue)
+           {
+               strSql = string.Format("update rfq set firstPA={0} where rfqNo={1}", firstPA.Value, rfqId);
+           }
+           else if (secondPA.HasValue)
+           {
+               strSql = string.Format("update rfq set secondPA={0} where rfqNo={1}", secondPA.Value, rfqId);
+           }
+           else
+           {
+               return true;
+           }
+           int suc = db.ExecDataBySql(strSql);
+           if (suc == 1) return true;
+           return false;
+         
+       }
+
+       public bool ChangeRfqState(RfqStatesEnum rfqState,int rfqId)
+       {
+           string strSql = string.Format("update rfq set rfqStates={0} where rfqNo={1}", rfqState.GetHashCode(), rfqId);
            if (db.ExecDataBySql(strSql) == 1)
                return true;
            return false;
@@ -128,9 +152,8 @@ namespace AmbleAppServer.RfqMgr
            return rfq;
        }
 
-
        //for sales manager
-        public int GetThePageCountOfDataTable(int itemsPerPage,int salesId,string filterColumn,string filterString)
+       public int GetThePageCountOfDataTable(int itemsPerPage, int salesId, string filterColumn, string filterString, List<RfqStatesEnum> selections)
         { int count=0;
                      //get the subs IDs include himself
            AmbleAppServer.AccountMgr.AccountMgr accountMgr = new AccountMgr.AccountMgr();
@@ -139,51 +162,77 @@ namespace AmbleAppServer.RfqMgr
 
            foreach (int id in subIds)
            {
-               count += GetThePageCountOfDataTablePerSale(itemsPerPage, id, filterColumn, filterString);
+               count += GetThePageCountOfDataTablePerSale(itemsPerPage, id, filterColumn,filterString,selections);
            }
            return count;
         
         }
 
        //for sale
-        public int GetThePageCountOfDataTablePerSale(int itemsPerPage,int salesId,string filterColumn,string filterString)
+        public int GetThePageCountOfDataTablePerSale(int itemsPerPage,int salesId,string filterColumn,string filterString,List<RfqStatesEnum> selections)
         { 
           //Get the account of dataset  of rfq
-            string strSql;
+            if (selections.Count == 0)
+                return 0;
+
+            StringBuilder strSql=new StringBuilder();
             if ((!string.IsNullOrEmpty(filterColumn)) && (!(string.IsNullOrEmpty(filterString))))
             {
-                strSql = string.Format("select count(*) from rfq where {0} like '%{1}%' and salesId={2}", filterColumn, filterString,salesId);
+                strSql.Append(string.Format("select count(*) from rfq where {0} like '%{1}%' and salesId={2}", filterColumn, filterString,salesId));
 
             }
             else
 
             {
-                strSql = "select count(*) from rfq where salesId="+salesId;
+                strSql.Append("select count(*) from rfq where salesId="+salesId);
             }
-            int count = Convert.ToInt32(db.GetSingleObject(strSql));
+
+            strSql.Append(" and (rfqstates=" + selections[0].GetHashCode());
+            for (int i = 1; i < selections.Count; i++)
+            {
+                strSql.Append(" or rfqstates=" + selections[i].GetHashCode());
+            }
+            strSql.Append(" )");
+            
+            int count = Convert.ToInt32(db.GetSingleObject(strSql.ToString()));
             return (int)(Math.Ceiling((double)count / (double)itemsPerPage));
          
         }
 
-       //for sales manager
-        public DataTable GetMyRfqDataTableAccordingToPageNumber(int salesId, int pageNumber, int itemsPerPage, string filterColumn, string filterString)
+       //for sales
+        public DataTable GetMyRfqDataTableAccordingToPageNumber(int salesId, int pageNumber, int itemsPerPage, string filterColumn, string filterString, List<RfqStatesEnum> selections)
         {
-            string strSql;
+            if(selections.Count==0)
+                return null;
+            StringBuilder strSql=new StringBuilder();
            if ((!string.IsNullOrEmpty(filterColumn)) && (!(string.IsNullOrEmpty(filterString))))
             {
-                strSql = string.Format("select * from rfq where {0} like '%{1}%' and salesId={2} limit {3},{4}",filterColumn,filterString,salesId, pageNumber * itemsPerPage, itemsPerPage);
+                strSql.Append(string.Format("select * from rfq where {0} like '%{1}%' and salesId={2} ",filterColumn,filterString,salesId));
      
             }   
            else
            {
-               strSql= string.Format("select * from rfq where salesId={0} limit {1},{2}", salesId, pageNumber* itemsPerPage, itemsPerPage);
+               strSql.Append(string.Format("select * from rfq where salesId={0} ", salesId));
            }
-            return  db.GetDataTable(strSql,"Table"+pageNumber);
+           strSql.Append(" and (rfqstates=" + selections[0].GetHashCode());
+            for (int i = 1; i < selections.Count; i++)
+            {
+                strSql.Append(" or rfqstates=" + selections[i].GetHashCode());
+            }
+            strSql.Append(" )");
+
+
+           strSql.Append(string.Format(" limit {0},{1}", pageNumber * itemsPerPage, itemsPerPage));
+
+            return  db.GetDataTable(strSql.ToString(),"Table"+pageNumber);
         }
 
-       //for sale
-        public DataTable GetICanSeeRfqDataTableAccordingToPageNumber(int salesId, int pageNumber, int itemsPerPage, string filterColumn, string filterString)
+       //for sale and salesManager
+        public DataTable GetICanSeeRfqDataTableAccordingToPageNumber(int salesId, int pageNumber, int itemsPerPage, string filterColumn, string filterString, List<RfqStatesEnum> selections)
         {
+            if (selections.Count == 0)
+                return null;
+            
             AmbleAppServer.AccountMgr.AccountMgr accountMgr = new AccountMgr.AccountMgr();
 
             List<int> subIds = accountMgr.GetAllSubsId(salesId);
@@ -204,6 +253,13 @@ namespace AmbleAppServer.RfqMgr
                 for (int i = 1; i < subIds.Count(); i++)
                     sb.Append(" or salesId=" + subIds[i]);
              }
+            sb.Append(" )");
+            sb.Append(" and (rfqstates=" + selections[0].GetHashCode());
+            for (int i = 1; i < selections.Count; i++)
+            {
+                sb.Append(" or rfqstates=" + selections[i].GetHashCode());
+            }
+ 
             sb.Append(string.Format(")  limit {0},{1}", pageNumber*itemsPerPage, itemsPerPage));
 
             return db.GetDataTable(sb.ToString(), "Table" + pageNumber);
@@ -211,47 +267,65 @@ namespace AmbleAppServer.RfqMgr
         }
 
        //for buyer Manager
-        public int BMGetThePageCountOfDataTable(int itemsPerPage,string filterColumn, string filterString)
+        public int BMGetThePageCountOfDataTable(int itemsPerPage, string filterColumn, string filterString, List<RfqStatesEnum> selections)
         {
             //Get the account of dataset  of rfq
-            string strSql;
+
+            if (selections.Count == 0)
+                return 0;
+
+            StringBuilder strSql = new StringBuilder();
             if ((!string.IsNullOrEmpty(filterColumn)) && (!(string.IsNullOrEmpty(filterString))))
             {
-                strSql = string.Format("select count(*) from rfq where {0} like '%{1}%'", filterColumn, filterString);
-
+                strSql.Append(string.Format("select count(*) from rfq where {0} like '%{1}%' ", filterColumn, filterString));
+                strSql.Append(" and (rfqstates=" + selections[0].GetHashCode());
             }
             else
             {
-                strSql = "select count(*) from rfq ";
+                strSql.Append("select count(*) from rfq ");
+                strSql.Append(" where (rfqstates=" + selections[0].GetHashCode());
             }
-            int count = Convert.ToInt32(db.GetSingleObject(strSql));
+
+            for (int i = 1; i < selections.Count; i++)
+            {
+                strSql.Append(" or rfqstates=" + selections[i].GetHashCode());
+            }
+            strSql.Append(" )");
+
+            int count = Convert.ToInt32(db.GetSingleObject(strSql.ToString()));
             return (int)(Math.Ceiling((double)count / (double)itemsPerPage));
         
         }
 
-        public DataTable BMGetRfqDataTableAccordingToPageNumber(int pageNumber, int itemsPerPage, string filterColumn, string filterString)
+        public DataTable BMGetRfqDataTableAccordingToPageNumber(int pageNumber, int itemsPerPage, string filterColumn, string filterString, List<RfqStatesEnum> selections)
         {
-            StringBuilder sb = new StringBuilder();
-
-            if ((!string.IsNullOrEmpty(filterColumn)) && (!(string.IsNullOrEmpty(filterString))))
+               if(selections.Count==0)
+                return null;
+            StringBuilder strSql=new StringBuilder();
+           if ((!string.IsNullOrEmpty(filterColumn)) && (!(string.IsNullOrEmpty(filterString))))
             {
-                //sb.Append(string.Format("select * from rfq where {0} like '%{1}%' and ( salesId={2}", filterColumn, filterString, subIds[0]));
-            }
-            else
+                strSql.Append(string.Format("select * from rfq where {0} like '%{1}%' ",filterColumn,filterString));
+                strSql.Append(" and (rfqstates=" + selections[0].GetHashCode());
+            }   
+           else
+           {
+               strSql.Append("select * from rfq ");
+               strSql.Append(" where(rfqstates=" + selections[0].GetHashCode());
+           }
+
+            for (int i = 1; i < selections.Count; i++)
             {
-               // sb.Append("select * from rfq where ( salesId=" + subIds[0]);
+                strSql.Append(" or rfqstates=" + selections[i].GetHashCode());
             }
+            strSql.Append(" )");
 
-            sb.Append(string.Format(")  limit {0},{1}", pageNumber * itemsPerPage, itemsPerPage));
+           strSql.Append(string.Format(" limit {0},{1}", pageNumber * itemsPerPage, itemsPerPage));
 
-            return db.GetDataTable(sb.ToString(), "Table" + pageNumber);
+            return  db.GetDataTable(strSql.ToString(),"Table"+pageNumber);
         
         }
 
       //For buyer
-
-
-
 
         public void CopyRfq(int rfqNo,int salesId)
         {

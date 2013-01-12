@@ -137,11 +137,9 @@ namespace AmbleAppServer.AccountMgr
        {
             List<int> allSubsId = new List<int>();
            allSubsId.Add(id);
-           int numberOfSubs = allSubsId.Count; int newAddedIds = 0;
 
-           for (int startIndex = 0;numberOfSubs>startIndex;)
+           for (int startIndex = 0; allSubsId.Count > startIndex; startIndex++)
            {
-               newAddedIds = 0;
               string strSql = "select id from account where superviser=" +allSubsId[startIndex];
               DataTable dt = db.GetDataTable(strSql,"idTable");
            if (dt.Rows.Count > 0)
@@ -152,19 +150,12 @@ namespace AmbleAppServer.AccountMgr
                    if (!allSubsId.Contains(subId))
                    {
                        allSubsId.Add(subId);
-                       newAddedIds++;
-
                    }
-                   
                }
-           
            }
-         numberOfSubs = allSubsId.Count;
-         startIndex = numberOfSubs - newAddedIds;
+ 
         }
-
            return allSubsId;           
-       
        }
 
 

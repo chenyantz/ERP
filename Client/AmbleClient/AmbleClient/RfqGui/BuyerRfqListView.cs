@@ -10,7 +10,7 @@ namespace AmbleClient.RfqGui
         public BuyerRfqListView()
         {
             tsbNewRfq.Enabled = false;
-            Customer.Visible = false;
+           // Customer.Visible = false;
         }
 
     }

@@ -43,13 +43,13 @@ namespace AmbleClient.RfqGui
         private void tsbQuote_Click(object sender, EventArgs e)
         {
             rfqItems1.UpdateInfo();
-            GlobalRemotingClient.GetRfqMgr().ChangeRfqState(2, rfqId);
+            GlobalRemotingClient.GetRfqMgr().ChangeRfqState(RfqStatesEnum.Quoted, rfqId);
         }
 
         private void tsbRoute_Click(object sender, EventArgs e)
         {
             rfqItems1.UpdateInfo();
-            GlobalRemotingClient.GetRfqMgr().ChangeRfqState(1, rfqId);
+            GlobalRemotingClient.GetRfqMgr().ChangeRfqState(RfqStatesEnum.Routed, rfqId);
         }
 
         private void tsbUpdate_Click(object sender, EventArgs e)

@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace AmbleClient.Offer
+namespace AmbleClient.OfferGui
 {
-    public partial class OfferList : Form
+    public partial class OfferItems : UserControl
     {
-        public OfferList()
+        public OfferItems()
         {
             InitializeComponent();
         }

@@ -1,4 +1,4 @@
-﻿namespace AmbleClient.Offer
+﻿namespace AmbleClient.OfferGui
 {
     partial class NewOffer
     {
@@ -33,7 +33,7 @@
             this.tsbSave = new System.Windows.Forms.ToolStripButton();
             this.tsbRoute = new System.Windows.Forms.ToolStripButton();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
-            this.buyerOfferItems1 = new AmbleClient.Offer.BuyerOfferItems();
+            this.buyerOfferItems1 = new AmbleClient.OfferGui.BuyerOfferItems();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +57,7 @@
             this.tsbSave.Name = "tsbSave";
             this.tsbSave.Size = new System.Drawing.Size(38, 22);
             this.tsbSave.Text = "Save";
+            this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
             // tsbRoute
             // 
@@ -66,6 +67,7 @@
             this.tsbRoute.Name = "tsbRoute";
             this.tsbRoute.Size = new System.Drawing.Size(45, 22);
             this.tsbRoute.Text = "Route";
+            this.tsbRoute.Click += new System.EventHandler(this.tsbRoute_Click);
             // 
             // tsbClose
             // 
@@ -75,6 +77,7 @@
             this.tsbClose.Name = "tsbClose";
             this.tsbClose.Size = new System.Drawing.Size(43, 22);
             this.tsbClose.Text = "Close";
+            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
             // buyerOfferItems1
             // 

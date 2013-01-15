@@ -111,25 +111,25 @@
     <Compile Include="MainFrame.Designer.cs">
       <DependentUpon>MainFrame.cs</DependentUpon>
     </Compile>
-    <Compile Include="Offer\BuyerOfferItems.cs">
+    <Compile Include="OfferGui\BuyerOfferItems.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Offer\NewOffer.cs">
+    <Compile Include="OfferGui\NewOffer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Offer\NewOffer.Designer.cs">
+    <Compile Include="OfferGui\NewOffer.Designer.cs">
       <DependentUpon>NewOffer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Offer\OfferItems.cs">
+    <Compile Include="OfferGui\OfferItems.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Offer\OfferItems.Designer.cs">
+    <Compile Include="OfferGui\OfferItems.Designer.cs">
       <DependentUpon>OfferItems.cs</DependentUpon>
     </Compile>
-    <Compile Include="Offer\OfferList.cs">
+    <Compile Include="OfferGui\OfferList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Offer\OfferList.Designer.cs">
+    <Compile Include="OfferGui\OfferList.Designer.cs">
       <DependentUpon>OfferList.cs</DependentUpon>
     </Compile>
     <Compile Include="RfqGui\BuyerManagerRfqItems.cs">
@@ -230,13 +230,13 @@
     <EmbeddedResource Include="MainFrame.resx">
       <DependentUpon>MainFrame.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Offer\NewOffer.resx">
+    <EmbeddedResource Include="OfferGui\NewOffer.resx">
       <DependentUpon>NewOffer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Offer\OfferItems.resx">
+    <EmbeddedResource Include="OfferGui\OfferItems.resx">
       <DependentUpon>OfferItems.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Offer\OfferList.resx">
+    <EmbeddedResource Include="OfferGui\OfferList.resx">
       <DependentUpon>OfferList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RfqGui\BuyerManagerRfqListView.resx">

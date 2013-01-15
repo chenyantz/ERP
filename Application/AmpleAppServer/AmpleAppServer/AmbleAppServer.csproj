@@ -69,6 +69,8 @@
     <Compile Include="AccountMgr\PropertyClass.cs" />
     <Compile Include="customerVendorMgr\CustomerVendorMgr.cs" />
     <Compile Include="DataClass\DataClass.cs" />
+    <Compile Include="OfferMgr\Offer.cs" />
+    <Compile Include="OfferMgr\OfferMgr.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RfqMgr\Rfq.cs" />

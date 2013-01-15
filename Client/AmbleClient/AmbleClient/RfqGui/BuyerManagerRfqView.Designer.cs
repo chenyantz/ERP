@@ -31,9 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuyerManagerRfqView));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbAssign = new System.Windows.Forms.ToolStripButton();
-            this.tsbOffer = new System.Windows.Forms.ToolStripButton();
+            this.tsbEnterOffer = new System.Windows.Forms.ToolStripButton();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.buyerManagerRfqItems1 = new AmbleClient.RfqGui.BuyerManagerRfqItems();
+            this.tsbViewOffers = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +42,8 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbAssign,
-            this.tsbOffer,
+            this.tsbEnterOffer,
+            this.tsbViewOffers,
             this.tsbClose});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -59,15 +61,15 @@
             this.tsbAssign.Text = "Assign P/A and Update";
             this.tsbAssign.Click += new System.EventHandler(this.tsbAssign_Click);
             // 
-            // tsbOffer
+            // tsbEnterOffer
             // 
-            this.tsbOffer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbOffer.Image = ((System.Drawing.Image)(resources.GetObject("tsbOffer.Image")));
-            this.tsbOffer.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbOffer.Name = "tsbOffer";
-            this.tsbOffer.Size = new System.Drawing.Size(75, 22);
-            this.tsbOffer.Text = "Enter Offer";
-            this.tsbOffer.Click += new System.EventHandler(this.tsbOffer_Click);
+            this.tsbEnterOffer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbEnterOffer.Image = ((System.Drawing.Image)(resources.GetObject("tsbEnterOffer.Image")));
+            this.tsbEnterOffer.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEnterOffer.Name = "tsbEnterOffer";
+            this.tsbEnterOffer.Size = new System.Drawing.Size(75, 22);
+            this.tsbEnterOffer.Text = "Enter Offer";
+            this.tsbEnterOffer.Click += new System.EventHandler(this.tsbOffer_Click);
             // 
             // tsbClose
             // 
@@ -86,6 +88,16 @@
             this.buyerManagerRfqItems1.Name = "buyerManagerRfqItems1";
             this.buyerManagerRfqItems1.Size = new System.Drawing.Size(886, 515);
             this.buyerManagerRfqItems1.TabIndex = 1;
+            // 
+            // tsbViewOffers
+            // 
+            this.tsbViewOffers.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbViewOffers.Image = ((System.Drawing.Image)(resources.GetObject("tsbViewOffers.Image")));
+            this.tsbViewOffers.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbViewOffers.Name = "tsbViewOffers";
+            this.tsbViewOffers.Size = new System.Drawing.Size(86, 22);
+            this.tsbViewOffers.Text = "View Offer(s)";
+            this.tsbViewOffers.Click += new System.EventHandler(this.tsbViewOffers_Click);
             // 
             // BuyerManagerRfqView
             // 
@@ -108,8 +120,9 @@
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbAssign;
-        private System.Windows.Forms.ToolStripButton tsbOffer;
+        private System.Windows.Forms.ToolStripButton tsbEnterOffer;
         private System.Windows.Forms.ToolStripButton tsbClose;
         private BuyerManagerRfqItems buyerManagerRfqItems1;
+        private System.Windows.Forms.ToolStripButton tsbViewOffers;
     }
 }

@@ -31,7 +31,7 @@ TcpServerChannel channel = new TcpServerChannel(props, provider);
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(AmbleAppServer.AccountMgr.AccountMgr), "AccountMgr", WellKnownObjectMode.Singleton);
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(AmbleAppServer.customerVendorMgr.CustomerVendorMgr),"CustomerVendorMgr",WellKnownObjectMode.Singleton);
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(AmbleAppServer.RfqMgr.RfqMgr),"RfqMgr", WellKnownObjectMode.Singleton);
-           // RemotingConfiguration.RegisterWellKnownServiceType(typeof
+            RemotingConfiguration.RegisterWellKnownServiceType(typeof(AmbleAppServer.OfferMgr.OfferMgr), "OfferMgr", WellKnownObjectMode.Singleton);
 
             Console.ReadLine();
         }

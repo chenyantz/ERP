@@ -1,4 +1,4 @@
-﻿namespace AmbleClient.Offer
+﻿namespace AmbleClient.OfferGui
 {
     partial class OfferList
     {
@@ -33,10 +33,12 @@
             this.tsbUpdate = new System.Windows.Forms.ToolStripButton();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+           // this.tabPage1 = new System.Windows.Forms.TabPage();
+           // this.tabPage2 = new System.Windows.Forms.TabPage();
+          //  this.buyerOfferItems1 = new AmbleClient.Offer.BuyerOfferItems();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+          //  this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -70,8 +72,8 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
+           // this.tabControl1.Controls.Add(this.tabPage1);
+           // this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 25);
             this.tabControl1.Name = "tabControl1";
@@ -80,7 +82,9 @@
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
-            // 
+            //
+            /*
+            this.tabPage1.Controls.Add(this.buyerOfferItems1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -94,10 +98,18 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 74);
+            this.tabPage2.Size = new System.Drawing.Size(912, 462);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // buyerOfferItems1
+            // 
+            this.buyerOfferItems1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buyerOfferItems1.Location = new System.Drawing.Point(3, 3);
+            this.buyerOfferItems1.Name = "buyerOfferItems1";
+            this.buyerOfferItems1.Size = new System.Drawing.Size(906, 456);
+            this.buyerOfferItems1.TabIndex = 0;*/
             // 
             // OfferList
             // 
@@ -108,9 +120,11 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "OfferList";
             this.Text = "OfferList";
+            this.Load += new System.EventHandler(this.OfferList_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+           // this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,7 +136,9 @@
         private System.Windows.Forms.ToolStripButton tsbUpdate;
         private System.Windows.Forms.ToolStripButton tsbClose;
         private System.Windows.Forms.TabControl tabControl1;
+        /*
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private BuyerOfferItems buyerOfferItems1;*/
     }
 }

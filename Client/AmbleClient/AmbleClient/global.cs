@@ -9,6 +9,7 @@ using System.Windows;
 using AmbleAppServer.AccountMgr;
 using AmbleAppServer.customerVendorMgr;
 using AmbleAppServer.RfqMgr;
+using AmbleAppServer.OfferMgr;
 
 namespace AmbleClient
 
@@ -34,6 +35,7 @@ namespace AmbleClient
         private static AccountMgr mgr = null;
         private static CustomerVendorMgr cvMgr = null;
         private static RfqMgr rfqMgr = null;
+        private static OfferMgr offerMgr = null;
 
         public static AccountMgr GetAccountMgr()
         {
@@ -81,8 +83,26 @@ namespace AmbleClient
                 return rfqMgr;
             }
 
-
         }
+
+        public static OfferMgr GetOfferMgr()
+        {
+            if (offerMgr == null)
+            {
+                offerMgr = (OfferMgr)Activator.GetObject(typeof(OfferMgr),
+                  "tcp://localhost:1111/OfferMgr");
+
+                return offerMgr;
+            }
+            else
+            {
+                return offerMgr;
+            }
+        
+        
+        }
+
+
 
 
     }

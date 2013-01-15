@@ -62,8 +62,17 @@ namespace AmbleClient.RfqGui
 
         private void tsbOffer_Click(object sender, EventArgs e)
         {
-            AmbleClient.Offer.NewOffer newOffer = new Offer.NewOffer();
+            AmbleClient.OfferGui.NewOffer newOffer = new OfferGui.NewOffer(rfqId);
             newOffer.ShowDialog();
+
+
+
+        }
+
+        private void tsbViewOffers_Click(object sender, EventArgs e)
+        {
+            AmbleClient.OfferGui.OfferList offerList = new OfferGui.OfferList(rfqId);
+            offerList.ShowDialog();
 
 
 

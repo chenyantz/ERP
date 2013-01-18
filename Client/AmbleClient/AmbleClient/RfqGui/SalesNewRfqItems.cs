@@ -144,5 +144,13 @@ namespace AmbleClient.RfqGui
 
         }
 
+    public override void FillTheTable(Rfq rfq)
+    {
+        base.FillTheTable(rfq);
+        base.tbCustomer.Text = rfq.customerName;
+
+    }
+
+
    }
 }

@@ -47,6 +47,11 @@ namespace AmbleClient.RfqGui
             {
                 altPA = buyerManagerRfqItems1.MySubs[buyerManagerRfqItems1.cbAltPA.SelectedIndex];
             }
+            if (primaryPA == null && altPA == null)
+            {
+                MessageBox.Show("Please choose the primary P/A and Alt P/A in the form");
+                return;
+            }
 
             if (GlobalRemotingClient.GetRfqMgr().AssignPAForRfq(rfqId, primaryPA, altPA))
             {

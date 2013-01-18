@@ -161,7 +161,7 @@ namespace AmbleAppServer.AccountMgr
 
        public Dictionary<int, string> GetIdsAndNames(List<int> ids)
        {
-           Dictionary<int,string> IdsAndNames=new Dictionary<int,string>();
+           Dictionary<int,string> idsAndNames=new Dictionary<int,string>();
            string strSql = "select id,accountName from account";
            DataTable dt = db.GetDataTable(strSql, "table");
 
@@ -171,14 +171,17 @@ namespace AmbleAppServer.AccountMgr
                {
                    if (Convert.ToInt32(dr["id"]) == id)
                    {
-                       IdsAndNames.Add(id, dr["accountName"].ToString());
+                       if (!idsAndNames.Keys.Contains(id))
+                       {
+                           idsAndNames.Add(id, dr["accountName"].ToString());
+                       }
                    }
                
                }
            
            
            }
-           return IdsAndNames;
+           return idsAndNames;
        
        }
 

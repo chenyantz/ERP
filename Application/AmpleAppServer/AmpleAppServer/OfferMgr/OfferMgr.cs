@@ -84,6 +84,7 @@ namespace AmbleAppServer.OfferMgr
                amount=tmpAmount,
                price=tmpPrice,
                deliverTime=tmpDeliverTime,
+               timeUnit=Convert.ToInt32(dr["timeUnit"]),
                offerDate=Convert.ToDateTime(dr["offerDate"]),
                offerStates=Convert.ToInt32(dr["offerStates"])
            };

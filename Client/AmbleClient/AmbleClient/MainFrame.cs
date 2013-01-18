@@ -98,5 +98,11 @@ namespace AmbleClient
 
 
         }
+
+        private void testsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           // SO.Test test = new SO.Test();
+          //  test.ShowDialog();
+        }
     }
 }

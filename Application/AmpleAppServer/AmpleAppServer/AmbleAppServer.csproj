@@ -75,6 +75,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RfqMgr\Rfq.cs" />
     <Compile Include="RfqMgr\RfqMgr.cs" />
+    <Compile Include="SoMgr\So.cs" />
+    <Compile Include="SoMgr\SoMgr.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

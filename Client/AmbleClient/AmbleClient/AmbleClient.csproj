@@ -203,17 +203,41 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SO\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SO\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="SO\NewSo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SO\NewSo.Designer.cs">
       <DependentUpon>NewSo.cs</DependentUpon>
     </Compile>
-    <Compile Include="SO\SoItem.cs">
+    <Compile Include="SO\SoItemsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SO\SoItem.Designer.cs">
-      <DependentUpon>SoItem.cs</DependentUpon>
+    <Compile Include="SO\SoItemsControl.Designer.cs">
+      <DependentUpon>SoItemsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SO\SoItemsGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SO\SoItemsGridView.Design.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SO\SoView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SO\SoView.Designer.cs">
+      <DependentUpon>SoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SO\SoViewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SO\SoViewControl.Designer.cs">
+      <DependentUpon>SoViewControl.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Admin\AccountMainFrame.resx">
       <DependentUpon>AccountMainFrame.cs</DependentUpon>
@@ -291,13 +315,22 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SO\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SO\NewSo.resx">
       <DependentUpon>NewSo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SO\Report1.rdlc" />
-    <EmbeddedResource Include="SO\SoItem.resx">
-      <DependentUpon>SoItem.cs</DependentUpon>
+    <EmbeddedResource Include="SO\SoItemsControl.resx">
+      <DependentUpon>SoItemsControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SO\SoView.resx">
+      <DependentUpon>SoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SO\SoViewControl.resx">
+      <DependentUpon>SoViewControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\AmbleAppServer.SoMgr.So.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

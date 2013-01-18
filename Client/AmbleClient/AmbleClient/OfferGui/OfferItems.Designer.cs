@@ -68,7 +68,7 @@
             // 
             this.tbVendorName.Location = new System.Drawing.Point(113, 67);
             this.tbVendorName.Name = "tbVendorName";
-            this.tbVendorName.Size = new System.Drawing.Size(186, 21);
+            this.tbVendorName.Size = new System.Drawing.Size(192, 21);
             this.tbVendorName.TabIndex = 1;
             // 
             // label2
@@ -100,7 +100,7 @@
             // 
             this.tbPhone.Location = new System.Drawing.Point(114, 109);
             this.tbPhone.Name = "tbPhone";
-            this.tbPhone.Size = new System.Drawing.Size(186, 21);
+            this.tbPhone.Size = new System.Drawing.Size(191, 21);
             this.tbPhone.TabIndex = 5;
             // 
             // label4
@@ -116,7 +116,7 @@
             // 
             this.tbPrice.Location = new System.Drawing.Point(404, 201);
             this.tbPrice.Name = "tbPrice";
-            this.tbPrice.Size = new System.Drawing.Size(135, 21);
+            this.tbPrice.Size = new System.Drawing.Size(154, 21);
             this.tbPrice.TabIndex = 7;
             // 
             // label5
@@ -132,7 +132,7 @@
             // 
             this.tbMpn.Location = new System.Drawing.Point(114, 24);
             this.tbMpn.Name = "tbMpn";
-            this.tbMpn.Size = new System.Drawing.Size(185, 21);
+            this.tbMpn.Size = new System.Drawing.Size(191, 21);
             this.tbMpn.TabIndex = 9;
             // 
             // label6
@@ -148,7 +148,7 @@
             // 
             this.tbMfg.Location = new System.Drawing.Point(404, 27);
             this.tbMfg.Name = "tbMfg";
-            this.tbMfg.Size = new System.Drawing.Size(119, 21);
+            this.tbMfg.Size = new System.Drawing.Size(154, 21);
             this.tbMfg.TabIndex = 11;
             // 
             // label7
@@ -233,7 +233,7 @@
             // 
             this.tbOfferDate.Location = new System.Drawing.Point(404, 236);
             this.tbOfferDate.Name = "tbOfferDate";
-            this.tbOfferDate.Size = new System.Drawing.Size(141, 21);
+            this.tbOfferDate.Size = new System.Drawing.Size(154, 21);
             this.tbOfferDate.TabIndex = 21;
             // 
             // label11
@@ -258,7 +258,7 @@
             // 
             this.tbOfferState.Location = new System.Drawing.Point(113, 293);
             this.tbOfferState.Name = "tbOfferState";
-            this.tbOfferState.Size = new System.Drawing.Size(148, 21);
+            this.tbOfferState.Size = new System.Drawing.Size(162, 21);
             this.tbOfferState.TabIndex = 24;
             // 
             // OfferItems
@@ -320,9 +320,9 @@
         protected System.Windows.Forms.ComboBox cbTimeUnit;
         private System.Windows.Forms.Label label10;
         protected System.Windows.Forms.TextBox tbDeliverTime;
-        protected System.Windows.Forms.TextBox tbOfferDate;
+        public System.Windows.Forms.TextBox tbOfferDate;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        protected System.Windows.Forms.TextBox tbOfferState;
+        public System.Windows.Forms.TextBox tbOfferState;
     }
 }

@@ -95,6 +95,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "NewOffer";
             this.Text = "NewOffer";
+            this.Load += new System.EventHandler(this.NewOffer_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);

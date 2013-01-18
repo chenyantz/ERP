@@ -43,5 +43,11 @@ namespace AmbleClient.OfferGui
             this.Close();
 
         }
+
+        private void NewOffer_Load(object sender, EventArgs e)
+        {
+            buyerOfferItems1.tbOfferDate.Enabled = false;
+            buyerOfferItems1.tbOfferState.Enabled = false;
+        }
     }
 }

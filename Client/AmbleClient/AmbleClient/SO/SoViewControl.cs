@@ -9,14 +9,14 @@ using System.Windows.Forms;
 
 namespace AmbleClient.SO
 {
-    public partial class SoItem : UserControl
+    public partial class SoViewControl : UserControl
     {
-        public SoItem()
+        public SoViewControl()
         {
             InitializeComponent();
         }
 
-        private void reportViewer1_Load(object sender, EventArgs e)
+        private void SoViewControl_Load(object sender, EventArgs e)
         {
 
         }

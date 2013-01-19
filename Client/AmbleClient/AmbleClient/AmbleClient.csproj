@@ -227,6 +227,12 @@
     <Compile Include="SO\SoItemsGridView.Design.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="SO\SoItemView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SO\SoItemView.Designer.cs">
+      <DependentUpon>SoItemView.cs</DependentUpon>
+    </Compile>
     <Compile Include="SO\SoView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SO\SoItemsControl.resx">
       <DependentUpon>SoItemsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SO\SoItemView.resx">
+      <DependentUpon>SoItemView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SO\SoView.resx">
       <DependentUpon>SoView.cs</DependentUpon>

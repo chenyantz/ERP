@@ -109,5 +109,42 @@ namespace AmbleAppServer.SoMgr
     
        }
 
+
+       public bool SaveSoMain(So so)
+       {
+           string strSql = "insert into So(rfqId,customerName,contact,salesId,salesOrderNo,orderDate,customerPo,paymentTerm,freightTerm,customerAccout,specialInstructions,billTo,shipTo,soStates) " +
+               string.Format(" values({0},'{1}','{2}',{3},'{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}',0)", so.rfqId, so.customerName, so.contact, so.salesId, so.salesOrderNo, so.orderDate.ToShortDateString(), so.customerPo,
+               so.paymentTerm, so.freightTerm, so.customerAccount, so.specialInstructions, so.billTo, so.shipTo);
+
+           if (db.ExecDataBySql(strSql) == 1)
+               return true;
+           
+           return false;
+       }
+
+
+       public int GetTheInsertId(int salesId)
+       {
+           string strSql = "select max(soId) from So where salesId=" + salesId;
+           return Convert.ToInt32(db.GetSingleObject(strSql));
+       }
+
+       public bool SaveSoItems(int soId, List<SoItems> soitems)
+       {
+           List<string> strSqls = new List<string>();
+           foreach (SoItems soItem in soitems)
+           {
+
+               string strsql = "insert into SoItems(soId,saleType,partNo,mfg,rohs,dc,intPartNo,shipFrom,trackingNo,qty,qtyShipped,currency,unitPrice,dockDate,shippedDate,shippingInstruction,dockingInstruction) " +
+                   string.Format(" values({0},{1},'{2}','{3}',{4},'{5}','{6}','{7}','{8}',{9},{10},{11},{12},'{13}','{14}','{15}','{16}')", soId, soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc,
+                   soItem.intPartNo, soItem.shipFrom, soItem.trackingNo, soItem.qty, soItem.qtyshipped, soItem.currencyType, soItem.unitPrice, soItem.dockDate.ToShortDateString(), soItem.shippedDate.ToShortDateString(),
+                   soItem.shippingInstruction, soItem.dockingInstruction);
+           
+           }
+
+           return db.ExecDataBySqls(strSqls);
+
+       }
+
     }
 }

@@ -10,6 +10,7 @@ using AmbleAppServer.AccountMgr;
 using AmbleAppServer.customerVendorMgr;
 using AmbleAppServer.RfqMgr;
 using AmbleAppServer.OfferMgr;
+using AmbleAppServer.SoMgr;
 
 namespace AmbleClient
 
@@ -36,6 +37,7 @@ namespace AmbleClient
         private static CustomerVendorMgr cvMgr = null;
         private static RfqMgr rfqMgr = null;
         private static OfferMgr offerMgr = null;
+        private static SoMgr soMgr = null;
 
         public static AccountMgr GetAccountMgr()
         {
@@ -100,6 +102,23 @@ namespace AmbleClient
             }
         
         
+        }
+
+        public static SoMgr GetSoMgr()
+        {
+            if (soMgr == null)
+            {
+                soMgr = (SoMgr)Activator.GetObject(typeof(SoMgr),
+                  "tcp://localhost:1111/SoMgr");
+
+                return soMgr;
+            }
+            else
+            {
+                return soMgr;
+            }
+
+
         }
 
 

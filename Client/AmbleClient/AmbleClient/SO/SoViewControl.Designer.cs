@@ -30,29 +30,28 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.tbShipTo = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.tbBillto = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.tbSpecialInstructions = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.tbCustomerAccount = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.tbFreightTerm = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tbPaymentTerm = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbCustomerPo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbSalesOrder = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbContact = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbCustomer = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -76,6 +75,7 @@
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DockDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ShippedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbSp = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,6 +87,7 @@
             this.button1.TabIndex = 53;
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label13
             // 
@@ -97,13 +98,13 @@
             this.label13.TabIndex = 51;
             this.label13.Text = "Items:";
             // 
-            // textBox11
+            // tbShipTo
             // 
-            this.textBox11.Location = new System.Drawing.Point(534, 238);
-            this.textBox11.Multiline = true;
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(316, 42);
-            this.textBox11.TabIndex = 50;
+            this.tbShipTo.Location = new System.Drawing.Point(534, 238);
+            this.tbShipTo.Multiline = true;
+            this.tbShipTo.Name = "tbShipTo";
+            this.tbShipTo.Size = new System.Drawing.Size(316, 42);
+            this.tbShipTo.TabIndex = 50;
             // 
             // label12
             // 
@@ -114,13 +115,13 @@
             this.label12.TabIndex = 49;
             this.label12.Text = "Ship To:";
             // 
-            // textBox10
+            // tbBillto
             // 
-            this.textBox10.Location = new System.Drawing.Point(107, 238);
-            this.textBox10.Multiline = true;
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(315, 42);
-            this.textBox10.TabIndex = 48;
+            this.tbBillto.Location = new System.Drawing.Point(107, 238);
+            this.tbBillto.Multiline = true;
+            this.tbBillto.Name = "tbBillto";
+            this.tbBillto.Size = new System.Drawing.Size(315, 42);
+            this.tbBillto.TabIndex = 48;
             // 
             // label11
             // 
@@ -131,13 +132,13 @@
             this.label11.TabIndex = 47;
             this.label11.Text = "Bill To:";
             // 
-            // textBox9
+            // tbSpecialInstructions
             // 
-            this.textBox9.Location = new System.Drawing.Point(183, 163);
-            this.textBox9.Multiline = true;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(667, 50);
-            this.textBox9.TabIndex = 46;
+            this.tbSpecialInstructions.Location = new System.Drawing.Point(183, 163);
+            this.tbSpecialInstructions.Multiline = true;
+            this.tbSpecialInstructions.Name = "tbSpecialInstructions";
+            this.tbSpecialInstructions.Size = new System.Drawing.Size(667, 50);
+            this.tbSpecialInstructions.TabIndex = 46;
             // 
             // label10
             // 
@@ -148,12 +149,12 @@
             this.label10.TabIndex = 45;
             this.label10.Text = "Special Instructions:";
             // 
-            // textBox8
+            // tbCustomerAccount
             // 
-            this.textBox8.Location = new System.Drawing.Point(732, 125);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(118, 21);
-            this.textBox8.TabIndex = 44;
+            this.tbCustomerAccount.Location = new System.Drawing.Point(732, 125);
+            this.tbCustomerAccount.Name = "tbCustomerAccount";
+            this.tbCustomerAccount.Size = new System.Drawing.Size(118, 21);
+            this.tbCustomerAccount.TabIndex = 44;
             // 
             // label9
             // 
@@ -164,12 +165,12 @@
             this.label9.TabIndex = 43;
             this.label9.Text = "Customer Account:";
             // 
-            // textBox7
+            // tbFreightTerm
             // 
-            this.textBox7.Location = new System.Drawing.Point(399, 125);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(169, 21);
-            this.textBox7.TabIndex = 42;
+            this.tbFreightTerm.Location = new System.Drawing.Point(399, 125);
+            this.tbFreightTerm.Name = "tbFreightTerm";
+            this.tbFreightTerm.Size = new System.Drawing.Size(169, 21);
+            this.tbFreightTerm.TabIndex = 42;
             // 
             // label8
             // 
@@ -180,12 +181,12 @@
             this.label8.TabIndex = 41;
             this.label8.Text = "Freight Terms:";
             // 
-            // textBox6
+            // tbPaymentTerm
             // 
-            this.textBox6.Location = new System.Drawing.Point(121, 128);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(144, 21);
-            this.textBox6.TabIndex = 40;
+            this.tbPaymentTerm.Location = new System.Drawing.Point(121, 128);
+            this.tbPaymentTerm.Name = "tbPaymentTerm";
+            this.tbPaymentTerm.Size = new System.Drawing.Size(144, 21);
+            this.tbPaymentTerm.TabIndex = 40;
             // 
             // label7
             // 
@@ -196,12 +197,12 @@
             this.label7.TabIndex = 39;
             this.label7.Text = "Payment Term:";
             // 
-            // textBox5
+            // tbCustomerPo
             // 
-            this.textBox5.Location = new System.Drawing.Point(732, 82);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(118, 21);
-            this.textBox5.TabIndex = 38;
+            this.tbCustomerPo.Location = new System.Drawing.Point(732, 82);
+            this.tbCustomerPo.Name = "tbCustomerPo";
+            this.tbCustomerPo.Size = new System.Drawing.Size(118, 21);
+            this.tbCustomerPo.TabIndex = 38;
             // 
             // label6
             // 
@@ -228,12 +229,12 @@
             this.label5.TabIndex = 35;
             this.label5.Text = "Order Date:";
             // 
-            // textBox4
+            // tbSalesOrder
             // 
-            this.textBox4.Location = new System.Drawing.Point(119, 82);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(155, 21);
-            this.textBox4.TabIndex = 34;
+            this.tbSalesOrder.Location = new System.Drawing.Point(119, 82);
+            this.tbSalesOrder.Name = "tbSalesOrder";
+            this.tbSalesOrder.Size = new System.Drawing.Size(155, 21);
+            this.tbSalesOrder.TabIndex = 34;
             // 
             // label4
             // 
@@ -244,45 +245,38 @@
             this.label4.TabIndex = 33;
             this.label4.Text = "Sales Order#";
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(558, 33);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 21);
-            this.textBox3.TabIndex = 32;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(523, 36);
+            this.label3.Location = new System.Drawing.Point(522, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 31;
             this.label3.Text = "S/P:";
             // 
-            // textBox2
+            // tbContact
             // 
-            this.textBox2.Location = new System.Drawing.Point(373, 33);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(113, 21);
-            this.textBox2.TabIndex = 30;
+            this.tbContact.Location = new System.Drawing.Point(372, 28);
+            this.tbContact.Name = "tbContact";
+            this.tbContact.Size = new System.Drawing.Size(113, 21);
+            this.tbContact.TabIndex = 30;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(303, 36);
+            this.label2.Location = new System.Drawing.Point(302, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 29;
             this.label2.Text = "Contact:";
             // 
-            // textBox1
+            // tbCustomer
             // 
-            this.textBox1.Location = new System.Drawing.Point(107, 23);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(174, 37);
-            this.textBox1.TabIndex = 28;
+            this.tbCustomer.Location = new System.Drawing.Point(107, 23);
+            this.tbCustomer.Multiline = true;
+            this.tbCustomer.Name = "tbCustomer";
+            this.tbCustomer.Size = new System.Drawing.Size(174, 37);
+            this.tbCustomer.TabIndex = 28;
             // 
             // label1
             // 
@@ -443,10 +437,20 @@
             this.ShippedDate.HeaderText = "Shipped Date";
             this.ShippedDate.Name = "ShippedDate";
             // 
+            // cbSp
+            // 
+            this.cbSp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSp.FormattingEnabled = true;
+            this.cbSp.Location = new System.Drawing.Point(557, 29);
+            this.cbSp.Name = "cbSp";
+            this.cbSp.Size = new System.Drawing.Size(110, 20);
+            this.cbSp.TabIndex = 59;
+            // 
             // SoViewControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbSp);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.tbApproveDate);
             this.Controls.Add(this.tbApprover);
@@ -454,29 +458,28 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.tbShipTo);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.tbBillto);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.tbSpecialInstructions);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.tbCustomerAccount);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.tbFreightTerm);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.tbPaymentTerm);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.tbCustomerPo);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.tbSalesOrder);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbContact);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbCustomer);
             this.Controls.Add(this.label1);
             this.Name = "SoViewControl";
             this.Size = new System.Drawing.Size(918, 527);
@@ -491,29 +494,28 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox tbShipTo;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox tbBillto;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox tbSpecialInstructions;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox tbCustomerAccount;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox tbFreightTerm;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox tbPaymentTerm;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbCustomerPo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbSalesOrder;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbContact;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbCustomer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
@@ -537,6 +539,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewTextBoxColumn DockDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ShippedDate;
+        private System.Windows.Forms.ComboBox cbSp;
 
     }
 }

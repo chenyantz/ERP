@@ -62,6 +62,16 @@ namespace AmbleClient.RfqGui
             GlobalRemotingClient.GetRfqMgr().CopyRfq(rfqId, UserInfo.UserId);
         }
 
+        private void tsbSo_Click(object sender, EventArgs e)
+        {
+
+            SO.NewSo newSo = new SO.NewSo(rfqId);
+            newSo.ShowDialog();
+
+
+
+        }
+
 
 
 

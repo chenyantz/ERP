@@ -11,9 +11,42 @@ namespace AmbleClient.SO
 {
     public partial class NewSo : Form
     {
+        public int rfqId;
+
         public NewSo()
         {
             InitializeComponent();
         }
+
+
+        public NewSo(int rfqId)
+        {
+            InitializeComponent();
+            this.rfqId = rfqId;
+        }
+
+        private void soViewControl1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            this.soViewControl1.rfqId = this.rfqId;
+            this.soViewControl1.SoSave();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
+
+
+
+
+
+
+
     }
 }

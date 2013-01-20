@@ -271,7 +271,7 @@
             this.cbCurrency.FormattingEnabled = true;
             this.cbCurrency.Items.AddRange(new object[] {
             "USD",
-            "RMB",
+            "CNY",
             "EUR",
             "HK",
             "JP"});

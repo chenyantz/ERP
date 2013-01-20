@@ -19,7 +19,7 @@ namespace AmbleClient.RfqGui
             base.CheckItems();
             
             Rfq rfq=new Rfq();
-                        rfq.customerName = tbCustomer.Text.Trim();
+            rfq.customerName = tbCustomer.Text.Trim();
             rfq.salesId = mySubs[cbSales.SelectedIndex];
             rfq.project = tbProject.Text.Trim();
             rfq.contact = tbContact.Text.Trim();

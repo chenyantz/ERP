@@ -41,6 +41,7 @@ namespace AmbleAppServer.SoMgr
         public string dc;
         public string intPartNo;
         public string shipFrom;
+        public string shipMethod;
         public string trackingNo;
         public int qty;
         public int qtyshipped;

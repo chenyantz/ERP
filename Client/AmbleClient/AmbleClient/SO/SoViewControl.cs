@@ -30,8 +30,64 @@ namespace AmbleClient.SO
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            SoItemView soItemView = new SoItemView("Add an SO Item");
+            soItemView.ShowDialog();
+            soItemsList.Add(soItemView.GetSoItems());
+            ShowDataInDataGridView();  
         }
+
+
+        private void ShowDataInDataGridView()
+        { 
+          for(int i=0;i<=soItemsList.Count;i++)
+          {
+              string strSaleType, strCurrency;
+              switch (soItemsList[i].saleType)
+              { 
+                  case 0:
+                      strSaleType = "OEM EXCESS";
+                      break;
+                  case 1:
+                      strSaleType = "OWN STOCK";
+                      break;
+                  case 2:
+                      strSaleType = "OTHERS";
+                      break;
+                  default:
+                      strSaleType = "ERROR";
+                      break;
+              
+              }
+
+              switch (soItemsList[i].currencyType)
+              { 
+                  case 0:
+                      strCurrency = "USD";
+                      break;
+                  case 1:
+                      strCurrency = "CNY";break;
+                  case 2:
+                      strCurrency = "EUR";break;
+                  case 3:
+                      strCurrency = "HK";break;
+                  case 4:
+                      strCurrency = "JP";break;
+                  default:
+                      strCurrency = "ERROR";break;
+            
+              }
+
+              dataGridView1.Rows.Add(i + 1, strSaleType, soItemsList[i].partNo, soItemsList[i].mfg, soItemsList[i].rohs, soItemsList[i].dc,
+                  soItemsList[i].intPartNo, soItemsList[i].shipFrom, soItemsList[i].shipMethod, soItemsList[i].trackingNo, soItemsList[i].qty,
+                  soItemsList[i].qtyshipped, strCurrency, soItemsList[i].unitPrice, soItemsList[i].qtyshipped * soItemsList[i].unitPrice, soItemsList[i].dockDate,
+                  soItemsList[i].shippedDate);
+          }
+
+     
+        }
+
+
+
 
 
         public void NewSOFill()

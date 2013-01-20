@@ -25,10 +25,6 @@ namespace AmbleClient.SO
             this.rfqId = rfqId;
         }
 
-        private void soViewControl1_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
@@ -40,6 +36,11 @@ namespace AmbleClient.SO
         {
             this.Close();
 
+        }
+
+        private void NewSo_Load(object sender, EventArgs e)
+        {
+            this.soViewControl1.NewSOFill();
         }
 
 

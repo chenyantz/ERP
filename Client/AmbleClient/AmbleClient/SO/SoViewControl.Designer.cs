@@ -58,11 +58,12 @@
             this.tbApprover = new System.Windows.Forms.TextBox();
             this.tbApproveDate = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cbSp = new System.Windows.Forms.ComboBox();
             this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mfg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rohs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rohs = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Dc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IntPartNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ShipFrom = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,7 +76,6 @@
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DockDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ShippedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbSp = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -352,91 +352,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(829, 188);
             this.dataGridView1.TabIndex = 58;
             // 
-            // No
-            // 
-            this.No.HeaderText = "No";
-            this.No.Name = "No";
-            // 
-            // saleType
-            // 
-            this.saleType.HeaderText = "Sale Type";
-            this.saleType.Name = "saleType";
-            // 
-            // PartNo
-            // 
-            this.PartNo.HeaderText = "Part #";
-            this.PartNo.Name = "PartNo";
-            // 
-            // Mfg
-            // 
-            this.Mfg.HeaderText = "Mfg";
-            this.Mfg.Name = "Mfg";
-            // 
-            // Rohs
-            // 
-            this.Rohs.HeaderText = "ROHS";
-            this.Rohs.Name = "Rohs";
-            // 
-            // Dc
-            // 
-            this.Dc.HeaderText = "D/C";
-            this.Dc.Name = "Dc";
-            // 
-            // IntPartNo
-            // 
-            this.IntPartNo.HeaderText = "Int Part #";
-            this.IntPartNo.Name = "IntPartNo";
-            // 
-            // ShipFrom
-            // 
-            this.ShipFrom.HeaderText = "Ship From";
-            this.ShipFrom.Name = "ShipFrom";
-            // 
-            // ShipMethod
-            // 
-            this.ShipMethod.HeaderText = "Ship Method";
-            this.ShipMethod.Name = "ShipMethod";
-            // 
-            // TrackingNo
-            // 
-            this.TrackingNo.HeaderText = "tracking #";
-            this.TrackingNo.Name = "TrackingNo";
-            // 
-            // Qty
-            // 
-            this.Qty.HeaderText = "Qty";
-            this.Qty.Name = "Qty";
-            // 
-            // QtyShipped
-            // 
-            this.QtyShipped.HeaderText = "Qty.shipped";
-            this.QtyShipped.Name = "QtyShipped";
-            // 
-            // Currency
-            // 
-            this.Currency.HeaderText = "Currency";
-            this.Currency.Name = "Currency";
-            // 
-            // UnitPrice
-            // 
-            this.UnitPrice.HeaderText = "Unit Price";
-            this.UnitPrice.Name = "UnitPrice";
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            // 
-            // DockDate
-            // 
-            this.DockDate.HeaderText = "Dock Date";
-            this.DockDate.Name = "DockDate";
-            // 
-            // ShippedDate
-            // 
-            this.ShippedDate.HeaderText = "Shipped Date";
-            this.ShippedDate.Name = "ShippedDate";
-            // 
             // cbSp
             // 
             this.cbSp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -445,6 +360,125 @@
             this.cbSp.Name = "cbSp";
             this.cbSp.Size = new System.Drawing.Size(110, 20);
             this.cbSp.TabIndex = 59;
+            // 
+            // No
+            // 
+            this.No.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.No.HeaderText = "No";
+            this.No.Name = "No";
+            this.No.Width = 42;
+            // 
+            // saleType
+            // 
+            this.saleType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.saleType.HeaderText = "Sale Type";
+            this.saleType.Name = "saleType";
+            this.saleType.Width = 84;
+            // 
+            // PartNo
+            // 
+            this.PartNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.PartNo.HeaderText = "Part #";
+            this.PartNo.Name = "PartNo";
+            this.PartNo.Width = 66;
+            // 
+            // Mfg
+            // 
+            this.Mfg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Mfg.HeaderText = "Mfg";
+            this.Mfg.Name = "Mfg";
+            this.Mfg.Width = 48;
+            // 
+            // Rohs
+            // 
+            this.Rohs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Rohs.HeaderText = "RoHS";
+            this.Rohs.Name = "Rohs";
+            this.Rohs.Width = 35;
+            // 
+            // Dc
+            // 
+            this.Dc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Dc.HeaderText = "D/C";
+            this.Dc.Name = "Dc";
+            this.Dc.Width = 48;
+            // 
+            // IntPartNo
+            // 
+            this.IntPartNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.IntPartNo.HeaderText = "Int Part #";
+            this.IntPartNo.Name = "IntPartNo";
+            this.IntPartNo.Width = 90;
+            // 
+            // ShipFrom
+            // 
+            this.ShipFrom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ShipFrom.HeaderText = "Ship From";
+            this.ShipFrom.Name = "ShipFrom";
+            this.ShipFrom.Width = 84;
+            // 
+            // ShipMethod
+            // 
+            this.ShipMethod.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ShipMethod.HeaderText = "Ship Method";
+            this.ShipMethod.Name = "ShipMethod";
+            this.ShipMethod.Width = 96;
+            // 
+            // TrackingNo
+            // 
+            this.TrackingNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TrackingNo.HeaderText = "tracking #";
+            this.TrackingNo.Name = "TrackingNo";
+            this.TrackingNo.Width = 90;
+            // 
+            // Qty
+            // 
+            this.Qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Qty.HeaderText = "Qty";
+            this.Qty.Name = "Qty";
+            this.Qty.Width = 48;
+            // 
+            // QtyShipped
+            // 
+            this.QtyShipped.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.QtyShipped.HeaderText = "Qty.shipped";
+            this.QtyShipped.Name = "QtyShipped";
+            this.QtyShipped.Width = 96;
+            // 
+            // Currency
+            // 
+            this.Currency.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Currency.HeaderText = "Currency";
+            this.Currency.Name = "Currency";
+            this.Currency.Width = 78;
+            // 
+            // UnitPrice
+            // 
+            this.UnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.UnitPrice.HeaderText = "Unit Price";
+            this.UnitPrice.Name = "UnitPrice";
+            this.UnitPrice.Width = 90;
+            // 
+            // Total
+            // 
+            this.Total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            this.Total.Width = 60;
+            // 
+            // DockDate
+            // 
+            this.DockDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.DockDate.HeaderText = "Dock Date";
+            this.DockDate.Name = "DockDate";
+            this.DockDate.Width = 84;
+            // 
+            // ShippedDate
+            // 
+            this.ShippedDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ShippedDate.HeaderText = "Shipped Date";
+            this.ShippedDate.Name = "ShippedDate";
+            this.ShippedDate.Width = 72;
             // 
             // SoViewControl
             // 
@@ -522,11 +556,12 @@
         private System.Windows.Forms.TextBox tbApprover;
         private System.Windows.Forms.TextBox tbApproveDate;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox cbSp;
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
         private System.Windows.Forms.DataGridViewTextBoxColumn saleType;
         private System.Windows.Forms.DataGridViewTextBoxColumn PartNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mfg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rohs;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Rohs;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dc;
         private System.Windows.Forms.DataGridViewTextBoxColumn IntPartNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ShipFrom;
@@ -539,7 +574,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewTextBoxColumn DockDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ShippedDate;
-        private System.Windows.Forms.ComboBox cbSp;
 
     }
 }

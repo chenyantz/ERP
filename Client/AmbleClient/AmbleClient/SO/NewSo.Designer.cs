@@ -74,7 +74,6 @@
             this.soViewControl1.Name = "soViewControl1";
             this.soViewControl1.Size = new System.Drawing.Size(902, 545);
             this.soViewControl1.TabIndex = 28;
-            this.soViewControl1.Load += new System.EventHandler(this.soViewControl1_Load);
             // 
             // NewSo
             // 
@@ -87,6 +86,7 @@
             this.MinimizeBox = false;
             this.Name = "NewSo";
             this.Text = "NewSo";
+            this.Load += new System.EventHandler(this.NewSo_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);

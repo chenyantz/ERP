@@ -53,7 +53,7 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(38, 22);
+            this.toolStripButton1.Size = new System.Drawing.Size(35, 22);
             this.toolStripButton1.Text = "Save";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -63,7 +63,7 @@
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(43, 22);
+            this.toolStripButton2.Size = new System.Drawing.Size(40, 22);
             this.toolStripButton2.Text = "Close";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
@@ -72,14 +72,14 @@
             this.soViewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.soViewControl1.Location = new System.Drawing.Point(0, 25);
             this.soViewControl1.Name = "soViewControl1";
-            this.soViewControl1.Size = new System.Drawing.Size(902, 545);
+            this.soViewControl1.Size = new System.Drawing.Size(902, 593);
             this.soViewControl1.TabIndex = 28;
             // 
             // NewSo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 570);
+            this.ClientSize = new System.Drawing.Size(902, 618);
             this.Controls.Add(this.soViewControl1);
             this.Controls.Add(this.toolStrip1);
             this.MaximizeBox = false;

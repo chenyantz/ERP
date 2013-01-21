@@ -66,3 +66,43 @@ E:\My work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.SoVie
 E:\My work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.Form1.resources
 E:\My work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.SoItemsControl.resources
 E:\My work\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.SoItemView.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.exe
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.pdb
+C:\ERP\Client\AmbleClient\AmbleClient\bin\Debug\AmbleClient.exe
+C:\ERP\Client\AmbleClient\AmbleClient\bin\Debug\AmbleClient.pdb
+C:\ERP\Client\AmbleClient\AmbleClient\bin\Debug\AmpleAppServer.exe
+C:\ERP\Client\AmbleClient\AmbleClient\bin\Debug\AmpleAppServer.pdb
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Admin.AccountMainFrame.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Admin.AccountOperation.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.custVendor.AddCustomerVendor.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.custVendor.customerVendorMainFrame.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.custVendor.customerVendorOperation.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.custVendor.ModifyCustomerVendor.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Finances.FinancesView.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Login.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.MainFrame.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.OfferGui.NewOffer.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.OfferGui.OfferItems.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.OfferGui.OfferList.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.BuyerManagerRfqListView.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.BuyerManagerRfqView.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.BuyerRfqListView.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.BuyerRfqView.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.NewRfq.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.RfqItems.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.RFQListView.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.RfqPrint.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.RFQView.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Settings.PasswordChange.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Properties.Resources.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.Form1.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.NewSo.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.SoItemsControl.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.SoItemView.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.SoView.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.SoViewControl.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\RdlCompile.cache
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\RdlCompile.compiled

@@ -17,6 +17,14 @@ namespace AmbleClient.SO
             InitializeComponent();
         }
 
+        public void NewCreateItems()
+        {
+            this.cbCurrency.SelectedIndex = 0;
+            this.cbSaleType.SelectedIndex = 0;
+        
+        
+        }
+        
         public SoItems GetSoItem()
         {
             return new SoItems
@@ -39,6 +47,11 @@ namespace AmbleClient.SO
             };
                
         
+        }
+
+        private void SoItemsControl_Load(object sender, EventArgs e)
+        {
+
         }
         
 

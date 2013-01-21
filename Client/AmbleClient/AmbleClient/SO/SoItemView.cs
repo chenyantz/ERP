@@ -19,15 +19,23 @@ namespace AmbleClient.SO
             InitializeComponent();
         }
 
-        public SoItemView(string title)
+        public SoItemView(bool newItems)
         {
             InitializeComponent();
-            this.Text = title;
+            this.Text = "Add an SO Item";
+            this.tsbUpdate.Enabled = false;
+            this.soItemsControl1.NewCreateItems();
         }
 
         public SoItems GetSoItems()
         {
             return soItemsControl1.GetSoItem();
+        }
+
+        private void tsbAdd_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Yes;
+            this.Close();
         }
         
 

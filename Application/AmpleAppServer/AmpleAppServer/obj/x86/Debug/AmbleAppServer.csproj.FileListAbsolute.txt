@@ -8,3 +8,8 @@ E:\My work\ERP\Application\AmpleAppServer\AmpleAppServer\obj\x86\Debug\AmpleAppS
 E:\My work\ERP\Application\AmpleAppServer\AmpleAppServer\bin\Debug\AmpleAppServer.exe
 E:\My work\ERP\Application\AmpleAppServer\AmpleAppServer\bin\Debug\AmpleAppServer.pdb
 E:\My work\ERP\Application\AmpleAppServer\AmpleAppServer\obj\x86\Debug\AmbleAppServer.csprojResolveAssemblyReference.cache
+C:\ERP\Application\AmpleAppServer\AmpleAppServer\obj\x86\Debug\AmpleAppServer.exe
+C:\ERP\Application\AmpleAppServer\AmpleAppServer\obj\x86\Debug\AmpleAppServer.pdb
+C:\ERP\Application\AmpleAppServer\AmpleAppServer\bin\Debug\AmpleAppServer.exe
+C:\ERP\Application\AmpleAppServer\AmpleAppServer\bin\Debug\AmpleAppServer.pdb
+C:\ERP\Application\AmpleAppServer\AmpleAppServer\obj\x86\Debug\ResolveAssemblyReference.cache

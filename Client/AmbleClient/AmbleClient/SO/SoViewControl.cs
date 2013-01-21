@@ -30,16 +30,18 @@ namespace AmbleClient.SO
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SoItemView soItemView = new SoItemView("Add an SO Item");
-            soItemView.ShowDialog();
-            soItemsList.Add(soItemView.GetSoItems());
-            ShowDataInDataGridView();  
-        }
+            SoItemView soItemView = new SoItemView(true);
+            if (soItemView.ShowDialog() == DialogResult.Yes)
+            {
+                soItemsList.Add(soItemView.GetSoItems());
+                ShowDataInDataGridView();
+            }
+         }
 
 
         private void ShowDataInDataGridView()
         { 
-          for(int i=0;i<=soItemsList.Count;i++)
+          for(int i=0;i<soItemsList.Count;i++)
           {
               string strSaleType, strCurrency;
               switch (soItemsList[i].saleType)
@@ -153,6 +155,11 @@ namespace AmbleClient.SO
             specialInstructions = tbSpecialInstructions.Text.Trim(),
             rfqId = this.rfqId
            };
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
 

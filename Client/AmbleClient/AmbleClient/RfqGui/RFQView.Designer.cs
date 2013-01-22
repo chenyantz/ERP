@@ -67,7 +67,7 @@
             this.tsbRoute.Image = ((System.Drawing.Image)(resources.GetObject("tsbRoute.Image")));
             this.tsbRoute.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbRoute.Name = "tsbRoute";
-            this.tsbRoute.Size = new System.Drawing.Size(45, 22);
+            this.tsbRoute.Size = new System.Drawing.Size(42, 22);
             this.tsbRoute.Text = "Route";
             this.tsbRoute.Click += new System.EventHandler(this.tsbRoute_Click);
             // 
@@ -77,7 +77,7 @@
             this.tsbQuote.Image = ((System.Drawing.Image)(resources.GetObject("tsbQuote.Image")));
             this.tsbQuote.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbQuote.Name = "tsbQuote";
-            this.tsbQuote.Size = new System.Drawing.Size(47, 22);
+            this.tsbQuote.Size = new System.Drawing.Size(44, 22);
             this.tsbQuote.Text = "Quote";
             this.tsbQuote.Click += new System.EventHandler(this.tsbQuote_Click);
             // 
@@ -87,7 +87,7 @@
             this.tsbUpdate.Image = ((System.Drawing.Image)(resources.GetObject("tsbUpdate.Image")));
             this.tsbUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbUpdate.Name = "tsbUpdate";
-            this.tsbUpdate.Size = new System.Drawing.Size(54, 22);
+            this.tsbUpdate.Size = new System.Drawing.Size(49, 22);
             this.tsbUpdate.Text = "Update";
             this.tsbUpdate.Click += new System.EventHandler(this.tsbUpdate_Click);
             // 
@@ -97,7 +97,7 @@
             this.tsbCopy.Image = ((System.Drawing.Image)(resources.GetObject("tsbCopy.Image")));
             this.tsbCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCopy.Name = "tsbCopy";
-            this.tsbCopy.Size = new System.Drawing.Size(41, 22);
+            this.tsbCopy.Size = new System.Drawing.Size(39, 22);
             this.tsbCopy.Text = "Copy";
             this.tsbCopy.Click += new System.EventHandler(this.tsbCopy_Click);
             // 
@@ -107,7 +107,7 @@
             this.tsbSo.Image = ((System.Drawing.Image)(resources.GetObject("tsbSo.Image")));
             this.tsbSo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSo.Name = "tsbSo";
-            this.tsbSo.Size = new System.Drawing.Size(80, 22);
+            this.tsbSo.Size = new System.Drawing.Size(70, 22);
             this.tsbSo.Text = "Sales Order";
             this.tsbSo.Click += new System.EventHandler(this.tsbSo_Click);
             // 
@@ -117,8 +117,9 @@
             this.tsbViewSo.Image = ((System.Drawing.Image)(resources.GetObject("tsbViewSo.Image")));
             this.tsbViewSo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbViewSo.Name = "tsbViewSo";
-            this.tsbViewSo.Size = new System.Drawing.Size(59, 22);
-            this.tsbViewSo.Text = "View SO";
+            this.tsbViewSo.Size = new System.Drawing.Size(67, 22);
+            this.tsbViewSo.Text = "View SO(s)";
+            this.tsbViewSo.Click += new System.EventHandler(this.tsbViewSo_Click);
             // 
             // tsbPrint
             // 
@@ -126,7 +127,7 @@
             this.tsbPrint.Image = ((System.Drawing.Image)(resources.GetObject("tsbPrint.Image")));
             this.tsbPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbPrint.Name = "tsbPrint";
-            this.tsbPrint.Size = new System.Drawing.Size(37, 22);
+            this.tsbPrint.Size = new System.Drawing.Size(36, 22);
             this.tsbPrint.Text = "Print";
             // 
             // tsbCloseRfq
@@ -135,7 +136,7 @@
             this.tsbCloseRfq.Image = ((System.Drawing.Image)(resources.GetObject("tsbCloseRfq.Image")));
             this.tsbCloseRfq.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCloseRfq.Name = "tsbCloseRfq";
-            this.tsbCloseRfq.Size = new System.Drawing.Size(71, 22);
+            this.tsbCloseRfq.Size = new System.Drawing.Size(65, 22);
             this.tsbCloseRfq.Text = "Close RFQ";
             // 
             // tsbClose
@@ -144,7 +145,7 @@
             this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
             this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(43, 22);
+            this.tsbClose.Size = new System.Drawing.Size(40, 22);
             this.tsbClose.Text = "Close";
             // 
             // rfqItems1
@@ -152,14 +153,14 @@
             this.rfqItems1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rfqItems1.Location = new System.Drawing.Point(0, 25);
             this.rfqItems1.Name = "rfqItems1";
-            this.rfqItems1.Size = new System.Drawing.Size(912, 510);
+            this.rfqItems1.Size = new System.Drawing.Size(912, 555);
             this.rfqItems1.TabIndex = 1;
             // 
             // RFQView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(912, 535);
+            this.ClientSize = new System.Drawing.Size(912, 580);
             this.Controls.Add(this.rfqItems1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "RFQView";

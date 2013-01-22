@@ -72,6 +72,12 @@ namespace AmbleClient.RfqGui
 
         }
 
+        private void tsbViewSo_Click(object sender, EventArgs e)
+        {
+            SO.SoView soView = new SO.SoView(rfqId);
+            soView.ShowDialog();
+        }
+
 
 
 

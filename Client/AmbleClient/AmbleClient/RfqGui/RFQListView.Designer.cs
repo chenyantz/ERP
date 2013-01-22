@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RFQListView));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.tsbNewRfq = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -72,13 +72,13 @@
             this.tsbSet = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbOffered = new System.Windows.Forms.CheckBox();
             this.cbClosed = new System.Windows.Forms.CheckBox();
             this.cbSoApproved = new System.Windows.Forms.CheckBox();
             this.cbHasSo = new System.Windows.Forms.CheckBox();
             this.cbQuoted = new System.Windows.Forms.CheckBox();
             this.cbRouted = new System.Windows.Forms.CheckBox();
             this.cbNew = new System.Windows.Forms.CheckBox();
-            this.cbOffered = new System.Windows.Forms.CheckBox();
             this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -112,7 +112,7 @@
             this.tsbNewRfq.Image = ((System.Drawing.Image)(resources.GetObject("tsbNewRfq.Image")));
             this.tsbNewRfq.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNewRfq.Name = "tsbNewRfq";
-            this.tsbNewRfq.Size = new System.Drawing.Size(65, 22);
+            this.tsbNewRfq.Size = new System.Drawing.Size(60, 22);
             this.tsbNewRfq.Text = "New RFQ";
             this.tsbNewRfq.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -124,7 +124,7 @@
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(29, 22);
+            this.toolStripLabel2.Size = new System.Drawing.Size(28, 22);
             this.toolStripLabel2.Text = "List:";
             // 
             // tscbAllOrMine
@@ -149,7 +149,7 @@
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(56, 22);
+            this.toolStripLabel3.Size = new System.Drawing.Size(52, 22);
             this.toolStripLabel3.Text = "Filter By:";
             // 
             // toolStripComboBox1
@@ -164,7 +164,7 @@
             // toolStripLabel4
             // 
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(76, 22);
+            this.toolStripLabel4.Size = new System.Drawing.Size(70, 22);
             this.toolStripLabel4.Text = "Filter String:";
             // 
             // toolStripTextBox1
@@ -178,7 +178,7 @@
             this.tsbApply.Image = ((System.Drawing.Image)(resources.GetObject("tsbApply.Image")));
             this.tsbApply.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbApply.Name = "tsbApply";
-            this.tsbApply.Size = new System.Drawing.Size(44, 22);
+            this.tsbApply.Size = new System.Drawing.Size(42, 22);
             this.tsbApply.Text = "Apply";
             this.tsbApply.Click += new System.EventHandler(this.tsbApply_Click);
             // 
@@ -188,7 +188,7 @@
             this.tsbClear.Image = ((System.Drawing.Image)(resources.GetObject("tsbClear.Image")));
             this.tsbClear.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClear.Name = "tsbClear";
-            this.tsbClear.Size = new System.Drawing.Size(41, 22);
+            this.tsbClear.Size = new System.Drawing.Size(38, 22);
             this.tsbClear.Text = "Clear";
             this.tsbClear.Click += new System.EventHandler(this.tsbClear_Click);
             // 
@@ -204,14 +204,14 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PartNo,
@@ -228,27 +228,27 @@
             this.Alt,
             this.PrimaryPA,
             this.AltPA});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 78);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 85);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1070, 373);
+            this.dataGridView1.Size = new System.Drawing.Size(1070, 404);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
@@ -343,7 +343,7 @@
             this.tsbMoveFirst.Image = ((System.Drawing.Image)(resources.GetObject("tsbMoveFirst.Image")));
             this.tsbMoveFirst.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbMoveFirst.Name = "tsbMoveFirst";
-            this.tsbMoveFirst.Size = new System.Drawing.Size(32, 22);
+            this.tsbMoveFirst.Size = new System.Drawing.Size(30, 22);
             this.tsbMoveFirst.Text = "|<<";
             this.tsbMoveFirst.Click += new System.EventHandler(this.tsbMoveFirst_Click);
             // 
@@ -367,7 +367,7 @@
             // tslCount
             // 
             this.tslCount.Name = "tslCount";
-            this.tslCount.Size = new System.Drawing.Size(31, 22);
+            this.tslCount.Size = new System.Drawing.Size(29, 22);
             this.tslCount.Text = "/ {0}";
             this.tslCount.Click += new System.EventHandler(this.tslCount_Click);
             // 
@@ -387,7 +387,7 @@
             this.tsbMoveLast.Image = ((System.Drawing.Image)(resources.GetObject("tsbMoveLast.Image")));
             this.tsbMoveLast.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbMoveLast.Name = "tsbMoveLast";
-            this.tsbMoveLast.Size = new System.Drawing.Size(32, 22);
+            this.tsbMoveLast.Size = new System.Drawing.Size(30, 22);
             this.tsbMoveLast.Text = ">>|";
             this.tsbMoveLast.Click += new System.EventHandler(this.tsbMoveLast_Click);
             // 
@@ -399,7 +399,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(98, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(88, 22);
             this.toolStripLabel1.Text = "Items Per Page:";
             // 
             // toolStripTextBox2
@@ -414,7 +414,7 @@
             this.tsbSet.Image = ((System.Drawing.Image)(resources.GetObject("tsbSet.Image")));
             this.tsbSet.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSet.Name = "tsbSet";
-            this.tsbSet.Size = new System.Drawing.Size(29, 22);
+            this.tsbSet.Size = new System.Drawing.Size(27, 22);
             this.tsbSet.Text = "Set";
             this.tsbSet.Click += new System.EventHandler(this.tsbSet_Click);
             // 
@@ -432,9 +432,9 @@
             this.toolStripLabel1,
             this.toolStripTextBox2,
             this.tsbSet});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 50);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 54);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(345, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(327, 25);
             this.toolStrip1.TabIndex = 5;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -450,8 +450,20 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1082, 25);
+            this.panel1.Size = new System.Drawing.Size(1082, 27);
             this.panel1.TabIndex = 6;
+            // 
+            // cbOffered
+            // 
+            this.cbOffered.AutoSize = true;
+            this.cbOffered.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbOffered.Location = new System.Drawing.Point(133, 3);
+            this.cbOffered.Name = "cbOffered";
+            this.cbOffered.Size = new System.Drawing.Size(66, 19);
+            this.cbOffered.TabIndex = 6;
+            this.cbOffered.Text = "Offered";
+            this.cbOffered.UseVisualStyleBackColor = true;
+            this.cbOffered.CheckedChanged += new System.EventHandler(this.rfqStatesSelectedChanged);
             // 
             // cbClosed
             // 
@@ -525,23 +537,11 @@
             this.cbNew.UseVisualStyleBackColor = true;
             this.cbNew.CheckedChanged += new System.EventHandler(this.rfqStatesSelectedChanged);
             // 
-            // cbOffered
-            // 
-            this.cbOffered.AutoSize = true;
-            this.cbOffered.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbOffered.Location = new System.Drawing.Point(133, 3);
-            this.cbOffered.Name = "cbOffered";
-            this.cbOffered.Size = new System.Drawing.Size(66, 19);
-            this.cbOffered.TabIndex = 6;
-            this.cbOffered.Text = "Offered";
-            this.cbOffered.UseVisualStyleBackColor = true;
-            this.cbOffered.CheckedChanged += new System.EventHandler(this.rfqStatesSelectedChanged);
-            // 
             // RFQListView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 450);
+            this.ClientSize = new System.Drawing.Size(1082, 488);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridView1);

@@ -50,7 +50,7 @@ namespace AmbleAppServer.SoMgr
         public DateTime dockDate;
         public DateTime shippedDate;
         public string shippingInstruction;
-        public string dockingInstruction;
+        public string packingInstruction;
     
     }
 

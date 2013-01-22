@@ -249,6 +249,7 @@
             this.tbQtyShipped.Name = "tbQtyShipped";
             this.tbQtyShipped.Size = new System.Drawing.Size(92, 20);
             this.tbQtyShipped.TabIndex = 21;
+            this.tbQtyShipped.TextChanged += new System.EventHandler(this.tbQtyShipped_TextChanged);
             // 
             // label12
             // 
@@ -265,6 +266,7 @@
             this.tbUnitPrice.Name = "tbUnitPrice";
             this.tbUnitPrice.Size = new System.Drawing.Size(100, 20);
             this.tbUnitPrice.TabIndex = 23;
+            this.tbUnitPrice.TextChanged += new System.EventHandler(this.tbUnitPrice_TextChanged);
             // 
             // cbCurrency
             // 

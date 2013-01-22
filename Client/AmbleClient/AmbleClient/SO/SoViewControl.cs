@@ -28,15 +28,7 @@ namespace AmbleClient.SO
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            SoItemView soItemView = new SoItemView(true);
-            if (soItemView.ShowDialog() == DialogResult.Yes)
-            {
-                soItemsList.Add(soItemView.GetSoItems());
-                ShowDataInDataGridView();
-            }
-         }
+
 
 
         private void ShowDataInDataGridView()
@@ -94,6 +86,12 @@ namespace AmbleClient.SO
 
         public void NewSOFill()
         {
+            FillTheSalesComboBox();
+            cbSp.SelectedIndex = 0;
+        }
+
+        private void FillTheSalesComboBox()
+        {
             mySubs = GlobalRemotingClient.GetAccountMgr().GetAllSubsId(UserInfo.UserId);
 
             Dictionary<int, string> mySubsIdAndName = GlobalRemotingClient.GetAccountMgr().GetIdsAndNames(mySubs);
@@ -101,12 +99,34 @@ namespace AmbleClient.SO
             {
                 cbSp.Items.Add(name);
             }
-            cbSp.SelectedIndex = 0;
+        
         }
 
-        public void SoViewFill(So so)
-        { 
-        
+
+        public void FillTheTable(So so)
+        {
+            tbCustomer.Text = so.customerName;
+            tbContact.Text = so.contact;
+            tbSalesOrder.Text = so.salesOrderNo;
+            dateTimePicker1.Value = so.orderDate;
+            tbCustomerPo.Text = so.customerPo;
+            tbPaymentTerm.Text = so.paymentTerm;
+            tbFreightTerm.Text = so.freightTerm;
+            tbCustomerAccount.Text = so.customerAccount;
+            tbSpecialInstructions.Text = so.specialInstructions;
+            tbBillto.Text = so.billTo;
+            tbShipTo.Text = so.shipTo;
+            //Fill the sales ID
+            FillTheSalesComboBox();
+
+            cbSp.SelectedIndex = mySubs.IndexOf(so.salesId);
+
+            foreach (SoItems item in so.items)
+            {
+                this.soItemsList.Add(item);            
+            }
+            ShowDataInDataGridView();
+
         }
 
 
@@ -153,6 +173,8 @@ namespace AmbleClient.SO
             freightTerm = tbFreightTerm.Text.Trim(),
             customerAccount = tbCustomerAccount.Text.Trim(),
             specialInstructions = tbSpecialInstructions.Text.Trim(),
+            billTo=tbBillto.Text.Trim(),
+            shipTo=tbShipTo.Text.Trim(),
             rfqId = this.rfqId
            };
 
@@ -160,6 +182,45 @@ namespace AmbleClient.SO
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+
+                SoItemView itemView = new SoItemView(false);
+                itemView.FillTheTable(soItemsList[e.RowIndex]);
+                itemView.ShowDialog();
+
+            }
+
+
+        }
+
+        private void btAdd_Click(object sender, EventArgs e)
+        {
+            SoItemView soItemView = new SoItemView(true);
+            if (soItemView.ShowDialog() == DialogResult.Yes)
+            {
+                soItemsList.Add(soItemView.GetSoItems());
+                ShowDataInDataGridView();
+            }
+
+        }
+
+        private void btDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows[0].Index >= 0)
+            {
+                soItemsList.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                ShowDataInDataGridView();
+            
+            }
+
+
+
 
         }
 

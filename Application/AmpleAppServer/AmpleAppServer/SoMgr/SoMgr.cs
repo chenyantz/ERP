@@ -15,7 +15,7 @@ namespace AmbleAppServer.SoMgr
        public List<So> GetSoAccordingToRfqId(int rfqId)
        {
            List<So> soList = new List<So>();
-         string strSql="select soId from So where rfqId"+rfqId;
+         string strSql="select soId from So where rfqId="+rfqId;
 
          DataTable dt = db.GetDataTable(strSql,"soId");
          foreach (DataRow dr in dt.Rows)
@@ -93,15 +93,17 @@ namespace AmbleAppServer.SoMgr
                        dc = dr["dc"].ToString(),
                        intPartNo = dr["intPartNo"].ToString(),
                        shipFrom = dr["shipFrom"].ToString(),
+                       shipMethod=dr["shipMethod"].ToString(),
                        trackingNo = dr["trackingNo"].ToString(),
-                       qty = Convert.ToInt32("qty"),
-                       qtyshipped = Convert.ToInt32("qtyShipped"),
-                       currencyType = Convert.ToInt32("currency"),
+                       qty = Convert.ToInt32(dr["qty"]),
+                       qtyshipped = Convert.ToInt32(dr["qtyShipped"]),
+                       currencyType = Convert.ToInt32(dr["currency"]),
                        unitPrice = Convert.ToSingle(dr["unitPrice"]),
+                      
                        dockDate = Convert.ToDateTime(dr["dockDate"]),
                        shippedDate = Convert.ToDateTime(dr["shippedDate"]),
                        shippingInstruction = dr["shippingInstruction"].ToString(),
-                       dockingInstruction = dr["dockingInstruction"].ToString()
+                       packingInstruction = dr["packingInstruction"].ToString()
 
                    });
           }
@@ -135,10 +137,11 @@ namespace AmbleAppServer.SoMgr
            foreach (SoItems soItem in soitems)
            {
 
-               string strsql = "insert into SoItems(soId,saleType,partNo,mfg,rohs,dc,intPartNo,shipFrom,trackingNo,qty,qtyShipped,currency,unitPrice,dockDate,shippedDate,shippingInstruction,dockingInstruction) " +
-                   string.Format(" values({0},{1},'{2}','{3}',{4},'{5}','{6}','{7}','{8}',{9},{10},{11},{12},'{13}','{14}','{15}','{16}')", soId, soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc,
-                   soItem.intPartNo, soItem.shipFrom, soItem.trackingNo, soItem.qty, soItem.qtyshipped, soItem.currencyType, soItem.unitPrice, soItem.dockDate.ToShortDateString(), soItem.shippedDate.ToShortDateString(),
-                   soItem.shippingInstruction, soItem.dockingInstruction);
+               string strsql = "insert into SoItems(soId,saleType,partNo,mfg,rohs,dc,intPartNo,shipFrom,shipMethod,trackingNo,qty,qtyShipped,currency,unitPrice,dockDate,shippedDate,shippingInstruction,dockingInstruction) " +
+                   string.Format(" values({0},{1},'{2}','{3}',{4},'{5}','{6}','{7}','{8}',{9}',{10},{11},{12},{13},'{14}','{15}','{16}','{17}')", soId, soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc,
+                   soItem.intPartNo, soItem.shipFrom,soItem.shipMethod,soItem.trackingNo, soItem.qty, soItem.qtyshipped, soItem.currencyType, soItem.unitPrice, soItem.dockDate.ToShortDateString(), soItem.shippedDate.ToShortDateString(),
+                   soItem.shippingInstruction, soItem.packingInstruction);
+               strSqls.Add(strsql);
            
            }
 

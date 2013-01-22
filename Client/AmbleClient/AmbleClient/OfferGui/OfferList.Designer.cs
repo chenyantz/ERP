@@ -33,12 +33,7 @@
             this.tsbUpdate = new System.Windows.Forms.ToolStripButton();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-           // this.tabPage1 = new System.Windows.Forms.TabPage();
-           // this.tabPage2 = new System.Windows.Forms.TabPage();
-          //  this.buyerOfferItems1 = new AmbleClient.Offer.BuyerOfferItems();
             this.toolStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-          //  this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -58,7 +53,7 @@
             this.tsbUpdate.Image = ((System.Drawing.Image)(resources.GetObject("tsbUpdate.Image")));
             this.tsbUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbUpdate.Name = "tsbUpdate";
-            this.tsbUpdate.Size = new System.Drawing.Size(54, 22);
+            this.tsbUpdate.Size = new System.Drawing.Size(49, 22);
             this.tsbUpdate.Text = "Update";
             // 
             // tsbClose
@@ -67,55 +62,23 @@
             this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
             this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(43, 22);
+            this.tsbClose.Size = new System.Drawing.Size(40, 22);
             this.tsbClose.Text = "Close";
             // 
             // tabControl1
             // 
-           // this.tabControl1.Controls.Add(this.tabPage1);
-           // this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 25);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(920, 488);
+            this.tabControl1.Size = new System.Drawing.Size(920, 531);
             this.tabControl1.TabIndex = 1;
-            // 
-            // tabPage1
-            //
-            /*
-            this.tabPage1.Controls.Add(this.buyerOfferItems1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(912, 462);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(912, 462);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // buyerOfferItems1
-            // 
-            this.buyerOfferItems1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buyerOfferItems1.Location = new System.Drawing.Point(3, 3);
-            this.buyerOfferItems1.Name = "buyerOfferItems1";
-            this.buyerOfferItems1.Size = new System.Drawing.Size(906, 456);
-            this.buyerOfferItems1.TabIndex = 0;*/
             // 
             // OfferList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(920, 513);
+            this.ClientSize = new System.Drawing.Size(920, 556);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "OfferList";
@@ -123,8 +86,6 @@
             this.Load += new System.EventHandler(this.OfferList_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-           // this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

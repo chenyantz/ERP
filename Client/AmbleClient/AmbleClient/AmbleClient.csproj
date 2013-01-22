@@ -233,6 +233,12 @@
     <Compile Include="SO\SoItemView.Designer.cs">
       <DependentUpon>SoItemView.cs</DependentUpon>
     </Compile>
+    <Compile Include="SO\SoListViewNormal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SO\SoListViewNormal.Designer.cs">
+      <DependentUpon>SoListViewNormal.cs</DependentUpon>
+    </Compile>
     <Compile Include="SO\SoView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -332,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SO\SoItemView.resx">
       <DependentUpon>SoItemView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SO\SoListViewNormal.resx">
+      <DependentUpon>SoListViewNormal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SO\SoView.resx">
       <DependentUpon>SoView.cs</DependentUpon>

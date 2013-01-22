@@ -22,9 +22,19 @@ namespace AmbleClient.SO
         public SoItemView(bool newItems)
         {
             InitializeComponent();
-            this.Text = "Add an SO Item";
-            this.tsbUpdate.Enabled = false;
-            this.soItemsControl1.NewCreateItems();
+            if (newItems)
+            {
+                this.Text = "Add an SO Item";
+                this.tsbUpdate.Enabled = false;
+                this.soItemsControl1.NewCreateItems();
+            }
+            else
+            {
+                this.Text = "So Item View";
+           
+            }
+
+        
         }
 
         public SoItems GetSoItems()
@@ -37,7 +47,14 @@ namespace AmbleClient.SO
             this.DialogResult = DialogResult.Yes;
             this.Close();
         }
+
+        public void FillTheTable(SoItems item)
+        {
+            this.soItemsControl1.FillItems(item);
         
+        }
+
+
 
     }
 }

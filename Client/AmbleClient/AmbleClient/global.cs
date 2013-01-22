@@ -28,6 +28,38 @@ namespace AmbleClient
     
     }
 
+    public static class ItemsCheck
+    {
+        public static bool CheckPhoneNumber(string phoneNumber)
+        { 
+        
+        return false;
+        }
+
+        public static bool CheckEmail(string email)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(email, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");   
+
+        }
+
+        public static bool CheckIntNumber(string intNumber)
+        {
+            int tempvalue;
+
+            return int.TryParse(intNumber,out tempvalue);
+
+        }
+     
+        public static bool CheckFloatNumber(string floatNumber)
+        {
+            float tempvalue;
+            return float.TryParse(floatNumber, out tempvalue);
+           
+        }
+            
+    
+    }
+
 
 
     public static class GlobalRemotingClient

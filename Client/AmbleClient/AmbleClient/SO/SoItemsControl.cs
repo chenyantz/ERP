@@ -24,7 +24,31 @@ namespace AmbleClient.SO
         
         
         }
+
+        public void FillItems(SoItems soItem)
+        {
+            cbSaleType.SelectedIndex = soItem.saleType;
+            tbPartNo.Text = soItem.partNo;
+            tbMfg.Text = soItem.mfg;
+            cbRohs.Checked =( soItem.rohs == 1 ? true : false);
+            tbDc.Text = soItem.dc;
+            tbIntPartNo.Text = soItem.intPartNo;
+            tbShipFrom.Text = soItem.shipFrom;
+            tbShipMethod.Text = soItem.shipMethod;
+            tbTrackingNo.Text = soItem.trackingNo;
+            tbQty.Text = soItem.qty.ToString();
+            tbQtyShipped.Text=soItem.qtyshipped.ToString();
+            cbCurrency.SelectedIndex = soItem.currencyType;
+            tbUnitPrice.Text = soItem.unitPrice.ToString();
+            dateTimePicker1.Value = soItem.dockDate;
+            dateTimePicker2.Value = soItem.shippedDate;
+            tbShipInst.Text = soItem.shippingInstruction;
+            tbPackingInst.Text = soItem.packingInstruction;
         
+        }
+
+
+
         public SoItems GetSoItem()
         {
             return new SoItems
@@ -43,7 +67,9 @@ namespace AmbleClient.SO
              currencyType=cbCurrency.SelectedIndex,
              unitPrice=Convert.ToSingle(tbUnitPrice.Text.Trim()),
              dockDate=dateTimePicker1.Value.Date,
-             shippedDate=dateTimePicker2.Value.Date
+             shippedDate=dateTimePicker2.Value.Date,
+             shippingInstruction=tbShipInst.Text.Trim(),
+             packingInstruction=tbPackingInst.Text.Trim()
             };
                
         
@@ -51,6 +77,42 @@ namespace AmbleClient.SO
 
         private void SoItemsControl_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void tbUnitPrice_TextChanged(object sender, EventArgs e)
+        {
+            if ((!string.IsNullOrWhiteSpace(tbQtyShipped.Text.Trim())) && ItemsCheck.CheckIntNumber(tbQtyShipped.Text.Trim()))
+            {
+                if (ItemsCheck.CheckFloatNumber(tbUnitPrice.Text.Trim()))
+                {
+                    tbTotal.Text = (Convert.ToInt32(tbQtyShipped.Text.Trim()) * Convert.ToSingle(tbUnitPrice.Text.Trim())).ToString();
+                }
+                else
+                {
+                    tbTotal.Text = "";
+                }
+            }
+
+                
+
+        }
+
+        private void tbQtyShipped_TextChanged(object sender, EventArgs e)
+        {
+            if ((!string.IsNullOrWhiteSpace(tbUnitPrice.Text.Trim())) && ItemsCheck.CheckFloatNumber(tbUnitPrice.Text.Trim()))
+            {
+                if (ItemsCheck.CheckIntNumber(tbQtyShipped.Text.Trim()))
+                {
+                    tbTotal.Text = (Convert.ToInt32(tbQtyShipped.Text.Trim()) * Convert.ToSingle(tbUnitPrice.Text.Trim())).ToString();
+                }
+                else
+                {
+                    tbTotal.Text = "";
+                }
+            }
+
+
 
         }
         

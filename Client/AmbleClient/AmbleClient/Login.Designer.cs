@@ -38,9 +38,9 @@
             // 
             // BtnLogin
             // 
-            this.BtnLogin.Location = new System.Drawing.Point(154, 164);
+            this.BtnLogin.Location = new System.Drawing.Point(154, 178);
             this.BtnLogin.Name = "BtnLogin";
-            this.BtnLogin.Size = new System.Drawing.Size(88, 34);
+            this.BtnLogin.Size = new System.Drawing.Size(88, 37);
             this.BtnLogin.TabIndex = 3;
             this.BtnLogin.Text = "Login";
             this.BtnLogin.UseVisualStyleBackColor = true;
@@ -48,9 +48,9 @@
             // 
             // BtnCancel
             // 
-            this.BtnCancel.Location = new System.Drawing.Point(285, 164);
+            this.BtnCancel.Location = new System.Drawing.Point(285, 178);
             this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(89, 34);
+            this.BtnCancel.Size = new System.Drawing.Size(89, 37);
             this.BtnCancel.TabIndex = 4;
             this.BtnCancel.Text = "Cancel";
             this.BtnCancel.UseVisualStyleBackColor = true;
@@ -60,7 +60,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(65, 41);
+            this.label1.Location = new System.Drawing.Point(65, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 20);
             this.label1.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(38, 106);
+            this.label2.Location = new System.Drawing.Point(38, 115);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 20);
             this.label2.TabIndex = 3;
@@ -79,7 +79,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(147, 38);
+            this.textBox1.Location = new System.Drawing.Point(147, 41);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(195, 26);
             this.textBox1.TabIndex = 0;
@@ -88,7 +88,7 @@
             // maskedTextBox1
             // 
             this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(147, 100);
+            this.maskedTextBox1.Location = new System.Drawing.Point(147, 108);
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(195, 26);
             this.maskedTextBox1.TabIndex = 1;
@@ -97,10 +97,10 @@
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(412, 224);
+            this.ClientSize = new System.Drawing.Size(412, 243);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
@@ -110,6 +110,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);

@@ -123,9 +123,9 @@ namespace AmbleClient.RfqGui
 
             foreach(DataRow dr in tableCurrentPage.Rows)
             {
-                Enum.GetName(typeof(RfqStatesEnum), 0);
-                dataGridView1.Rows.Add
-                    (dr["partNo"].ToString(),
+                  dataGridView1.Rows.Add
+                    (
+                    dr["partNo"].ToString(),
                      dr["mfg"].ToString(),
                      dr["dc"].ToString(),
                      dr["qty"].ToString(),
@@ -133,7 +133,7 @@ namespace AmbleClient.RfqGui
                      dr["cost"].ToString(),
                      dr["customerName"].ToString(),
                     // DateTime.Parse(dr["rfqDate"].ToString()).ToShortDateString(),
-                     dr["rfqDate"].ToString(),
+                     Convert.ToDateTime(dr["rfqDate"]).ToShortDateString(),
                     dr["salesId"]==DBNull.Value? null:idToName[Convert.ToInt32(dr["salesId"])],
                      //dr["rfqStates"].ToString(),
                       Enum.GetName(typeof(RfqStatesEnum),Convert.ToInt32(dr["rfqStates"])),

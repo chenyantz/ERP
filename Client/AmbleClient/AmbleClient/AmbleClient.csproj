@@ -222,7 +222,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SO\BuyerSoListView.cs" />
+    <Compile Include="SO\BuyerSoListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SO\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

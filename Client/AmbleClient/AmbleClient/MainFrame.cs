@@ -83,7 +83,7 @@ namespace AmbleClient
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (UserInfo.Job == (int)JobDescription.buyer)
+            if (UserInfo.Job == JobDescription.buyer)
             {
                 RfqGui.BuyerRfqListView rfqView = new RfqGui.BuyerRfqListView();
                 rfqView.MdiParent = this;
@@ -112,7 +112,13 @@ namespace AmbleClient
             salesSoListView.Show();
 
 
+        }
 
+        private void pOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SO.BuyerSoListView buyerSoListView = new SO.BuyerSoListView();
+            buyerSoListView.MdiParent = this;
+            buyerSoListView.Show();
         }
     }
 }

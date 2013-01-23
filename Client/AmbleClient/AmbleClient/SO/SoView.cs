@@ -16,19 +16,30 @@ namespace AmbleClient.SO
     {
         private int rfqId;
 
+        private List<So> soList;
+
+
         public SoView(int rfqId)
         {
             InitializeComponent();
             this.rfqId = rfqId;
+            List<So> soList = GlobalRemotingClient.GetSoMgr().GetSoAccordingToRfqId(rfqId);
+
         }
+
+        public SoView(So so)
+        {
+            InitializeComponent();
+            soList = new List<So>();
+            soList.Add(so);
+        
+        }
+
 
 
         private void SoView_Load(object sender, EventArgs e)
         {
-            List<So> soList = GlobalRemotingClient.GetSoMgr().GetSoAccordingToRfqId(rfqId);
-
-
-
+          
             List<SoViewControl> soViewControlList = new List<SoViewControl>();
             for (int i = 0; i < soList.Count; i++)
             {

@@ -6,6 +6,7 @@ using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Windows;
+using System.Windows.Forms;
 using AmbleAppServer.AccountMgr;
 using AmbleAppServer.customerVendorMgr;
 using AmbleAppServer.RfqMgr;
@@ -15,8 +16,8 @@ using AmbleAppServer.SoMgr;
 namespace AmbleClient
 
 {
-    enum JobDescription
-    { admin=0,boss,sales,saleManager,buyer,buyerManager,warehousekeeper,wareshousekeeperManager,financial,financialManager
+   public enum JobDescription
+    { admin=0,boss=1,sales=2,saleManager=3,buyer=4,buyerManager=5,warehousekeeper=6,wareshousekeeperManager=7,financial=8,financialManager=9
     
     }
 
@@ -24,12 +25,23 @@ namespace AmbleClient
     {
         public static int UserId;
         public static string UserName;
-        public static int Job;
+        public static JobDescription Job;
     
     }
 
     public static class ItemsCheck
     {
+
+        public static bool CheckTextBoxEmpty(TextBox tb)
+        {
+            if (string.IsNullOrWhiteSpace(tb.Text.Trim()))
+            {
+                tb.Focus();
+                 return false;
+            }
+            return true;
+        }
+
         public static bool CheckPhoneNumber(string phoneNumber)
         { 
         

@@ -127,6 +127,7 @@
             this.pOToolStripMenuItem.Name = "pOToolStripMenuItem";
             this.pOToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.pOToolStripMenuItem.Text = "SO List View";
+            this.pOToolStripMenuItem.Click += new System.EventHandler(this.pOToolStripMenuItem_Click);
             // 
             // financesToolStripMenuItem
             // 

@@ -58,15 +58,61 @@ namespace AmbleAppServer.SoMgr
            soList.Add(GetSoAccordingToSoId(Convert.ToInt32(dr["soId"])));
            }
            return soList;
-       
-       
+
        }
 
        public List<So> BuyerGetSoAccordingToFilter(int userId, bool includedSubs, string filterColumn, string filterString, List<int> states)
 
        {
-           return null;
+           if (states.Count == 0) return null;
+
+           List<So> soList = new List<So>();
+           List<int> buyersIds = new List<int>();
+
+           if (includedSubs)
+           {
+               AmbleAppServer.AccountMgr.AccountMgr accountMgr = new AccountMgr.AccountMgr();
+               buyersIds.AddRange(accountMgr.GetAllSubsId(userId));
+           }
+           else
+           {
+               buyersIds.Add(userId);
+           }
+
+           StringBuilder sb = new StringBuilder();
+           sb.Append(string .Format("select soId from So s,rfq r where(s.rfqId=r.rfqNo) and ( (r.firstPA={0} or r.secondPa={0})",buyersIds[0]));
+           for (int i = 1; i < buyersIds.Count; i++)
+           {
+               sb.Append(string.Format(" or (firstPA={0} or secondPA={0}) ",buyersIds[i]));
+           }
+           sb.Append(" ) ");
+
+           //append the filter
+           if ((!string.IsNullOrWhiteSpace(filterColumn)) && (!string.IsNullOrWhiteSpace(filterString)))
+           {
+               sb.Append(string.Format(" and {0} like '%{1}%' ", filterColumn, filterString));
+           }
+
+           sb.Append(" and (soStates=" + states[0]);
+           for (int i = 1; i < states.Count; i++)
+           {
+               sb.Append(" or soStates=" + states[i]);
+
+           }
+           sb.Append(" )");
+
+           DataTable dt = db.GetDataTable(sb.ToString(), "soId");
+
+           foreach (DataRow dr in dt.Rows)
+           {
+               soList.Add(GetSoAccordingToSoId(Convert.ToInt32(dr["soId"])));
+           }
+           return soList; 
        }
+
+
+
+
 
        public List<So> GetSoAccordingToRfqId(int rfqId)
        {

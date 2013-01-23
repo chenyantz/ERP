@@ -39,7 +39,7 @@ namespace AmbleClient
                 accountProperty =GlobalRemotingClient.GetAccountMgr().CheckNameAndPasswd(textBox1.Text.Trim(), maskedTextBox1.Text.Trim());
                 UserInfo.UserId = accountProperty.UserId;
                 UserInfo.UserName = accountProperty.AccountName;
-                UserInfo.Job = accountProperty.Job;
+                UserInfo.Job =(JobDescription)accountProperty.Job;
             }
             catch (Exception ex)
             {

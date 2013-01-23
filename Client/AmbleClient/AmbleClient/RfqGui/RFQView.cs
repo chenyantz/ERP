@@ -24,19 +24,50 @@ namespace AmbleClient.RfqGui
         {
             Rfq rfq = GlobalRemotingClient.GetRfqMgr().GetRfqAccordingToRfqId(rfqId);
             rfqItems1.FillTheTable(rfq);
-            GuiOpAccordingToRfqState(rfq.rfqStates);
+            GuiOpAccordingToRfqState((RfqStatesEnum)rfq.rfqStates);
         }
 
-        private void GuiOpAccordingToRfqState(int rfqState)
+        private void GuiOpAccordingToRfqState(RfqStatesEnum rfqState)
         {
-           
-            if (rfqState == 0)//new rfq
-            {
-               tsbQuote.Enabled = false;
-               tsbSo.Enabled = false;
-               tsbViewSo.Enabled = false;
+            switch (rfqState)
+            { 
+                case RfqStatesEnum.New:
+                      tsbQuote.Enabled = false;
+                      tsbSo.Enabled = false;
+                      tsbViewSo.Enabled = false;    
+                       break;
+                case RfqStatesEnum.Routed:
+                       tsbRoute.Enabled = false;
+                       tsbQuote.Enabled=false;
+                       tsbSo.Enabled = false;
+                       tsbViewSo.Enabled = false;
+                       break;
+                case RfqStatesEnum.Offered:
+                       tsbRoute.Enabled = false;
+                       tsbSo.Enabled = false;
+                       tsbViewSo.Enabled = false;
+                       break;
+                case RfqStatesEnum.Quoted:
+                       tsbRoute.Enabled = false;
+                       tsbQuote.Enabled = false;
+                       tsbViewSo.Enabled = false;
+                       break;
+                case RfqStatesEnum.HasSO:
+                       tsbRoute.Enabled = false;
+                       tsbQuote.Enabled = false;
+                       break;
+                case RfqStatesEnum.SoApproved:
+                       tsbRoute.Enabled = false;
+                       tsbQuote.Enabled = false;
+                       tsbSo.Enabled = false;
+                       break;
+                case RfqStatesEnum.Closed:
+                       tsbRoute.Enabled = false;
+                       tsbQuote.Enabled = false;
+                       tsbSo.Enabled = false;
+                       tsbCloseRfq.Enabled = false;
+                       break;
             }
-
 
         }
 
@@ -76,6 +107,23 @@ namespace AmbleClient.RfqGui
         {
             SO.SoView soView = new SO.SoView(rfqId);
             soView.ShowDialog();
+        }
+
+        private void tsbCloseRfq_Click(object sender, EventArgs e)
+        {
+            if (rfqItems1.cbCloseReason.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please Select a Reason for Closing the RFQ");
+                rfqItems1.cbCloseReason.Focus();
+            }
+            else
+            {
+                rfqItems1.UpdateInfo();
+                GlobalRemotingClient.GetRfqMgr().ChangeRfqState(RfqStatesEnum.Closed, rfqId);
+            }
+            
+
+
         }
 
 

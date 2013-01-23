@@ -12,6 +12,7 @@ namespace AmbleClient.RfqGui
 {
     public partial class NewRfq : Form
     {
+               
         public NewRfq()
         {
             InitializeComponent();
@@ -27,7 +28,6 @@ namespace AmbleClient.RfqGui
             if (rfqItems1.SaveInfo())
             {
                 MessageBox.Show("The RFQ has been saved successfully");
-            
             }
             tsbSave.Enabled = false;
 
@@ -51,6 +51,7 @@ namespace AmbleClient.RfqGui
            Rfq rfq = GlobalRemotingClient.GetRfqMgr().GetRfqAccordingToRfqId(rfqId);
            rfqItems1.FillTheTable(rfq);
            rfqItems1.tbRoutingHistory.Clear();
+           rfqItems1.tbCost.Clear();
            rfqItems1.cbCloseReason.SelectedIndex = -1;
            
 

@@ -562,9 +562,9 @@
         private System.Windows.Forms.TextBox tbSalesOrder;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbContact;
+        public System.Windows.Forms.TextBox tbContact;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbCustomer;
+        public System.Windows.Forms.TextBox tbCustomer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;

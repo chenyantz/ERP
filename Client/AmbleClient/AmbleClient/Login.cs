@@ -37,9 +37,7 @@ namespace AmbleClient
             try
             {
                 accountProperty =GlobalRemotingClient.GetAccountMgr().CheckNameAndPasswd(textBox1.Text.Trim(), maskedTextBox1.Text.Trim());
-                UserInfo.UserId = accountProperty.UserId;
-                UserInfo.UserName = accountProperty.AccountName;
-                UserInfo.Job =(JobDescription)accountProperty.Job;
+
             }
             catch (Exception ex)
             {
@@ -55,6 +53,10 @@ namespace AmbleClient
             }
             else
             {
+                UserInfo.UserId = accountProperty.UserId;
+                UserInfo.UserName = accountProperty.AccountName;
+                UserInfo.Job = (JobDescription)accountProperty.Job;
+
                 MainFrame mainFrame = new MainFrame();
                 this.Hide();
                 mainFrame.WindowState = FormWindowState.Maximized;

@@ -109,3 +109,4 @@ C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\RdlCompile.compiled
 C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.PO.PoItemsControl.resources
 C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.PO.PoViewControl.resources
 C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.OrderTemplate.OrderListView.resources
+C:\ERP\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.BuyerSoView.resources

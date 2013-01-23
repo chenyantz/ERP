@@ -33,7 +33,6 @@
             this.tsbSave = new System.Windows.Forms.ToolStripButton();
             this.tsbPaste = new System.Windows.Forms.ToolStripButton();
             this.tsbCreateAnother = new System.Windows.Forms.ToolStripButton();
-            this.tsbRoute = new System.Windows.Forms.ToolStripButton();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.rfqItems1 = new AmbleClient.RfqGui.SalesNewRfqItems();
             this.toolStrip1.SuspendLayout();
@@ -45,7 +44,6 @@
             this.tsbSave,
             this.tsbPaste,
             this.tsbCreateAnother,
-            this.tsbRoute,
             this.tsbClose});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -82,15 +80,6 @@
             this.tsbCreateAnother.Size = new System.Drawing.Size(116, 22);
             this.tsbCreateAnother.Text = "Create Another RFQ";
             this.tsbCreateAnother.Click += new System.EventHandler(this.tsbCreateAnother_Click);
-            // 
-            // tsbRoute
-            // 
-            this.tsbRoute.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbRoute.Image = ((System.Drawing.Image)(resources.GetObject("tsbRoute.Image")));
-            this.tsbRoute.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbRoute.Name = "tsbRoute";
-            this.tsbRoute.Size = new System.Drawing.Size(42, 22);
-            this.tsbRoute.Text = "Route";
             // 
             // tsbClose
             // 
@@ -131,7 +120,6 @@
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbSave;
-        private System.Windows.Forms.ToolStripButton tsbRoute;
         private System.Windows.Forms.ToolStripButton tsbClose;
         private SalesNewRfqItems rfqItems1;
         private System.Windows.Forms.ToolStripButton tsbCreateAnother;

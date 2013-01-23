@@ -10,8 +10,9 @@ namespace AmbleClient.RfqGui
     {
         List<int> mySubs;
         public SalesNewRfqItems()
-        { 
-        
+        {
+            cbCloseReason.Enabled = false;
+            tbCost.Enabled = false;
         }
  
     public bool SaveInfo()
@@ -98,6 +99,12 @@ namespace AmbleClient.RfqGui
 
            // rfq.salesId
         }
+    public int GetSavedRfqId()
+    {
+        return GlobalRemotingClient.GetRfqMgr().GetSavedRfqId(mySubs[cbSales.SelectedIndex]);
+   
+    }
+
 
     public void NewRfqFill()
         {

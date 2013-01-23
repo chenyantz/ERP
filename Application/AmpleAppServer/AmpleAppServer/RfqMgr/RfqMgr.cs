@@ -32,6 +32,13 @@ namespace AmbleAppServer.RfqMgr
             return false;
         }
 
+       public int GetSavedRfqId(int salesId)
+       {
+           string strSql = "select max(rfqNo) from rfq where salesId=" + salesId;
+           return Convert.ToInt32(db.GetSingleObject(strSql));
+       }
+
+
        public bool UpdateRfq(Rfq rfq)
        {
        string strSql=string.Format("update rfq set customerName={0},partNo={1},salesId={2},contact={3},project={4},rohs={5},phone={6},fax={7},email={8},rfqdate={9},priority={10},dockdate={11},mfg={12},dc={13},custPartNo={14},genPartNo={15},alt={16},qty={17},packaging={18},targetPrice={19},resale={20},cost={21},firstPA={22},secondPA={23},rfqStates={24}",

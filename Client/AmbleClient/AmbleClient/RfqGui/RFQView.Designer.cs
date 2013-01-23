@@ -138,6 +138,7 @@
             this.tsbCloseRfq.Name = "tsbCloseRfq";
             this.tsbCloseRfq.Size = new System.Drawing.Size(65, 22);
             this.tsbCloseRfq.Text = "Close RFQ";
+            this.tsbCloseRfq.Click += new System.EventHandler(this.tsbCloseRfq_Click);
             // 
             // tsbClose
             // 

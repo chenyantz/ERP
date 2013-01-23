@@ -225,6 +225,12 @@
     <Compile Include="SO\BuyerSoListView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SO\BuyerSoView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SO\BuyerSoView.Designer.cs">
+      <DependentUpon>BuyerSoView.cs</DependentUpon>
+    </Compile>
     <Compile Include="SO\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -355,6 +361,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SO\BuyerSoView.resx">
+      <DependentUpon>BuyerSoView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SO\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

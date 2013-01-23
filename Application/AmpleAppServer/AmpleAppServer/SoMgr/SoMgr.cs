@@ -9,8 +9,64 @@ namespace AmbleAppServer.SoMgr
 {
    public class SoMgr:MarshalByRefObject
     {
-       DataClass.DataBase db = new DataClass.DataBase(); 
+       DataClass.DataBase db = new DataClass.DataBase();
 
+
+       public List<So> SalesGetSoAccordingTofilter(int userId, bool includedSubs, string filterColumn, string filterString, List<int> states)
+       {
+           if (states.Count == 0) return null;
+
+           List<So> soList=new List<So>();
+           List<int> salesIds = new List<int>();
+
+           if (includedSubs)
+           {
+               AmbleAppServer.AccountMgr.AccountMgr accountMgr = new AccountMgr.AccountMgr();
+               salesIds.AddRange(accountMgr.GetAllSubsId(userId));
+           }
+           else
+           {
+               salesIds.Add(userId);
+           }
+
+           StringBuilder sb=new StringBuilder();
+           sb.Append("select soId from So where ( salesId="+salesIds[0]);
+           for(int i=1;i<salesIds.Count;i++)
+           {
+               sb.Append(" or salesId=" + salesIds[i]);
+           }
+           sb.Append(" ) ");
+
+           //append the filter
+           if ((!string.IsNullOrWhiteSpace(filterColumn)) && (!string.IsNullOrWhiteSpace(filterString)))
+           { 
+            sb.Append(string.Format(" and {0} like '%{1}%' ",filterColumn,filterString));
+           }
+
+           sb.Append(" and (soStates="+states[0]);
+           for(int i=1;i<states.Count;i++)
+           {
+            sb.Append(" or soStates="+states[i]);
+           
+           }
+           sb.Append(" )");
+
+           DataTable dt=db.GetDataTable(sb.ToString(),"soId");
+
+           foreach(DataRow dr in dt.Rows)
+           {
+           soList.Add(GetSoAccordingToSoId(Convert.ToInt32(dr["soId"])));
+           }
+           return soList;
+       
+       
+       }
+
+       public List<So> BuyerGetSoAccordingToFilter(int userId, bool includedSubs, string filterColumn, string filterString, List<int> states)
+
+       {
+           return null;
+       }
 
        public List<So> GetSoAccordingToRfqId(int rfqId)
        {
@@ -111,7 +167,7 @@ namespace AmbleAppServer.SoMgr
     
        }
 
-
+       
        public bool SaveSoMain(So so)
        {
            string strSql = "insert into So(rfqId,customerName,contact,salesId,salesOrderNo,orderDate,customerPo,paymentTerm,freightTerm,customerAccount,specialInstructions,billTo,shipTo,soStates) " +

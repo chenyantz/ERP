@@ -132,6 +132,25 @@
     <Compile Include="OfferGui\OfferList.Designer.cs">
       <DependentUpon>OfferList.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrderTemplate\Order.cs" />
+    <Compile Include="OrderTemplate\OrderListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderTemplate\OrderListView.Designer.cs">
+      <DependentUpon>OrderListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\PoItemsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PO\PoItemsControl.Designer.cs">
+      <DependentUpon>PoItemsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PO\PoViewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PO\PoViewControl.Designer.cs">
+      <DependentUpon>PoViewControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="RfqGui\BuyerManagerRfqItems.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -203,6 +222,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SO\BuyerSoListView.cs" />
     <Compile Include="SO\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +234,9 @@
     </Compile>
     <Compile Include="SO\NewSo.Designer.cs">
       <DependentUpon>NewSo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SO\SalesSoListView.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="SO\SoItemsControl.cs">
       <SubType>UserControl</SubType>
@@ -232,12 +255,6 @@
     </Compile>
     <Compile Include="SO\SoItemView.Designer.cs">
       <DependentUpon>SoItemView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SO\SoListViewNormal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SO\SoListViewNormal.Designer.cs">
-      <DependentUpon>SoListViewNormal.cs</DependentUpon>
     </Compile>
     <Compile Include="SO\SoView.cs">
       <SubType>Form</SubType>
@@ -286,6 +303,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OfferGui\OfferList.resx">
       <DependentUpon>OfferList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderTemplate\OrderListView.resx">
+      <DependentUpon>OrderListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\PoItemsControl.resx">
+      <DependentUpon>PoItemsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\PoViewControl.resx">
+      <DependentUpon>PoViewControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RfqGui\BuyerManagerRfqListView.resx">
       <DependentUpon>BuyerManagerRfqListView.cs</DependentUpon>
@@ -338,9 +364,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SO\SoItemView.resx">
       <DependentUpon>SoItemView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SO\SoListViewNormal.resx">
-      <DependentUpon>SoListViewNormal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SO\SoView.resx">
       <DependentUpon>SoView.cs</DependentUpon>

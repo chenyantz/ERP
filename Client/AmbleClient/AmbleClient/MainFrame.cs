@@ -104,5 +104,15 @@ namespace AmbleClient
            // SO.Test test = new SO.Test();
           //  test.ShowDialog();
         }
+
+        private void sOViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SO.SalesSoListView salesSoListView = new SO.SalesSoListView();
+            salesSoListView.MdiParent = this;
+            salesSoListView.Show();
+
+
+
+        }
     }
 }

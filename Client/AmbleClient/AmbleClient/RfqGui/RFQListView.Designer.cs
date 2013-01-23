@@ -46,20 +46,6 @@
             this.tsbClear = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.PartNo = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Mfg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Resale = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SalePerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RfqStates = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rohs = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Alt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrimaryPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AltPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsbMoveFirst = new System.Windows.Forms.ToolStripButton();
             this.tsbMovePre = new System.Windows.Forms.ToolStripButton();
             this.tstbCurrentPage = new System.Windows.Forms.ToolStripTextBox();
@@ -79,6 +65,20 @@
             this.cbQuoted = new System.Windows.Forms.CheckBox();
             this.cbRouted = new System.Windows.Forms.CheckBox();
             this.cbNew = new System.Windows.Forms.CheckBox();
+            this.PartNo = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Mfg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Resale = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SalePerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RfqStates = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rohs = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Alt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrimaryPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AltPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -248,94 +248,10 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1070, 404);
+            this.dataGridView1.Size = new System.Drawing.Size(1082, 445);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            // 
-            // PartNo
-            // 
-            this.PartNo.HeaderText = "Part #";
-            this.PartNo.Name = "PartNo";
-            this.PartNo.ReadOnly = true;
-            // 
-            // Mfg
-            // 
-            this.Mfg.HeaderText = "Mgf";
-            this.Mfg.Name = "Mfg";
-            this.Mfg.ReadOnly = true;
-            // 
-            // Dc
-            // 
-            this.Dc.HeaderText = "D/C";
-            this.Dc.Name = "Dc";
-            this.Dc.ReadOnly = true;
-            // 
-            // Qty
-            // 
-            this.Qty.HeaderText = "Qty";
-            this.Qty.Name = "Qty";
-            this.Qty.ReadOnly = true;
-            // 
-            // Resale
-            // 
-            this.Resale.HeaderText = "Resale";
-            this.Resale.Name = "Resale";
-            this.Resale.ReadOnly = true;
-            // 
-            // Cost
-            // 
-            this.Cost.HeaderText = "Cost";
-            this.Cost.Name = "Cost";
-            this.Cost.ReadOnly = true;
-            // 
-            // Customer
-            // 
-            this.Customer.HeaderText = "Customer";
-            this.Customer.Name = "Customer";
-            this.Customer.ReadOnly = true;
-            // 
-            // Date
-            // 
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            // 
-            // SalePerson
-            // 
-            this.SalePerson.HeaderText = "S/P";
-            this.SalePerson.Name = "SalePerson";
-            this.SalePerson.ReadOnly = true;
-            // 
-            // RfqStates
-            // 
-            this.RfqStates.HeaderText = "RFQ States";
-            this.RfqStates.Name = "RfqStates";
-            this.RfqStates.ReadOnly = true;
-            // 
-            // Rohs
-            // 
-            this.Rohs.HeaderText = "RoHS";
-            this.Rohs.Name = "Rohs";
-            this.Rohs.ReadOnly = true;
-            // 
-            // Alt
-            // 
-            this.Alt.HeaderText = "Alt";
-            this.Alt.Name = "Alt";
-            this.Alt.ReadOnly = true;
-            // 
-            // PrimaryPA
-            // 
-            this.PrimaryPA.HeaderText = "Primary P/A";
-            this.PrimaryPA.Name = "PrimaryPA";
-            this.PrimaryPA.ReadOnly = true;
-            // 
-            // AltPA
-            // 
-            this.AltPA.HeaderText = "Alt P/A";
-            this.AltPA.Name = "AltPA";
-            this.AltPA.ReadOnly = true;
             // 
             // tsbMoveFirst
             // 
@@ -537,11 +453,124 @@
             this.cbNew.UseVisualStyleBackColor = true;
             this.cbNew.CheckedChanged += new System.EventHandler(this.rfqStatesSelectedChanged);
             // 
+            // PartNo
+            // 
+            this.PartNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.PartNo.HeaderText = "Part #";
+            this.PartNo.Name = "PartNo";
+            this.PartNo.ReadOnly = true;
+            this.PartNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.PartNo.Width = 61;
+            // 
+            // Mfg
+            // 
+            this.Mfg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Mfg.HeaderText = "Mgf";
+            this.Mfg.Name = "Mfg";
+            this.Mfg.ReadOnly = true;
+            this.Mfg.Width = 50;
+            // 
+            // Dc
+            // 
+            this.Dc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Dc.HeaderText = "D/C";
+            this.Dc.Name = "Dc";
+            this.Dc.ReadOnly = true;
+            this.Dc.Width = 52;
+            // 
+            // Qty
+            // 
+            this.Qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Qty.HeaderText = "Qty";
+            this.Qty.Name = "Qty";
+            this.Qty.ReadOnly = true;
+            this.Qty.Width = 48;
+            // 
+            // Resale
+            // 
+            this.Resale.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Resale.HeaderText = "Resale";
+            this.Resale.Name = "Resale";
+            this.Resale.ReadOnly = true;
+            this.Resale.Width = 65;
+            // 
+            // Cost
+            // 
+            this.Cost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Cost.HeaderText = "Cost";
+            this.Cost.Name = "Cost";
+            this.Cost.ReadOnly = true;
+            this.Cost.Width = 53;
+            // 
+            // Customer
+            // 
+            this.Customer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Customer.HeaderText = "Customer";
+            this.Customer.Name = "Customer";
+            this.Customer.ReadOnly = true;
+            this.Customer.Width = 76;
+            // 
+            // Date
+            // 
+            this.Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            this.Date.Width = 55;
+            // 
+            // SalePerson
+            // 
+            this.SalePerson.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.SalePerson.HeaderText = "S/P";
+            this.SalePerson.Name = "SalePerson";
+            this.SalePerson.ReadOnly = true;
+            this.SalePerson.Width = 51;
+            // 
+            // RfqStates
+            // 
+            this.RfqStates.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.RfqStates.HeaderText = "RFQ States";
+            this.RfqStates.Name = "RfqStates";
+            this.RfqStates.ReadOnly = true;
+            this.RfqStates.Width = 87;
+            // 
+            // Rohs
+            // 
+            this.Rohs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Rohs.HeaderText = "RoHS";
+            this.Rohs.Name = "Rohs";
+            this.Rohs.ReadOnly = true;
+            this.Rohs.Width = 42;
+            // 
+            // Alt
+            // 
+            this.Alt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Alt.HeaderText = "Alt";
+            this.Alt.Name = "Alt";
+            this.Alt.ReadOnly = true;
+            this.Alt.Width = 44;
+            // 
+            // PrimaryPA
+            // 
+            this.PrimaryPA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.PrimaryPA.HeaderText = "Primary P/A";
+            this.PrimaryPA.Name = "PrimaryPA";
+            this.PrimaryPA.ReadOnly = true;
+            this.PrimaryPA.Width = 88;
+            // 
+            // AltPA
+            // 
+            this.AltPA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.AltPA.HeaderText = "Alt P/A";
+            this.AltPA.Name = "AltPA";
+            this.AltPA.ReadOnly = true;
+            this.AltPA.Width = 66;
+            // 
             // RFQListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 488);
+            this.ClientSize = new System.Drawing.Size(1082, 527);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridView1);
@@ -595,6 +624,7 @@
         protected System.Windows.Forms.CheckBox cbHasSo;
         protected System.Windows.Forms.CheckBox cbQuoted;
         protected System.Windows.Forms.CheckBox cbRouted;
+        protected System.Windows.Forms.CheckBox cbOffered;
         private System.Windows.Forms.DataGridViewLinkColumn PartNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mfg;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dc;
@@ -609,7 +639,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Alt;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrimaryPA;
         private System.Windows.Forms.DataGridViewTextBoxColumn AltPA;
-        protected System.Windows.Forms.CheckBox cbOffered;
 
 
     }

@@ -57,6 +57,7 @@ namespace AmbleClient
             {
                 MainFrame mainFrame = new MainFrame();
                 this.Hide();
+                mainFrame.WindowState = FormWindowState.Maximized;
                 mainFrame.Show();
                
            

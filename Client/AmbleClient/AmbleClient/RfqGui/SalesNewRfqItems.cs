@@ -20,77 +20,9 @@ namespace AmbleClient.RfqGui
             base.CheckItems();
             
             Rfq rfq=new Rfq();
-            rfq.customerName = tbCustomer.Text.Trim();
+            GetValuesFromGui(rfq);
+            rfq.closeReason = null;
             rfq.salesId = mySubs[cbSales.SelectedIndex];
-            rfq.project = tbProject.Text.Trim();
-            rfq.contact = tbContact.Text.Trim();
-            rfq.phone = tbPhone.Text.Trim();
-            rfq.fax = tbFax.Text.Trim();
-            rfq.email = tbEmail.Text.Trim();
-            //priority
-            if (cbPriority.SelectedIndex == -1)
-            {
-                rfq.priority = null;
-            }
-            else
-            {
-                rfq.priority = cbPriority.SelectedIndex;
-            }
-            if (cbRohs.Checked)
-            {
-                rfq.rohs = 1;
-            }
-            else
-            {
-                rfq.rohs = 0;
-            }
-            rfq.rfqdate = DateTime.Now.Date;
-            rfq.dockdate = dateTimePicker1.Value.Date;
-            rfq.partNo = tbPartNo.Text.Trim();
-            rfq.mfg = tbMfg.Text.Trim();
-            rfq.dc = tbDc.Text.Trim();
-            rfq.custPartNo = tbCustPartNo.Text.Trim();
-            rfq.genPartNo = tbGenPartNo.Text.Trim();
-            rfq.alt = tbAlt.Text.Trim();
-            if (string.IsNullOrWhiteSpace(tbQuantity.Text.Trim()))
-            {
-                rfq.qty = null;
-            }
-            else
-            {
-                rfq.qty = int.Parse(tbQuantity.Text.Trim());//checked if non-number value in checkItems();
-            }
-            rfq.packaging = tbPackaging.Text.Trim();
-            
-            if(string.IsNullOrWhiteSpace(tbTargetPrice.Text.Trim()))
-            {
-             rfq.targetPrice=null;
-            }
-            else
-            {
-             rfq.targetPrice=float.Parse(tbTargetPrice.Text.Trim()); //checked  in checkitems()
-            }
-
-            if (string.IsNullOrWhiteSpace(tbResale.Text.Trim()))
-            {
-                rfq.resale = null;
-            }
-            else
-            {
-                rfq.resale = float.Parse(tbResale.Text.Trim());
-            
-            }
-
-            if (string.IsNullOrWhiteSpace(tbCost.Text.Trim()))
-            {
-                rfq.cost = null;
-            }
-            else
-            {
-                rfq.cost = float.Parse(tbCost.Text.Trim());
-            }
-            rfq.infoToCustomer = tbToCustomer.Text;
-            rfq.infoToInternal = tbToInternal.Text;
             rfq.routingHistory =DateTime.Now.ToShortDateString()+":"+UserInfo.UserName.ToString() + ":Create the RFQ\n";
             
 

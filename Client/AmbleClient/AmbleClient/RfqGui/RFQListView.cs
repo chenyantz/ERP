@@ -305,9 +305,18 @@ namespace AmbleClient.RfqGui
         
         }
 
+        private void tsbRefresh_Click(object sender, EventArgs e)
+        {
+            CountPageAndShowDataGridView();
+        }
 
 
-
-
+        private void RFQListView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5)
+            {
+                CountPageAndShowDataGridView();
+            }
+        }
   }
 }

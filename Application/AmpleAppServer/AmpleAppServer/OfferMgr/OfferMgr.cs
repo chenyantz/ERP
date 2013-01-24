@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 
+
 namespace AmbleAppServer.OfferMgr
 {
    public class OfferMgr:MarshalByRefObject
@@ -22,6 +23,15 @@ namespace AmbleAppServer.OfferMgr
            else
                return false;
        }
+
+
+       public int GetNewSavedOfferId(int buyerId)
+       {
+           string strSql = "select max(offerId) from offer where buyerId=" + buyerId;
+           return Convert.ToInt32(db.GetSingleObject(strSql));
+       
+       }
+
 
 
        public List<Offer> GetOffersByRfqId(int rfqId)
@@ -99,9 +109,46 @@ namespace AmbleAppServer.OfferMgr
        {
            string strSql = string.Format("update offer set offerStates={0} where offerId={1}", offerState,offerId);
            if (db.ExecDataBySql(strSql) == 1)
+           {
+               if(offerState==1)
+               {
+                   FillTheRfqCost(offerId);
+                }
                return true;
+           
+           }
+
            return false;
        }
+
+       public void FillTheRfqCost(int offerId)
+       {
+           string strSql = "select rfqNo,price from offer where offerId=" + offerId;
+           DataTable dt = db.GetDataTable(strSql, "offer");
+           DataRow dr = dt.Rows[0];
+           int rfqNo = Convert.ToInt32(dr["rfqNo"]);
+           float price = Convert.ToSingle(dr["price"]);
+           //get the cost in the RFQ table
+           strSql = "select cost,rfqStates from rfq where rfqNo=" + rfqNo;
+           dr = db.GetDataTable(strSql, "tmp").Rows[0];
+           int rfqStates = Convert.ToInt32(dr["rfqStates"]);
+
+           if ((dr["cost"] == DBNull.Value) || Convert.ToSingle(dr["cost"]) > price)
+           {
+               if (rfqStates == (int)AmbleAppServer.RfqMgr.RfqStatesEnum.Routed)
+               {
+                   strSql = string.Format("update rfq set cost={0},rfqStates={1} where rfqNo={2}", price,(int)AmbleAppServer.RfqMgr.RfqStatesEnum.Offered, rfqNo);
+
+               }
+               else
+               {
+                   strSql = string.Format("update rfq set cost={0} where rfqNo={1}", price, rfqNo);
+               
+               }
+               db.ExecDataBySql(strSql);
+           }
+       }
+
 
 
     }

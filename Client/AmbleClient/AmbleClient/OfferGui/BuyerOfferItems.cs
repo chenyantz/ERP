@@ -66,6 +66,7 @@ namespace AmbleClient.OfferGui
             offer.deliverTime=int.Parse(tbDeliverTime.Text.Trim());
            }
            offer.timeUnit = cbTimeUnit.SelectedIndex;
+           offer.buyerId = UserInfo.UserId;
 
            offer.offerDate = DateTime.Now;
            offer.offerStates = 0;//new 
@@ -73,6 +74,19 @@ namespace AmbleClient.OfferGui
            return GlobalRemotingClient.GetOfferMgr().SaveOffer(offer);
 
        }
+
+       public int GetTheSavedOfferId()
+       {
+
+           return GlobalRemotingClient.GetOfferMgr().GetNewSavedOfferId(UserInfo.UserId);
+       
+       }
+
+       public bool UpdateItems()
+       {
+           return true;
+       }
+
 
 
     }

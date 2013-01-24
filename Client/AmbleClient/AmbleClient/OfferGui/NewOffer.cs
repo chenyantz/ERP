@@ -13,11 +13,13 @@ namespace AmbleClient.OfferGui
     public partial class NewOffer : Form
     {
         int rfqId;
+        int? newOfferId = null;
         
         public NewOffer(int rfqId)
         {
             this.rfqId = rfqId;
             InitializeComponent();
+            tsbRoute.Enabled = false;
         }
 
         private void tsbSave_Click(object sender, EventArgs e)
@@ -26,6 +28,8 @@ namespace AmbleClient.OfferGui
             {
                 MessageBox.Show("Save the Offer Info Successfully");
                 tsbSave.Enabled = false;
+                newOfferId = buyerOfferItems1.GetTheSavedOfferId();
+                tsbRoute.Enabled = true;
             }
             else
             {
@@ -34,6 +38,9 @@ namespace AmbleClient.OfferGui
         }
         private void tsbRoute_Click(object sender, EventArgs e)
         {
+            tsbRoute.Enabled = false;
+            GlobalRemotingClient.GetOfferMgr().ChangeOfferState(1, newOfferId.Value);
+
 
         }
 

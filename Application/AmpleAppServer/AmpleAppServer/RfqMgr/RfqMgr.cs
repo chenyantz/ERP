@@ -41,8 +41,13 @@ namespace AmbleAppServer.RfqMgr
 
        public bool UpdateRfq(Rfq rfq)
        {
-       string strSql=string.Format("update rfq set customerName={0},partNo={1},salesId={2},contact={3},project={4},rohs={5},phone={6},fax={7},email={8},rfqdate={9},priority={10},dockdate={11},mfg={12},dc={13},custPartNo={14},genPartNo={15},alt={16},qty={17},packaging={18},targetPrice={19},resale={20},cost={21},firstPA={22},secondPA={23},rfqStates={24}",
-         rfq.customerName,rfq.partNo,rfq.salesId,rfq.contact,rfq.project,rfq.rohs,rfq.phone,rfq.fax,rfq.email,rfq.rfqdate.Date.ToShortDateString(),rfq.priority,rfq.dockdate.Date.ToShortDateString(),rfq.mfg,rfq.dc,rfq.custPartNo,rfq.genPartNo,rfq.alt,rfq.qty,rfq.packaging,rfq.targetPrice,rfq.resale,rfq.cost,rfq.firstPA,rfq.secondPA,rfq.rfqStates);
+       string strSql=string.Format("update rfq set customerName='{0}',partNo='{1}',salesId={2},contact='{3}',project='{4}',rohs={5},phone='{6}',fax='{7}',email='{8}',rfqdate='{9}',priority={10},dockdate='{11}',mfg='{12}',dc='{13}',custPartNo='{14}',genPartNo='{15}',alt='{16}',qty={17},packaging='{18}',targetPrice={19},resale={20},firstPA={21},secondPA={22},rfqStates={23}",
+         rfq.customerName,rfq.partNo,rfq.salesId,rfq.contact,rfq.project,rfq.rohs,rfq.phone,rfq.fax,rfq.email,rfq.rfqdate.Date.ToShortDateString(),
+         rfq.priority.HasValue?rfq.priority.Value.ToString():"null",rfq.dockdate.Date.ToShortDateString(),rfq.mfg,rfq.dc,rfq.custPartNo,rfq.genPartNo,rfq.alt,rfq.qty,rfq.packaging,
+         rfq.targetPrice.HasValue?rfq.targetPrice.Value.ToString():"null",
+         rfq.resale.HasValue?rfq.resale.Value.ToString():"null",
+         rfq.firstPA.HasValue?rfq.firstPA.Value.ToString():"null",
+         rfq.secondPA.HasValue?rfq.secondPA.Value.ToString():"null",rfq.rfqStates);
         
            int row=db.ExecDataBySql(strSql);
             if(row==1)

@@ -338,6 +338,7 @@
             // 
             this.dateTimePicker2.Location = new System.Drawing.Point(387, 241);
             this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.ShowCheckBox = true;
             this.dateTimePicker2.Size = new System.Drawing.Size(144, 20);
             this.dateTimePicker2.TabIndex = 31;
             // 

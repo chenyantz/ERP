@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using AmbleAppServer.RfqMgr;
 
 namespace AmbleClient.RfqGui
 {
@@ -12,11 +13,17 @@ namespace AmbleClient.RfqGui
        public SalesRfqItems()
        { 
        }
-      
 
-       public void UpdateInfo()
-       { 
+       public bool UpdateInfo()
+       {
+           Rfq rfq = new Rfq();
+           GetValuesFromGui(rfq);
+           rfq.salesId = mySubs[cbSales.SelectedIndex];
+         return  GlobalRemotingClient.GetRfqMgr().UpdateRfq(rfq);
+
+
        }
+
 
        public override void FillTheTable(AmbleAppServer.RfqMgr.Rfq rfq)
        {

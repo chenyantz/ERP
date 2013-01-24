@@ -99,7 +99,7 @@
             // tbDc
             // 
             this.tbDc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDc.Location = new System.Drawing.Point(674, 165);
+            this.tbDc.Location = new System.Drawing.Point(661, 165);
             this.tbDc.Name = "tbDc";
             this.tbDc.Size = new System.Drawing.Size(100, 21);
             this.tbDc.TabIndex = 57;
@@ -183,7 +183,7 @@
             // 
             this.cbRohs.AutoSize = true;
             this.cbRohs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbRohs.Location = new System.Drawing.Point(674, 99);
+            this.cbRohs.Location = new System.Drawing.Point(661, 99);
             this.cbRohs.Name = "cbRohs";
             this.cbRohs.Size = new System.Drawing.Size(15, 14);
             this.cbRohs.TabIndex = 47;
@@ -230,7 +230,7 @@
             // tbFax
             // 
             this.tbFax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFax.Location = new System.Drawing.Point(674, 60);
+            this.tbFax.Location = new System.Drawing.Point(661, 60);
             this.tbFax.Name = "tbFax";
             this.tbFax.Size = new System.Drawing.Size(174, 21);
             this.tbFax.TabIndex = 41;
@@ -284,7 +284,7 @@
             // tbProject
             // 
             this.tbProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbProject.Location = new System.Drawing.Point(674, 27);
+            this.tbProject.Location = new System.Drawing.Point(661, 27);
             this.tbProject.Name = "tbProject";
             this.tbProject.Size = new System.Drawing.Size(174, 21);
             this.tbProject.TabIndex = 35;
@@ -366,7 +366,7 @@
             // tbAlt
             // 
             this.tbAlt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAlt.Location = new System.Drawing.Point(674, 203);
+            this.tbAlt.Location = new System.Drawing.Point(661, 203);
             this.tbAlt.Name = "tbAlt";
             this.tbAlt.Size = new System.Drawing.Size(156, 21);
             this.tbAlt.TabIndex = 63;
@@ -456,8 +456,9 @@
             // tbCost
             // 
             this.tbCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCost.Location = new System.Drawing.Point(674, 264);
+            this.tbCost.Location = new System.Drawing.Point(661, 264);
             this.tbCost.Name = "tbCost";
+            this.tbCost.ReadOnly = true;
             this.tbCost.Size = new System.Drawing.Size(100, 21);
             this.tbCost.TabIndex = 73;
             // 
@@ -561,7 +562,14 @@
             this.cbCloseReason.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCloseReason.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCloseReason.FormattingEnabled = true;
-            this.cbCloseReason.Location = new System.Drawing.Point(681, 302);
+            this.cbCloseReason.Items.AddRange(new object[] {
+            "Price to high",
+            "L/T too long",
+            "D/C too old",
+            "Packing issue",
+            "Demand gone;",
+            "Others"});
+            this.cbCloseReason.Location = new System.Drawing.Point(668, 302);
             this.cbCloseReason.Name = "cbCloseReason";
             this.cbCloseReason.Size = new System.Drawing.Size(144, 23);
             this.cbCloseReason.TabIndex = 86;
@@ -677,7 +685,7 @@
             this.Controls.Add(this.tbCustomer);
             this.Controls.Add(this.label1);
             this.Name = "RfqItems";
-            this.Size = new System.Drawing.Size(915, 558);
+            this.Size = new System.Drawing.Size(899, 558);
             this.Load += new System.EventHandler(this.RfqItems_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

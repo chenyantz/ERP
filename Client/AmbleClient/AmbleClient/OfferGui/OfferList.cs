@@ -56,6 +56,10 @@ namespace AmbleClient.OfferGui
                this.tabControl1.Controls.Add(tabPage);
             }
            
+
+
+
+
         }
     }
 }

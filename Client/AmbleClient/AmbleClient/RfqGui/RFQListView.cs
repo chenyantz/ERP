@@ -29,12 +29,6 @@ namespace AmbleClient.RfqGui
             InitializeComponent();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-
 
         private void RFQView_Load(object sender, EventArgs e)
         {
@@ -121,10 +115,11 @@ namespace AmbleClient.RfqGui
             if (tableCurrentPage == null)
                 return;
 
+            int i = 0;
             foreach(DataRow dr in tableCurrentPage.Rows)
             {
                   dataGridView1.Rows.Add
-                    (
+                    (i++,
                     dr["partNo"].ToString(),
                      dr["mfg"].ToString(),
                      dr["dc"].ToString(),
@@ -256,8 +251,12 @@ namespace AmbleClient.RfqGui
             int rowIndex = e.RowIndex;
             if (rowIndex < 0)
                 return;
+
+            //get the No.
+            DataGridViewRow dgvr = dataGridView1.Rows[rowIndex];
+            int realRowIndex = Convert.ToInt32(dgvr.Cells["No"].Value);
             //get the rfqId, the primary key
-            DataRow dr = tableCurrentPage.Rows[rowIndex];
+            DataRow dr = tableCurrentPage.Rows[realRowIndex];
             int rfqId = Convert.ToInt32(dr["rfqNo"]);
 
             CellDoubleClickShow(rfqId);

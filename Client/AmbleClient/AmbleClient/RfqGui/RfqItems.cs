@@ -109,9 +109,6 @@ namespace AmbleClient.RfqGui
         
         }
 
-
-
-
         public virtual void FillTheTable(AmbleAppServer.RfqMgr.Rfq rfq)
         {
            /*

@@ -13,6 +13,8 @@ namespace AmbleClient.SO
 {
     public partial class SoViewControl : UserControl
     {
+
+        bool needFreezeItemControl = false;
         List<SoItems> soItemsList = new List<SoItems>();
         
         List<int> mySubs;
@@ -79,6 +81,24 @@ namespace AmbleClient.SO
      
         }
 
+        public void FreezeAllControls()
+        {
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is Label)
+                    continue;
+                else if (ctrl is DataGridView)
+                {
+                    ((DataGridView)ctrl).ReadOnly = true;
+                }
+                else
+                {
+                    ctrl.Enabled = false;
+                }
+            }
+            needFreezeItemControl = true;
+        
+        }
 
 
 
@@ -201,6 +221,11 @@ namespace AmbleClient.SO
 
                 SoItemView itemView = new SoItemView(false);
                 itemView.FillTheTable(soItemsList[e.RowIndex]);
+
+                if (needFreezeItemControl)
+                {
+                    itemView.FreeTheSoItems();
+                }
                 itemView.ShowDialog();
 
             }

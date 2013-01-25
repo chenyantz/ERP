@@ -48,7 +48,7 @@ namespace AmbleAppServer.SoMgr
         public int currencyType;
         public float unitPrice;
         public DateTime dockDate;
-        public DateTime shippedDate;
+        public DateTime? shippedDate;
         public string shippingInstruction;
         public string packingInstruction;
     

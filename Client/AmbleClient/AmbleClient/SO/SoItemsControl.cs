@@ -41,16 +41,44 @@ namespace AmbleClient.SO
             cbCurrency.SelectedIndex = soItem.currencyType;
             tbUnitPrice.Text = soItem.unitPrice.ToString();
             dateTimePicker1.Value = soItem.dockDate;
-            dateTimePicker2.Value = soItem.shippedDate;
+
+            if (soItem.shippedDate == null)
+            {
+                dateTimePicker2.Checked = false;
+            }
+            else
+            {
+                dateTimePicker2.Value = soItem.shippedDate.Value;
+            }
             tbShipInst.Text = soItem.shippingInstruction;
             tbPackingInst.Text = soItem.packingInstruction;
         
         }
 
-
+        public void FreezeAllControls()
+        {
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is Label)
+                    continue;
+                ctrl.Enabled = false;
+            
+            }
+        
+        }
 
         public SoItems GetSoItem()
         {
+            DateTime? datetime;
+            if (dateTimePicker1.Checked)
+            {
+                datetime = dateTimePicker2.Value.Date;
+            }
+            else
+            {
+                datetime = null;
+            }
+
             return new SoItems
             {
              saleType=cbSaleType.SelectedIndex,
@@ -67,7 +95,7 @@ namespace AmbleClient.SO
              currencyType=cbCurrency.SelectedIndex,
              unitPrice=Convert.ToSingle(tbUnitPrice.Text.Trim()),
              dockDate=dateTimePicker1.Value.Date,
-             shippedDate=dateTimePicker2.Value.Date,
+             shippedDate=datetime,
              shippingInstruction=tbShipInst.Text.Trim(),
              packingInstruction=tbPackingInst.Text.Trim()
             };

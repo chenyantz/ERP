@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using AmbleAppServer.RfqMgr;
 
 namespace AmbleClient.RfqGui
@@ -43,7 +44,10 @@ namespace AmbleClient.RfqGui
             cbCloseReason.Enabled = false;
             tbRfqDate.ReadOnly = true; tbRfqDate.Enabled = false;
             //clear all the necessary textbox
+
             tbCustomer.Clear();
+            //customer auto complete
+            CustomerAutoComplete();
             tbProject.Clear();
             tbContact.Clear();
             tbPhone.Clear();
@@ -82,6 +86,22 @@ namespace AmbleClient.RfqGui
           cbSales.SelectedIndex = 0;
 
         }
+
+    private void CustomerAutoComplete()
+    {
+        List<string> customerNames = GlobalRemotingClient.GetCustomerVendorMgr().GetMyTheCustomerVendorNamesOrVendors(0, UserInfo.UserId);
+        tbCustomer.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+        tbCustomer.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+        AutoCompleteStringCollection autoSource = new AutoCompleteStringCollection();
+        foreach (string customerName in customerNames)
+        {
+            autoSource.Add(customerName);
+        }
+        tbCustomer.AutoCompleteCustomSource = autoSource;
+    
+    }
+
 
     public override void FillTheTable(Rfq rfq)
     {

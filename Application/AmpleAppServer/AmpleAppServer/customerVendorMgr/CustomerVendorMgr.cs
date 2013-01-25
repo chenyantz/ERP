@@ -69,6 +69,20 @@ namespace AmbleAppServer.customerVendorMgr
            
        }
 
+
+       public List<string> GetMyTheCustomerVendorNamesOrVendors(int cvtype, int id)
+       { 
+         List<string> customerVendorNames=new List<string>();
+         string strSql = string.Format("select cvname from custVendor where cvtype={0} and ownerName={1}", cvtype, id);
+         DataTable dt=db.GetDataTable(strSql,"cvnames");
+         foreach(DataRow dr in dt.Rows)
+         {
+          customerVendorNames.Add(dr["cvname"].ToString());
+         }
+         return customerVendorNames;
+       }
+
+
        public DataTable GetTheCompanyNecessaryInfoForFinance()
        {
            string strSql = "select cvtype,cvname,country,cvnumber,ownerName from custVendor";

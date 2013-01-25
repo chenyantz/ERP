@@ -94,6 +94,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "SoItemView";
             this.Text = "SoItemView";
+            this.Load += new System.EventHandler(this.SoItemView_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);

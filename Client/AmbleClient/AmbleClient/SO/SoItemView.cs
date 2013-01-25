@@ -54,6 +54,16 @@ namespace AmbleClient.SO
         
         }
 
+        public void FreeTheSoItems()
+        {
+            this.soItemsControl1.FreezeAllControls();
+        }
+
+        private void SoItemView_Load(object sender, EventArgs e)
+        {
+
+        }
+
 
 
     }

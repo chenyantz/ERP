@@ -21,6 +21,9 @@ namespace AmbleClient.RfqGui
         private void NewRfq_Load(object sender, EventArgs e)
         {
             rfqItems1.NewRfqFill();
+
+
+
         }
 
         private void tsbSave_Click(object sender, EventArgs e)

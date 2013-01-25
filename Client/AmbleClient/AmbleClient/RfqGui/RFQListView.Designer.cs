@@ -48,6 +48,7 @@
             this.tsbRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartNo = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Mfg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dc = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -233,6 +234,7 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.No,
             this.PartNo,
             this.Mfg,
             this.Dc,
@@ -269,8 +271,14 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1082, 445);
             this.dataGridView1.TabIndex = 4;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // No
+            // 
+            this.No.HeaderText = "No";
+            this.No.Name = "No";
+            this.No.ReadOnly = true;
+            this.No.Visible = false;
             // 
             // PartNo
             // 
@@ -645,6 +653,9 @@
         protected System.Windows.Forms.CheckBox cbQuoted;
         protected System.Windows.Forms.CheckBox cbRouted;
         protected System.Windows.Forms.CheckBox cbOffered;
+        private System.Windows.Forms.ToolStripButton tsbRefresh;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn No;
         private System.Windows.Forms.DataGridViewLinkColumn PartNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mfg;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dc;
@@ -659,8 +670,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Alt;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrimaryPA;
         private System.Windows.Forms.DataGridViewTextBoxColumn AltPA;
-        private System.Windows.Forms.ToolStripButton tsbRefresh;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
 
 
     }

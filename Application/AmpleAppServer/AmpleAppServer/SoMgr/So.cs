@@ -55,5 +55,13 @@ namespace AmbleAppServer.SoMgr
     }
 
 
+    public enum SoStateEnum
+    { 
+      New=0,
+      Approved=1,
+      Rejected=2,
+      Closed=3
+    };
+
 
 }

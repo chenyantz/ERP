@@ -361,6 +361,7 @@
             this.No.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.No.HeaderText = "No";
             this.No.Name = "No";
+            this.No.ReadOnly = true;
             this.No.Width = 46;
             // 
             // saleType
@@ -368,6 +369,7 @@
             this.saleType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.saleType.HeaderText = "Sale Type";
             this.saleType.Name = "saleType";
+            this.saleType.ReadOnly = true;
             this.saleType.Width = 80;
             // 
             // PartNo
@@ -375,6 +377,7 @@
             this.PartNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.PartNo.HeaderText = "Part #";
             this.PartNo.Name = "PartNo";
+            this.PartNo.ReadOnly = true;
             this.PartNo.Width = 61;
             // 
             // Mfg
@@ -382,6 +385,7 @@
             this.Mfg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Mfg.HeaderText = "Mfg";
             this.Mfg.Name = "Mfg";
+            this.Mfg.ReadOnly = true;
             this.Mfg.Width = 50;
             // 
             // Rohs
@@ -389,6 +393,7 @@
             this.Rohs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Rohs.HeaderText = "RoHS";
             this.Rohs.Name = "Rohs";
+            this.Rohs.ReadOnly = true;
             this.Rohs.Width = 42;
             // 
             // Dc
@@ -396,6 +401,7 @@
             this.Dc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Dc.HeaderText = "D/C";
             this.Dc.Name = "Dc";
+            this.Dc.ReadOnly = true;
             this.Dc.Width = 52;
             // 
             // IntPartNo
@@ -403,6 +409,7 @@
             this.IntPartNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.IntPartNo.HeaderText = "Int Part #";
             this.IntPartNo.Name = "IntPartNo";
+            this.IntPartNo.ReadOnly = true;
             this.IntPartNo.Width = 76;
             // 
             // ShipFrom
@@ -410,6 +417,7 @@
             this.ShipFrom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ShipFrom.HeaderText = "Ship From";
             this.ShipFrom.Name = "ShipFrom";
+            this.ShipFrom.ReadOnly = true;
             this.ShipFrom.Width = 79;
             // 
             // ShipMethod
@@ -417,6 +425,7 @@
             this.ShipMethod.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ShipMethod.HeaderText = "Ship Method";
             this.ShipMethod.Name = "ShipMethod";
+            this.ShipMethod.ReadOnly = true;
             this.ShipMethod.Width = 92;
             // 
             // TrackingNo
@@ -424,6 +433,7 @@
             this.TrackingNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.TrackingNo.HeaderText = "tracking #";
             this.TrackingNo.Name = "TrackingNo";
+            this.TrackingNo.ReadOnly = true;
             this.TrackingNo.Width = 80;
             // 
             // Qty
@@ -431,6 +441,7 @@
             this.Qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Qty.HeaderText = "Qty";
             this.Qty.Name = "Qty";
+            this.Qty.ReadOnly = true;
             this.Qty.Width = 48;
             // 
             // QtyShipped
@@ -438,6 +449,7 @@
             this.QtyShipped.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.QtyShipped.HeaderText = "Qty.shipped";
             this.QtyShipped.Name = "QtyShipped";
+            this.QtyShipped.ReadOnly = true;
             this.QtyShipped.Width = 88;
             // 
             // Currency
@@ -445,6 +457,7 @@
             this.Currency.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Currency.HeaderText = "Currency";
             this.Currency.Name = "Currency";
+            this.Currency.ReadOnly = true;
             this.Currency.Width = 74;
             // 
             // UnitPrice
@@ -452,6 +465,7 @@
             this.UnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.UnitPrice.HeaderText = "Unit Price";
             this.UnitPrice.Name = "UnitPrice";
+            this.UnitPrice.ReadOnly = true;
             this.UnitPrice.Width = 78;
             // 
             // Total
@@ -459,6 +473,7 @@
             this.Total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Total.HeaderText = "Total";
             this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
             this.Total.Width = 56;
             // 
             // DockDate
@@ -466,6 +481,7 @@
             this.DockDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.DockDate.HeaderText = "Dock Date";
             this.DockDate.Name = "DockDate";
+            this.DockDate.ReadOnly = true;
             this.DockDate.Width = 84;
             // 
             // ShippedDate
@@ -473,6 +489,7 @@
             this.ShippedDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ShippedDate.HeaderText = "Shipped Date";
             this.ShippedDate.Name = "ShippedDate";
+            this.ShippedDate.ReadOnly = true;
             this.ShippedDate.Width = 97;
             // 
             // cbSp
@@ -490,7 +507,7 @@
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(75, 25);
             this.btDelete.TabIndex = 60;
-            this.btDelete.Text = "button1";
+            this.btDelete.Text = "Delete";
             this.btDelete.UseVisualStyleBackColor = true;
             this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
             // 

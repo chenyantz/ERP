@@ -41,13 +41,13 @@ namespace AmbleAppServer.RfqMgr
 
        public bool UpdateRfq(Rfq rfq)
        {
-       string strSql=string.Format("update rfq set customerName='{0}',partNo='{1}',salesId={2},contact='{3}',project='{4}',rohs={5},phone='{6}',fax='{7}',email='{8}',rfqdate='{9}',priority={10},dockdate='{11}',mfg='{12}',dc='{13}',custPartNo='{14}',genPartNo='{15}',alt='{16}',qty={17},packaging='{18}',targetPrice={19},resale={20},firstPA={21},secondPA={22},rfqStates={23}",
+       string strSql=string.Format("update rfq set customerName='{0}',partNo='{1}',salesId={2},contact='{3}',project='{4}',rohs={5},phone='{6}',fax='{7}',email='{8}',rfqdate='{9}',priority={10},dockdate='{11}',mfg='{12}',dc='{13}',custPartNo='{14}',genPartNo='{15}',alt='{16}',qty={17},packaging='{18}',targetPrice={19},resale={20},firstPA={21},secondPA={22} where rfqNo={23}",
          rfq.customerName,rfq.partNo,rfq.salesId,rfq.contact,rfq.project,rfq.rohs,rfq.phone,rfq.fax,rfq.email,rfq.rfqdate.Date.ToShortDateString(),
          rfq.priority.HasValue?rfq.priority.Value.ToString():"null",rfq.dockdate.Date.ToShortDateString(),rfq.mfg,rfq.dc,rfq.custPartNo,rfq.genPartNo,rfq.alt,rfq.qty,rfq.packaging,
          rfq.targetPrice.HasValue?rfq.targetPrice.Value.ToString():"null",
          rfq.resale.HasValue?rfq.resale.Value.ToString():"null",
          rfq.firstPA.HasValue?rfq.firstPA.Value.ToString():"null",
-         rfq.secondPA.HasValue?rfq.secondPA.Value.ToString():"null",rfq.rfqStates);
+         rfq.secondPA.HasValue?rfq.secondPA.Value.ToString():"null",rfq.rfqNo);
         
            int row=db.ExecDataBySql(strSql);
             if(row==1)
@@ -338,6 +338,61 @@ namespace AmbleAppServer.RfqMgr
         }
 
       //For buyer
+        public int BuyerGetThePageCountOfDataTable(int buyerId,int itemsPerPage, string filterColumn, string filterString, List<RfqStatesEnum> selections)
+        {
+            //Get the account of dataset  of rfq
+            if (selections.Count == 0)
+                return 0;
+
+            StringBuilder strSql = new StringBuilder();
+            if ((!string.IsNullOrEmpty(filterColumn)) && (!(string.IsNullOrEmpty(filterString))))
+            {
+                strSql.Append(string.Format("select count(*) from rfq where {0} like '%{1}%' and (firstPA={2} or secondPA={2})", filterColumn, filterString, buyerId));
+
+            }
+            else
+            {
+                strSql.Append(string.Format("select count(*) from rfq where (firstPA={0} or secondPA={0}) ", buyerId));
+            }
+
+            strSql.Append(" and (rfqstates=" + selections[0].GetHashCode());
+            for (int i = 1; i < selections.Count; i++)
+            {
+                strSql.Append(" or rfqstates=" + selections[i].GetHashCode());
+            }
+            strSql.Append(" )");
+
+            int count = Convert.ToInt32(db.GetSingleObject(strSql.ToString()));
+            return (int)(Math.Ceiling((double)count / (double)itemsPerPage));
+        }
+        public DataTable BuyerGetRfqDataTableAccordingToPageNumber(int buyerId,int pageNumber, int itemsPerPage, string filterColumn, string filterString, List<RfqStatesEnum> selections)
+        {
+            if (selections.Count == 0)
+                return null;
+            StringBuilder strSql = new StringBuilder();
+            if ((!string.IsNullOrEmpty(filterColumn)) && (!(string.IsNullOrEmpty(filterString))))
+            {
+                strSql.Append(string.Format("select * from rfq where {0} like '%{1}%' and (firstPA={2} or secondPA={2}}) ", filterColumn, filterString, buyerId));
+
+            }
+            else
+            {
+                strSql.Append(string.Format("select * from rfq where (firstPA={0} or secondPA={0})", buyerId));
+            }
+            strSql.Append(" and (rfqstates=" + selections[0].GetHashCode());
+            for (int i = 1; i < selections.Count; i++)
+            {
+                strSql.Append(" or rfqstates=" + selections[i].GetHashCode());
+            }
+            strSql.Append(" )");
+
+
+            strSql.Append(string.Format(" limit {0},{1}", pageNumber * itemsPerPage, itemsPerPage));
+
+            return db.GetDataTable(strSql.ToString(), "Table" + pageNumber);
+        }
+
+
 
         public void CopyRfq(int rfqNo,int salesId)
         {

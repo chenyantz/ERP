@@ -17,13 +17,14 @@ namespace AmbleClient.SO
         private int rfqId;
 
         private List<So> soList;
-
+        List<SoViewControl> soViewControlList = new List<SoViewControl>();
+        
 
         public SoView(int rfqId)
         {
             InitializeComponent();
             this.rfqId = rfqId;
-            List<So> soList = GlobalRemotingClient.GetSoMgr().GetSoAccordingToRfqId(rfqId);
+            soList = GlobalRemotingClient.GetSoMgr().GetSoAccordingToRfqId(rfqId);
 
         }
 
@@ -39,9 +40,7 @@ namespace AmbleClient.SO
 
         private void SoView_Load(object sender, EventArgs e)
         {
-          
-            List<SoViewControl> soViewControlList = new List<SoViewControl>();
-            for (int i = 0; i < soList.Count; i++)
+             for (int i = 0; i < soList.Count; i++)
             {
                 SoViewControl soViewControlItem = new SoViewControl();
                 soViewControlItem.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -72,6 +71,17 @@ namespace AmbleClient.SO
 
 
 
+
+        }
+
+        private void tsbApprove_Click(object sender, EventArgs e)
+        {
+            soViewControlList[tabControl1.SelectedIndex].ApproveSo(soList[tabControl1.SelectedIndex]);
+        }
+
+        private void tsbClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
 
         }
     }

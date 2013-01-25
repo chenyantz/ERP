@@ -73,19 +73,52 @@ namespace AmbleClient.RfqGui
 
         private void tsbQuote_Click(object sender, EventArgs e)
         {
-            rfqItems1.UpdateInfo();
-            GlobalRemotingClient.GetRfqMgr().ChangeRfqState(RfqStatesEnum.Quoted, rfqId);
+            if(!rfqItems1.UpdateInfo(rfqId))
+            {
+              MessageBox.Show("Something Wrong when update the info");
+                return;
+            }
+            if (GlobalRemotingClient.GetRfqMgr().ChangeRfqState(RfqStatesEnum.Quoted, rfqId))
+            {
+                MessageBox.Show("This RFQ has been Quoted");
+            }
+            else
+            {
+                MessageBox.Show("Quote the RFQ Fail");
+            }
+
         }
 
         private void tsbRoute_Click(object sender, EventArgs e)
         {
-            rfqItems1.UpdateInfo();
-            GlobalRemotingClient.GetRfqMgr().ChangeRfqState(RfqStatesEnum.Routed, rfqId);
+           
+            if(!rfqItems1.UpdateInfo(rfqId))
+            {
+              MessageBox.Show("Something Wrong when update the info");
+                return;
+            }
+            if (GlobalRemotingClient.GetRfqMgr().ChangeRfqState(RfqStatesEnum.Routed, rfqId))
+            {
+                MessageBox.Show("This RFQ has been Routed");
+            }
+            else
+            {
+                MessageBox.Show("Route the RFQ Fail");
+            }
+        
+        
         }
 
         private void tsbUpdate_Click(object sender, EventArgs e)
         {
-            rfqItems1.UpdateInfo();
+            if (rfqItems1.UpdateInfo(rfqId))
+            {
+                MessageBox.Show("Update the RFQ successfully");
+            }
+            else
+            {
+                MessageBox.Show("Failed to Update the RFQ");
+            }
         }
 
         private void tsbCopy_Click(object sender, EventArgs e)
@@ -118,7 +151,7 @@ namespace AmbleClient.RfqGui
             }
             else
             {
-                rfqItems1.UpdateInfo();
+                rfqItems1.UpdateInfo(rfqId);
                 GlobalRemotingClient.GetRfqMgr().ChangeRfqState(RfqStatesEnum.Closed, rfqId);
             }
             

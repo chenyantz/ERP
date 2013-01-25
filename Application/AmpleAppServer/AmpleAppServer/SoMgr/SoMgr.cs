@@ -14,9 +14,10 @@ namespace AmbleAppServer.SoMgr
 
        public List<So> SalesGetSoAccordingTofilter(int userId, bool includedSubs, string filterColumn, string filterString, List<int> states)
        {
-           if (states.Count == 0) return null;
+           
 
            List<So> soList=new List<So>();
+           if (states.Count == 0) return soList;
            List<int> salesIds = new List<int>();
 
            if (includedSubs)
@@ -64,9 +65,12 @@ namespace AmbleAppServer.SoMgr
        public List<So> BuyerGetSoAccordingToFilter(int userId, bool includedSubs, string filterColumn, string filterString, List<int> states)
 
        {
-           if (states.Count == 0) return null;
+           
 
            List<So> soList = new List<So>();
+           
+           if (states.Count == 0) return soList;
+
            List<int> buyersIds = new List<int>();
 
            if (includedSubs)
@@ -239,8 +243,8 @@ namespace AmbleAppServer.SoMgr
            foreach (SoItems soItem in soitems)
            {
 
-               string strsql = "insert into SoItems(soId,saleType,partNo,mfg,rohs,dc,intPartNo,shipFrom,shipMethod,trackingNo,qty,qtyShipped,currency,unitPrice,dockDate,shippedDate,shippingInstruction,dockingInstruction) " +
-                   string.Format(" values({0},{1},'{2}','{3}',{4},'{5}','{6}','{7}','{8}',{9}',{10},{11},{12},{13},'{14}','{15}','{16}','{17}')", soId, soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc,
+               string strsql = "insert into SoItems(soId,saleType,partNo,mfg,rohs,dc,intPartNo,shipFrom,shipMethod,trackingNo,qty,qtyShipped,currency,unitPrice,dockDate,shippedDate,shippingInstruction,packingInstruction) " +
+                   string.Format(" values({0},{1},'{2}','{3}',{4},'{5}','{6}','{7}','{8}','{9}',{10},{11},{12},{13},'{14}','{15}','{16}','{17}')", soId, soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc,
                    soItem.intPartNo, soItem.shipFrom,soItem.shipMethod,soItem.trackingNo, soItem.qty, soItem.qtyshipped, soItem.currencyType, soItem.unitPrice, soItem.dockDate.ToShortDateString(), soItem.shippedDate.ToShortDateString(),
                    soItem.shippingInstruction, soItem.packingInstruction);
                strSqls.Add(strsql);
@@ -251,5 +255,17 @@ namespace AmbleAppServer.SoMgr
 
        }
 
+       public bool UpdateSoState(int soId,int userid, SoStateEnum state)
+       {
+           string strSql = string.Format("update so set soStates={0},approverId={1},approveDate='{2}' where soId={3}",(int)state,userid,DateTime.Now.ToShortDateString(),soId);
+           if (db.ExecDataBySql(strSql) == 1)
+           {
+               return true;
+           }
+           else
+           {
+               return false;
+           }
+       }
     }
 }

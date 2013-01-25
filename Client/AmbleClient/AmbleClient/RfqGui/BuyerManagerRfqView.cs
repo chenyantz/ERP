@@ -23,8 +23,29 @@ namespace AmbleClient.RfqGui
         {
             Rfq rfq = GlobalRemotingClient.GetRfqMgr().GetRfqAccordingToRfqId(rfqId);
             buyerManagerRfqItems1.FillTheTable(rfq);
+            SetMenuStateAccordingToRfqState((RfqStatesEnum)rfq.rfqStates);
         }
 
+        private void SetMenuStateAccordingToRfqState(RfqStatesEnum state)
+        {
+            switch (state)
+            {
+                case RfqStatesEnum.New:
+                    tsbAssign.Enabled = false;
+                    tsbEnterOffer.Enabled = false;
+                    tsbViewOffers.Enabled = false;
+                    break;
+                case RfqStatesEnum.Routed:
+                    tsbViewOffers.Enabled = false;
+                    break;
+                default:
+                    break;
+            }
+        
+        
+        }
+
+        
         private void tsbAssign_Click(object sender, EventArgs e)
         {
             int? primaryPA, altPA;
@@ -69,9 +90,6 @@ namespace AmbleClient.RfqGui
         {
             AmbleClient.OfferGui.NewOffer newOffer = new OfferGui.NewOffer(rfqId);
             newOffer.ShowDialog();
-
-
-
         }
 
         private void tsbViewOffers_Click(object sender, EventArgs e)

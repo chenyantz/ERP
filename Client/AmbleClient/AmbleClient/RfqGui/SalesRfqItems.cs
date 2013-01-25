@@ -14,10 +14,11 @@ namespace AmbleClient.RfqGui
        { 
        }
 
-       public bool UpdateInfo()
+       public bool UpdateInfo(int rfqId)
        {
            Rfq rfq = new Rfq();
            GetValuesFromGui(rfq);
+           rfq.rfqNo = rfqId;
            rfq.salesId = mySubs[cbSales.SelectedIndex];
          return  GlobalRemotingClient.GetRfqMgr().UpdateRfq(rfq);
 

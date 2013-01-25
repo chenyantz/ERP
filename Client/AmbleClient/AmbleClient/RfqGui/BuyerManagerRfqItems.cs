@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace AmbleClient.RfqGui
 {
@@ -19,12 +20,30 @@ namespace AmbleClient.RfqGui
         }
 
        public BuyerManagerRfqItems()
-       { }
+       {
+
+
+           foreach (Control control in this.Controls)
+           {
+               if (control is Label)
+                   continue;
+
+               control.Enabled=false;
+
+           }
+           this.cbPrimaryPA.Enabled = true;
+           this.cbAltPA.Enabled = true;
+
+       }
 
        public override void FillTheTable(AmbleAppServer.RfqMgr.Rfq rfq)
        {
            base.FillTheTable(rfq);
            tbCustomer.Text = rfq.customerName;
+
+           this.tbContact.Text = string.Empty;//can not be seen by sales Manager
+           this.tbPhone.Text = string.Empty; //can not be seen by sales Manager.
+
 
            //Fill the sales
            List<int> sales = new List<int>();

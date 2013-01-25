@@ -185,7 +185,12 @@ namespace AmbleAppServer.AccountMgr
        
        }
 
-
+       public string GetNameById(int id)
+       {
+           string strSql = "select accountName from account where id=" + id;
+           return (string)db.GetSingleObject(strSql);
+       
+       }
 
     }
 }

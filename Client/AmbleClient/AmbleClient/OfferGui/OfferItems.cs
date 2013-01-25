@@ -15,5 +15,15 @@ namespace AmbleClient.OfferGui
         {
             InitializeComponent();
         }
+
+        private void tbMfg_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

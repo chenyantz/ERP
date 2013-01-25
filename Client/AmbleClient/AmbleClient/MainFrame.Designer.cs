@@ -37,6 +37,7 @@
             this.vendorManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pOListViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.financesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.assignCustomerVendorNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.warehousesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +47,6 @@
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.testsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pOListViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,21 +79,21 @@
             // customerManagermentToolStripMenuItem
             // 
             this.customerManagermentToolStripMenuItem.Name = "customerManagermentToolStripMenuItem";
-            this.customerManagermentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.customerManagermentToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.customerManagermentToolStripMenuItem.Text = "Customer Info";
             this.customerManagermentToolStripMenuItem.Click += new System.EventHandler(this.customerManagermentToolStripMenuItem_Click);
             // 
             // rFQViewNewSOToolStripMenuItem
             // 
             this.rFQViewNewSOToolStripMenuItem.Name = "rFQViewNewSOToolStripMenuItem";
-            this.rFQViewNewSOToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rFQViewNewSOToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.rFQViewNewSOToolStripMenuItem.Text = "RFQ List View";
             this.rFQViewNewSOToolStripMenuItem.Click += new System.EventHandler(this.rFQViewNewSOToolStripMenuItem_Click);
             // 
             // sOViewToolStripMenuItem
             // 
             this.sOViewToolStripMenuItem.Name = "sOViewToolStripMenuItem";
-            this.sOViewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sOViewToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.sOViewToolStripMenuItem.Text = "SO List View";
             this.sOViewToolStripMenuItem.Click += new System.EventHandler(this.sOViewToolStripMenuItem_Click);
             // 
@@ -128,6 +128,12 @@
             this.pOToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.pOToolStripMenuItem.Text = "SO List View";
             this.pOToolStripMenuItem.Click += new System.EventHandler(this.pOToolStripMenuItem_Click);
+            // 
+            // pOListViewToolStripMenuItem
+            // 
+            this.pOListViewToolStripMenuItem.Name = "pOListViewToolStripMenuItem";
+            this.pOListViewToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.pOListViewToolStripMenuItem.Text = "PO List View";
             // 
             // financesToolStripMenuItem
             // 
@@ -195,12 +201,6 @@
             this.testsToolStripMenuItem.Text = "tests";
             this.testsToolStripMenuItem.Click += new System.EventHandler(this.testsToolStripMenuItem_Click);
             // 
-            // pOListViewToolStripMenuItem
-            // 
-            this.pOListViewToolStripMenuItem.Name = "pOListViewToolStripMenuItem";
-            this.pOListViewToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.pOListViewToolStripMenuItem.Text = "PO List View";
-            // 
             // MainFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,7 +210,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainFrame";
-            this.Text = "Amble Electonics Asia Limited";
+            this.Text = "Amble Electronics Asia Limited";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainFrame_FormClosed);
             this.Load += new System.EventHandler(this.MainFrame_Load);
             this.Leave += new System.EventHandler(this.MainFrame_Leave);

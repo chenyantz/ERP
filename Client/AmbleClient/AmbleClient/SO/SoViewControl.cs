@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using AmbleAppServer.SoMgr;
+using AmbleAppServer.RfqMgr;
 
 namespace AmbleClient.SO
 {
@@ -27,8 +28,6 @@ namespace AmbleClient.SO
         {
 
         }
-
-
 
 
         private void ShowDataInDataGridView()
@@ -108,7 +107,15 @@ namespace AmbleClient.SO
             tbCustomer.Text = so.customerName;
             tbContact.Text = so.contact;
             tbSalesOrder.Text = so.salesOrderNo;
-            dateTimePicker1.Value = so.orderDate;
+            if (so.approverId != null)
+            {
+                tbApprover.Text = GlobalRemotingClient.GetAccountMgr().GetNameById(so.approverId.Value);
+            }
+            if (so.approveDate != null)
+            {
+                tbApproveDate.Text = so.approveDate.Value.ToShortDateString();
+            }
+             dateTimePicker1.Value = so.orderDate;
             tbCustomerPo.Text = so.customerPo;
             tbPaymentTerm.Text = so.paymentTerm;
             tbFreightTerm.Text = so.freightTerm;
@@ -147,6 +154,8 @@ namespace AmbleClient.SO
             }
             else
             {
+                GlobalRemotingClient.GetRfqMgr().ChangeRfqState(RfqStatesEnum.HasSO, rfqId);
+
                 MessageBox.Show("Save Sale Order Successfully");
             
             }
@@ -223,6 +232,25 @@ namespace AmbleClient.SO
 
 
         }
+
+        public bool ApproveSo(So so)
+        {
+            if (GlobalRemotingClient.GetSoMgr().UpdateSoState(so.soId,UserInfo.UserId,SoStateEnum.Approved))
+            {
+                if (GlobalRemotingClient.GetRfqMgr().ChangeRfqState(RfqStatesEnum.SoApproved, so.rfqId))
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
+            }
+
+            return false;
+          
+        }
+
 
 
     }

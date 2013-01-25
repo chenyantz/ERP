@@ -22,7 +22,7 @@ namespace AmbleClient
 
         private void MainFrame_Load(object sender, EventArgs e)
         {
-
+            this.Text += ("---" + UserInfo.UserName);
         }
 
         private void viewEditAccountToolStripMenuItem_Click(object sender, EventArgs e)

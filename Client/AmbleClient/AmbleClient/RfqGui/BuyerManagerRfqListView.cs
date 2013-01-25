@@ -11,7 +11,6 @@ namespace AmbleClient.RfqGui
     {
         public BuyerManagerRfqListView()
         {
-           //freeze newRFQ
             //Freeze only list my RFQ
             base.tsbNewRfq.Enabled = false;
             base.tscbAllOrMine.Enabled = false;
@@ -25,7 +24,7 @@ namespace AmbleClient.RfqGui
             cbSoApproved.CheckedChanged -= rfqStatesSelectedChanged;
             cbClosed.CheckedChanged -= rfqStatesSelectedChanged;
 
-            base.cbNew.Checked = true;
+            base.cbNew.Checked = false;
             base.cbRouted.Checked = true;
             base.cbOffered.Checked = true;
             base.cbQuoted.Checked = false;

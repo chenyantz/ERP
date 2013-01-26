@@ -41,6 +41,10 @@ namespace AmbleClient.RfqGui
 
     public void NewRfqFill()
         {
+
+            this.tbCustomer.Leave += new System.EventHandler(this.tbCustomer_Leave);
+             
+        
             cbCloseReason.Enabled = false;
             tbRfqDate.ReadOnly = true; tbRfqDate.Enabled = false;
             //clear all the necessary textbox
@@ -110,6 +114,87 @@ namespace AmbleClient.RfqGui
 
     }
 
+    /*private void InitializeComponent()
+    {
+        this.SuspendLayout();
+        // 
+        // tbCustomer
+        // 
+
+        // 
+        // SalesNewRfqItems
+        // 
+        this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+        this.Name = "SalesNewRfqItems";
+        this.ResumeLayout(false);
+        this.PerformLayout();
+
+    }*/
+
+    private void tbCustomer_Leave(object sender, EventArgs e)
+    {
+
+        //自动填充contact,phone,fax
+        Dictionary<string, string> contactInfo = GlobalRemotingClient.GetCustomerVendorMgr().GetContactInfo(0, UserInfo.UserId, tbCustomer.Text.Trim());
+       //contact   
+        AutoCompleteStringCollection contactSource=new AutoCompleteStringCollection();
+        if(contactInfo.Keys.Contains("contact1"))
+           {
+            tbContact.Text=contactInfo["contact1"];
+            contactSource.Add(contactInfo["contact1"]);
+           }
+        if(contactInfo.Keys.Contains("contact2"))
+           {
+            contactSource.Add(contactInfo["contact2"]);
+           }
+        tbContact.AutoCompleteMode=AutoCompleteMode.SuggestAppend;
+        tbContact.AutoCompleteSource=AutoCompleteSource.CustomSource;
+        tbContact.AutoCompleteCustomSource=contactSource;
+        //phone
+        AutoCompleteStringCollection phoneSource=new AutoCompleteStringCollection();
+        if(contactInfo.Keys.Contains("phone1"))
+        {
+          tbPhone.Text=contactInfo["phone1"];
+            phoneSource.Add(contactInfo["phone1"]);
+        }
+        if(contactInfo.Keys.Contains("phone2"))
+        {
+         phoneSource.Add(contactInfo["phone2"]);
+        }
+        if(contactInfo.Keys.Contains("cellphone"))
+        {
+         phoneSource.Add(contactInfo["cellphone"]);
+        }
+        tbPhone.AutoCompleteMode=AutoCompleteMode.SuggestAppend;
+        tbPhone.AutoCompleteSource=AutoCompleteSource.CustomSource;
+        tbPhone.AutoCompleteCustomSource=phoneSource;
+
+        AutoCompleteStringCollection faxSource=new AutoCompleteStringCollection();
+        if(contactInfo.Keys.Contains("fax"))
+        {
+         tbFax.Text=contactInfo["fax"];
+          faxSource.Add(contactInfo["fax"]);
+        }
+        tbFax.AutoCompleteMode=AutoCompleteMode.SuggestAppend;
+        tbFax.AutoCompleteSource=AutoCompleteSource.CustomSource;
+        tbFax.AutoCompleteCustomSource=faxSource;
+
+        AutoCompleteStringCollection emailSource=new AutoCompleteStringCollection();
+        if(contactInfo.Keys.Contains("email1"))
+           {
+            tbContact.Text=contactInfo["email1"];
+            contactSource.Add(contactInfo["email1"]);
+           }
+        if(contactInfo.Keys.Contains("email2"))
+           {
+            contactSource.Add(contactInfo["email2"]);
+           }
+        tbContact.AutoCompleteMode=AutoCompleteMode.SuggestAppend;
+        tbContact.AutoCompleteSource=AutoCompleteSource.CustomSource;
+        tbContact.AutoCompleteCustomSource=emailSource;
+
+       
+    }
 
    }
 }

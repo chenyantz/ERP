@@ -22,6 +22,14 @@ namespace AmbleClient.OfferGui
             tsbRoute.Enabled = false;
         }
 
+
+        public void NewOfferAutoFill(string mpn, string mfg)
+        {
+            this.buyerOfferItems1.AutoFill(mpn, mfg);
+        
+        }
+
+
         private void tsbSave_Click(object sender, EventArgs e)
         {
             if (buyerOfferItems1.SaveItems(rfqId))

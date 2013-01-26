@@ -82,6 +82,52 @@ namespace AmbleAppServer.customerVendorMgr
          return customerVendorNames;
        }
 
+       public Dictionary<string, string> GetContactInfo(int cvtype, int id,string cvname)
+       {
+           Dictionary<string, string> contactInfo = new Dictionary<string, string>();
+           string strSql = string.Format("select contact1,contact2,phone1,phone2,cellphone,fax,email1,email2 from custVendor where cvtype={0} and ownerName={1} and cvname='{2}'",
+               cvtype, id, cvname);
+           DataTable dt = db.GetDataTable(strSql, "contactInfo");
+           if (dt == null || dt.Rows.Count == 0)
+               return contactInfo;
+           DataRow dr = dt.Rows[0];
+           if(dr["contact1"]!=DBNull.Value)
+           {
+               contactInfo.Add("contact1",dr["contact1"].ToString());
+            }
+           if(dr["contact2"]!=DBNull.Value)
+           {
+               contactInfo.Add("contact2",dr["contact2"].ToString());
+           }
+           if (dr["phone1"] != DBNull.Value)
+           {
+               contactInfo.Add("phone1", dr["phone1"].ToString());
+           }
+           if (dr["phone2"] != DBNull.Value)
+           {
+               contactInfo.Add("phone2", dr["phone2"].ToString());
+           }
+           if (dr["cellphone"] != DBNull.Value)
+           {
+               contactInfo.Add("cellphone", dr["cellphone"].ToString());
+           }
+           if (dr["fax"] != DBNull.Value)
+           {
+               contactInfo.Add("fax", dr["fax"].ToString());
+           }
+           if (dr["email1"] != DBNull.Value)
+           {
+               contactInfo.Add("email1", dr["email1"].ToString());
+           }
+           if (dr["email2"] != DBNull.Value)
+           {
+               contactInfo.Add("email2", dr["email2"].ToString());
+           }
+
+           return contactInfo;
+       
+       }
+
 
        public DataTable GetTheCompanyNecessaryInfoForFinance()
        {

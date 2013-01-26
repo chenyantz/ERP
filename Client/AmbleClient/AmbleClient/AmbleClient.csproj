@@ -349,6 +349,9 @@
     <EmbeddedResource Include="RfqGui\RFQView.resx">
       <DependentUpon>RFQView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RfqGui\SalesNewRfqItems.resx">
+      <DependentUpon>SalesNewRfqItems.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings\PasswordChange.resx">
       <DependentUpon>PasswordChange.cs</DependentUpon>
     </EmbeddedResource>

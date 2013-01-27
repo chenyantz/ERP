@@ -129,6 +129,7 @@
             this.tsbPrint.Name = "tsbPrint";
             this.tsbPrint.Size = new System.Drawing.Size(36, 22);
             this.tsbPrint.Text = "Print";
+            this.tsbPrint.Click += new System.EventHandler(this.tsbPrint_Click);
             // 
             // tsbCloseRfq
             // 

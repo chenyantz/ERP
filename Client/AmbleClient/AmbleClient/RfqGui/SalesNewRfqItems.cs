@@ -24,12 +24,14 @@ namespace AmbleClient.RfqGui
             GetValuesFromGui(rfq);
             rfq.closeReason = null;
             rfq.salesId = mySubs[cbSales.SelectedIndex];
-            rfq.routingHistory =DateTime.Now.ToShortDateString()+":"+UserInfo.UserName.ToString() + ":Create the RFQ\n";
-            
+
+
+            if(UserInfo.UserId==rfq.salesId)
+               rfq.routingHistory =DateTime.Now.ToString()+":"+UserInfo.UserName.ToString() + "  Created the RFQ"+System.Environment.NewLine;
+            else
+              rfq.routingHistory = DateTime.Now.ToString() + ":" + UserInfo.UserName.ToString() + " Created the RFQ for "+GlobalRemotingClient.GetAccountMgr().GetNameById(rfq.salesId)+System.Environment.NewLine;
 
           return  GlobalRemotingClient.GetRfqMgr().SaveRfq(rfq);
-
-
            // rfq.salesId
         }
     public int GetSavedRfqId()
@@ -138,11 +140,15 @@ namespace AmbleClient.RfqGui
         Dictionary<string, string> contactInfo = GlobalRemotingClient.GetCustomerVendorMgr().GetContactInfo(0, UserInfo.UserId, tbCustomer.Text.Trim());
        //contact   
         AutoCompleteStringCollection contactSource=new AutoCompleteStringCollection();
-        if(contactInfo.Keys.Contains("contact1"))
-           {
-            tbContact.Text=contactInfo["contact1"];
+        if (contactInfo.Keys.Contains("contact1"))
+        {
+            tbContact.Text = contactInfo["contact1"];
             contactSource.Add(contactInfo["contact1"]);
-           }
+        }
+        else
+        {
+            tbContact.Text = "";
+        }
         if(contactInfo.Keys.Contains("contact2"))
            {
             contactSource.Add(contactInfo["contact2"]);
@@ -152,10 +158,14 @@ namespace AmbleClient.RfqGui
         tbContact.AutoCompleteCustomSource=contactSource;
         //phone
         AutoCompleteStringCollection phoneSource=new AutoCompleteStringCollection();
-        if(contactInfo.Keys.Contains("phone1"))
+        if (contactInfo.Keys.Contains("phone1"))
         {
-          tbPhone.Text=contactInfo["phone1"];
+            tbPhone.Text = contactInfo["phone1"];
             phoneSource.Add(contactInfo["phone1"]);
+        }
+        else
+        {
+            tbPhone.Text = "";
         }
         if(contactInfo.Keys.Contains("phone2"))
         {
@@ -170,10 +180,14 @@ namespace AmbleClient.RfqGui
         tbPhone.AutoCompleteCustomSource=phoneSource;
 
         AutoCompleteStringCollection faxSource=new AutoCompleteStringCollection();
-        if(contactInfo.Keys.Contains("fax"))
+        if (contactInfo.Keys.Contains("fax"))
         {
-         tbFax.Text=contactInfo["fax"];
-          faxSource.Add(contactInfo["fax"]);
+            tbFax.Text = contactInfo["fax"];
+            faxSource.Add(contactInfo["fax"]);
+        }
+        else
+        {
+            tbFax.Text = "";
         }
         tbFax.AutoCompleteMode=AutoCompleteMode.SuggestAppend;
         tbFax.AutoCompleteSource=AutoCompleteSource.CustomSource;

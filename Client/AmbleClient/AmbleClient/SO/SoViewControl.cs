@@ -100,7 +100,10 @@ namespace AmbleClient.SO
         
         }
 
-
+        public int GetAssignedSaleID()
+        {
+            return mySubs[cbSp.SelectedIndex];
+        }
 
 
         public void NewSOFill()

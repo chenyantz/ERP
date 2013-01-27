@@ -21,8 +21,6 @@ namespace AmbleClient.RfqGui
            rfq.rfqNo = rfqId;
            rfq.salesId = mySubs[cbSales.SelectedIndex];
          return  GlobalRemotingClient.GetRfqMgr().UpdateRfq(rfq);
-
-
        }
 
 
@@ -87,6 +85,12 @@ namespace AmbleClient.RfqGui
 
 
 
+       }
+
+       public int GetAssignedSaleId()
+       {
+           return mySubs[cbSales.SelectedIndex];
+       
        }
 
 

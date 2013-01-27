@@ -70,7 +70,7 @@ namespace AmbleClient.RfqGui
             }
             if (primaryPA == null && altPA == null)
             {
-                MessageBox.Show("Please choose the primary P/A and Alt P/A in the form");
+                MessageBox.Show("Please choose the primary P/A or Alt P/A in the form");
                 return;
             }
 
@@ -97,9 +97,6 @@ namespace AmbleClient.RfqGui
         {
             AmbleClient.OfferGui.OfferList offerList = new OfferGui.OfferList(rfqId);
             offerList.ShowDialog();
-
-
-
         }
     }
 }

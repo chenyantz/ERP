@@ -32,6 +32,21 @@ namespace AmbleAppServer.RfqMgr
             return false;
         }
 
+       public bool AddRfqHistory(int rfqId,int who, string action)
+       {
+           string strSql = "select routingHistory from rfq where rfqNo=" + rfqId;
+           string history = db.GetSingleObject(strSql).ToString();
+           AccountMgr.AccountMgr accountMgr=new AccountMgr.AccountMgr();
+           history = DateTime.Now.ToString() + ": " + accountMgr.GetNameById(who) + " " + action+System.Environment.NewLine+history;
+           strSql = string.Format("update rfq set routingHistory='{0}'", history);
+           int row = db.ExecDataBySql(strSql);
+           if (row == 1)
+               return true;
+           else
+               return false;
+       }
+
+
        public int GetSavedRfqId(int salesId)
        {
            string strSql = "select max(rfqNo) from rfq where salesId=" + salesId;
@@ -391,9 +406,7 @@ namespace AmbleAppServer.RfqMgr
 
             return db.GetDataTable(strSql.ToString(), "Table" + pageNumber);
         }
-
-
-
+       
         public void CopyRfq(int rfqNo,int salesId)
         {
         //delete all the previous record
@@ -423,7 +436,5 @@ namespace AmbleAppServer.RfqMgr
 
         }
       
-
-
     }
 }

@@ -12,6 +12,8 @@ using AmbleAppServer.customerVendorMgr;
 using AmbleAppServer.RfqMgr;
 using AmbleAppServer.OfferMgr;
 using AmbleAppServer.SoMgr;
+using AmbleAppServer.PoMgr;
+using System.Runtime.InteropServices;
 
 namespace AmbleClient
 
@@ -73,6 +75,32 @@ namespace AmbleClient
     }
 
 
+    public class OperatorFile
+    {
+        [DllImport("kernel32")] //引入“shell32.dll”API文件
+        public static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
+
+        public OperatorFile()
+        {
+
+        }
+
+        /// <summary>
+        /// 从INI文件中读取指定节点的内容
+        /// </summary>
+        /// <param name="section">INI节点</param>
+        /// <param name="key">节点下的项</param>
+        /// <param name="def">没有找到内容时返回的默认值</param>
+        /// <param name="filePath">要读取的INI文件</param>
+        /// <returns>读取的节点内容</returns>
+        public static string GetIniFileString(string section, string key, string def, string filePath)
+        {
+            StringBuilder temp = new StringBuilder(1024);
+            GetPrivateProfileString(section, key, def, temp, 1024, filePath);
+            return temp.ToString();
+        }
+    }
+
 
     public static class GlobalRemotingClient
     {
@@ -82,6 +110,11 @@ namespace AmbleClient
         private static RfqMgr rfqMgr = null;
         private static OfferMgr offerMgr = null;
         private static SoMgr soMgr = null;
+        private static PoMgr poMgr = null;
+
+        private static string address = OperatorFile.GetIniFileString("Server", "IP", "", Environment.CurrentDirectory + "\\AmbleClient.ini")
+            + ":" + OperatorFile.GetIniFileString("Server", "Port", "", Environment.CurrentDirectory + "\\AmbleClient.ini");
+
 
         public static AccountMgr GetAccountMgr()
         {
@@ -104,7 +137,7 @@ namespace AmbleClient
             if (cvMgr == null)
             {
                 cvMgr = (CustomerVendorMgr)Activator.GetObject(typeof(CustomerVendorMgr),
-                  "tcp://localhost:1111/CustomerVendorMgr");
+                  "tcp://"+address+"/CustomerVendorMgr");
                 return cvMgr;
             }
             else
@@ -120,7 +153,7 @@ namespace AmbleClient
             if (rfqMgr == null)
             {
                 rfqMgr = (RfqMgr)Activator.GetObject(typeof(RfqMgr),
-                  "tcp://localhost:1111/RfqMgr");
+                  "tcp://" + address + "/RfqMgr");
              
                 return rfqMgr;
             }
@@ -136,7 +169,7 @@ namespace AmbleClient
             if (offerMgr == null)
             {
                 offerMgr = (OfferMgr)Activator.GetObject(typeof(OfferMgr),
-                  "tcp://localhost:1111/OfferMgr");
+                  "tcp://" + address + "/OfferMgr");
 
                 return offerMgr;
             }
@@ -153,13 +186,30 @@ namespace AmbleClient
             if (soMgr == null)
             {
                 soMgr = (SoMgr)Activator.GetObject(typeof(SoMgr),
-                  "tcp://localhost:1111/SoMgr");
+                  "tcp:tcp://" + address + "/SoMgr");
 
                 return soMgr;
             }
             else
             {
                 return soMgr;
+            }
+
+
+        }
+
+        public static PoMgr GetPoMgr()
+        {
+            if (poMgr == null)
+            {
+                poMgr = (PoMgr)Activator.GetObject(typeof(PoMgr),
+                  "tcp:tcp://" + address + "/PoMgr");
+
+                return poMgr;
+            }
+            else
+            {
+                return poMgr;
             }
 
 

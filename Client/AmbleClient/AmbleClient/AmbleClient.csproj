@@ -139,6 +139,12 @@
     <Compile Include="OrderTemplate\OrderListView.Designer.cs">
       <DependentUpon>OrderListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="PO\NewPo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PO\NewPo.Designer.cs">
+      <DependentUpon>NewPo.cs</DependentUpon>
+    </Compile>
     <Compile Include="PO\PoItemsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -314,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OrderTemplate\OrderListView.resx">
       <DependentUpon>OrderListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO\NewPo.resx">
+      <DependentUpon>NewPo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PO\PoItemsControl.resx">
       <DependentUpon>PoItemsControl.cs</DependentUpon>

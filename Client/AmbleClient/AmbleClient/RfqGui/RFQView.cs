@@ -99,6 +99,7 @@ namespace AmbleClient.RfqGui
             }
             if (GlobalRemotingClient.GetRfqMgr().ChangeRfqState(RfqStatesEnum.Routed, rfqId))
             {
+                GlobalRemotingClient.GetRfqMgr().AddRfqHistory(rfqId, UserInfo.UserId, "Routed the RFQ");
                 MessageBox.Show("This RFQ has been Routed");
             }
             else
@@ -113,6 +114,7 @@ namespace AmbleClient.RfqGui
         {
             if (rfqItems1.UpdateInfo(rfqId))
             {
+                GlobalRemotingClient.GetRfqMgr().AddRfqHistory(rfqId, UserInfo.UserId,"Updated the RFQ");
                 MessageBox.Show("Update the RFQ successfully");
             }
             else
@@ -128,12 +130,9 @@ namespace AmbleClient.RfqGui
 
         private void tsbSo_Click(object sender, EventArgs e)
         {
-
             SO.NewSo newSo = new SO.NewSo(rfqId);
+            newSo.FillCustomerAndContact(this.rfqItems1.tbCustomer.Text, this.rfqItems1.tbContact.Text);
             newSo.ShowDialog();
-
-
-
         }
 
         private void tsbViewSo_Click(object sender, EventArgs e)
@@ -153,10 +152,16 @@ namespace AmbleClient.RfqGui
             {
                 rfqItems1.UpdateInfo(rfqId);
                 GlobalRemotingClient.GetRfqMgr().ChangeRfqState(RfqStatesEnum.Closed, rfqId);
+                GlobalRemotingClient.GetRfqMgr().AddRfqHistory(rfqId, UserInfo.UserId, "Closed the RFQ");
             }
             
 
 
+        }
+
+        private void tsbClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
 

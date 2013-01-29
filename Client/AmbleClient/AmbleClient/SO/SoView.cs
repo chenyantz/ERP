@@ -77,8 +77,6 @@ namespace AmbleClient.SO
         private void tsbApprove_Click(object sender, EventArgs e)
         {
             soViewControlList[tabControl1.SelectedIndex].ApproveSo(soList[tabControl1.SelectedIndex]);
-            GlobalRemotingClient.GetRfqMgr().AddRfqHistory(rfqId, UserInfo.UserId, "Approved the SO");
-
         }
 
         private void tsbClose_Click(object sender, EventArgs e)

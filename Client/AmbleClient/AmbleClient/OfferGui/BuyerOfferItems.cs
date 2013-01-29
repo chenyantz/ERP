@@ -116,6 +116,7 @@ namespace AmbleClient.OfferGui
            this.cbTimeUnit.SelectedIndex = offer.timeUnit;
            this.tbOfferDate.Text = offer.offerDate.ToShortDateString();
            this.tbOfferState.Text = (offer.offerStates == 0 ? "New" : "Routed");
+           this.tbNotes.Text = offer.notes;
        }
        public bool SaveItems(int rfqId)
        {
@@ -159,6 +160,7 @@ namespace AmbleClient.OfferGui
 
            offer.offerDate = DateTime.Now;
            offer.offerStates = 0;//new 
+           offer.notes=tbNotes.Text.Trim();
 
            return GlobalRemotingClient.GetOfferMgr().SaveOffer(offer);
 

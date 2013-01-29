@@ -17,7 +17,6 @@ namespace AmbleClient.RfqGui
             cbOffered.CheckedChanged -= rfqStatesSelectedChanged;
             cbQuoted.CheckedChanged -= rfqStatesSelectedChanged;
             cbHasSo.CheckedChanged -= rfqStatesSelectedChanged;
-            cbSoApproved.CheckedChanged -= rfqStatesSelectedChanged;
             cbClosed.CheckedChanged -= rfqStatesSelectedChanged;
           
             base.cbNew.Checked = true;
@@ -25,7 +24,6 @@ namespace AmbleClient.RfqGui
             base.cbOffered.Checked = true;
             base.cbQuoted.Checked = true;
             base.cbHasSo.Checked = true;
-            base.cbSoApproved.Checked = true;
             base.cbClosed.Checked = false;
 
             cbNew.CheckedChanged += rfqStatesSelectedChanged;
@@ -33,7 +31,6 @@ namespace AmbleClient.RfqGui
             cbOffered.CheckedChanged += rfqStatesSelectedChanged;
             cbQuoted.CheckedChanged += rfqStatesSelectedChanged;
             cbHasSo.CheckedChanged += rfqStatesSelectedChanged;
-            cbSoApproved.CheckedChanged += rfqStatesSelectedChanged;
             cbClosed.CheckedChanged += rfqStatesSelectedChanged;
 
         }

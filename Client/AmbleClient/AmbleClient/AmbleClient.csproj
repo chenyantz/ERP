@@ -73,6 +73,12 @@
     <Compile Include="Admin\ModifyAccount.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="BasicGui\TimePicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicGui\TimePicker.Designer.cs">
+      <DependentUpon>TimePicker.cs</DependentUpon>
+    </Compile>
     <Compile Include="custVendor\AddCustomerVendor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -287,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\AccountOperation.resx">
       <DependentUpon>AccountOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BasicGui\TimePicker.resx">
+      <DependentUpon>TimePicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="custVendor\AddCustomerVendor.resx">
       <DependentUpon>AddCustomerVendor.cs</DependentUpon>

@@ -15,6 +15,7 @@ using AmbleAppServer.SoMgr;
 using AmbleAppServer.PoMgr;
 using System.Runtime.InteropServices;
 
+
 namespace AmbleClient
 
 {
@@ -30,6 +31,38 @@ namespace AmbleClient
         public static JobDescription Job;
     
     }
+
+    public static class Tool
+    {
+        public static string Get6DigitalNumberAccordingToId(int id)
+        {
+            int length = (int)Math.Log10(id) + 1;
+
+            switch (length)
+            { 
+                case 1:
+                    return "00000" + id;
+                case 2:
+                    return "0000" + id;
+                case 3:
+                    return "000" + id;
+                case 4:
+                    return "00" + id;
+                case 5:
+                    return "0" + id;
+                default:
+                    return id.ToString();
+            }
+        }
+
+        public static string GetIdAccordingTo6DigitalNumber(string DigitalId)
+        {
+         int number=Convert.ToInt32(DigitalId);
+         return number.ToString();
+        }
+
+    }
+
 
     public static class ItemsCheck
     {
@@ -186,7 +219,7 @@ namespace AmbleClient
             if (soMgr == null)
             {
                 soMgr = (SoMgr)Activator.GetObject(typeof(SoMgr),
-                  "tcp:tcp://" + address + "/SoMgr");
+                  "tcp://" + address + "/SoMgr");
 
                 return soMgr;
             }
@@ -203,7 +236,7 @@ namespace AmbleClient
             if (poMgr == null)
             {
                 poMgr = (PoMgr)Activator.GetObject(typeof(PoMgr),
-                  "tcp:tcp://" + address + "/PoMgr");
+                  "tcp://" + address + "/PoMgr");
 
                 return poMgr;
             }

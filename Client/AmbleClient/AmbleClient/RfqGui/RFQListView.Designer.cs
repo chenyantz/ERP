@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RFQListView));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.tsbNewRfq = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -49,6 +49,7 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RfqNo6digitals = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartNo = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Mfg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dc = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,7 +78,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbOffered = new System.Windows.Forms.CheckBox();
             this.cbClosed = new System.Windows.Forms.CheckBox();
-            this.cbSoApproved = new System.Windows.Forms.CheckBox();
             this.cbHasSo = new System.Windows.Forms.CheckBox();
             this.cbQuoted = new System.Windows.Forms.CheckBox();
             this.cbRouted = new System.Windows.Forms.CheckBox();
@@ -162,9 +162,12 @@
             this.toolStripComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.toolStripComboBox1.Items.AddRange(new object[] {
             "Part No.",
-            "Customer Name"});
+            "Customer Name",
+            "RFQ ID",
+            "Date"});
             this.toolStripComboBox1.Name = "toolStripComboBox1";
             this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
+            this.toolStripComboBox1.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox1_SelectedIndexChanged);
             // 
             // toolStripLabel4
             // 
@@ -224,17 +227,18 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.No,
+            this.RfqNo6digitals,
             this.PartNo,
             this.Mfg,
             this.Dc,
@@ -249,25 +253,25 @@
             this.Alt,
             this.PrimaryPA,
             this.AltPA});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridView1.Location = new System.Drawing.Point(0, 85);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1082, 445);
             this.dataGridView1.TabIndex = 4;
@@ -279,6 +283,14 @@
             this.No.Name = "No";
             this.No.ReadOnly = true;
             this.No.Visible = false;
+            // 
+            // RfqNo6digitals
+            // 
+            this.RfqNo6digitals.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.RfqNo6digitals.HeaderText = "RFQ#";
+            this.RfqNo6digitals.Name = "RfqNo6digitals";
+            this.RfqNo6digitals.ReadOnly = true;
+            this.RfqNo6digitals.Width = 61;
             // 
             // PartNo
             // 
@@ -498,7 +510,6 @@
             // 
             this.panel1.Controls.Add(this.cbOffered);
             this.panel1.Controls.Add(this.cbClosed);
-            this.panel1.Controls.Add(this.cbSoApproved);
             this.panel1.Controls.Add(this.cbHasSo);
             this.panel1.Controls.Add(this.cbQuoted);
             this.panel1.Controls.Add(this.cbRouted);
@@ -525,25 +536,13 @@
             // 
             this.cbClosed.AutoSize = true;
             this.cbClosed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbClosed.Location = new System.Drawing.Point(463, 3);
+            this.cbClosed.Location = new System.Drawing.Point(351, 3);
             this.cbClosed.Name = "cbClosed";
             this.cbClosed.Size = new System.Drawing.Size(64, 19);
             this.cbClosed.TabIndex = 5;
             this.cbClosed.Text = "Closed";
             this.cbClosed.UseVisualStyleBackColor = true;
             this.cbClosed.CheckStateChanged += new System.EventHandler(this.rfqStatesSelectedChanged);
-            // 
-            // cbSoApproved
-            // 
-            this.cbSoApproved.AutoSize = true;
-            this.cbSoApproved.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSoApproved.Location = new System.Drawing.Point(351, 3);
-            this.cbSoApproved.Name = "cbSoApproved";
-            this.cbSoApproved.Size = new System.Drawing.Size(97, 19);
-            this.cbSoApproved.TabIndex = 4;
-            this.cbSoApproved.Text = "SO Approved";
-            this.cbSoApproved.UseVisualStyleBackColor = true;
-            this.cbSoApproved.CheckStateChanged += new System.EventHandler(this.rfqStatesSelectedChanged);
             // 
             // cbHasSo
             // 
@@ -648,7 +647,6 @@
         private System.Windows.Forms.Panel panel1;
         protected System.Windows.Forms.CheckBox cbNew;
         protected System.Windows.Forms.CheckBox cbClosed;
-        protected System.Windows.Forms.CheckBox cbSoApproved;
         protected System.Windows.Forms.CheckBox cbHasSo;
         protected System.Windows.Forms.CheckBox cbQuoted;
         protected System.Windows.Forms.CheckBox cbRouted;
@@ -656,13 +654,14 @@
         private System.Windows.Forms.ToolStripButton tsbRefresh;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RfqNo6digitals;
         private System.Windows.Forms.DataGridViewLinkColumn PartNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mfg;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dc;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Resale;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
-        protected System.Windows.Forms.DataGridViewTextBoxColumn Customer;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Customer;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn SalePerson;
         private System.Windows.Forms.DataGridViewTextBoxColumn RfqStates;

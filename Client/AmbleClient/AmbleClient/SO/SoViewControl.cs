@@ -265,17 +265,13 @@ namespace AmbleClient.SO
         {
             if (GlobalRemotingClient.GetSoMgr().UpdateSoState(so.soId,UserInfo.UserId,SoStateEnum.Approved))
             {
-                if (GlobalRemotingClient.GetRfqMgr().ChangeRfqState(RfqStatesEnum.SoApproved, so.rfqId))
-                {
-                    return true;
-                }
+                return true;
             }
             else
             {
                 return false;
             }
 
-            return false;
           
         }
 

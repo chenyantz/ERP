@@ -47,8 +47,7 @@ namespace AmbleAppServer.RfqMgr
      Offered=2,
      Quoted=3,
      HasSO=4,
-    SoApproved=5,
-    Closed=6
+     Closed=5
     };
 
 

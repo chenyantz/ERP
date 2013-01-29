@@ -118,8 +118,11 @@ namespace AmbleClient.RfqGui
             int i = 0;
             foreach(DataRow dr in tableCurrentPage.Rows)
             {
+                //Get the RFQ Number ,it is rfq id with 6 digitals
+
                   dataGridView1.Rows.Add
                     (i++,
+                    Tool.Get6DigitalNumberAccordingToId(Convert.ToInt32(dr["rfqNo"])),
                     dr["partNo"].ToString(),
                      dr["mfg"].ToString(),
                      dr["dc"].ToString(),
@@ -202,6 +205,15 @@ namespace AmbleClient.RfqGui
                 filterColumn = "partNo";
             if (toolStripComboBox1.SelectedIndex == 1)
                 filterColumn = "customerName";
+            if (toolStripComboBox1.SelectedIndex == 2)
+                filterColumn = "rfqNo";
+            if (toolStripComboBox1.SelectedIndex == 3)
+            {
+                filterColumn = "rfqdate";
+          
+            }
+
+
             if (string.IsNullOrWhiteSpace(toolStripComboBox1.Text.Trim()))
             { return; }
             filterString = toolStripTextBox1.Text.Trim();
@@ -297,8 +309,6 @@ namespace AmbleClient.RfqGui
                 rfqStatesSelected.Add(RfqStatesEnum.Quoted);
             if (cbHasSo.Checked)
                 rfqStatesSelected.Add(RfqStatesEnum.HasSO);
-            if (cbSoApproved.Checked)
-                rfqStatesSelected.Add(RfqStatesEnum.SoApproved);
             if (cbClosed.Checked)
                 rfqStatesSelected.Add(RfqStatesEnum.Closed);
         
@@ -315,6 +325,16 @@ namespace AmbleClient.RfqGui
             if (e.KeyCode == Keys.F5)
             {
                 CountPageAndShowDataGridView();
+            }
+        }
+
+        private void toolStripComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (toolStripComboBox1.SelectedIndex == 3)
+            {
+                basicGui.TimePicker tp = new basicGui.TimePicker();
+                tp.ShowDialog();
+                toolStripTextBox1.Text = tp.FromTo;
             }
         }
   }

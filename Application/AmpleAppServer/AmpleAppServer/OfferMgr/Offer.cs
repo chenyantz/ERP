@@ -24,6 +24,7 @@ namespace AmbleAppServer.OfferMgr
      public int buyerId;
      public DateTime offerDate;
      public int offerStates;
+     public string notes;
    }
 
 

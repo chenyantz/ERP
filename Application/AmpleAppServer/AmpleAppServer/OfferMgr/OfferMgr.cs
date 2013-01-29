@@ -13,9 +13,9 @@ namespace AmbleAppServer.OfferMgr
        
        public bool SaveOffer(Offer offer)
        {
-           string strSql = "insert into offer(rfqNo,mpn,mfg,vendorName,contact,phone,fax,email,amount,price,deliverTime,timeUnit,buyerId,offerDate,offerStates) " +
+           string strSql = "insert into offer(rfqNo,mpn,mfg,vendorName,contact,phone,fax,email,amount,price,deliverTime,timeUnit,buyerId,offerDate,offerStates,notes) " +
                string.Format(" values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}',{9},{10},{11},{12},'{13}',{14})", offer.rfqNo, offer.mpn, offer.mfg, offer.vendorName, offer.contact,
-               offer.phone, offer.fax, offer.email, offer.amount.HasValue?offer.amount.Value.ToString():"null", offer.price.HasValue?offer.price.ToString():"null", offer.deliverTime.HasValue? offer.deliverTime.Value.ToString():"null", offer.timeUnit, offer.buyerId, offer.offerDate.ToShortDateString(), offer.offerStates);
+               offer.phone, offer.fax, offer.email, offer.amount.HasValue?offer.amount.Value.ToString():"null", offer.price.HasValue?offer.price.ToString():"null", offer.deliverTime.HasValue? offer.deliverTime.Value.ToString():"null", offer.timeUnit, offer.buyerId, offer.offerDate.ToShortDateString(), offer.offerStates,offer.notes);
 
            int row = db.ExecDataBySql(strSql);
            if (row == 1)

@@ -53,6 +53,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tbOfferState = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tbNotes = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -188,11 +190,11 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(50, 211);
+            this.label9.Location = new System.Drawing.Point(47, 211);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 13);
+            this.label9.Size = new System.Drawing.Size(49, 13);
             this.label9.TabIndex = 16;
-            this.label9.Text = "Amount:";
+            this.label9.Text = "Quantity:";
             // 
             // tbAmount
             // 
@@ -251,7 +253,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(21, 321);
+            this.label12.Location = new System.Drawing.Point(35, 317);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(61, 13);
             this.label12.TabIndex = 23;
@@ -265,10 +267,29 @@
             this.tbOfferState.Size = new System.Drawing.Size(162, 20);
             this.tbOfferState.TabIndex = 12;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(58, 354);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(38, 13);
+            this.label13.TabIndex = 24;
+            this.label13.Text = "Notes:";
+            // 
+            // tbNotes
+            // 
+            this.tbNotes.Location = new System.Drawing.Point(114, 354);
+            this.tbNotes.Multiline = true;
+            this.tbNotes.Name = "tbNotes";
+            this.tbNotes.Size = new System.Drawing.Size(444, 92);
+            this.tbNotes.TabIndex = 25;
+            // 
             // OfferItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tbNotes);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.tbOfferState);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -295,7 +316,7 @@
             this.Controls.Add(this.tbVendorName);
             this.Controls.Add(this.label1);
             this.Name = "OfferItems";
-            this.Size = new System.Drawing.Size(639, 431);
+            this.Size = new System.Drawing.Size(693, 500);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,5 +349,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         public System.Windows.Forms.TextBox tbOfferState;
+        private System.Windows.Forms.Label label13;
+        protected System.Windows.Forms.TextBox tbNotes;
     }
 }

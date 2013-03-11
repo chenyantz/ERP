@@ -47,6 +47,9 @@
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.testsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bOMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bOMCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bOMListViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +62,7 @@
             this.warehousesToolStripMenuItem,
             this.adminToolStripMenuItem,
             this.helpToolStripMenuItem,
+            this.bOMToolStripMenuItem,
             this.helpToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -197,9 +201,30 @@
             // testsToolStripMenuItem
             // 
             this.testsToolStripMenuItem.Name = "testsToolStripMenuItem";
-            this.testsToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.testsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.testsToolStripMenuItem.Text = "tests";
             this.testsToolStripMenuItem.Click += new System.EventHandler(this.testsToolStripMenuItem_Click);
+            // 
+            // bOMToolStripMenuItem
+            // 
+            this.bOMToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bOMCustomerToolStripMenuItem,
+            this.bOMListViewToolStripMenuItem});
+            this.bOMToolStripMenuItem.Name = "bOMToolStripMenuItem";
+            this.bOMToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.bOMToolStripMenuItem.Text = "BOM";
+            // 
+            // bOMCustomerToolStripMenuItem
+            // 
+            this.bOMCustomerToolStripMenuItem.Name = "bOMCustomerToolStripMenuItem";
+            this.bOMCustomerToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.bOMCustomerToolStripMenuItem.Text = "BOM Customer";
+            // 
+            // bOMListViewToolStripMenuItem
+            // 
+            this.bOMListViewToolStripMenuItem.Name = "bOMListViewToolStripMenuItem";
+            this.bOMListViewToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.bOMListViewToolStripMenuItem.Text = "BOM List View";
             // 
             // MainFrame
             // 
@@ -242,5 +267,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem testsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pOListViewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bOMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bOMCustomerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bOMListViewToolStripMenuItem;
     }
 }

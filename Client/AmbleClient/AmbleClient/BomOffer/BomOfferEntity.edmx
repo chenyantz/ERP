@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="shenzhenerpModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="shenzhenerpModelStoreContainer">
+          <EntitySet Name="account" EntityType="shenzhenerpModel.Store.account" store:Type="Tables" Schema="shenzhenerp" />
+          <EntitySet Name="publicbomoffer" EntityType="shenzhenerpModel.Store.publicbomoffer" store:Type="Tables" Schema="shenzhenerp" />
+          <EntitySet Name="publiccustven" EntityType="shenzhenerpModel.Store.publiccustven" store:Type="Tables" Schema="shenzhenerp" />
+        </EntityContainer>
+        <EntityType Name="account">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="accountName" Type="varchar" MaxLength="255" />
+          <Property Name="accountPassword" Type="varchar" MaxLength="255" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="job" Type="tinyint" />
+          <Property Name="superviser" Type="smallint" />
+        </EntityType>
+        <EntityType Name="publicbomoffer">
+          <Key>
+            <PropertyRef Name="bomOfferId" />
+          </Key>
+          <Property Name="bomOfferId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BomCustVendId" Type="int" Nullable="false" />
+          <Property Name="mfg" Type="varchar" MaxLength="255" />
+          <Property Name="mpn" Type="varchar" MaxLength="255" />
+          <Property Name="qty" Type="int" />
+          <Property Name="price" Type="int" />
+          <Property Name="cpn" Type="varchar" MaxLength="255" />
+          <Property Name="userID" Type="smallint" Nullable="false" />
+          <Property Name="enerDay" Type="datetime" />
+        </EntityType>
+        <EntityType Name="publiccustven">
+          <Key>
+            <PropertyRef Name="custVenId" />
+          </Key>
+          <Property Name="custVenId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="custVendorType" Type="tinyint" />
+          <Property Name="custVenName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="contact" Type="varchar" MaxLength="255" />
+          <Property Name="tel" Type="varchar" MaxLength="255" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="userID" Type="smallint" Nullable="false" />
+          <Property Name="enterDay" Type="datetime" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="shenzhenerpModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="BomOfferEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="account" EntityType="shenzhenerpModel.account" />
+          <EntitySet Name="publicbomoffer" EntityType="shenzhenerpModel.publicbomoffer" />
+          <EntitySet Name="publiccustven" EntityType="shenzhenerpModel.publiccustven" />
+        </EntityContainer>
+        <EntityType Name="account">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="accountName" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="accountPassword" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="job" Type="SByte" />
+          <Property Name="superviser" Type="Int16" />
+        </EntityType>
+        <EntityType Name="publicbomoffer">
+          <Key>
+            <PropertyRef Name="bomOfferId" />
+          </Key>
+          <Property Name="bomOfferId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BomCustVendId" Type="Int32" Nullable="false" />
+          <Property Name="mfg" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="mpn" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="qty" Type="Int32" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="cpn" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="userID" Type="Int16" Nullable="false" />
+          <Property Name="enerDay" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="publiccustven">
+          <Key>
+            <PropertyRef Name="custVenId" />
+          </Key>
+          <Property Name="custVenId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="custVendorType" Type="SByte" />
+          <Property Name="custVenName" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="contact" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="tel" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="userID" Type="Int16" Nullable="false" />
+          <Property Name="enterDay" Type="DateTime" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="shenzhenerpModelStoreContainer" CdmEntityContainer="BomOfferEntities">
+          <EntitySetMapping Name="account"><EntityTypeMapping TypeName="shenzhenerpModel.account"><MappingFragment StoreEntitySet="account">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="accountName" ColumnName="accountName" />
+            <ScalarProperty Name="accountPassword" ColumnName="accountPassword" />
+            <ScalarProperty Name="email" ColumnName="email" />
+            <ScalarProperty Name="job" ColumnName="job" />
+            <ScalarProperty Name="superviser" ColumnName="superviser" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="publicbomoffer"><EntityTypeMapping TypeName="shenzhenerpModel.publicbomoffer"><MappingFragment StoreEntitySet="publicbomoffer">
+            <ScalarProperty Name="bomOfferId" ColumnName="bomOfferId" />
+            <ScalarProperty Name="BomCustVendId" ColumnName="BomCustVendId" />
+            <ScalarProperty Name="mfg" ColumnName="mfg" />
+            <ScalarProperty Name="mpn" ColumnName="mpn" />
+            <ScalarProperty Name="qty" ColumnName="qty" />
+            <ScalarProperty Name="price" ColumnName="price" />
+            <ScalarProperty Name="cpn" ColumnName="cpn" />
+            <ScalarProperty Name="userID" ColumnName="userID" />
+            <ScalarProperty Name="enerDay" ColumnName="enerDay" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="publiccustven"><EntityTypeMapping TypeName="shenzhenerpModel.publiccustven"><MappingFragment StoreEntitySet="publiccustven">
+            <ScalarProperty Name="custVenId" ColumnName="custVenId" />
+            <ScalarProperty Name="custVendorType" ColumnName="custVendorType" />
+            <ScalarProperty Name="custVenName" ColumnName="custVenName" />
+            <ScalarProperty Name="contact" ColumnName="contact" />
+            <ScalarProperty Name="tel" ColumnName="tel" />
+            <ScalarProperty Name="email" ColumnName="email" />
+            <ScalarProperty Name="userID" ColumnName="userID" />
+            <ScalarProperty Name="enterDay" ColumnName="enterDay" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="BomOfferEntity">
+        <EntityTypeShape EntityType="shenzhenerpModel.account" Width="1.5" PointX="0.75" PointY="0.75" Height="2.172587890625" IsExpanded="true" />
+        <EntityTypeShape EntityType="shenzhenerpModel.publicbomoffer" Width="1.5" PointX="2.75" PointY="0.75" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="shenzhenerpModel.publiccustven" Width="1.5" PointX="4.75" PointY="0.75" Height="2.5571907552083335" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

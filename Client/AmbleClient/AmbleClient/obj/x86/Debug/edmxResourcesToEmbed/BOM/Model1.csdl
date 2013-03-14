@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="shenzhenerpModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="shenzhenerpEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="account" EntityType="shenzhenerpModel.account" />
+    <EntitySet Name="bomcustomer" EntityType="shenzhenerpModel.bomcustomer" />
+    <EntitySet Name="bominfo" EntityType="shenzhenerpModel.bominfo" />
+  </EntityContainer>
+  <EntityType Name="account">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="accountName" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="accountPassword" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="email" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="job" Type="SByte" />
+    <Property Name="superviser" Type="Int16" />
+  </EntityType>
+  <EntityType Name="bomcustomer">
+    <Key>
+      <PropertyRef Name="customerId" />
+    </Key>
+    <Property Name="customerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customerName" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="contact" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="tel" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="email" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="salesID" Type="Int16" Nullable="false" />
+    <Property Name="enterDay" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="bominfo">
+    <Key>
+      <PropertyRef Name="bomInfoId" />
+    </Key>
+    <Property Name="bomInfoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BomCustomerId" Type="Int32" Nullable="false" />
+    <Property Name="mfg" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="mpn" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="qty" Type="Int32" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="cpn" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="salesID" Type="Int16" Nullable="false" />
+    <Property Name="enerDay" Type="DateTime" />
+  </EntityType>
+</Schema>

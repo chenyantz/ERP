@@ -160,3 +160,5 @@ C:\ERPone\Client\AmbleClient\AmbleClient\bin\Debug\AmbleClient.exe
 C:\ERPone\Client\AmbleClient\AmbleClient\bin\Debug\AmbleClient.pdb
 C:\ERPone\Client\AmbleClient\AmbleClient\bin\Debug\AmpleAppServer.exe
 C:\ERPone\Client\AmbleClient\AmbleClient\bin\Debug\AmpleAppServer.pdb
+C:\ERPone\Client\AmbleClient\AmbleClient\bin\Debug\AmbleClient.exe.config
+C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.BomOffer.Test.resources

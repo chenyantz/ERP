@@ -45,7 +45,10 @@
     <Reference Include="MySql.Data.Entity, Version=6.6.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -82,6 +85,35 @@
     </Compile>
     <Compile Include="BasicGui\TimePicker.Designer.cs">
       <DependentUpon>TimePicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BomOffer\BomOfferCustVendorAbstract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BomOffer\BomOfferCustVendorAbstract.Designer.cs">
+      <DependentUpon>BomOfferCustVendorAbstract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BomOffer\BomOfferEntity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BomOfferEntity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="BomOffer\BomOfferListAbstract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BomOffer\BomOfferListAbstract.Designer.cs">
+      <DependentUpon>BomOfferListAbstract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BomOffer\BomOfferNewAbstract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BomOffer\BomOfferNewAbstract.Designer.cs">
+      <DependentUpon>BomOfferNewAbstract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BomOffer\BomOfferNewCustVenAbstract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BomOffer\BomOfferNewCustVenAbstract.Designer.cs">
+      <DependentUpon>BomOfferNewCustVenAbstract.cs</DependentUpon>
     </Compile>
     <Compile Include="ComClass\OperatorFile.cs" />
     <Compile Include="custVendor\AddCustomerVendor.cs">
@@ -312,6 +344,15 @@
     <EmbeddedResource Include="BasicGui\TimePicker.resx">
       <DependentUpon>TimePicker.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BomOffer\BomOfferCustVendorAbstract.resx">
+      <DependentUpon>BomOfferCustVendorAbstract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BomOffer\BomOfferNewAbstract.resx">
+      <DependentUpon>BomOfferNewAbstract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BomOffer\BomOfferNewCustVenAbstract.resx">
+      <DependentUpon>BomOfferNewCustVenAbstract.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="custVendor\AddCustomerVendor.resx">
       <DependentUpon>AddCustomerVendor.cs</DependentUpon>
     </EmbeddedResource>
@@ -418,6 +459,11 @@
     <EmbeddedResource Include="SO\SoViewControl.resx">
       <DependentUpon>SoViewControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="BomOffer\BomOfferEntity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BomOfferEntity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config" />
     <None Include="Properties\DataSources\AmbleAppServer.SoMgr.So.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -431,6 +477,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Personal\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

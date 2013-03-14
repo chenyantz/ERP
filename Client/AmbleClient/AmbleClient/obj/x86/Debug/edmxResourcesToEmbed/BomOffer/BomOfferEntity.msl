@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="shenzhenerpModelStoreContainer" CdmEntityContainer="BomOfferEntities">
+    <EntitySetMapping Name="account">
+      <EntityTypeMapping TypeName="shenzhenerpModel.account">
+        <MappingFragment StoreEntitySet="account">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="accountName" ColumnName="accountName" />
+          <ScalarProperty Name="accountPassword" ColumnName="accountPassword" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="job" ColumnName="job" />
+          <ScalarProperty Name="superviser" ColumnName="superviser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="publicbomoffer">
+      <EntityTypeMapping TypeName="shenzhenerpModel.publicbomoffer">
+        <MappingFragment StoreEntitySet="publicbomoffer">
+          <ScalarProperty Name="bomOfferId" ColumnName="bomOfferId" />
+          <ScalarProperty Name="BomCustVendId" ColumnName="BomCustVendId" />
+          <ScalarProperty Name="mfg" ColumnName="mfg" />
+          <ScalarProperty Name="mpn" ColumnName="mpn" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="cpn" ColumnName="cpn" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="enerDay" ColumnName="enerDay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="publiccustven">
+      <EntityTypeMapping TypeName="shenzhenerpModel.publiccustven">
+        <MappingFragment StoreEntitySet="publiccustven">
+          <ScalarProperty Name="custVenId" ColumnName="custVenId" />
+          <ScalarProperty Name="custVendorType" ColumnName="custVendorType" />
+          <ScalarProperty Name="custVenName" ColumnName="custVenName" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="enterDay" ColumnName="enterDay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -120,5 +120,14 @@ namespace AmbleClient
             buyerSoListView.MdiParent = this;
             buyerSoListView.Show();
         }
+
+        private void bOMCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BomOffer.Test test = new BomOffer.Test();
+            test.MdiParent = this;
+            test.Show();
+
+
+        }
     }
 }

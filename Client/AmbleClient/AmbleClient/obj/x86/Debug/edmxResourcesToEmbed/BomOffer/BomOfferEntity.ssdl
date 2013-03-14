@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="shenzhenerpModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="shenzhenerpModelStoreContainer">
+    <EntitySet Name="account" EntityType="shenzhenerpModel.Store.account" store:Type="Tables" Schema="shenzhenerp" />
+    <EntitySet Name="publicbomoffer" EntityType="shenzhenerpModel.Store.publicbomoffer" store:Type="Tables" Schema="shenzhenerp" />
+    <EntitySet Name="publiccustven" EntityType="shenzhenerpModel.Store.publiccustven" store:Type="Tables" Schema="shenzhenerp" />
+  </EntityContainer>
+  <EntityType Name="account">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="accountName" Type="varchar" MaxLength="255" />
+    <Property Name="accountPassword" Type="varchar" MaxLength="255" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
+    <Property Name="job" Type="tinyint" />
+    <Property Name="superviser" Type="smallint" />
+  </EntityType>
+  <EntityType Name="publicbomoffer">
+    <Key>
+      <PropertyRef Name="bomOfferId" />
+    </Key>
+    <Property Name="bomOfferId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BomCustVendId" Type="int" Nullable="false" />
+    <Property Name="mfg" Type="varchar" MaxLength="255" />
+    <Property Name="mpn" Type="varchar" MaxLength="255" />
+    <Property Name="qty" Type="int" />
+    <Property Name="price" Type="int" />
+    <Property Name="cpn" Type="varchar" MaxLength="255" />
+    <Property Name="userID" Type="smallint" Nullable="false" />
+    <Property Name="enerDay" Type="datetime" />
+  </EntityType>
+  <EntityType Name="publiccustven">
+    <Key>
+      <PropertyRef Name="custVenId" />
+    </Key>
+    <Property Name="custVenId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="custVendorType" Type="tinyint" />
+    <Property Name="custVenName" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="contact" Type="varchar" MaxLength="255" />
+    <Property Name="tel" Type="varchar" MaxLength="255" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
+    <Property Name="userID" Type="smallint" Nullable="false" />
+    <Property Name="enterDay" Type="datetime" />
+  </EntityType>
+</Schema>

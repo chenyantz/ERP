@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="shenzhenerpModelStoreContainer" CdmEntityContainer="shenzhenerpEntities">
+    <EntitySetMapping Name="account">
+      <EntityTypeMapping TypeName="shenzhenerpModel.account">
+        <MappingFragment StoreEntitySet="account">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="accountName" ColumnName="accountName" />
+          <ScalarProperty Name="accountPassword" ColumnName="accountPassword" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="job" ColumnName="job" />
+          <ScalarProperty Name="superviser" ColumnName="superviser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bomcustomer">
+      <EntityTypeMapping TypeName="shenzhenerpModel.bomcustomer">
+        <MappingFragment StoreEntitySet="bomcustomer">
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="customerName" ColumnName="customerName" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="salesID" ColumnName="salesID" />
+          <ScalarProperty Name="enterDay" ColumnName="enterDay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bominfo">
+      <EntityTypeMapping TypeName="shenzhenerpModel.bominfo">
+        <MappingFragment StoreEntitySet="bominfo">
+          <ScalarProperty Name="bomInfoId" ColumnName="bomInfoId" />
+          <ScalarProperty Name="BomCustomerId" ColumnName="BomCustomerId" />
+          <ScalarProperty Name="mfg" ColumnName="mfg" />
+          <ScalarProperty Name="mpn" ColumnName="mpn" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="cpn" ColumnName="cpn" />
+          <ScalarProperty Name="salesID" ColumnName="salesID" />
+          <ScalarProperty Name="enerDay" ColumnName="enerDay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

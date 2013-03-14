@@ -6,15 +6,18 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using AmbleClient.custVendor.customerVendorMgr;
 
 namespace AmbleClient.custVendor
 {
     public partial class customerVendorOperation : Form
     {
-       protected int customerOrVendor;
+         protected int customerOrVendor;
+         protected CustomerVendorMgr customerVendorMgr;
          public customerVendorOperation()
         {
             InitializeComponent();
+            customerVendorMgr = new CustomerVendorMgr();
         }
 
         private void label3_Click(object sender, EventArgs e)

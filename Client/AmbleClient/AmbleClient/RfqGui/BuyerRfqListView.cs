@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using AmbleAppServer.RfqMgr;
+using AmbleClient.RfqGui.RfqManager;
 
 namespace AmbleClient.RfqGui
 {
@@ -43,12 +43,12 @@ namespace AmbleClient.RfqGui
 
         public override int GetPageCount(int itemsPerPage, string filterColumn, string filterString, List<RfqStatesEnum> selections, bool includeSubs)
         {
-            return GlobalRemotingClient.GetRfqMgr().BuyerGetThePageCountOfDataTable(UserInfo.UserId, itemsPerPage, filterColumn, filterString, selections);
+            return rfqMgr.BuyerGetThePageCountOfDataTable(UserInfo.UserId, itemsPerPage, filterColumn, filterString, selections);
 
         }
         public override DataTable GetDataTableAccordingToPageNumber(int itemsPerPage, int currentPage, string filterColumn, string filterString, List<RfqStatesEnum> selections, bool includeSubs)
         {
-            return GlobalRemotingClient.GetRfqMgr().BuyerGetRfqDataTableAccordingToPageNumber(UserInfo.UserId,currentPage, itemsPerPage, filterColumn, filterString, selections);
+            return rfqMgr.BuyerGetRfqDataTableAccordingToPageNumber(UserInfo.UserId,currentPage, itemsPerPage, filterColumn, filterString, selections);
         }
         public override void CellDoubleClickShow(int rfqId)
         {

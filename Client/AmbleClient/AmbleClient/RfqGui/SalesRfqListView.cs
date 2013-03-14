@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using AmbleAppServer.RfqMgr;
+using AmbleClient.RfqGui.RfqManager;
 
 
 namespace AmbleClient.RfqGui
@@ -40,11 +40,11 @@ namespace AmbleClient.RfqGui
            
             if (includeSubs)
             {
-                return GlobalRemotingClient.GetRfqMgr().GetThePageCountOfDataTable(itemsPerPage, UserInfo.UserId,filterColumn,filterString,selections);
+                return rfqMgr.GetThePageCountOfDataTable(itemsPerPage, UserInfo.UserId,filterColumn,filterString,selections);
             }
             else
             { 
-              return GlobalRemotingClient.GetRfqMgr().GetThePageCountOfDataTablePerSale(itemsPerPage, UserInfo.UserId,filterColumn,filterString,selections);
+              return rfqMgr.GetThePageCountOfDataTablePerSale(itemsPerPage, UserInfo.UserId,filterColumn,filterString,selections);
             }
         }
 
@@ -52,11 +52,11 @@ namespace AmbleClient.RfqGui
         {   
             if (includeSubs)
             {
-                return  GlobalRemotingClient.GetRfqMgr().GetICanSeeRfqDataTableAccordingToPageNumber(UserInfo.UserId, currentPage, itemsPerPage, filterColumn, filterString,selections);
+                return  rfqMgr.GetICanSeeRfqDataTableAccordingToPageNumber(UserInfo.UserId, currentPage, itemsPerPage, filterColumn, filterString,selections);
             }
             else 
             {
-                return GlobalRemotingClient.GetRfqMgr().GetMyRfqDataTableAccordingToPageNumber(UserInfo.UserId, currentPage, itemsPerPage, filterColumn, filterString,selections);
+                return rfqMgr.GetMyRfqDataTableAccordingToPageNumber(UserInfo.UserId, currentPage, itemsPerPage, filterColumn, filterString,selections);
             }
 
         }

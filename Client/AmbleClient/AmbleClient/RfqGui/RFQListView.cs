@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using AmbleAppServer.RfqMgr;
+using AmbleClient.RfqGui.RfqManager;
 
 namespace AmbleClient.RfqGui
 {
@@ -21,12 +21,13 @@ namespace AmbleClient.RfqGui
         int totalPage=0;
 
         List<RfqStatesEnum> rfqStatesSelected = new List<RfqStatesEnum>();
-        
-        
+
+        protected RfqManager.RfqMgr rfqMgr;
         
         public RFQListView()
         {
             InitializeComponent();
+            rfqMgr = new RfqMgr();
         }
 
 
@@ -43,7 +44,7 @@ namespace AmbleClient.RfqGui
 
         private void FillTheIdNameDict()
         {
-         DataTable dt=GlobalRemotingClient.GetAccountMgr().ReturnWholeAccountTable();
+         DataTable dt=new AmbleClient.Admin.AccountMgr.AccountMgr().ReturnWholeAccountTable();
             foreach(DataRow dr in dt.Rows)
             {
                idToName.Add(Convert.ToInt32(dr["id"]),dr["accountName"].ToString());

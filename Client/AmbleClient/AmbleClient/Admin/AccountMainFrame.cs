@@ -6,25 +6,19 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Runtime.Remoting;
-using System.Runtime.Remoting.Channels;
-using System.Runtime.Remoting.Channels.Tcp;
-using AmbleAppServer.AccountMgr;
+using AmbleClient.Admin.AccountMgr;
 
 namespace AmbleClient.Admin
 {
     public partial class AccountMainFrame : Form
     {
         DataTable originalTable;
+        AccountMgr.AccountMgr accountMgr;
 
         public AccountMainFrame()
         {
             InitializeComponent();
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+            accountMgr = new AccountMgr.AccountMgr();
 
         }
 
@@ -33,7 +27,7 @@ namespace AmbleClient.Admin
         {
             //fill the datagrid view
 
-            originalTable = GlobalRemotingClient.GetAccountMgr().ReturnWholeAccountTable();
+            originalTable = accountMgr.ReturnWholeAccountTable();
 
             DataTable showTable = new DataTable();
             showTable.Columns.Add("Name");

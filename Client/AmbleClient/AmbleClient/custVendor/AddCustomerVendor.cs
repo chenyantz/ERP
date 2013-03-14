@@ -33,7 +33,7 @@ namespace AmbleClient.custVendor
         {
             //check if name exist
 
-            if(GlobalRemotingClient.GetCustomerVendorMgr().IsCvtypeandCvNameExist(customerOrVendor,tbName.Text.Trim(),UserInfo.UserId))
+            if(customerVendorMgr.IsCvtypeandCvNameExist(customerOrVendor,tbName.Text.Trim(),UserInfo.UserId))
             {
                
                 MessageBox.Show("The company name already exists in your customer list.");
@@ -41,7 +41,7 @@ namespace AmbleClient.custVendor
                 return;
             
             }
-              GlobalRemotingClient.GetCustomerVendorMgr().AddCustomerOrVendor(customerOrVendor, tbName.Text.Trim(), tbCountry.Text.Trim(),tbNumber.Text.Trim(),
+            customerVendorMgr.AddCustomerOrVendor(customerOrVendor, tbName.Text.Trim(), tbCountry.Text.Trim(), tbNumber.Text.Trim(),
                 String.IsNullOrWhiteSpace(tbRating.Text.Trim())?(int?)null:int.Parse(tbRating.Text.Trim()), tbTerm.Text.Trim(), tbContact1.Text.Trim(), tbContact2.Text.Trim(), tbPhone1.Text.Trim(),
                 tbPhone2.Text.Trim(), tbCell.Text.Trim(), tbFax.Text.Trim(), tbEmail1.Text.Trim(), tbEmail2.Text.Trim(), UserInfo.UserId, UserInfo.UserId,DateTime.Now,
                 comboBox2.SelectedText.Trim()=="Yes"?1:0,
@@ -59,8 +59,14 @@ namespace AmbleClient.custVendor
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(952, 515);
             this.Name = "AddCustomerVendor";
+            this.Load += new System.EventHandler(this.AddCustomerVendor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+
+        }
+
+        private void AddCustomerVendor_Load(object sender, EventArgs e)
+        {
 
         }
     }

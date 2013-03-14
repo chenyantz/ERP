@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using AmbleAppServer.OfferMgr;
+using AmbleClient.custVendor.customerVendorMgr;
+using AmbleClient.OfferGui.OfferMgr;
 
 namespace AmbleClient.OfferGui
 {
    public class BuyerOfferItems:OfferItems
     {
-      
+       CustomerVendorMgr customerVendorMgr;
        public BuyerOfferItems()
-       { }
+       {
+           customerVendorMgr = new CustomerVendorMgr();
+       }
 
        public void AutoFill(string mpn, string mfg)
        {
@@ -23,7 +26,7 @@ namespace AmbleClient.OfferGui
 
        private void VendorAutoComplete()
        {
-           List<string> vendorNames = GlobalRemotingClient.GetCustomerVendorMgr().GetMyTheCustomerVendorNamesOrVendors(1, UserInfo.UserId);
+           List<string> vendorNames = customerVendorMgr.GetMyTheCustomerVendorNamesOrVendors(1, UserInfo.UserId);
 
            this.tbVendorName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
            tbVendorName.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -39,7 +42,7 @@ namespace AmbleClient.OfferGui
        private void tbVendorName_Leave(object sender, EventArgs e)
        {
            //自动填充contact,phone,fax
-           Dictionary<string, string> contactInfo = GlobalRemotingClient.GetCustomerVendorMgr().GetContactInfo(0, UserInfo.UserId, tbVendorName.Text.Trim());
+           Dictionary<string, string> contactInfo = customerVendorMgr.GetContactInfo(0, UserInfo.UserId, tbVendorName.Text.Trim());
            //contact   
            AutoCompleteStringCollection contactSource = new AutoCompleteStringCollection();
            if (contactInfo.Keys.Contains("contact1"))
@@ -101,7 +104,7 @@ namespace AmbleClient.OfferGui
 
        }
 
-       public void FillTheTable(AmbleAppServer.OfferMgr.Offer offer)
+       public void FillTheTable(AmbleClient.OfferGui.OfferMgr.Offer offer)
        {
            this.tbMpn.Text = offer.mpn;
            this.tbMfg.Text = offer.mfg;
@@ -162,14 +165,14 @@ namespace AmbleClient.OfferGui
            offer.offerStates = 0;//new 
            offer.notes=tbNotes.Text.Trim();
 
-           return GlobalRemotingClient.GetOfferMgr().SaveOffer(offer);
+           return offerMgr.SaveOffer(offer);
 
        }
 
        public int GetTheSavedOfferId()
        {
 
-           return GlobalRemotingClient.GetOfferMgr().GetNewSavedOfferId(UserInfo.UserId);
+           return offerMgr.GetNewSavedOfferId(UserInfo.UserId);
        
        }
 

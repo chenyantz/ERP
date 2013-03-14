@@ -21,27 +21,29 @@ namespace AmbleClient.RfqGui
 
            }
        }
-       public override void FillTheTable(AmbleAppServer.RfqMgr.Rfq rfq)
+       public override void FillTheTable(AmbleClient.RfqGui.RfqManager.Rfq rfq)
        {
            base.FillTheTable(rfq);
+
 
            this.tbCustomer.Text = string.Empty;
            this.tbContact.Text = string.Empty;
            this.tbPhone.Text = string.Empty;
 
-           cbSales.Items.Add(GlobalRemotingClient.GetAccountMgr().GetNameById(rfq.salesId));
+           AmbleClient.Admin.AccountMgr.AccountMgr accountMgr = new Admin.AccountMgr.AccountMgr();
+           cbSales.Items.Add(accountMgr.GetNameById(rfq.salesId));
            cbSales.SelectedIndex = 0;
 
 
           if (rfq.firstPA != null) 
            {
-               cbPrimaryPA.Items.Add(GlobalRemotingClient.GetAccountMgr().GetNameById(rfq.firstPA.Value));
+               cbPrimaryPA.Items.Add(accountMgr.GetNameById(rfq.firstPA.Value));
                cbPrimaryPA.SelectedIndex = 0;
 
            }
            if (rfq.secondPA != null)
            {
-               cbAltPA.Items.Add(GlobalRemotingClient.GetAccountMgr().GetNameById(rfq.secondPA.Value));
+               cbAltPA.Items.Add(accountMgr.GetNameById(rfq.secondPA.Value));
               cbAltPA.SelectedIndex = 0;
 
            }

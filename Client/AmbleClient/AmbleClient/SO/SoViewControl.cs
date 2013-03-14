@@ -6,8 +6,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using AmbleAppServer.SoMgr;
-using AmbleAppServer.RfqMgr;
+using AmbleClient.SO.SoMgr;
+using AmbleClient.RfqGui.RfqManager;
+
 
 namespace AmbleClient.SO
 {
@@ -114,9 +115,9 @@ namespace AmbleClient.SO
 
         private void FillTheSalesComboBox()
         {
-            mySubs = GlobalRemotingClient.GetAccountMgr().GetAllSubsId(UserInfo.UserId);
+            mySubs =new AmbleClient.Admin.AccountMgr.AccountMgr().GetAllSubsId(UserInfo.UserId);
 
-            Dictionary<int, string> mySubsIdAndName = GlobalRemotingClient.GetAccountMgr().GetIdsAndNames(mySubs);
+            Dictionary<int, string> mySubsIdAndName = new AmbleClient.Admin.AccountMgr.AccountMgr().GetIdsAndNames(mySubs);
             foreach (string name in mySubsIdAndName.Values)
             {
                 cbSp.Items.Add(name);
@@ -132,7 +133,7 @@ namespace AmbleClient.SO
             tbSalesOrder.Text = so.salesOrderNo;
             if (so.approverId != null)
             {
-                tbApprover.Text = GlobalRemotingClient.GetAccountMgr().GetNameById(so.approverId.Value);
+                tbApprover.Text = new AmbleClient.Admin.AccountMgr.AccountMgr().GetNameById(so.approverId.Value);
             }
             if (so.approveDate != null)
             {
@@ -164,20 +165,20 @@ namespace AmbleClient.SO
         {
             CheckValues();
             So so=GetValues();
-            if (!GlobalRemotingClient.GetSoMgr().SaveSoMain(so))
+            if (!SoMgr.SoMgr.SaveSoMain(so))
             {
                 MessageBox.Show("Save Sale Order Error!");
                 return;
             }
-            int soId = GlobalRemotingClient.GetSoMgr().GetTheInsertId(so.salesId);
-            if (!GlobalRemotingClient.GetSoMgr().SaveSoItems(soId, so.items))
+            int soId = SoMgr.SoMgr.GetTheInsertId(so.salesId);
+            if (!SoMgr.SoMgr.SaveSoItems(soId, so.items))
             {
                 MessageBox.Show("Save Sale Order Items Error!");
 
             }
             else
             {
-                GlobalRemotingClient.GetRfqMgr().ChangeRfqState(RfqStatesEnum.HasSO, rfqId);
+                new AmbleClient.RfqGui.RfqManager.RfqMgr().ChangeRfqState(RfqStatesEnum.HasSO, rfqId);
 
                 MessageBox.Show("Save Sale Order Successfully");
             
@@ -263,7 +264,7 @@ namespace AmbleClient.SO
 
         public bool ApproveSo(So so)
         {
-            if (GlobalRemotingClient.GetSoMgr().UpdateSoState(so.soId,UserInfo.UserId,SoStateEnum.Approved))
+            if (SO.SoMgr.SoMgr.UpdateSoState(so.soId,UserInfo.UserId,SoStateEnum.Approved))
             {
                 return true;
             }

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using AmbleAppServer.customerVendorMgr;
+using AmbleClient.custVendor.customerVendorMgr;
 
 namespace AmbleClient.custVendor
 {
@@ -16,7 +16,7 @@ namespace AmbleClient.custVendor
         DataTable userTable;
         DataTable orginateCustomerVendorTable;
         DataTable showTable;
-      
+        CustomerVendorMgr customerVendorMgr;
         
         
         public customerVendorMainFrame(int customerOrVendor)
@@ -35,13 +35,14 @@ namespace AmbleClient.custVendor
                 this.toolStripComboBox1.Items.Add("Include Subordinates' Vendors");
                 this.toolStripComboBox1.Items.Add("Only List My Vendors");
             }
-           
+
+            customerVendorMgr = new CustomerVendorMgr();
 
         }
 
         private void customerVendorMainFrame_Load(object sender, EventArgs e)
         {
-            userTable = GlobalRemotingClient.GetAccountMgr().ReturnWholeAccountTable();
+            userTable = new AmbleClient.Admin.AccountMgr.AccountMgr().ReturnWholeAccountTable();
                     
             //Add columns to DataGridview
             showTable = new DataTable();
@@ -78,11 +79,11 @@ namespace AmbleClient.custVendor
 
             if (toolStripComboBox1.SelectedIndex==0)
             {
-                orginateCustomerVendorTable = GlobalRemotingClient.GetCustomerVendorMgr().GetTheCustomersOrVendorsICanSee(customerOrVendor, UserInfo.UserId);
+                orginateCustomerVendorTable = customerVendorMgr.GetTheCustomersOrVendorsICanSee(customerOrVendor, UserInfo.UserId);
             }
             else if (toolStripComboBox1.SelectedIndex==1)
             {
-                orginateCustomerVendorTable = GlobalRemotingClient.GetCustomerVendorMgr().GetMyCustomerOrVendor(customerOrVendor, UserInfo.UserId);
+                orginateCustomerVendorTable = customerVendorMgr.GetMyCustomerOrVendor(customerOrVendor, UserInfo.UserId);
             
             }
 
@@ -188,7 +189,7 @@ namespace AmbleClient.custVendor
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
             DataRow dr = GetDataRowInShowTableFromIndex(this.dataGridView1.CurrentRow.Index);
-            GlobalRemotingClient.GetCustomerVendorMgr().DeleteCustomerOrVendor(customerOrVendor, dr["Compnay Name"].ToString());
+            customerVendorMgr.DeleteCustomerOrVendor(customerOrVendor, dr["Compnay Name"].ToString());
             FillTheDataGrid();
         }
 

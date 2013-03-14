@@ -6,16 +6,17 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using AmbleAppServer.RfqMgr;
+using AmbleClient.RfqGui.RfqManager;
 
 namespace AmbleClient.RfqGui
 {
     public partial class RfqItems : UserControl
     {
-        
+        protected RfqManager.RfqMgr rfqMgr;
         public RfqItems()
         {
             InitializeComponent();
+            rfqMgr = new RfqMgr();
         }
 
         private void RfqItems_Load(object sender, EventArgs e)
@@ -109,30 +110,9 @@ namespace AmbleClient.RfqGui
         
         }
 
-        public virtual void FillTheTable(AmbleAppServer.RfqMgr.Rfq rfq)
+        public virtual void FillTheTable(Rfq rfq)
         {
-           /*
-            tbCustomer.Text = rfq.customerName;
-            //select the sales ID
-            //获得下级号和名字
-            mySubs = GlobalRemotingClient.GetAccountMgr().GetAllSubsId(UserInfo.UserId);
-            Dictionary<int, string> mySubsIdAndName = GlobalRemotingClient.GetAccountMgr().GetIdsAndNames(mySubs);
-            foreach (string name in mySubsIdAndName.Values)
-            {
-                cbSales.Items.Add(name);
 
-            }
-            for (int i = 0; i < mySubs.Count; i++)
-            {
-                if (mySubs[i] == rfq.salesId)
-                {
-                    cbSales.SelectedIndex = i;
-                    break;
-
-                }
-
-            }
-            * */
             tbProject.Text = rfq.project;
             tbContact.Text = rfq.contact;
             tbPhone.Text = rfq.phone;

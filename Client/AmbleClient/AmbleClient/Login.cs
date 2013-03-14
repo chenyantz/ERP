@@ -6,21 +6,22 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Runtime.Remoting;
-using System.Runtime.Remoting.Channels;
-using System.Runtime.Remoting.Channels.Tcp;
-using AmbleAppServer.AccountMgr;
+using AmbleClient.Admin.AccountMgr;
+
 
 
 namespace AmbleClient
 {
     public partial class Login : Form
     {
+        AccountMgr accountMgr;
+
 
         PropertyClass accountProperty;
         
         public Login()
         {
+            accountMgr = new AccountMgr();
             InitializeComponent();
 
         }
@@ -36,7 +37,7 @@ namespace AmbleClient
         {
             try
             {
-                accountProperty =GlobalRemotingClient.GetAccountMgr().CheckNameAndPasswd(textBox1.Text.Trim(), maskedTextBox1.Text.Trim());
+                accountProperty =accountMgr.CheckNameAndPasswd(textBox1.Text.Trim(), maskedTextBox1.Text.Trim());
 
             }
             catch (Exception ex)

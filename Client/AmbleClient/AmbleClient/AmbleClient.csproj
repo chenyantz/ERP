@@ -41,6 +41,8 @@
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.6.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity, Version=6.6.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Remoting" />
@@ -61,6 +63,8 @@
     <Compile Include="Admin\AccountMainFrame.Designer.cs">
       <DependentUpon>AccountMainFrame.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AccountManager\AccountMgr.cs" />
+    <Compile Include="Admin\AccountManager\PropertyClass.cs" />
     <Compile Include="Admin\AddAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +83,7 @@
     <Compile Include="BasicGui\TimePicker.Designer.cs">
       <DependentUpon>TimePicker.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComClass\OperatorFile.cs" />
     <Compile Include="custVendor\AddCustomerVendor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,9 +99,11 @@
     <Compile Include="custVendor\customerVendorOperation.Designer.cs">
       <DependentUpon>customerVendorOperation.cs</DependentUpon>
     </Compile>
+    <Compile Include="custVendor\CustVendorManager\CustomerVendorMgr.cs" />
     <Compile Include="custVendor\ModifyCustomerVendor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DataClass\DataClass.cs" />
     <Compile Include="Finances\CustomerVenderPrimaryKey.cs" />
     <Compile Include="Finances\FinancesView.cs">
       <SubType>Form</SubType>
@@ -138,6 +145,8 @@
     <Compile Include="OfferGui\OfferList.Designer.cs">
       <DependentUpon>OfferList.cs</DependentUpon>
     </Compile>
+    <Compile Include="OfferGui\OfferManager\Offer.cs" />
+    <Compile Include="OfferGui\OfferManager\OfferMgr.cs" />
     <Compile Include="OrderTemplate\Order.cs" />
     <Compile Include="OrderTemplate\OrderListView.cs">
       <SubType>Form</SubType>
@@ -157,6 +166,8 @@
     <Compile Include="PO\PoItemsControl.Designer.cs">
       <DependentUpon>PoItemsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="PO\PoManager\Po.cs" />
+    <Compile Include="PO\PoManager\PoMgr.cs" />
     <Compile Include="PO\PoViewControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -205,6 +216,8 @@
     <Compile Include="RfqGui\RFQListView.Designer.cs">
       <DependentUpon>RFQListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="RfqGui\RfqManager\Rfq.cs" />
+    <Compile Include="RfqGui\RfqManager\RfqMgr.cs" />
     <Compile Include="RfqGui\RfqPrint.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,6 +289,8 @@
     <Compile Include="SO\SoItemView.Designer.cs">
       <DependentUpon>SoItemView.cs</DependentUpon>
     </Compile>
+    <Compile Include="SO\SoManager\So.cs" />
+    <Compile Include="SO\SoManager\SoMgr.cs" />
     <Compile Include="SO\SoView.cs">
       <SubType>Form</SubType>
     </Compile>

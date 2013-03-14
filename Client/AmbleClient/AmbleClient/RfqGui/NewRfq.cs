@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using AmbleAppServer.RfqMgr;
+using AmbleClient.RfqGui.RfqManager;
 
 namespace AmbleClient.RfqGui
 {
@@ -50,8 +50,9 @@ namespace AmbleClient.RfqGui
         private void tsbPaste_Click(object sender, EventArgs e)
         {
 
-           int rfqId=GlobalRemotingClient.GetRfqMgr().GetRfqIdOfTheCopiedRecord(UserInfo.UserId);
-           Rfq rfq = GlobalRemotingClient.GetRfqMgr().GetRfqAccordingToRfqId(rfqId);
+            RfqGui.RfqManager.RfqMgr rfqMgr = new RfqManager.RfqMgr();
+           int rfqId=rfqMgr.GetRfqIdOfTheCopiedRecord(UserInfo.UserId);
+           Rfq rfq = rfqMgr.GetRfqAccordingToRfqId(rfqId);
            rfqItems1.FillTheTable(rfq);
            rfqItems1.tbRoutingHistory.Clear();
            rfqItems1.tbCost.Clear();

@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using AmbleClient.Admin.AccountMgr;
+using AmbleClient.custVendor.customerVendorMgr;
 
 namespace AmbleClient.Finances
 {
@@ -15,6 +17,9 @@ namespace AmbleClient.Finances
         private DataTable customerVendorTable;
         private DataTable userTable;
         List<CustomerVenderPrimaryKey> changeList = new List<CustomerVenderPrimaryKey>();
+
+        AccountMgr accountMgr;
+        CustomerVendorMgr customerVendorMgr;
         
         enum FilterType { 
         All,
@@ -24,6 +29,8 @@ namespace AmbleClient.Finances
         public FinancesView()
         {
             InitializeComponent();
+            accountMgr = new AccountMgr();
+            customerVendorMgr = new CustomerVendorMgr();
         }
 
         private void FinancesView_Load(object sender, EventArgs e)
@@ -36,8 +43,8 @@ namespace AmbleClient.Finances
 
         private void FillTheDataGrid()
         {
-            customerVendorTable = GlobalRemotingClient.GetCustomerVendorMgr().GetTheCompanyNecessaryInfoForFinance();
-            userTable = GlobalRemotingClient.GetAccountMgr().ReturnWholeAccountTable();
+            customerVendorTable = customerVendorMgr.GetTheCompanyNecessaryInfoForFinance();
+            userTable = accountMgr.ReturnWholeAccountTable();
             
             dataGridView1.Rows.Clear();
             dataGridView1.CellValueChanged -= dataGridView1_CellValueChanged;
@@ -155,7 +162,7 @@ namespace AmbleClient.Finances
             if (changeList.Count == 0) return;
             foreach (CustomerVenderPrimaryKey changeItem in changeList)
             {
-                if (!GlobalRemotingClient.GetCustomerVendorMgr().AssignCompanyNumberByFinance(changeItem.Cvtype, changeItem.CvName, changeItem.OwnerName, changeItem.CvNumber))
+                if (!customerVendorMgr.AssignCompanyNumberByFinance(changeItem.Cvtype, changeItem.CvName, changeItem.OwnerName, changeItem.CvNumber))
                 {
                     failrecord++;
                 }

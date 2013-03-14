@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using AmbleAppServer.AccountMgr;
+using AmbleClient.Admin.AccountMgr;
 
 
 namespace AmbleClient.Admin
@@ -15,11 +15,12 @@ namespace AmbleClient.Admin
     {
      
            public  DataTable dt;
-      
+          protected AccountMgr.AccountMgr accountMgr;
         
         public AccountOperation()
         {
             InitializeComponent();
+            accountMgr = new AccountMgr.AccountMgr();
         
         }
 

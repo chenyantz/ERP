@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using AmbleAppServer.RfqMgr;
+using AmbleClient.RfqGui.RfqManager;
 
 namespace AmbleClient.RfqGui
 {
@@ -21,7 +21,7 @@ namespace AmbleClient.RfqGui
 
         private void BuyerRfqView_Load(object sender, EventArgs e)
         {
-            Rfq rfq = GlobalRemotingClient.GetRfqMgr().GetRfqAccordingToRfqId(rfqId);
+            Rfq rfq = new AmbleClient.RfqGui.RfqManager.RfqMgr().GetRfqAccordingToRfqId(rfqId);
             buyerRfqItems1.FillTheTable(rfq);
             //SetMenuStateAccordingToRfqState((RfqStatesEnum)rfq.rfqStates);
         }

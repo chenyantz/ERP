@@ -6,23 +6,25 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using AmbleAppServer.RfqMgr;
+using AmbleClient.RfqGui.RfqManager;
 
 namespace AmbleClient.RfqGui
 {
     public partial class RFQView : Form
     {
         int rfqId;
+        RfqMgr rfqMgr;
         public RFQView(int rfqId)
         {
             InitializeComponent();
             this.rfqId = rfqId;
+            rfqMgr = new RfqMgr();
         
         }
 
         private void RFQView_Load(object sender, EventArgs e)
         {
-            Rfq rfq = GlobalRemotingClient.GetRfqMgr().GetRfqAccordingToRfqId(rfqId);
+            Rfq rfq = rfqMgr.GetRfqAccordingToRfqId(rfqId);
             rfqItems1.FillTheTable(rfq);
             GuiOpAccordingToRfqState((RfqStatesEnum)rfq.rfqStates);
         }
@@ -72,9 +74,9 @@ namespace AmbleClient.RfqGui
             if (MessageBox.Show("Set The RFQ Status to Quoted?","", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
 
-                if (GlobalRemotingClient.GetRfqMgr().ChangeRfqState(RfqStatesEnum.Quoted, rfqId))
+                if (rfqMgr.ChangeRfqState(RfqStatesEnum.Quoted, rfqId))
                 {
-                    GlobalRemotingClient.GetRfqMgr().AddRfqHistory(rfqId, UserInfo.UserId, "Quoted the RFQ");
+                    rfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Quoted the RFQ");
                     //MessageBox.Show("This RFQ has been Quoted");
                 }
                 else
@@ -89,9 +91,9 @@ namespace AmbleClient.RfqGui
 
             if (MessageBox.Show("Set The RFQ Status to Routed?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
-                if (GlobalRemotingClient.GetRfqMgr().ChangeRfqState(RfqStatesEnum.Routed, rfqId))
+                if (rfqMgr.ChangeRfqState(RfqStatesEnum.Routed, rfqId))
                 {
-                    GlobalRemotingClient.GetRfqMgr().AddRfqHistory(rfqId, UserInfo.UserId, "Routed the RFQ");
+                    rfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Routed the RFQ");
                    // MessageBox.Show("This RFQ has been Routed");
                 }
                 else
@@ -106,7 +108,7 @@ namespace AmbleClient.RfqGui
         {
             if (rfqItems1.UpdateInfo(rfqId))
             {
-                GlobalRemotingClient.GetRfqMgr().AddRfqHistory(rfqId, UserInfo.UserId,"Updated the RFQ");
+                rfqMgr.AddRfqHistory(rfqId, UserInfo.UserId,"Updated the RFQ");
                 MessageBox.Show("Update the RFQ successfully");
             }
             else
@@ -117,7 +119,7 @@ namespace AmbleClient.RfqGui
 
         private void tsbCopy_Click(object sender, EventArgs e)
         {
-            GlobalRemotingClient.GetRfqMgr().CopyRfq(rfqId, UserInfo.UserId);
+            rfqMgr.CopyRfq(rfqId, UserInfo.UserId);
         }
 
         private void tsbSo_Click(object sender, EventArgs e)
@@ -145,8 +147,8 @@ namespace AmbleClient.RfqGui
                 if (MessageBox.Show("Set The RFQ Status to Closed?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     rfqItems1.UpdateInfo(rfqId);
-                    GlobalRemotingClient.GetRfqMgr().ChangeRfqState(RfqStatesEnum.Closed, rfqId);
-                    GlobalRemotingClient.GetRfqMgr().AddRfqHistory(rfqId, UserInfo.UserId, "Closed the RFQ");
+                    rfqMgr.ChangeRfqState(RfqStatesEnum.Closed, rfqId);
+                    rfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Closed the RFQ");
                 }
             }
             

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using AmbleAppServer.SoMgr;
+using AmbleClient.SO.SoMgr;
 
 namespace AmbleClient.SO
 {
@@ -24,7 +24,7 @@ namespace AmbleClient.SO
         {
             InitializeComponent();
             this.rfqId = rfqId;
-            soList = GlobalRemotingClient.GetSoMgr().GetSoAccordingToRfqId(rfqId);
+            soList = SoMgr.SoMgr.GetSoAccordingToRfqId(rfqId);
 
         }
 

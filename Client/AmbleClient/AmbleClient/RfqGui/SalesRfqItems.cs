@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using AmbleAppServer.RfqMgr;
+using AmbleClient.RfqGui.RfqManager;
 
 namespace AmbleClient.RfqGui
 {
@@ -20,11 +20,11 @@ namespace AmbleClient.RfqGui
            GetValuesFromGui(rfq);
            rfq.rfqNo = rfqId;
            rfq.salesId = mySubs[cbSales.SelectedIndex];
-         return  GlobalRemotingClient.GetRfqMgr().UpdateRfq(rfq);
+         return  rfqMgr.UpdateRfq(rfq);
        }
 
 
-       public override void FillTheTable(AmbleAppServer.RfqMgr.Rfq rfq)
+       public override void FillTheTable(Rfq rfq)
        {
            base.FillTheTable(rfq);
 
@@ -32,8 +32,9 @@ namespace AmbleClient.RfqGui
            tbCustomer.Text = rfq.customerName;
            //select the sales ID
            //获得下级号和名字
-           mySubs = GlobalRemotingClient.GetAccountMgr().GetAllSubsId(UserInfo.UserId);
-           Dictionary<int, string> mySubsIdAndName = GlobalRemotingClient.GetAccountMgr().GetIdsAndNames(mySubs);
+           AmbleClient.Admin.AccountMgr.AccountMgr accountMgr = new Admin.AccountMgr.AccountMgr();
+           mySubs = accountMgr.GetAllSubsId(UserInfo.UserId);
+           Dictionary<int, string> mySubsIdAndName = accountMgr.GetIdsAndNames(mySubs);
            foreach (string name in mySubsIdAndName.Values)
            {
                cbSales.Items.Add(name);
@@ -59,7 +60,7 @@ namespace AmbleClient.RfqGui
 
           if (pAList.Count > 0)
           {
-              Dictionary<int, string> paIDAndName = GlobalRemotingClient.GetAccountMgr().GetIdsAndNames(pAList);
+              Dictionary<int, string> paIDAndName = accountMgr.GetIdsAndNames(pAList);
 
               if (rfq.firstPA.HasValue&&rfq.secondPA.HasValue)
               {

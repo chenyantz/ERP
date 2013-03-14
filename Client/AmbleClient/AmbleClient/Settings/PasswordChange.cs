@@ -29,7 +29,7 @@ namespace AmbleClient.Settings
                 maskedTextBox1.Focus();
                 return;
             }
-            GlobalRemotingClient.GetAccountMgr().ChangePasswd(UserInfo.UserId, maskedTextBox1.Text.Trim());
+           new AmbleClient.Admin.AccountMgr.AccountMgr().ChangePasswd(UserInfo.UserId, maskedTextBox1.Text.Trim());
         }
     }
 }

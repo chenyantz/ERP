@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using AmbleAppServer.OfferMgr;
+using AmbleClient.OfferGui.OfferMgr;
 
 namespace AmbleClient.OfferGui
 {
@@ -14,12 +14,15 @@ namespace AmbleClient.OfferGui
     {
         int rfqId;
         int? newOfferId = null;
+        OfferMgr.OfferMgr offerMgr;
         
         public NewOffer(int rfqId)
         {
             this.rfqId = rfqId;
             InitializeComponent();
             tsbRoute.Enabled = false;
+            offerMgr = new OfferMgr.OfferMgr();
+            
         }
 
 
@@ -47,7 +50,7 @@ namespace AmbleClient.OfferGui
         private void tsbRoute_Click(object sender, EventArgs e)
         {
             tsbRoute.Enabled = false;
-            GlobalRemotingClient.GetOfferMgr().ChangeOfferState(1, newOfferId.Value);
+            offerMgr.ChangeOfferState(1, newOfferId.Value);
 
 
         }

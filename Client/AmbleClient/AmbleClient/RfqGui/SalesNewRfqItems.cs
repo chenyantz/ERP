@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using AmbleAppServer.RfqMgr;
+using AmbleClient.RfqGui.RfqManager;
 
 namespace AmbleClient.RfqGui
 {
@@ -29,14 +29,14 @@ namespace AmbleClient.RfqGui
             if(UserInfo.UserId==rfq.salesId)
                rfq.routingHistory =DateTime.Now.ToString()+":"+UserInfo.UserName.ToString() + "  Created the RFQ"+System.Environment.NewLine;
             else
-              rfq.routingHistory = DateTime.Now.ToString() + ":" + UserInfo.UserName.ToString() + " Created the RFQ for "+GlobalRemotingClient.GetAccountMgr().GetNameById(rfq.salesId)+System.Environment.NewLine;
+              rfq.routingHistory = DateTime.Now.ToString() + ":" + UserInfo.UserName.ToString() + " Created the RFQ for "+new AmbleClient.Admin.AccountMgr.AccountMgr().GetNameById(rfq.salesId)+System.Environment.NewLine;
 
-          return  GlobalRemotingClient.GetRfqMgr().SaveRfq(rfq);
+          return  rfqMgr.SaveRfq(rfq);
            // rfq.salesId
         }
     public int GetSavedRfqId()
     {
-        return GlobalRemotingClient.GetRfqMgr().GetSavedRfqId(mySubs[cbSales.SelectedIndex]);
+        return rfqMgr.GetSavedRfqId(mySubs[cbSales.SelectedIndex]);
    
     }
 
@@ -82,8 +82,9 @@ namespace AmbleClient.RfqGui
             
         //Fill the cbSale;
             //获得下级号和名字
-          mySubs = GlobalRemotingClient.GetAccountMgr().GetAllSubsId(UserInfo.UserId);
-          Dictionary<int, string> mySubsIdAndName = GlobalRemotingClient.GetAccountMgr().GetIdsAndNames(mySubs);
+            AmbleClient.Admin.AccountMgr.AccountMgr accountMgr = new Admin.AccountMgr.AccountMgr();
+          mySubs = accountMgr.GetAllSubsId(UserInfo.UserId);
+          Dictionary<int, string> mySubsIdAndName = accountMgr.GetIdsAndNames(mySubs);
           foreach (string name in mySubsIdAndName.Values)
           {
               cbSales.Items.Add(name);
@@ -95,7 +96,7 @@ namespace AmbleClient.RfqGui
 
     private void CustomerAutoComplete()
     {
-        List<string> customerNames = GlobalRemotingClient.GetCustomerVendorMgr().GetMyTheCustomerVendorNamesOrVendors(0, UserInfo.UserId);
+        List<string> customerNames = new AmbleClient.custVendor.customerVendorMgr.CustomerVendorMgr().GetMyTheCustomerVendorNamesOrVendors(0, UserInfo.UserId);
         tbCustomer.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         tbCustomer.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
@@ -137,7 +138,7 @@ namespace AmbleClient.RfqGui
     {
 
         //自动填充contact,phone,fax
-        Dictionary<string, string> contactInfo = GlobalRemotingClient.GetCustomerVendorMgr().GetContactInfo(0, UserInfo.UserId, tbCustomer.Text.Trim());
+        Dictionary<string, string> contactInfo = new AmbleClient.custVendor.customerVendorMgr.CustomerVendorMgr().GetContactInfo(0, UserInfo.UserId, tbCustomer.Text.Trim());
        //contact   
         AutoCompleteStringCollection contactSource=new AutoCompleteStringCollection();
         if (contactInfo.Keys.Contains("contact1"))

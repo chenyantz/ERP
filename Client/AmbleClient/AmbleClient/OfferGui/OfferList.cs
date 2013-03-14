@@ -6,24 +6,26 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using AmbleAppServer.OfferMgr;
+using AmbleClient.OfferGui.OfferMgr;
 
 namespace AmbleClient.OfferGui
 {
     public partial class OfferList : Form
     {
         int rfqId;
+        OfferMgr.OfferMgr offerMgr;
         
         public OfferList(int rfqId)
         {
             InitializeComponent();
             this.rfqId = rfqId;
+            offerMgr = new OfferMgr.OfferMgr();
 
         }
 
         private void OfferList_Load(object sender, EventArgs e)
         {
-            List<Offer> offerList = GlobalRemotingClient.GetOfferMgr().GetOffersByRfqId(rfqId);
+            List<Offer> offerList = offerMgr.GetOffersByRfqId(rfqId);
 
             
             

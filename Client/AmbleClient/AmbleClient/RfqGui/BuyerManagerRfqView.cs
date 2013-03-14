@@ -6,22 +6,24 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using AmbleAppServer.RfqMgr;
+using AmbleClient.RfqGui.RfqManager;
 
 namespace AmbleClient.RfqGui
 {
     public partial class BuyerManagerRfqView : Form
     {
         int rfqId;
+        RfqMgr rfqMgr;
         public BuyerManagerRfqView(int rfqId)
         {
             this.rfqId = rfqId;
             InitializeComponent();
+            rfqMgr = new RfqMgr();
         }
 
         private void BuyerManagerRfqView_Load(object sender, EventArgs e)
         {
-            Rfq rfq = GlobalRemotingClient.GetRfqMgr().GetRfqAccordingToRfqId(rfqId);
+            Rfq rfq = rfqMgr.GetRfqAccordingToRfqId(rfqId);
             buyerManagerRfqItems1.FillTheTable(rfq);
             SetMenuStateAccordingToRfqState((RfqStatesEnum)rfq.rfqStates);
         }
@@ -74,7 +76,7 @@ namespace AmbleClient.RfqGui
                 return;
             }
 
-            if (GlobalRemotingClient.GetRfqMgr().AssignPAForRfq(rfqId, primaryPA, altPA))
+            if (rfqMgr.AssignPAForRfq(rfqId, primaryPA, altPA))
             {
                 MessageBox.Show("Assign the RFQ to Buyer(s) successfully");
             }

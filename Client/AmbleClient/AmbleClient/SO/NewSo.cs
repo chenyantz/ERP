@@ -39,13 +39,14 @@ namespace AmbleClient.SO
         {
             this.soViewControl1.rfqId = this.rfqId;
             this.soViewControl1.SoSave();
+            AmbleClient.RfqGui.RfqManager.RfqMgr rfqMgr = new RfqGui.RfqManager.RfqMgr();
             if (UserInfo.UserId == soViewControl1.GetAssignedSaleID())
             {
-                GlobalRemotingClient.GetRfqMgr().AddRfqHistory(rfqId, UserInfo.UserId, "Created an SO");
+                rfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Created an SO");
             }
             else
             { 
-              GlobalRemotingClient.GetRfqMgr().AddRfqHistory(rfqId,UserInfo.UserId,"Created an SO for "+GlobalRemotingClient.GetAccountMgr().GetNameById(soViewControl1.GetAssignedSaleID()));
+              rfqMgr.AddRfqHistory(rfqId,UserInfo.UserId,"Created an SO for "+new AmbleClient.Admin.AccountMgr.AccountMgr().GetNameById(soViewControl1.GetAssignedSaleID()));
             
             }
         }

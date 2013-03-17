@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="shenzhenerpModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-  <EntityContainer Name="shenzhenerpModelStoreContainer">
-    <EntitySet Name="account" EntityType="shenzhenerpModel.Store.account" store:Type="Tables" Schema="shenzhenerp" />
-    <EntitySet Name="publicbomoffer" EntityType="shenzhenerpModel.Store.publicbomoffer" store:Type="Tables" Schema="shenzhenerp" />
-    <EntitySet Name="publiccustven" EntityType="shenzhenerpModel.Store.publiccustven" store:Type="Tables" Schema="shenzhenerp" />
+<Schema Namespace="BomOfferModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="BomOfferModelStoreContainer">
+    <EntitySet Name="account" EntityType="BomOfferModel.Store.account" store:Type="Tables" Schema="shenzhenerp" />
+    <EntitySet Name="publicbomoffer" EntityType="BomOfferModel.Store.publicbomoffer" store:Type="Tables" Schema="shenzhenerp" />
+    <EntitySet Name="publiccustven" EntityType="BomOfferModel.Store.publiccustven" store:Type="Tables" Schema="shenzhenerp" />
   </EntityContainer>
   <EntityType Name="account">
     <Key>
@@ -25,7 +25,7 @@
     <Property Name="mfg" Type="varchar" MaxLength="255" />
     <Property Name="mpn" Type="varchar" MaxLength="255" />
     <Property Name="qty" Type="int" />
-    <Property Name="price" Type="int" />
+    <Property Name="price" Type="float" />
     <Property Name="cpn" Type="varchar" MaxLength="255" />
     <Property Name="userID" Type="smallint" Nullable="false" />
     <Property Name="enerDay" Type="datetime" />

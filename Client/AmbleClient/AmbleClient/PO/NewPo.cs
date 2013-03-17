@@ -15,5 +15,10 @@ namespace AmbleClient.PO
         {
             InitializeComponent();
         }
+
+        private void poViewControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

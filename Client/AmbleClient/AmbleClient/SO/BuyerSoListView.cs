@@ -17,26 +17,6 @@ namespace AmbleClient.SO
             tscbList.Items.Add("List My Related SO");
             tscbFilterColumn.Items.Add("SalesOrderNo");
 
-            cbNew.CheckedChanged -= OrderStatesCheckedChanged;
-            cbApproved.CheckedChanged -= OrderStatesCheckedChanged;
-            cbRejected.CheckedChanged -= OrderStatesCheckedChanged;
-            cbClosed.CheckedChanged -= OrderStatesCheckedChanged;
-
-            if (UserInfo.Job == JobDescription.sales)
-            {
-                cbNew.Checked = false;
-            }
-            else
-            {
-                cbNew.Checked = true;
-            }
-            cbApproved.Checked = true; cbRejected.Checked = false; cbClosed.Checked = false;
-
-            cbNew.CheckedChanged += OrderStatesCheckedChanged;
-            cbApproved.CheckedChanged += OrderStatesCheckedChanged;
-            cbRejected.CheckedChanged += OrderStatesCheckedChanged;
-            cbClosed.CheckedChanged += OrderStatesCheckedChanged;
-
             OrderStatesCheckedChanged(null, null);
 
             //Add columns for datagridView1

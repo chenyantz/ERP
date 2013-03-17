@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="shenzhenerpModelStoreContainer" CdmEntityContainer="BomOfferEntities">
+  <EntityContainerMapping StorageEntityContainer="BomOfferModelStoreContainer" CdmEntityContainer="BomEntityEntities">
     <EntitySetMapping Name="account">
-      <EntityTypeMapping TypeName="shenzhenerpModel.account">
+      <EntityTypeMapping TypeName="BomOfferModel.account">
         <MappingFragment StoreEntitySet="account">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="accountName" ColumnName="accountName" />
@@ -14,7 +14,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="publicbomoffer">
-      <EntityTypeMapping TypeName="shenzhenerpModel.publicbomoffer">
+      <EntityTypeMapping TypeName="BomOfferModel.publicbomoffer">
         <MappingFragment StoreEntitySet="publicbomoffer">
           <ScalarProperty Name="bomOfferId" ColumnName="bomOfferId" />
           <ScalarProperty Name="BomCustVendId" ColumnName="BomCustVendId" />
@@ -29,7 +29,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="publiccustven">
-      <EntityTypeMapping TypeName="shenzhenerpModel.publiccustven">
+      <EntityTypeMapping TypeName="BomOfferModel.publiccustven">
         <MappingFragment StoreEntitySet="publiccustven">
           <ScalarProperty Name="custVenId" ColumnName="custVenId" />
           <ScalarProperty Name="custVendorType" ColumnName="custVendorType" />

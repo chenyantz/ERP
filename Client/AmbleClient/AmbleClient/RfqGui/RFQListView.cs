@@ -28,17 +28,20 @@ namespace AmbleClient.RfqGui
         {
             InitializeComponent();
             rfqMgr = new RfqMgr();
-        }
 
-
-        private void RFQView_Load(object sender, EventArgs e)
-        {
             tscbAllOrMine.SelectedIndexChanged -= tscbAllOrMine_SelectedIndexChanged;
             tscbAllOrMine.SelectedIndex = 0;
             tscbAllOrMine.SelectedIndexChanged += tscbAllOrMine_SelectedIndexChanged;
             FillTheIdNameDict();
             GetRfqStatesSelected();
             CountPageAndShowDataGridView();
+
+        }
+
+
+        private void RFQView_Load(object sender, EventArgs e)
+        {
+
         }
 
 

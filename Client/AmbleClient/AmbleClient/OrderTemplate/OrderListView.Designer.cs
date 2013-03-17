@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderListView));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tscbList = new System.Windows.Forms.ToolStripComboBox();
@@ -42,10 +45,6 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.cbNew = new System.Windows.Forms.CheckBox();
-            this.cbApproved = new System.Windows.Forms.CheckBox();
-            this.cbRejected = new System.Windows.Forms.CheckBox();
-            this.cbClosed = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -152,50 +151,6 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
-            // cbNew
-            // 
-            this.cbNew.AutoSize = true;
-            this.cbNew.Location = new System.Drawing.Point(10, 38);
-            this.cbNew.Name = "cbNew";
-            this.cbNew.Size = new System.Drawing.Size(48, 17);
-            this.cbNew.TabIndex = 1;
-            this.cbNew.Text = "New";
-            this.cbNew.UseVisualStyleBackColor = true;
-            this.cbNew.CheckedChanged += new System.EventHandler(this.OrderStatesCheckedChanged);
-            // 
-            // cbApproved
-            // 
-            this.cbApproved.AutoSize = true;
-            this.cbApproved.Location = new System.Drawing.Point(77, 38);
-            this.cbApproved.Name = "cbApproved";
-            this.cbApproved.Size = new System.Drawing.Size(72, 17);
-            this.cbApproved.TabIndex = 2;
-            this.cbApproved.Text = "Approved";
-            this.cbApproved.UseVisualStyleBackColor = true;
-            this.cbApproved.CheckedChanged += new System.EventHandler(this.OrderStatesCheckedChanged);
-            // 
-            // cbRejected
-            // 
-            this.cbRejected.AutoSize = true;
-            this.cbRejected.Location = new System.Drawing.Point(178, 38);
-            this.cbRejected.Name = "cbRejected";
-            this.cbRejected.Size = new System.Drawing.Size(69, 17);
-            this.cbRejected.TabIndex = 3;
-            this.cbRejected.Text = "Rejected";
-            this.cbRejected.UseVisualStyleBackColor = true;
-            this.cbRejected.CheckedChanged += new System.EventHandler(this.OrderStatesCheckedChanged);
-            // 
-            // cbClosed
-            // 
-            this.cbClosed.AutoSize = true;
-            this.cbClosed.Location = new System.Drawing.Point(265, 38);
-            this.cbClosed.Name = "cbClosed";
-            this.cbClosed.Size = new System.Drawing.Size(58, 17);
-            this.cbClosed.TabIndex = 4;
-            this.cbClosed.Text = "Closed";
-            this.cbClosed.UseVisualStyleBackColor = true;
-            this.cbClosed.CheckedChanged += new System.EventHandler(this.OrderStatesCheckedChanged);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -203,12 +158,36 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 61);
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 28);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1074, 485);
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView1.Size = new System.Drawing.Size(1074, 518);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -218,10 +197,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1074, 545);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.cbClosed);
-            this.Controls.Add(this.cbRejected);
-            this.Controls.Add(this.cbApproved);
-            this.Controls.Add(this.cbNew);
             this.Controls.Add(this.toolStrip1);
             this.Name = "OrderListView";
             this.Text = "OrderListView";
@@ -248,10 +223,6 @@
         private System.Windows.Forms.ToolStripButton tsbApply;
         private System.Windows.Forms.ToolStripButton tsbClear;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        protected System.Windows.Forms.CheckBox cbNew;
-        protected System.Windows.Forms.CheckBox cbApproved;
-        protected System.Windows.Forms.CheckBox cbRejected;
-        protected System.Windows.Forms.CheckBox cbClosed;
         protected System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStripButton tsbRefresh;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;

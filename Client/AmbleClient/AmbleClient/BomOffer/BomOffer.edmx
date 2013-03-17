@@ -4,11 +4,11 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="shenzhenerpModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="shenzhenerpModelStoreContainer">
-          <EntitySet Name="account" EntityType="shenzhenerpModel.Store.account" store:Type="Tables" Schema="shenzhenerp" />
-          <EntitySet Name="publicbomoffer" EntityType="shenzhenerpModel.Store.publicbomoffer" store:Type="Tables" Schema="shenzhenerp" />
-          <EntitySet Name="publiccustven" EntityType="shenzhenerpModel.Store.publiccustven" store:Type="Tables" Schema="shenzhenerp" />
+      <Schema Namespace="BomOfferModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="BomOfferModelStoreContainer">
+          <EntitySet Name="account" EntityType="BomOfferModel.Store.account" store:Type="Tables" Schema="shenzhenerp" />
+          <EntitySet Name="publicbomoffer" EntityType="BomOfferModel.Store.publicbomoffer" store:Type="Tables" Schema="shenzhenerp" />
+          <EntitySet Name="publiccustven" EntityType="BomOfferModel.Store.publiccustven" store:Type="Tables" Schema="shenzhenerp" />
         </EntityContainer>
         <EntityType Name="account">
           <Key>
@@ -30,7 +30,7 @@
           <Property Name="mfg" Type="varchar" MaxLength="255" />
           <Property Name="mpn" Type="varchar" MaxLength="255" />
           <Property Name="qty" Type="int" />
-          <Property Name="price" Type="int" />
+          <Property Name="price" Type="float" />
           <Property Name="cpn" Type="varchar" MaxLength="255" />
           <Property Name="userID" Type="smallint" Nullable="false" />
           <Property Name="enerDay" Type="datetime" />
@@ -52,11 +52,11 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="shenzhenerpModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <Schema Namespace="BomOfferModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="BomOfferEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="account" EntityType="shenzhenerpModel.account" />
-          <EntitySet Name="publicbomoffer" EntityType="shenzhenerpModel.publicbomoffer" />
-          <EntitySet Name="publiccustven" EntityType="shenzhenerpModel.publiccustven" />
+          <EntitySet Name="account" EntityType="BomOfferModel.account" />
+          <EntitySet Name="publicbomoffer" EntityType="BomOfferModel.publicbomoffer" />
+          <EntitySet Name="publiccustven" EntityType="BomOfferModel.publiccustven" />
         </EntityContainer>
         <EntityType Name="account">
           <Key>
@@ -78,7 +78,7 @@
           <Property Name="mfg" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
           <Property Name="mpn" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
           <Property Name="qty" Type="Int32" />
-          <Property Name="price" Type="Int32" />
+          <Property Name="price" Type="Single" />
           <Property Name="cpn" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
           <Property Name="userID" Type="Int16" Nullable="false" />
           <Property Name="enerDay" Type="DateTime" />
@@ -101,8 +101,8 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="shenzhenerpModelStoreContainer" CdmEntityContainer="BomOfferEntities">
-          <EntitySetMapping Name="account"><EntityTypeMapping TypeName="shenzhenerpModel.account"><MappingFragment StoreEntitySet="account">
+        <EntityContainerMapping StorageEntityContainer="BomOfferModelStoreContainer" CdmEntityContainer="BomOfferEntities">
+          <EntitySetMapping Name="account"><EntityTypeMapping TypeName="BomOfferModel.account"><MappingFragment StoreEntitySet="account">
             <ScalarProperty Name="id" ColumnName="id" />
             <ScalarProperty Name="accountName" ColumnName="accountName" />
             <ScalarProperty Name="accountPassword" ColumnName="accountPassword" />
@@ -110,7 +110,7 @@
             <ScalarProperty Name="job" ColumnName="job" />
             <ScalarProperty Name="superviser" ColumnName="superviser" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="publicbomoffer"><EntityTypeMapping TypeName="shenzhenerpModel.publicbomoffer"><MappingFragment StoreEntitySet="publicbomoffer">
+          <EntitySetMapping Name="publicbomoffer"><EntityTypeMapping TypeName="BomOfferModel.publicbomoffer"><MappingFragment StoreEntitySet="publicbomoffer">
             <ScalarProperty Name="bomOfferId" ColumnName="bomOfferId" />
             <ScalarProperty Name="BomCustVendId" ColumnName="BomCustVendId" />
             <ScalarProperty Name="mfg" ColumnName="mfg" />
@@ -121,7 +121,7 @@
             <ScalarProperty Name="userID" ColumnName="userID" />
             <ScalarProperty Name="enerDay" ColumnName="enerDay" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="publiccustven"><EntityTypeMapping TypeName="shenzhenerpModel.publiccustven"><MappingFragment StoreEntitySet="publiccustven">
+          <EntitySetMapping Name="publiccustven"><EntityTypeMapping TypeName="BomOfferModel.publiccustven"><MappingFragment StoreEntitySet="publiccustven">
             <ScalarProperty Name="custVenId" ColumnName="custVenId" />
             <ScalarProperty Name="custVendorType" ColumnName="custVendorType" />
             <ScalarProperty Name="custVenName" ColumnName="custVenName" />
@@ -151,10 +151,10 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="BomOfferEntity">
-        <EntityTypeShape EntityType="shenzhenerpModel.account" Width="1.5" PointX="0.75" PointY="0.75" Height="2.172587890625" IsExpanded="true" />
-        <EntityTypeShape EntityType="shenzhenerpModel.publicbomoffer" Width="1.5" PointX="2.75" PointY="0.75" Height="2.7494921874999996" IsExpanded="true" />
-        <EntityTypeShape EntityType="shenzhenerpModel.publiccustven" Width="1.5" PointX="4.75" PointY="0.75" Height="2.5571907552083335" IsExpanded="true" />
+      <Diagram Name="BomOffer">
+        <EntityTypeShape EntityType="BomOfferModel.account" Width="1.5" PointX="0.75" PointY="0.75" Height="2.172587890625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BomOfferModel.publicbomoffer" Width="1.5" PointX="2.75" PointY="0.75" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BomOfferModel.publiccustven" Width="1.5" PointX="4.75" PointY="0.75" Height="2.5571907552083335" IsExpanded="true" />
       </Diagram>
     </Diagrams>
   </Designer>

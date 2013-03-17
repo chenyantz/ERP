@@ -123,11 +123,33 @@ namespace AmbleClient
 
         private void bOMCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BomOffer.Test test = new BomOffer.Test();
-            test.MdiParent = this;
-            test.Show();
+            AmbleClient.BomOffer.BomOfferCustVendor bomCustomer = new BomOffer.BomOfferCustVendor(false);
+            bomCustomer.MdiParent = this;
+            bomCustomer.Show();
 
 
+        }
+
+        private void bOMListViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BomOffer.BomOfferList bomOfferList=new BomOffer.BomOfferList(false);
+            bomOfferList.MdiParent=this;
+            bomOfferList.Show();
+
+        }
+
+        private void offerVendorListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AmbleClient.BomOffer.BomOfferCustVendor bomCustomer = new BomOffer.BomOfferCustVendor(true);
+            bomCustomer.MdiParent = this;
+            bomCustomer.Show();
+        }
+
+        private void offerListViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BomOffer.BomOfferList bomOfferList = new BomOffer.BomOfferList(true);
+            bomOfferList.MdiParent = this;
+            bomOfferList.Show();
         }
     }
 }

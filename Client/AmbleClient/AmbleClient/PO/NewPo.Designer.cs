@@ -72,6 +72,7 @@
             this.poViewControl1.Name = "poViewControl1";
             this.poViewControl1.Size = new System.Drawing.Size(888, 506);
             this.poViewControl1.TabIndex = 1;
+            this.poViewControl1.Load += new System.EventHandler(this.poViewControl1_Load);
             // 
             // NewPo
             // 

@@ -189,14 +189,21 @@ namespace AmbleClient.RfqGui.RfqManager
 
            foreach (int id in subIds)
            {
-               count += GetThePageCountOfDataTablePerSale(itemsPerPage, id, filterColumn,filterString,selections);
+               count += GetCountOfDataTablePerSale(itemsPerPage, id, filterColumn,filterString,selections);
            }
-           return count;
+           return (int)(Math.Ceiling((double)count / (double)itemsPerPage));
         
         }
 
+       public int GetThePageCountOfDataTablePerSale(int itemsPerPage, int salesId, string filterColumn, string filterString, List<RfqStatesEnum> selections)
+       {
+         int count= GetCountOfDataTablePerSale(itemsPerPage, salesId, filterColumn, filterString, selections);
+         return (int)(Math.Ceiling((double)count / (double)itemsPerPage));
+       }
+
+
        //for sale
-        public int GetThePageCountOfDataTablePerSale(int itemsPerPage,int salesId,string filterColumn,string filterString,List<RfqStatesEnum> selections)
+        public int GetCountOfDataTablePerSale(int itemsPerPage,int salesId,string filterColumn,string filterString,List<RfqStatesEnum> selections)
         { 
           //Get the account of dataset  of rfq
             if (selections.Count == 0)
@@ -221,8 +228,8 @@ namespace AmbleClient.RfqGui.RfqManager
             }
             strSql.Append(" )");
             
-            int count = Convert.ToInt32(db.GetSingleObject(strSql.ToString()));
-            return (int)(Math.Ceiling((double)count / (double)itemsPerPage));
+            return Convert.ToInt32(db.GetSingleObject(strSql.ToString()));
+          
          
         }
 

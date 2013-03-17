@@ -151,7 +151,7 @@ namespace AmbleClient.BomOffer
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="shenzhenerpModel", Name="account")]
+    [EdmEntityTypeAttribute(NamespaceName="BomOfferModel", Name="account")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class account : EntityObject
@@ -326,7 +326,7 @@ namespace AmbleClient.BomOffer
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="shenzhenerpModel", Name="publicbomoffer")]
+    [EdmEntityTypeAttribute(NamespaceName="BomOfferModel", Name="publicbomoffer")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class publicbomoffer : EntityObject
@@ -479,7 +479,7 @@ namespace AmbleClient.BomOffer
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> price
+        public Nullable<global::System.Single> price
         {
             get
             {
@@ -494,8 +494,8 @@ namespace AmbleClient.BomOffer
                 OnpriceChanged();
             }
         }
-        private Nullable<global::System.Int32> _price;
-        partial void OnpriceChanging(Nullable<global::System.Int32> value);
+        private Nullable<global::System.Single> _price;
+        partial void OnpriceChanging(Nullable<global::System.Single> value);
         partial void OnpriceChanged();
     
         /// <summary>
@@ -577,7 +577,7 @@ namespace AmbleClient.BomOffer
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="shenzhenerpModel", Name="publiccustven")]
+    [EdmEntityTypeAttribute(NamespaceName="BomOfferModel", Name="publiccustven")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class publiccustven : EntityObject

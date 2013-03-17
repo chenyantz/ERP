@@ -146,7 +146,6 @@ C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.SalesN
 C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Settings.PasswordChange.resources
 C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Properties.Resources.resources
 C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.BuyerSoView.resources
-C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.Form1.resources
 C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.NewSo.resources
 C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.SoItemsControl.resources
 C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.SoItemView.resources
@@ -154,11 +153,12 @@ C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.SoView.res
 C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.SoViewControl.resources
 C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\GenerateResource.write.1.tlog
-C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\RdlCompile.cache
-C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\RdlCompile.compiled
 C:\ERPone\Client\AmbleClient\AmbleClient\bin\Debug\AmbleClient.exe
 C:\ERPone\Client\AmbleClient\AmbleClient\bin\Debug\AmbleClient.pdb
 C:\ERPone\Client\AmbleClient\AmbleClient\bin\Debug\AmpleAppServer.exe
 C:\ERPone\Client\AmbleClient\AmbleClient\bin\Debug\AmpleAppServer.pdb
 C:\ERPone\Client\AmbleClient\AmbleClient\bin\Debug\AmbleClient.exe.config
-C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.BomOffer.Test.resources
+C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.BomOffer.BomOfferCustVendor.resources
+C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.BomOffer.BomOfferNew.resources
+C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.BomOffer.BomOfferNewCustVen.resources
+C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.BomOffer.BomOfferList.resources

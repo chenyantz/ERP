@@ -16,18 +16,6 @@ namespace AmbleClient.SO
            tscbList.Items.Add("List My SO");
            tscbFilterColumn.Items.Add("customerName");
 
-           cbNew.CheckedChanged -= OrderStatesCheckedChanged;
-           cbApproved.CheckedChanged -= OrderStatesCheckedChanged;
-           cbRejected.CheckedChanged -= OrderStatesCheckedChanged;
-           cbClosed.CheckedChanged -= OrderStatesCheckedChanged;
-         
-           cbNew.Checked = true; cbApproved.Checked = true; cbRejected.Checked = false; cbClosed.Checked = false;
-
-           cbNew.CheckedChanged += OrderStatesCheckedChanged;
-           cbApproved.CheckedChanged += OrderStatesCheckedChanged;
-           cbRejected.CheckedChanged += OrderStatesCheckedChanged;
-           cbClosed.CheckedChanged += OrderStatesCheckedChanged;
-
            OrderStatesCheckedChanged(null, null);
 
            //Add columns for datagridView1

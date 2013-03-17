@@ -62,23 +62,7 @@ namespace AmbleClient.OrderTemplate
 
         protected void OrderStatesCheckedChanged(object sender, EventArgs e)
         {
-            orderStates.Clear();
-            if (cbNew.Checked)
-            {
-                orderStates.Add(OrderState.New);
-            }
-            if (cbApproved.Checked)
-            {
-                orderStates.Add(OrderState.Approved);
-            }
-            if (cbRejected.Checked)
-            {
-                orderStates.Add(OrderState.Rejected);
-            }
-            if (cbClosed.Checked)
-            {
-                orderStates.Add(OrderState.Closed);
-            }
+
             FillTheDataGrid();
 
 

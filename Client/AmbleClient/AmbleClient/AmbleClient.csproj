@@ -86,34 +86,34 @@
     <Compile Include="BasicGui\TimePicker.Designer.cs">
       <DependentUpon>TimePicker.cs</DependentUpon>
     </Compile>
-    <Compile Include="BomOffer\BomOfferCustVendorAbstract.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BomOffer\BomOfferCustVendorAbstract.Designer.cs">
-      <DependentUpon>BomOfferCustVendorAbstract.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BomOffer\BomOfferEntity.Designer.cs">
+    <Compile Include="BomOffer\BomOffer.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BomOfferEntity.edmx</DependentUpon>
+      <DependentUpon>BomOffer.edmx</DependentUpon>
     </Compile>
-    <Compile Include="BomOffer\BomOfferListAbstract.cs">
+    <Compile Include="BomOffer\BomOfferCustVendor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BomOffer\BomOfferListAbstract.Designer.cs">
-      <DependentUpon>BomOfferListAbstract.cs</DependentUpon>
+    <Compile Include="BomOffer\BomOfferCustVendor.Designer.cs">
+      <DependentUpon>BomOfferCustVendor.cs</DependentUpon>
     </Compile>
-    <Compile Include="BomOffer\BomOfferNewAbstract.cs">
+    <Compile Include="BomOffer\BomOfferList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BomOffer\BomOfferNewAbstract.Designer.cs">
-      <DependentUpon>BomOfferNewAbstract.cs</DependentUpon>
+    <Compile Include="BomOffer\BomOfferList.Designer.cs">
+      <DependentUpon>BomOfferList.cs</DependentUpon>
     </Compile>
-    <Compile Include="BomOffer\BomOfferNewCustVenAbstract.cs">
+    <Compile Include="BomOffer\BomOfferNew.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BomOffer\BomOfferNewCustVenAbstract.Designer.cs">
-      <DependentUpon>BomOfferNewCustVenAbstract.cs</DependentUpon>
+    <Compile Include="BomOffer\BomOfferNew.Designer.cs">
+      <DependentUpon>BomOfferNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BomOffer\BomOfferNewCustVen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BomOffer\BomOfferNewCustVen.Designer.cs">
+      <DependentUpon>BomOfferNewCustVen.cs</DependentUpon>
     </Compile>
     <Compile Include="ComClass\OperatorFile.cs" />
     <Compile Include="custVendor\AddCustomerVendor.cs">
@@ -186,6 +186,7 @@
     <Compile Include="OrderTemplate\OrderListView.Designer.cs">
       <DependentUpon>OrderListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order\SoOrderState.cs" />
     <Compile Include="PO\NewPo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,12 +289,6 @@
     <Compile Include="SO\BuyerSoView.Designer.cs">
       <DependentUpon>BuyerSoView.cs</DependentUpon>
     </Compile>
-    <Compile Include="SO\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SO\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="SO\NewSo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,12 +303,6 @@
     </Compile>
     <Compile Include="SO\SoItemsControl.Designer.cs">
       <DependentUpon>SoItemsControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SO\SoItemsGridView.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="SO\SoItemsGridView.Design.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="SO\SoItemView.cs">
       <SubType>Form</SubType>
@@ -344,14 +333,17 @@
     <EmbeddedResource Include="BasicGui\TimePicker.resx">
       <DependentUpon>TimePicker.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BomOffer\BomOfferCustVendorAbstract.resx">
-      <DependentUpon>BomOfferCustVendorAbstract.cs</DependentUpon>
+    <EmbeddedResource Include="BomOffer\BomOfferCustVendor.resx">
+      <DependentUpon>BomOfferCustVendor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BomOffer\BomOfferNewAbstract.resx">
-      <DependentUpon>BomOfferNewAbstract.cs</DependentUpon>
+    <EmbeddedResource Include="BomOffer\BomOfferList.resx">
+      <DependentUpon>BomOfferList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BomOffer\BomOfferNewCustVenAbstract.resx">
-      <DependentUpon>BomOfferNewCustVenAbstract.cs</DependentUpon>
+    <EmbeddedResource Include="BomOffer\BomOfferNew.resx">
+      <DependentUpon>BomOfferNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BomOffer\BomOfferNewCustVen.resx">
+      <DependentUpon>BomOfferNewCustVen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="custVendor\AddCustomerVendor.resx">
       <DependentUpon>AddCustomerVendor.cs</DependentUpon>
@@ -410,7 +402,6 @@
     <EmbeddedResource Include="RfqGui\NewRfq.resx">
       <DependentUpon>NewRfq.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RfqGui\Report1.rdlc" />
     <EmbeddedResource Include="RfqGui\RfqItems.resx">
       <DependentUpon>RfqItems.cs</DependentUpon>
     </EmbeddedResource>
@@ -441,9 +432,6 @@
     <EmbeddedResource Include="SO\BuyerSoView.resx">
       <DependentUpon>BuyerSoView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SO\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SO\NewSo.resx">
       <DependentUpon>NewSo.cs</DependentUpon>
     </EmbeddedResource>
@@ -459,9 +447,9 @@
     <EmbeddedResource Include="SO\SoViewControl.resx">
       <DependentUpon>SoViewControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="BomOffer\BomOfferEntity.edmx">
+    <EntityDeploy Include="BomOffer\BomOffer.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BomOfferEntity.Designer.cs</LastGenOutput>
+      <LastGenOutput>BomOffer.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="App.Config" />
     <None Include="Properties\DataSources\AmbleAppServer.SoMgr.So.datasource" />

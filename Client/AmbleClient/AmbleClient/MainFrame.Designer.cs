@@ -50,6 +50,8 @@
             this.bOMListViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.testsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.offerVendorListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.offerListViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -194,23 +196,26 @@
             // 
             this.bOMToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bOMCustomerToolStripMenuItem,
-            this.bOMListViewToolStripMenuItem});
+            this.bOMListViewToolStripMenuItem,
+            this.offerVendorListToolStripMenuItem,
+            this.offerListViewToolStripMenuItem});
             this.bOMToolStripMenuItem.Name = "bOMToolStripMenuItem";
-            this.bOMToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.bOMToolStripMenuItem.Text = "BOM";
+            this.bOMToolStripMenuItem.Size = new System.Drawing.Size(119, 20);
+            this.bOMToolStripMenuItem.Text = "Public BOM&&Offer";
             // 
             // bOMCustomerToolStripMenuItem
             // 
             this.bOMCustomerToolStripMenuItem.Name = "bOMCustomerToolStripMenuItem";
-            this.bOMCustomerToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.bOMCustomerToolStripMenuItem.Text = "BOM Customer";
+            this.bOMCustomerToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.bOMCustomerToolStripMenuItem.Text = "BOM Customer List";
             this.bOMCustomerToolStripMenuItem.Click += new System.EventHandler(this.bOMCustomerToolStripMenuItem_Click);
             // 
             // bOMListViewToolStripMenuItem
             // 
             this.bOMListViewToolStripMenuItem.Name = "bOMListViewToolStripMenuItem";
-            this.bOMListViewToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.bOMListViewToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.bOMListViewToolStripMenuItem.Text = "BOM List View";
+            this.bOMListViewToolStripMenuItem.Click += new System.EventHandler(this.bOMListViewToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem1
             // 
@@ -226,6 +231,20 @@
             this.testsToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.testsToolStripMenuItem.Text = "tests";
             this.testsToolStripMenuItem.Click += new System.EventHandler(this.testsToolStripMenuItem_Click);
+            // 
+            // offerVendorListToolStripMenuItem
+            // 
+            this.offerVendorListToolStripMenuItem.Name = "offerVendorListToolStripMenuItem";
+            this.offerVendorListToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.offerVendorListToolStripMenuItem.Text = "Offer Vendor List";
+            this.offerVendorListToolStripMenuItem.Click += new System.EventHandler(this.offerVendorListToolStripMenuItem_Click);
+            // 
+            // offerListViewToolStripMenuItem
+            // 
+            this.offerListViewToolStripMenuItem.Name = "offerListViewToolStripMenuItem";
+            this.offerListViewToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.offerListViewToolStripMenuItem.Text = "Offer List View";
+            this.offerListViewToolStripMenuItem.Click += new System.EventHandler(this.offerListViewToolStripMenuItem_Click);
             // 
             // MainFrame
             // 
@@ -271,5 +290,7 @@
         private System.Windows.Forms.ToolStripMenuItem bOMToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bOMCustomerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bOMListViewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem offerVendorListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem offerListViewToolStripMenuItem;
     }
 }

@@ -6,7 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using AmbleClient.SO.SoMgr;
+using AmbleClient.Order.SoMgr;
 using AmbleClient.RfqGui.RfqManager;
 
 
@@ -165,13 +165,13 @@ namespace AmbleClient.SO
         {
             CheckValues();
             So so=GetValues();
-            if (!SoMgr.SoMgr.SaveSoMain(so))
+            if (!SoMgr.SaveSoMain(so))
             {
                 MessageBox.Show("Save Sale Order Error!");
                 return;
             }
-            int soId = SoMgr.SoMgr.GetTheInsertId(so.salesId);
-            if (!SoMgr.SoMgr.SaveSoItems(soId, so.items))
+            int soId = SoMgr.GetTheInsertId(so.salesId);
+            if (!SoMgr.SaveSoItems(soId, so.items))
             {
                 MessageBox.Show("Save Sale Order Items Error!");
 
@@ -256,27 +256,6 @@ namespace AmbleClient.SO
                 ShowDataInDataGridView();
             
             }
-
-
-
-
         }
-
-        public bool ApproveSo(So so)
-        {
-            if (SO.SoMgr.SoMgr.UpdateSoState(so.soId,UserInfo.UserId,SoStateEnum.Approved))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
-          
-        }
-
-
-
     }
 }

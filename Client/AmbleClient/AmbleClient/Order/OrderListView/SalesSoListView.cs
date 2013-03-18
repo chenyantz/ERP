@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using AmbleClient.SO.SoMgr;
+using AmbleClient.Order.SoMgr;
 
-namespace AmbleClient.SO
+namespace AmbleClient.Order
 {
-   public class SalesSoListView:OrderTemplate.OrderListView
+   public class SalesSoListView:SoListView
     {
-       List<So> soList;
+
+
 
        protected override void ViewStart()
        {
+           this.Text = "SO List for Sales";
            tscbList.Items.Add("List All SO I Can See");
            tscbList.Items.Add("List My SO");
            tscbFilterColumn.Items.Add("customerName");
-
-           OrderStatesCheckedChanged(null, null);
 
            //Add columns for datagridView1
          System.Windows.Forms.DataGridViewTextBoxColumn No = new System.Windows.Forms.DataGridViewTextBoxColumn(); 
@@ -90,6 +90,15 @@ namespace AmbleClient.SO
 
        }
 
+       protected override void GetTheStateList()
+       {
+           foreach (SoState soState in soStateList.GetWholeSoStateList())
+           {
+               intStateList.Add(soState.GetStateValue());
+           }
+
+
+       }
 
        protected override void FillTheDataGrid()
        {
@@ -102,11 +111,6 @@ namespace AmbleClient.SO
           {
               includeSubs = true;
           }
-          List<int> intStateList = new List<int>();
-          foreach (OrderTemplate.OrderState orderState in orderStates)
-          {
-              intStateList.Add(orderState.GetHashCode());
-          }
 
           soList = SoMgr.SoMgr.SalesGetSoAccordingTofilter(UserInfo.UserId, includeSubs, filterColumn, filterString, intStateList);
 
@@ -114,21 +118,12 @@ namespace AmbleClient.SO
            foreach(So so in soList)
            {
                dataGridView1.Rows.Add(i++,so.customerName, so.contact,idNameDict[so.salesId], so.salesOrderNo, so.orderDate.ToShortDateString(), so.customerPo,
-                   so.paymentTerm, so.freightTerm, so.customerAccount,Enum.GetName(typeof(OrderTemplate.OrderState),so.soStates));
+                   so.paymentTerm, so.freightTerm, so.customerAccount,soStateList.GetSoStateStringAccordingToValue(so.soStates));
            }
 
        }
 
 
-       protected override void OpenOrderDetails(int rowIndex)
-       {
-           if (rowIndex >= soList.Count)
-               return;
-           int realRowIndex = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["No"].Value);
-           SoView soView = new SoView(soList[realRowIndex]);
-            soView.ShowDialog();
-
-       }
 
 
 

@@ -5,7 +5,7 @@ using System.Text;
 using System.Data;
 
 
-namespace AmbleClient.SO.SoMgr
+namespace AmbleClient.Order.SoMgr
 {
    public class SoMgr
     {
@@ -255,9 +255,19 @@ namespace AmbleClient.SO.SoMgr
 
        }
 
-       public static bool UpdateSoState(int soId,int userid, SoStateEnum state)
+       public static bool UpdateSoState(int soId,int userid, int state)
        {
-           string strSql = string.Format("update so set soStates={0},approverId={1},approveDate='{2}' where soId={3}",(int)state,userid,DateTime.Now.ToShortDateString(),soId);
+           string strSql;
+
+           if (state == new SoApprove().GetStateValue())
+           {
+               strSql = string.Format("update so set soStates={0},approverId={1},approveDate='{2}' where soId={3}", state, userid, DateTime.Now.ToShortDateString(), soId);
+           }
+           else
+           {
+               strSql = string.Format("update so set soStates={0} where soId={3}", state, soId);
+           }
+           
            if (db.ExecDataBySql(strSql) == 1)
            {
                return true;

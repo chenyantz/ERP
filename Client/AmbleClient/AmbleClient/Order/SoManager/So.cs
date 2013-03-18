@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AmbleClient.SO.SoMgr
+namespace AmbleClient.Order.SoMgr
 {
    public class So
     {

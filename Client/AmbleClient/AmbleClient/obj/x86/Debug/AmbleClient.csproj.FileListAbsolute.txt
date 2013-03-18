@@ -129,7 +129,6 @@ C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.MainFrame.res
 C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.OfferGui.NewOffer.resources
 C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.OfferGui.OfferItems.resources
 C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.OfferGui.OfferList.resources
-C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.OrderTemplate.OrderListView.resources
 C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.PO.NewPo.resources
 C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.PO.PoItemsControl.resources
 C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.PO.PoViewControl.resources
@@ -162,3 +161,4 @@ C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.BomOffer.BomO
 C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.BomOffer.BomOfferNew.resources
 C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.BomOffer.BomOfferNewCustVen.resources
 C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.BomOffer.BomOfferList.resources
+C:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Order.OrderListView.resources

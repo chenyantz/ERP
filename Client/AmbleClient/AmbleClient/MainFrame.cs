@@ -107,7 +107,7 @@ namespace AmbleClient
 
         private void sOViewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SO.SalesSoListView salesSoListView = new SO.SalesSoListView();
+            Order.SalesSoListView salesSoListView = new Order.SalesSoListView();
             salesSoListView.MdiParent = this;
             salesSoListView.Show();
 
@@ -116,7 +116,7 @@ namespace AmbleClient
 
         private void pOToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SO.BuyerSoListView buyerSoListView = new SO.BuyerSoListView();
+            Order.BuyerSoListView buyerSoListView = new Order.BuyerSoListView();
             buyerSoListView.MdiParent = this;
             buyerSoListView.Show();
         }

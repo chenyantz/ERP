@@ -7,12 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace AmbleClient.OrderTemplate
+namespace AmbleClient.Order
 {
-    public partial class OrderListView : Form
+    abstract public partial class OrderListView : Form
     {
 
-        protected List<OrderState> orderStates = new List<OrderState>();
         protected string filterColumn=string.Empty;
         protected string filterString=string.Empty;
 
@@ -35,6 +34,10 @@ namespace AmbleClient.OrderTemplate
             tscbList.SelectedIndexChanged += tscbList_SelectedIndexChanged;
 
             FillTheIdNameDict();
+
+            FillTheStateCombox();
+            GetTheStateList();
+
             FillTheDataGrid();
 
             
@@ -46,7 +49,14 @@ namespace AmbleClient.OrderTemplate
    
         }
 
+        protected virtual void FillTheStateCombox()
+        { 
+        
+        }
 
+        protected virtual void GetTheStateList()
+        { 
+        }
 
         protected virtual void ViewStart()
         { 
@@ -129,6 +139,19 @@ namespace AmbleClient.OrderTemplate
 
 
         }
+
+        private void tscbListState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.StateChanged(sender, e);
+        }
+
+        protected virtual void StateChanged(object sender, EventArgs e)
+        { 
+        
+        
+        }
+
+
 
 
     }

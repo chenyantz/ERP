@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using AmbleClient.SO.SoMgr;
+using AmbleClient.Order.SoMgr;
 
-namespace AmbleClient.SO
+namespace AmbleClient.Order
 {
-   public class BuyerSoListView:OrderTemplate.OrderListView
+   public class BuyerSoListView:Order.SoListView
     {
 
-        List<So> soList;
 
         protected override void ViewStart()
         {
@@ -108,6 +107,14 @@ namespace AmbleClient.SO
 
         }
 
+        protected override void GetTheStateList()
+        {
+            foreach (SoState soState in soStateList.GetWholeSoStateList())
+            {
+                intStateList.Add(soState.GetStateValue());
+            }
+
+        }
 
         protected override void FillTheDataGrid()
         {
@@ -120,45 +127,26 @@ namespace AmbleClient.SO
             {
                 includeSubs = true;
             }
-            List<int> intStateList = new List<int>();
-            foreach (OrderTemplate.OrderState orderState in orderStates)
-            {
-                intStateList.Add(orderState.GetHashCode());
-            }
 
-            soList =AmbleClient.SO.SoMgr.SoMgr.BuyerGetSoAccordingToFilter(UserInfo.UserId, includeSubs, filterColumn, filterString, intStateList);
+            soList =AmbleClient.Order.SoMgr.SoMgr.BuyerGetSoAccordingToFilter(UserInfo.UserId, includeSubs, filterColumn, filterString, intStateList);
 
             int i = 0;
             foreach (So so in soList)
             {
-                if (UserInfo.Job == JobDescription.sales)
+                if (UserInfo.Job == JobDescription.buyer)
                 {
                     dataGridView1.Rows.Add(i++,idNameDict[so.salesId], so.salesOrderNo, so.orderDate.ToShortDateString(), so.customerPo,
-                        so.paymentTerm, so.freightTerm, so.customerAccount, Enum.GetName(typeof(OrderTemplate.OrderState), so.soStates));
+                        so.paymentTerm, so.freightTerm, so.customerAccount, soStateList.GetSoStateStringAccordingToValue(so.soStates));
                 }
                 else
                 {
                     dataGridView1.Rows.Add(i++,so.customerName, idNameDict[so.salesId], so.salesOrderNo, so.orderDate.ToShortDateString(), so.customerPo,
-                          so.paymentTerm, so.freightTerm, so.customerAccount, Enum.GetName(typeof(OrderTemplate.OrderState), so.soStates));
+                          so.paymentTerm, so.freightTerm, so.customerAccount, soStateList.GetSoStateStringAccordingToValue(so.soStates));
                 
                 }
             }
 
         }
-
-
-        protected override void OpenOrderDetails(int rowIndex)
-        {
-            if (rowIndex >= soList.Count)
-                return;
-            int realRowIndex = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["No"].Value);
-            BuyerSoView buyerSoView = new BuyerSoView(soList[realRowIndex]);
-            buyerSoView.ShowDialog();
-
-        }
-
-
-
 
     }
 }

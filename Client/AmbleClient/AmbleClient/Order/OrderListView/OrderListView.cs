@@ -16,6 +16,7 @@ namespace AmbleClient.Order
         protected string filterString=string.Empty;
 
         protected Dictionary<int, string> idNameDict;
+        protected List<int> intStateList = new List<int>();
 
         
         

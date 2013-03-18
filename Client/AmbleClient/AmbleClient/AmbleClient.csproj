@@ -185,9 +185,18 @@
     <Compile Include="Order\OrderListView\OrderListView.Designer.cs">
       <DependentUpon>OrderListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order\OrderListView\PoListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Order\OrderListView\SoListView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Order\PoMgr\Po.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Po.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Order\PoStates.cs" />
     <Compile Include="Order\SoOrderState.cs" />
     <Compile Include="PO\NewPo.cs">
       <SubType>Form</SubType>
@@ -454,6 +463,10 @@
       <LastGenOutput>BomOffer.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="App.Config" />
+    <EntityDeploy Include="Order\PoMgr\Po.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Po.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="Properties\DataSources\AmbleAppServer.SoMgr.So.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -467,6 +480,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="OrderTemplate\" />
+    <Folder Include="Order\PoView\" />
     <Folder Include="Personal\" />
   </ItemGroup>
   <ItemGroup>

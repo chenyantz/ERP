@@ -34,7 +34,6 @@
             this.tbContact = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbPA = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tbVendorNumber = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -126,15 +125,8 @@
             // 
             this.tbPA.Location = new System.Drawing.Point(575, 27);
             this.tbPA.Name = "tbPA";
-            this.tbPA.Size = new System.Drawing.Size(100, 20);
+            this.tbPA.Size = new System.Drawing.Size(130, 20);
             this.tbPA.TabIndex = 5;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(691, 27);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 6;
             // 
             // label4
             // 
@@ -529,7 +521,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbVendorNumber);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.tbPA);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbContact);
@@ -553,7 +544,6 @@
         private System.Windows.Forms.TextBox tbContact;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbPA;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbVendorNumber;
         private System.Windows.Forms.Label label5;

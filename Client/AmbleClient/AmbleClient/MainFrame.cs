@@ -151,5 +151,12 @@ namespace AmbleClient
             bomOfferList.MdiParent = this;
             bomOfferList.Show();
         }
+
+        private void pOListViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Order.PoListView poListView = new Order.PoListView();
+            poListView.MdiParent = this;
+            poListView.Show();
+        }
     }
 }

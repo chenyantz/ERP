@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PoModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="PoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="po" EntityType="PoModel.po" />
+    <EntitySet Name="poitems" EntityType="PoModel.poitems" />
+  </EntityContainer>
+  <EntityType Name="po">
+    <Key>
+      <PropertyRef Name="poId" />
+    </Key>
+    <Property Name="poId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="soId" Type="Int32" />
+    <Property Name="vendorName" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="contact" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="pa" Type="Int16" />
+    <Property Name="paDate" Type="DateTime" />
+    <Property Name="vendorNumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="poDate" Type="DateTime" />
+    <Property Name="poNo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="paymentTerms" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="shipMethod" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="freight" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="shipToLocation" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="billTo" Type="String" MaxLength="16777215" Unicode="false" FixedLength="false" />
+    <Property Name="shipTo" Type="String" MaxLength="16777215" Unicode="false" FixedLength="false" />
+    <Property Name="poStates" Type="SByte" />
+  </EntityType>
+  <EntityType Name="poitems">
+    <Key>
+      <PropertyRef Name="PoItemsId" />
+    </Key>
+    <Property Name="PoItemsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="poId" Type="Int32" />
+    <Property Name="partNo" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="mfg" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="dc" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="vendorIntPartNo" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="org" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="qty" Type="Int32" />
+    <Property Name="qtyRecd" Type="Int32" />
+    <Property Name="qtyCorrected" Type="Int32" />
+    <Property Name="qtyAccept" Type="Int32" />
+    <Property Name="qtyRejected" Type="Int32" />
+    <Property Name="qtyRTV" Type="Int32" />
+    <Property Name="qcPending" Type="Int32" />
+    <Property Name="currency" Type="SByte" />
+    <Property Name="unitPrice" Type="Single" />
+    <Property Name="dueDate" Type="DateTime" />
+    <Property Name="receiveDate" Type="DateTime" />
+    <Property Name="stepCode" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="salesAgent" Type="SByte" />
+    <Property Name="noteToVendor" Type="String" MaxLength="16777215" Unicode="false" FixedLength="false" />
+  </EntityType>
+</Schema>

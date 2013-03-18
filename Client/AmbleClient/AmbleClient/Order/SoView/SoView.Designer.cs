@@ -36,6 +36,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tscbStateList = new System.Windows.Forms.ToolStripComboBox();
+            this.tsbPoEnter = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,6 +44,7 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbUpdate,
+            this.tsbPoEnter,
             this.tsbClose,
             this.toolStripSeparator1,
             this.toolStripLabel1,
@@ -61,6 +63,7 @@
             this.tsbUpdate.Name = "tsbUpdate";
             this.tsbUpdate.Size = new System.Drawing.Size(49, 22);
             this.tsbUpdate.Text = "Update";
+            this.tsbUpdate.Click += new System.EventHandler(this.tsbUpdate_Click);
             // 
             // tsbClose
             // 
@@ -99,6 +102,15 @@
             this.tscbStateList.Size = new System.Drawing.Size(121, 25);
             this.tscbStateList.SelectedIndexChanged += new System.EventHandler(this.tscbStateList_SelectedIndexChanged);
             // 
+            // tsbPoEnter
+            // 
+            this.tsbPoEnter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbPoEnter.Image = ((System.Drawing.Image)(resources.GetObject("tsbPoEnter.Image")));
+            this.tsbPoEnter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbPoEnter.Name = "tsbPoEnter";
+            this.tsbPoEnter.Size = new System.Drawing.Size(57, 22);
+            this.tsbPoEnter.Text = "Enter PO";
+            // 
             // SoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -125,6 +137,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripComboBox tscbStateList;
+        private System.Windows.Forms.ToolStripButton tsbPoEnter;
        // private System.Windows.Forms.TabPage tabPage1;
        //private System.Windows.Forms.TabPage tabPage2;
     }

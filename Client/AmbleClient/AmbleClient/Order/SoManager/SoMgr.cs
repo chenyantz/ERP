@@ -265,7 +265,7 @@ namespace AmbleClient.Order.SoMgr
            }
            else
            {
-               strSql = string.Format("update so set soStates={0} where soId={3}", state, soId);
+               strSql = string.Format("update so set soStates={0} where soId={1}", state, soId);
            }
            
            if (db.ExecDataBySql(strSql) == 1)

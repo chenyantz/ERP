@@ -83,6 +83,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(195, 26);
             this.textBox1.TabIndex = 0;
+            this.textBox1.Text = "admin";
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // maskedTextBox1
@@ -92,6 +93,7 @@
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(195, 26);
             this.maskedTextBox1.TabIndex = 1;
+            this.maskedTextBox1.Text = "admin";
             this.maskedTextBox1.UseSystemPasswordChar = true;
             this.maskedTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.maskedTextBox1_KeyDown);
             // 

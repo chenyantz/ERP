@@ -33,8 +33,12 @@ namespace AmbleClient.Order
 
       public virtual List<JobDescription> WhoCanUpdate()
       {
-          return null;
-      }
+          var listJobDes = new List<JobDescription>();
+          listJobDes.Add(JobDescription.saleManager);
+          listJobDes.Add(JobDescription.boss);
+          listJobDes.Add(JobDescription.admin);
+          return listJobDes;
+     }
       public void UpdateState(int soId, int soState)
       {
           SoMgr.SoMgr.UpdateSoState(soId, UserInfo.UserId, soState);
@@ -188,10 +192,10 @@ namespace AmbleClient.Order
           };
 
          var opJobs2=new List<JobDescription>();
-          opJobs1.Add(JobDescription.warehousekeeper);
-          opJobs1.Add(JobDescription.wareshousekeeperManager);
-          opJobs1.Add(JobDescription.boss);
-          opJobs1.Add(JobDescription.admin);
+          opJobs2.Add(JobDescription.warehousekeeper);
+          opJobs2.Add(JobDescription.wareshousekeeperManager);
+          opJobs2.Add(JobDescription.boss);
+          opJobs2.Add(JobDescription.admin);
 
           var operation1 = new Operation
           {
@@ -229,7 +233,7 @@ namespace AmbleClient.Order
         
         }
 
-        public override int GetHashCode()
+        public override int GetStateValue()
         {
             return 4;
         }
@@ -278,7 +282,7 @@ namespace AmbleClient.Order
          UpdateState(soid, new SoPartialShipAfterPay().GetStateValue());
      }
 
-        public override int GetHashCode()
+     public override int GetStateValue()
         {
             return 5;
         }
@@ -315,7 +319,7 @@ namespace AmbleClient.Order
         
         }
 
-        public override int GetHashCode()
+        public override int GetStateValue()
         {
             return 6;
         }
@@ -353,7 +357,7 @@ namespace AmbleClient.Order
             UpdateState(soid, new SoShipCompletedAfterPay().GetStateValue());
         }
 
-        public override int GetHashCode()
+        public override int GetStateValue()
         {
             return 7;
         }
@@ -391,7 +395,7 @@ namespace AmbleClient.Order
             UpdateState(soid, new SoPayMentRecvAfterShip().GetStateValue());
         }
 
-        public override int GetHashCode()
+        public override int GetStateValue()
         {
             return 8;
         }
@@ -432,7 +436,7 @@ namespace AmbleClient.Order
 
 
 
-        public override int GetHashCode()
+        public override int GetStateValue()
         {
             return 9;
         }
@@ -469,7 +473,7 @@ namespace AmbleClient.Order
 
         }
 
-        public override int GetHashCode()
+        public override int GetStateValue()
         {
             return 10;
         }
@@ -482,7 +486,7 @@ namespace AmbleClient.Order
 
     public class SoClose : SoState
     {
-        public override int GetHashCode()
+        public override int GetStateValue()
         {
             return 11;
         }

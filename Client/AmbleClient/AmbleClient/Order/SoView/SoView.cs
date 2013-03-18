@@ -51,7 +51,7 @@ namespace AmbleClient.SO
             {
             tsbUpdate.Enabled=false;
             }
-
+          //for list
            tscbStateList.Items.Clear();
            List<Operation> opList = soState.GetOperationList();
            foreach (Operation op in opList)
@@ -60,9 +60,21 @@ namespace AmbleClient.SO
                {
                    tscbStateList.Items.Add(op.operationName);
                }
-           
-           
            }
+        //for enter PO
+           if ((UserInfo.Job == JobDescription.admin || UserInfo.Job == JobDescription.boss || UserInfo.Job == JobDescription.buyerManager || UserInfo.Job == JobDescription.buyer)
+               && (so.soStates == new SoApprove().GetStateValue()))
+           {
+               tsbPoEnter.Enabled = true;
+
+           }
+           else
+           {
+               tsbPoEnter.Enabled = false;
+           }
+         
+
+
 
        }
 
@@ -113,7 +125,7 @@ namespace AmbleClient.SO
         private void tscbStateList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (MessageBox.Show((string)tscbStateList.SelectedItem + "?", "warning", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (MessageBox.Show("Change the state to "+(string)tscbStateList.SelectedItem + "?", "warning", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
 
             string selectedItemString = (string)tscbStateList.SelectedItem;
@@ -129,6 +141,11 @@ namespace AmbleClient.SO
                 }
             
             }
+
+        }
+
+        private void tsbUpdate_Click(object sender, EventArgs e)
+        {
 
         }
     }

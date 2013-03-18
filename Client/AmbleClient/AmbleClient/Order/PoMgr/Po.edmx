@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PoModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="PoModelStoreContainer">
+          <EntitySet Name="po" EntityType="PoModel.Store.po" store:Type="Tables" Schema="shenzhenerp" />
+          <EntitySet Name="poitems" EntityType="PoModel.Store.poitems" store:Type="Tables" Schema="shenzhenerp" />
+        </EntityContainer>
+        <EntityType Name="po">
+          <Key>
+            <PropertyRef Name="poId" />
+          </Key>
+          <Property Name="poId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="soId" Type="int" />
+          <Property Name="vendorName" Type="varchar" MaxLength="255" />
+          <Property Name="contact" Type="varchar" MaxLength="255" />
+          <Property Name="pa" Type="smallint" />
+          <Property Name="paDate" Type="date" />
+          <Property Name="vendorNumber" Type="varchar" MaxLength="50" />
+          <Property Name="poDate" Type="date" />
+          <Property Name="poNo" Type="varchar" MaxLength="50" />
+          <Property Name="paymentTerms" Type="varchar" MaxLength="255" />
+          <Property Name="shipMethod" Type="varchar" MaxLength="50" />
+          <Property Name="freight" Type="varchar" MaxLength="50" />
+          <Property Name="shipToLocation" Type="varchar" MaxLength="255" />
+          <Property Name="billTo" Type="mediumtext" />
+          <Property Name="shipTo" Type="mediumtext" />
+          <Property Name="poStates" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="poitems">
+          <Key>
+            <PropertyRef Name="PoItemsId" />
+          </Key>
+          <Property Name="PoItemsId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="poId" Type="int" />
+          <Property Name="partNo" Type="varchar" MaxLength="255" />
+          <Property Name="mfg" Type="varchar" MaxLength="20" />
+          <Property Name="dc" Type="varchar" MaxLength="20" />
+          <Property Name="vendorIntPartNo" Type="varchar" MaxLength="255" />
+          <Property Name="org" Type="varchar" MaxLength="20" />
+          <Property Name="qty" Type="int" />
+          <Property Name="qtyRecd" Type="int" />
+          <Property Name="qtyCorrected" Type="int" />
+          <Property Name="qtyAccept" Type="int" />
+          <Property Name="qtyRejected" Type="int" />
+          <Property Name="qtyRTV" Type="int" />
+          <Property Name="qcPending" Type="int" />
+          <Property Name="currency" Type="tinyint" />
+          <Property Name="unitPrice" Type="float" />
+          <Property Name="dueDate" Type="date" />
+          <Property Name="receiveDate" Type="date" />
+          <Property Name="stepCode" Type="varchar" MaxLength="255" />
+          <Property Name="salesAgent" Type="tinyint" />
+          <Property Name="noteToVendor" Type="mediumtext" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PoModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="PoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="po" EntityType="PoModel.po" />
+          <EntitySet Name="poitems" EntityType="PoModel.poitems" />
+        </EntityContainer>
+        <EntityType Name="po">
+          <Key>
+            <PropertyRef Name="poId" />
+          </Key>
+          <Property Name="poId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="soId" Type="Int32" />
+          <Property Name="vendorName" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="contact" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="pa" Type="Int16" />
+          <Property Name="paDate" Type="DateTime" />
+          <Property Name="vendorNumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="poDate" Type="DateTime" />
+          <Property Name="poNo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="paymentTerms" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="shipMethod" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="freight" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="shipToLocation" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="billTo" Type="String" MaxLength="16777215" Unicode="false" FixedLength="false" />
+          <Property Name="shipTo" Type="String" MaxLength="16777215" Unicode="false" FixedLength="false" />
+          <Property Name="poStates" Type="SByte" />
+        </EntityType>
+        <EntityType Name="poitems">
+          <Key>
+            <PropertyRef Name="PoItemsId" />
+          </Key>
+          <Property Name="PoItemsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="poId" Type="Int32" />
+          <Property Name="partNo" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="mfg" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="dc" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="vendorIntPartNo" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="org" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="qty" Type="Int32" />
+          <Property Name="qtyRecd" Type="Int32" />
+          <Property Name="qtyCorrected" Type="Int32" />
+          <Property Name="qtyAccept" Type="Int32" />
+          <Property Name="qtyRejected" Type="Int32" />
+          <Property Name="qtyRTV" Type="Int32" />
+          <Property Name="qcPending" Type="Int32" />
+          <Property Name="currency" Type="SByte" />
+          <Property Name="unitPrice" Type="Single" />
+          <Property Name="dueDate" Type="DateTime" />
+          <Property Name="receiveDate" Type="DateTime" />
+          <Property Name="stepCode" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="salesAgent" Type="SByte" />
+          <Property Name="noteToVendor" Type="String" MaxLength="16777215" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PoModelStoreContainer" CdmEntityContainer="PoEntities">
+          <EntitySetMapping Name="po"><EntityTypeMapping TypeName="PoModel.po"><MappingFragment StoreEntitySet="po">
+            <ScalarProperty Name="poId" ColumnName="poId" />
+            <ScalarProperty Name="soId" ColumnName="soId" />
+            <ScalarProperty Name="vendorName" ColumnName="vendorName" />
+            <ScalarProperty Name="contact" ColumnName="contact" />
+            <ScalarProperty Name="pa" ColumnName="pa" />
+            <ScalarProperty Name="paDate" ColumnName="paDate" />
+            <ScalarProperty Name="vendorNumber" ColumnName="vendorNumber" />
+            <ScalarProperty Name="poDate" ColumnName="poDate" />
+            <ScalarProperty Name="poNo" ColumnName="poNo" />
+            <ScalarProperty Name="paymentTerms" ColumnName="paymentTerms" />
+            <ScalarProperty Name="shipMethod" ColumnName="shipMethod" />
+            <ScalarProperty Name="freight" ColumnName="freight" />
+            <ScalarProperty Name="shipToLocation" ColumnName="shipToLocation" />
+            <ScalarProperty Name="billTo" ColumnName="billTo" />
+            <ScalarProperty Name="shipTo" ColumnName="shipTo" />
+            <ScalarProperty Name="poStates" ColumnName="poStates" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="poitems"><EntityTypeMapping TypeName="PoModel.poitems"><MappingFragment StoreEntitySet="poitems">
+            <ScalarProperty Name="PoItemsId" ColumnName="PoItemsId" />
+            <ScalarProperty Name="poId" ColumnName="poId" />
+            <ScalarProperty Name="partNo" ColumnName="partNo" />
+            <ScalarProperty Name="mfg" ColumnName="mfg" />
+            <ScalarProperty Name="dc" ColumnName="dc" />
+            <ScalarProperty Name="vendorIntPartNo" ColumnName="vendorIntPartNo" />
+            <ScalarProperty Name="org" ColumnName="org" />
+            <ScalarProperty Name="qty" ColumnName="qty" />
+            <ScalarProperty Name="qtyRecd" ColumnName="qtyRecd" />
+            <ScalarProperty Name="qtyCorrected" ColumnName="qtyCorrected" />
+            <ScalarProperty Name="qtyAccept" ColumnName="qtyAccept" />
+            <ScalarProperty Name="qtyRejected" ColumnName="qtyRejected" />
+            <ScalarProperty Name="qtyRTV" ColumnName="qtyRTV" />
+            <ScalarProperty Name="qcPending" ColumnName="qcPending" />
+            <ScalarProperty Name="currency" ColumnName="currency" />
+            <ScalarProperty Name="unitPrice" ColumnName="unitPrice" />
+            <ScalarProperty Name="dueDate" ColumnName="dueDate" />
+            <ScalarProperty Name="receiveDate" ColumnName="receiveDate" />
+            <ScalarProperty Name="stepCode" ColumnName="stepCode" />
+            <ScalarProperty Name="salesAgent" ColumnName="salesAgent" />
+            <ScalarProperty Name="noteToVendor" ColumnName="noteToVendor" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Po">
+        <EntityTypeShape EntityType="PoModel.po" Width="1.5" PointX="0.75" PointY="0.75" Height="4.0956022135416656" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoModel.poitems" Width="1.5" PointX="2.75" PointY="0.75" Height="5.057109375" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

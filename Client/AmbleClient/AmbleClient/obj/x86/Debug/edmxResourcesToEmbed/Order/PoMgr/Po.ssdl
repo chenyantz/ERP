@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PoModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="PoModelStoreContainer">
+    <EntitySet Name="po" EntityType="PoModel.Store.po" store:Type="Tables" Schema="shenzhenerp" />
+    <EntitySet Name="poitems" EntityType="PoModel.Store.poitems" store:Type="Tables" Schema="shenzhenerp" />
+  </EntityContainer>
+  <EntityType Name="po">
+    <Key>
+      <PropertyRef Name="poId" />
+    </Key>
+    <Property Name="poId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="soId" Type="int" />
+    <Property Name="vendorName" Type="varchar" MaxLength="255" />
+    <Property Name="contact" Type="varchar" MaxLength="255" />
+    <Property Name="pa" Type="smallint" />
+    <Property Name="paDate" Type="date" />
+    <Property Name="vendorNumber" Type="varchar" MaxLength="50" />
+    <Property Name="poDate" Type="date" />
+    <Property Name="poNo" Type="varchar" MaxLength="50" />
+    <Property Name="paymentTerms" Type="varchar" MaxLength="255" />
+    <Property Name="shipMethod" Type="varchar" MaxLength="50" />
+    <Property Name="freight" Type="varchar" MaxLength="50" />
+    <Property Name="shipToLocation" Type="varchar" MaxLength="255" />
+    <Property Name="billTo" Type="mediumtext" />
+    <Property Name="shipTo" Type="mediumtext" />
+    <Property Name="poStates" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="poitems">
+    <Key>
+      <PropertyRef Name="PoItemsId" />
+    </Key>
+    <Property Name="PoItemsId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="poId" Type="int" />
+    <Property Name="partNo" Type="varchar" MaxLength="255" />
+    <Property Name="mfg" Type="varchar" MaxLength="20" />
+    <Property Name="dc" Type="varchar" MaxLength="20" />
+    <Property Name="vendorIntPartNo" Type="varchar" MaxLength="255" />
+    <Property Name="org" Type="varchar" MaxLength="20" />
+    <Property Name="qty" Type="int" />
+    <Property Name="qtyRecd" Type="int" />
+    <Property Name="qtyCorrected" Type="int" />
+    <Property Name="qtyAccept" Type="int" />
+    <Property Name="qtyRejected" Type="int" />
+    <Property Name="qtyRTV" Type="int" />
+    <Property Name="qcPending" Type="int" />
+    <Property Name="currency" Type="tinyint" />
+    <Property Name="unitPrice" Type="float" />
+    <Property Name="dueDate" Type="date" />
+    <Property Name="receiveDate" Type="date" />
+    <Property Name="stepCode" Type="varchar" MaxLength="255" />
+    <Property Name="salesAgent" Type="tinyint" />
+    <Property Name="noteToVendor" Type="mediumtext" />
+  </EntityType>
+</Schema>

@@ -20,5 +20,10 @@ namespace AmbleClient.PO
         {
 
         }
+
+        private void tsbSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

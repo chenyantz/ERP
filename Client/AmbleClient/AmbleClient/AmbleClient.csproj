@@ -196,6 +196,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Po.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Order\PoMgr\PoMgr.cs" />
     <Compile Include="Order\PoStates.cs" />
     <Compile Include="Order\SoOrderState.cs" />
     <Compile Include="PO\NewPo.cs">
@@ -468,6 +469,8 @@
       <LastGenOutput>Po.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="Properties\DataSources\AmbleAppServer.SoMgr.So.datasource" />
+    <None Include="Properties\DataSources\AmbleClient.BomOffer.BomOfferEntities.datasource" />
+    <None Include="Properties\DataSources\AmbleClient.Order.PoMgr.PoEntities.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

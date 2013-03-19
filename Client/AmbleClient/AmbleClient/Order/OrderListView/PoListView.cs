@@ -10,6 +10,7 @@ namespace AmbleClient.Order
     {
         protected PoStateList poStateList = new PoStateList();
 
+        private List<po> poList;
 
         protected override void ViewStart()
         {
@@ -38,8 +39,8 @@ namespace AmbleClient.Order
             PoNo.Name = "PoNo";
 
             VendorName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            PoNo.HeaderText = "Vendor Name";
-            PoNo.Name = "VendorName";
+            VendorName.HeaderText = "Vendor Name";
+            VendorName.Name = "VendorName";
 
             Contact.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             Contact.HeaderText = "Contact";
@@ -69,7 +70,9 @@ namespace AmbleClient.Order
             PoState.HeaderText = "Po State";
             PoState.Name = "PoState";
 
-            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {            PoNo,
+            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { 
+            PoId,
+            PoNo,
             VendorName,
             Contact,
             PA,
@@ -126,20 +129,15 @@ namespace AmbleClient.Order
                 includeSubs = true;
             }
 
-           // soList = SoMgr.SoMgr.SalesGetSoAccordingTofilter(UserInfo.UserId, includeSubs, filterColumn, filterString, intStateList);
+            poList = Order.PoMgr.PoMgr.GetPoAccordingToFilter(UserInfo.UserId, includeSubs, filterColumn, filterString, intStateList);
 
-            int i = 0;
-          //  foreach (So so in soList)
-           // {
-            //    dataGridView1.Rows.Add(i++, so.customerName, so.contact, idNameDict[so.salesId], so.salesOrderNo, so.orderDate.ToShortDateString(), so.customerPo,
-           //         so.paymentTerm, so.freightTerm, so.customerAccount, soStateList.GetSoStateStringAccordingToValue(so.soStates));
-           // }
+            foreach (po poItem in poList)
+            {
+               dataGridView1.Rows.Add(poItem.poId,poItem.poNo,poItem.vendorName,poItem.contact,idNameDict[(int)poItem.pa],poItem.poDate,poItem.paymentTerms,
+                   poItem.freight,poItem.vendorNumber,poStateList.GetPoStateStringAccordingToValue((int)poItem.poStates));
+            }
 
         }
-
-
-
-
 
         protected override void OpenOrderDetails(int rowIndex)
         {

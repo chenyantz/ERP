@@ -22,7 +22,7 @@ namespace AmbleClient.Order
         {
             return null;
         }
-        public void UpdateState(int soId, int soState)
+        public void UpdateState(int poId, int poState)
         {
            // SoMgr.SoMgr.UpdateSoState(soId, UserInfo.UserId, soState);
 
@@ -36,6 +36,43 @@ namespace AmbleClient.Order
 
     public class PoNew : PoState
     {
+      public PoNew()
+      {
+          var opJobs=new List<JobDescription>();
+          opJobs.Add(JobDescription.buyerManager);
+          opJobs.Add(JobDescription.boss);
+          opJobs.Add(JobDescription.admin);
+
+          var operation = new Operation
+          {
+            jobs=opJobs,
+            operationName="Reject PO",
+            operationMethod=this.RejectPo
+          };
+
+          var operation1 = new Operation
+          {
+              jobs = opJobs,
+              operationName = "Approve PO",
+              operationMethod = this.ApprovePo
+
+          };
+
+          operationList.Add(operation);
+          operationList.Add(operation1);
+      
+      }
+      public void RejectPo(int poId)
+      {
+          UpdateState(poId, new PoRejected().GetStateValue());
+       
+      }
+      public void ApprovePo(int poId)
+      {
+          UpdateState(poId, new PoApproved().GetStateValue());
+       }
+        
+        
         public override int GetStateValue()
         {
             return 0;
@@ -60,6 +97,49 @@ namespace AmbleClient.Order
     }
     public class PoApproved : PoState
     {
+      public PoApproved()
+      {
+          var opJobs=new List<JobDescription>();
+          opJobs.Add(JobDescription.buyerManager);
+          opJobs.Add(JobDescription.boss);
+          opJobs.Add(JobDescription.admin);
+
+          var operation = new Operation
+          {
+            jobs=opJobs,
+            operationName="Cancel PO",
+            operationMethod=this.CancelPo
+          };
+
+          var opJobs1 = new List<JobDescription>();
+          opJobs1.Add(JobDescription.buyer);
+          opJobs1.Add(JobDescription.buyerManager);
+          opJobs1.Add(JobDescription.boss);
+          opJobs1.Add(JobDescription.admin);
+          
+          var operation1 = new Operation
+          {
+              jobs = opJobs1,
+              operationName = "Waiting for Ship",
+              operationMethod = this.SetPoStateWatingForShip
+
+          };
+
+          operationList.Add(operation);
+          operationList.Add(operation1);
+      
+      }
+
+      public void CancelPo(int poId)
+      {
+          UpdateState(poId, new PoCancelled().GetStateValue());
+
+      }
+      public void SetPoStateWatingForShip(int poId)
+      {
+          UpdateState(poId, new PoWaitingForShip().GetStateValue());
+      }
+
         public override int GetStateValue()
         {
             return 2;
@@ -84,6 +164,78 @@ namespace AmbleClient.Order
     }
     public class PoWaitingForShip : PoState
     {
+
+        public PoWaitingForShip()
+      {
+          var opJobs=new List<JobDescription>();
+          opJobs.Add(JobDescription.financialManager);
+          opJobs.Add(JobDescription.boss);
+          opJobs.Add(JobDescription.admin);
+
+          var operation = new Operation
+          {
+            jobs=opJobs,
+            operationName="Full Payment Before Recv",
+            operationMethod=this.SetStateFullPaymentBeforeRecv
+          };
+          var operation1 = new Operation
+          {
+              jobs = opJobs,
+              operationName = "Deposit",
+              operationMethod = this.SetStateDeposit
+
+          };
+
+          var opJobs1 = new List<JobDescription>();
+
+          opJobs1.Add(JobDescription.wareshousekeeperManager);
+          opJobs1.Add(JobDescription.boss);
+          opJobs1.Add(JobDescription.admin);
+          
+          var operation2 = new Operation
+          {
+              jobs = opJobs1,
+              operationName = "Full Received Before Pay",
+              operationMethod = this.SetStateFullRecivedBeforePay
+
+          };
+          var operation3 = new Operation
+          {
+              jobs = opJobs1,
+              operationName = "Partial Received Before Pay",
+              operationMethod = this.SetStatePartialRecivedBeforePay
+
+          };
+
+
+          operationList.Add(operation);
+          operationList.Add(operation1);
+          operationList.Add(operation2);
+          operationList.Add(operation3);
+      
+      }
+
+        public void SetStateFullPaymentBeforeRecv(int poId)
+      {
+          UpdateState(poId, new PoFullPaymentBeforeReceived().GetStateValue());
+
+      }
+        public void SetStateDeposit(int poId)
+      {
+          UpdateState(poId, new PoDeposit().GetStateValue());
+      }
+
+        public void SetStateFullRecivedBeforePay(int poId)
+        {
+            UpdateState(poId, new PoFullReceivedBeforePay().GetStateValue());
+
+        }
+        public void SetStatePartialRecivedBeforePay(int poId)
+        {
+            UpdateState(poId, new PoPartialReceivedBeforePay().GetStateValue());
+        }
+        
+        
         public override int GetStateValue()
         {
             return 4;
@@ -95,6 +247,45 @@ namespace AmbleClient.Order
     }
     public class PoFullPaymentBeforeReceived : PoState
     {
+       public PoFullPaymentBeforeReceived()
+       {
+        var opJobs=new List<JobDescription>();
+          opJobs.Add(JobDescription.wareshousekeeperManager);
+          opJobs.Add(JobDescription.boss);
+          opJobs.Add(JobDescription.admin);
+
+          var operation = new Operation
+          {
+            jobs=opJobs,
+            operationName="Full Received After Pay",
+            operationMethod=this.SetStateFullReceivedAfterPay
+          };
+          
+          var operation1 = new Operation
+          {
+              jobs = opJobs,
+              operationName = "Partial Received After Pay",
+              operationMethod = this.SetStatePartialReceivedAfterPay
+
+          };
+
+          operationList.Add(operation);
+          operationList.Add(operation1);
+      
+      }
+
+       public void SetStateFullReceivedAfterPay(int poId)
+      {
+          UpdateState(poId, new PoFullReceivedAfterPay().GetStateValue());
+
+      }
+       public void SetStatePartialReceivedAfterPay(int poId)
+      {
+          UpdateState(poId, new PoPartialReceivedAfterPay().GetStateValue());
+      }
+
+    
+        
         public override int GetStateValue()
         {
             return 5;
@@ -107,6 +298,33 @@ namespace AmbleClient.Order
     }
     public class PoDeposit : PoState
     {
+     public PoDeposit()
+       {
+        var opJobs=new List<JobDescription>();
+          opJobs.Add(JobDescription.financialManager);
+          opJobs.Add(JobDescription.boss);
+          opJobs.Add(JobDescription.admin);
+
+          var operation = new Operation
+          {
+            jobs=opJobs,
+            operationName="Balance",
+            operationMethod=this.Balance
+          };
+          
+          operationList.Add(operation);
+      
+      }
+
+      public void Balance(int poId)
+      {
+          UpdateState(poId, new PoFullReceivedAfterPay().GetStateValue());
+
+      }
+        
+        
+        
+        
         public override int GetStateValue()
         {
             return 6;
@@ -118,6 +336,45 @@ namespace AmbleClient.Order
     }
     public class PoBalance : PoState
     {
+      public PoBalance()
+       {
+        var opJobs=new List<JobDescription>();
+          opJobs.Add(JobDescription.wareshousekeeperManager);
+          opJobs.Add(JobDescription.boss);
+          opJobs.Add(JobDescription.admin);
+
+          var operation = new Operation
+          {
+            jobs=opJobs,
+            operationName="Full Received After Pay",
+            operationMethod=this.SetStateFullReceivedAfterPay
+          };
+          
+          var operation1 = new Operation
+          {
+              jobs = opJobs,
+              operationName = "Partial Received After Pay",
+              operationMethod = this.SetStatePartialReceivedAfterPay
+
+          };
+
+          operationList.Add(operation);
+          operationList.Add(operation1);
+      
+      }
+
+       public void SetStateFullReceivedAfterPay(int poId)
+      {
+          UpdateState(poId, new PoFullReceivedAfterPay().GetStateValue());
+
+      }
+       public void SetStatePartialReceivedAfterPay(int poId)
+      {
+          UpdateState(poId, new PoPartialReceivedAfterPay().GetStateValue());
+      }
+
+
+
         public override int GetStateValue()
         {
             return 7;
@@ -131,6 +388,32 @@ namespace AmbleClient.Order
     public class PoFullReceivedAfterPay : PoState
     {
 
+      public PoFullReceivedAfterPay()
+      {
+          var opJobs=new List<JobDescription>();
+          opJobs.Add(JobDescription.wareshousekeeperManager);
+          opJobs.Add(JobDescription.boss);
+          opJobs.Add(JobDescription.admin);
+
+          var operation = new Operation
+          {
+            jobs=opJobs,
+            operationName="Close PO",
+            operationMethod=this.ClosePo
+          };
+
+          operationList.Add(operation);
+      
+      }
+
+      public void ClosePo(int poId)
+      {
+          UpdateState(poId, new PoClosed().GetStateValue());
+
+      }
+
+
+
         public override int GetStateValue()
         {
             return 8;
@@ -143,6 +426,30 @@ namespace AmbleClient.Order
     }
     public class PoPartialReceivedAfterPay : PoState
     {
+        public PoPartialReceivedAfterPay()
+      {
+          var opJobs=new List<JobDescription>();
+          opJobs.Add(JobDescription.wareshousekeeperManager);
+          opJobs.Add(JobDescription.boss);
+          opJobs.Add(JobDescription.admin);
+
+          var operation = new Operation
+          {
+            jobs=opJobs,
+            operationName="Full Received After Pay",
+            operationMethod=this.SetStateFullReceivedAfterPay
+          };
+
+          operationList.Add(operation);
+      
+      }
+
+        public void SetStateFullReceivedAfterPay(int poId)
+      {
+          UpdateState(poId, new PoFullReceivedAfterPay().GetStateValue());
+
+      }
+        
         public override int GetStateValue()
         {
             return 9;
@@ -155,6 +462,30 @@ namespace AmbleClient.Order
     }
     public class PoFullReceivedBeforePay : PoState
     {
+      public PoFullReceivedBeforePay()
+      {
+          var opJobs=new List<JobDescription>();
+          opJobs.Add(JobDescription.financialManager);
+          opJobs.Add(JobDescription.boss);
+          opJobs.Add(JobDescription.admin);
+
+          var operation = new Operation
+          {
+            jobs=opJobs,
+            operationName="Full Payment After Recv",
+            operationMethod=this.SetStateFullPaymentAfterRecv
+          };
+
+          operationList.Add(operation);
+      
+      }
+
+      public void SetStateFullPaymentAfterRecv(int poId)
+      {
+          UpdateState(poId, new PoFullPaymentAfterReceived().GetStateValue());
+
+      }
+        
         public override int GetStateValue()
         {
             return 10;
@@ -168,6 +499,33 @@ namespace AmbleClient.Order
     }
     public class PoPartialReceivedBeforePay : PoState
     {
+        public PoPartialReceivedBeforePay()
+      {
+          var opJobs1 = new List<JobDescription>();
+          opJobs1.Add(JobDescription.wareshousekeeperManager);
+          opJobs1.Add(JobDescription.boss);
+          opJobs1.Add(JobDescription.admin);
+          
+          var operation2 = new Operation
+          {
+              jobs = opJobs1,
+              operationName = "Full Received Before Pay",
+              operationMethod = this.SetStateFullRecivedBeforePay
+
+          };
+
+          operationList.Add(operation2);
+      
+      }
+
+
+        public void SetStateFullRecivedBeforePay(int poId)
+        {
+            UpdateState(poId, new PoFullReceivedBeforePay().GetStateValue());
+
+        }
+
+        
         public override int GetStateValue()
         {
             return 11;
@@ -180,6 +538,31 @@ namespace AmbleClient.Order
     }
     public class PoFullPaymentAfterReceived : PoState
     {
+
+      public PoFullPaymentAfterReceived()
+      {
+          var opJobs=new List<JobDescription>();
+          opJobs.Add(JobDescription.wareshousekeeperManager);
+          opJobs.Add(JobDescription.boss);
+          opJobs.Add(JobDescription.admin);
+
+          var operation = new Operation
+          {
+            jobs=opJobs,
+            operationName="Close PO",
+            operationMethod=this.ClosePo
+          };
+
+          operationList.Add(operation);
+      
+      }
+
+      public void ClosePo(int poId)
+      {
+          UpdateState(poId, new PoClosed().GetStateValue());
+
+      } 
+        
         public override int GetStateValue()
         {
             return 12;

@@ -25,7 +25,6 @@ namespace AmbleClient.SO
             if (newItems)
             {
                 this.Text = "Add an SO Item";
-                this.tsbUpdate.Enabled = false;
                 this.soItemsControl1.NewCreateItems();
             }
             else
@@ -33,8 +32,6 @@ namespace AmbleClient.SO
                 this.Text = "So Item View";
            
             }
-
-        
         }
 
         public SoItems GetSoItems()
@@ -60,6 +57,11 @@ namespace AmbleClient.SO
         }
 
         private void SoItemView_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsbUpdate_Click(object sender, EventArgs e)
         {
 
         }

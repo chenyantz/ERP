@@ -70,7 +70,7 @@ namespace AmbleClient.SO
         public SoItems GetSoItem()
         {
             DateTime? datetime;
-            if (dateTimePicker1.Checked)
+            if (dateTimePicker2.Checked)
             {
                 datetime = dateTimePicker2.Value.Date;
             }

@@ -199,24 +199,24 @@
     <Compile Include="Order\PoMgr\PoMgr.cs" />
     <Compile Include="Order\PoStates.cs" />
     <Compile Include="Order\SoOrderState.cs" />
-    <Compile Include="PO\NewPo.cs">
+    <Compile Include="Order\PoView\NewPo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PO\NewPo.Designer.cs">
+    <Compile Include="Order\PoView\NewPo.Designer.cs">
       <DependentUpon>NewPo.cs</DependentUpon>
     </Compile>
-    <Compile Include="PO\PoItemsControl.cs">
+    <Compile Include="Order\PoView\PoItemsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PO\PoItemsControl.Designer.cs">
+    <Compile Include="Order\PoView\PoItemsControl.Designer.cs">
       <DependentUpon>PoItemsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="PO\PoManager\Po.cs" />
     <Compile Include="PO\PoManager\PoMgr.cs" />
-    <Compile Include="PO\PoViewControl.cs">
+    <Compile Include="Order\PoView\PoViewControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PO\PoViewControl.Designer.cs">
+    <Compile Include="Order\PoView\PoViewControl.Designer.cs">
       <DependentUpon>PoViewControl.cs</DependentUpon>
     </Compile>
     <Compile Include="RfqGui\BuyerManagerRfqItems.cs">
@@ -390,13 +390,13 @@
     <EmbeddedResource Include="Order\OrderListView\OrderListView.resx">
       <DependentUpon>OrderListView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PO\NewPo.resx">
+    <EmbeddedResource Include="Order\PoView\NewPo.resx">
       <DependentUpon>NewPo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PO\PoItemsControl.resx">
+    <EmbeddedResource Include="Order\PoView\PoItemsControl.resx">
       <DependentUpon>PoItemsControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PO\PoViewControl.resx">
+    <EmbeddedResource Include="Order\PoView\PoViewControl.resx">
       <DependentUpon>PoViewControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RfqGui\BuyerManagerRfqListView.resx">
@@ -483,7 +483,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="OrderTemplate\" />
-    <Folder Include="Order\PoView\" />
     <Folder Include="Personal\" />
   </ItemGroup>
   <ItemGroup>

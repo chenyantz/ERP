@@ -7,6 +7,10 @@ namespace AmbleClient.Order.PoMgr
 {
    public class PoMgr
     {
+      
+       
+       
+       
        public static List<po> GetPoAccordingToFilter(int userId, bool includedSubs, string filterColumn, string filterString, List<int> stateList)
        { 
          //get the sub;
@@ -47,16 +51,45 @@ namespace AmbleClient.Order.PoMgr
 
                    poList.AddRange(poListFromDb);
                
-               }
-              
-
-
-
-
+              }
            }
            return poList;
          
        }
+
+
+       public static po GetPoAccordingToPoId(int poId)
+       {
+          using (PoEntities poEntity = new PoEntities())
+           {
+               var poList = from poMain in poEntity.po
+                            where poMain.poId == poId
+                            select poMain;
+               return poList.First();
+         
+           }
+       }
+
+
+       public static List<poitems> GetPoItemsAccordingToPoId(int poId)
+       {
+           List<poitems> poitems = new List<poitems>();
+           using (PoEntities poEntity = new PoEntities())
+           {
+               var poitemsList = from poItem in poEntity.poitems
+                                 where poItem.poId == poId
+                                 select poItem;
+               foreach(poitems poitem in poitemsList)
+               {
+                poitems.Add(poitem);
+               
+               }
+               return poitems;
+           }
+       }
+
+
+
 
     }
 }

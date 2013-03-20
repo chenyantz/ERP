@@ -22,7 +22,7 @@ namespace AmbleClient.Order.PoMgr
            if (includedSubs)
            {
                var accountMgr = new AmbleClient.Admin.AccountMgr.AccountMgr();
-               userIds.AddRange(accountMgr.GetAllSubsId(userId));
+               userIds.AddRange(accountMgr.GetAllSubsId(userId,UserCombine.GetUserCanBeBuyers()));
            }
            else
            {
@@ -87,6 +87,65 @@ namespace AmbleClient.Order.PoMgr
                return poitems;
            }
        }
+
+
+
+       public static void SavePoMain(po poMain)
+       {
+           using (PoEntities poEntity = new PoEntities())
+           {
+               poEntity.po.AddObject(poMain);
+               poEntity.SaveChanges();
+           }
+
+       }
+
+
+       public static int GetTheInsertId(int userId)
+       {
+          using (PoEntities poEntity = new PoEntities())
+           {
+              var maxId=(from poMain in poEntity.po
+                        where (int)poMain.pa==userId
+                        select poMain.poId).Max();
+
+              return maxId;
+           }
+       
+       
+       
+       }
+
+
+
+       public static void SavePoItems(int poId, List<poitems> poitemsList)
+       {
+           using (PoEntities poEntity = new PoEntities())
+           {
+               foreach (poitems poitem in poitemsList)
+               {
+                   poEntity.poitems.AddObject(poitem);
+               }
+               poEntity.SaveChanges();
+           }
+       
+       }
+
+
+       public static void UpdatePoState(int poId, int state)
+       {
+           using (PoEntities poEntity = new PoEntities())
+           {
+               po poMain = (poEntity.po.First(item => item.poId == poId));
+               poMain.poStates = (sbyte)state;
+               poEntity.SaveChanges();
+           }
+       }
+
+
+
+
+
 
 
 

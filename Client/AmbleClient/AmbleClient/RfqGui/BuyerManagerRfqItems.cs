@@ -56,7 +56,7 @@ namespace AmbleClient.RfqGui
            // cbSales.Text = (GlobalRemotingClient.GetAccountMgr().GetIdsAndNames(sales))[rfq.salesId];
            
            //Fill the PA
-           mySubs = accountMgr.GetAllSubsId(UserInfo.UserId);
+           mySubs = accountMgr.GetAllSubsId(UserInfo.UserId,UserCombine.GetUserCanBeBuyers());
            Dictionary<int, string> mySubsIdAndName = accountMgr.GetIdsAndNames(mySubs);
 
            //确认里面的buyer是不是我的下属，如果不是，不能更改。

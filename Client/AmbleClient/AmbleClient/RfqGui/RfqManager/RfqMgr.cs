@@ -185,7 +185,7 @@ namespace AmbleClient.RfqGui.RfqManager
                      //get the subs IDs include himself
            AmbleClient.Admin.AccountMgr.AccountMgr accountMgr = new AmbleClient.Admin.AccountMgr.AccountMgr();
 
-           List<int> subIds = accountMgr.GetAllSubsId(salesId);
+           List<int> subIds = accountMgr.GetAllSubsId(salesId,null);
 
            foreach (int id in subIds)
            {
@@ -269,7 +269,7 @@ namespace AmbleClient.RfqGui.RfqManager
             
             var accountMgr = new AmbleClient.Admin.AccountMgr.AccountMgr();
 
-            List<int> subIds = accountMgr.GetAllSubsId(salesId);
+            List<int> subIds = accountMgr.GetAllSubsId(salesId,UserCombine.GetUserCanBeSales());
 
             StringBuilder sb = new StringBuilder();
 

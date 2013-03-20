@@ -23,7 +23,7 @@ namespace AmbleClient.Order.SoMgr
            if (includedSubs)
            {
                var accountMgr = new AmbleClient.Admin.AccountMgr.AccountMgr();
-               salesIds.AddRange(accountMgr.GetAllSubsId(userId));
+               salesIds.AddRange(accountMgr.GetAllSubsId(userId,UserCombine.GetUserCanBeSales()));
            }
            else
            {
@@ -76,7 +76,7 @@ namespace AmbleClient.Order.SoMgr
            if (includedSubs)
            {
                var accountMgr = new AmbleClient.Admin.AccountMgr.AccountMgr();
-               buyersIds.AddRange(accountMgr.GetAllSubsId(userId));
+               buyersIds.AddRange(accountMgr.GetAllSubsId(userId,UserCombine.GetUserCanBeBuyers()));
            }
            else
            {

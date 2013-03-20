@@ -33,7 +33,8 @@ namespace AmbleClient.RfqGui
            //select the sales ID
            //获得下级号和名字
            AmbleClient.Admin.AccountMgr.AccountMgr accountMgr = new Admin.AccountMgr.AccountMgr();
-           mySubs = accountMgr.GetAllSubsId(UserInfo.UserId);
+           mySubs = accountMgr.GetAllSubsId(UserInfo.UserId,UserCombine.GetUserCanBeSales());
+
            Dictionary<int, string> mySubsIdAndName = accountMgr.GetIdsAndNames(mySubs);
            foreach (string name in mySubsIdAndName.Values)
            {

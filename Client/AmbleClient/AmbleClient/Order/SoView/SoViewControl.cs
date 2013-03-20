@@ -55,6 +55,9 @@ namespace AmbleClient.SO
               
               }
 
+              strCurrency = Enum.GetName(typeof(AmbleClient.Currency), soItemsList[i].currencyType);
+
+              /*
               switch (soItemsList[i].currencyType)
               { 
                   case 0:
@@ -71,7 +74,7 @@ namespace AmbleClient.SO
                   default:
                       strCurrency = "ERROR";break;
             
-              }
+              }*/
 
               dataGridView1.Rows.Add(i + 1, strSaleType, soItemsList[i].partNo, soItemsList[i].mfg, soItemsList[i].rohs, soItemsList[i].dc,
                   soItemsList[i].intPartNo, soItemsList[i].shipFrom, soItemsList[i].shipMethod, soItemsList[i].trackingNo, soItemsList[i].qty,
@@ -115,9 +118,12 @@ namespace AmbleClient.SO
 
         private void FillTheSalesComboBox()
         {
-            mySubs =new AmbleClient.Admin.AccountMgr.AccountMgr().GetAllSubsId(UserInfo.UserId);
 
-            Dictionary<int, string> mySubsIdAndName = new AmbleClient.Admin.AccountMgr.AccountMgr().GetIdsAndNames(mySubs);
+            AmbleClient.Admin.AccountMgr.AccountMgr accMgr = new Admin.AccountMgr.AccountMgr();
+
+            mySubs =accMgr.GetAllSubsId(UserInfo.UserId,UserCombine.GetUserCanBeSales());
+
+            Dictionary<int, string> mySubsIdAndName = accMgr.GetIdsAndNames(mySubs);
             foreach (string name in mySubsIdAndName.Values)
             {
                 cbSp.Items.Add(name);
@@ -193,6 +199,12 @@ namespace AmbleClient.SO
 
         private So GetValues()
         {
+      
+            
+            
+            
+            
+            
             return new So
             {
             items = soItemsList,

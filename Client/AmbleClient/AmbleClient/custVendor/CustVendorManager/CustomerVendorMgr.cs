@@ -50,7 +50,7 @@ namespace AmbleClient.custVendor.customerVendorMgr
            //get the subs IDs include himself
            var accountMgr = new AmbleClient.Admin.AccountMgr.AccountMgr();
 
-           List<int> subIds = accountMgr.GetAllSubsId(id);
+           List<int> subIds = accountMgr.GetAllSubsId(id,null);
            List<string> sqlCodes = new List<string>();
 
 

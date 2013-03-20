@@ -133,14 +133,14 @@ namespace AmbleClient.Admin.AccountMgr
 
        }
 
-       public List<int> GetAllSubsId(int id)
+       public List<int> GetAllSubsId(int id,List<int> jobs)
        {
             List<int> allSubsId = new List<int>();
            allSubsId.Add(id);
 
            for (int startIndex = 0; allSubsId.Count > startIndex; startIndex++)
            {
-              string strSql = "select id from account where superviser=" +allSubsId[startIndex];
+              string strSql = "select id,job from account where superviser=" +allSubsId[startIndex];
               DataTable dt = db.GetDataTable(strSql,"idTable");
            if (dt.Rows.Count > 0)
            {
@@ -149,7 +149,17 @@ namespace AmbleClient.Admin.AccountMgr
                    int subId = Convert.ToInt32(dr["id"]);
                    if (!allSubsId.Contains(subId))
                    {
+                      if(jobs==null)
+                      {
                        allSubsId.Add(subId);
+                      }
+                      else
+                      {    if(jobs.Contains(Convert.ToInt32(dr["job"]))
+                             {
+                              allSubsId.Add(subId);
+                             }
+                      
+                      }
                    }
                }
            }
@@ -173,12 +183,13 @@ namespace AmbleClient.Admin.AccountMgr
                    {
                        if (!idsAndNames.Keys.Contains(id))
                        {
-                           idsAndNames.Add(id, dr["accountName"].ToString());
+
+                       idsAndNames.Add(id, dr["accountName"].ToString());
+                      
                        }
                    }
                
                }
-           
            
            }
            return idsAndNames;

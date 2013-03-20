@@ -24,13 +24,50 @@ namespace AmbleClient
     
     }
 
+    public enum Currency
+    {
+     USD=0,CNY=1,EUR=2,HK=3,JP=4,ERROR=5
+    
+    }
+          
+
     public static class UserInfo
     {
         public static int UserId;
         public static string UserName;
         public static JobDescription Job;
+    }
+
+    public static class UserCombine
+    { 
+       public static List<int> GetUserCanBeSales()
+        {
+            List<int> canBeSales = new List<int>();
+            canBeSales.Add((int)JobDescription.admin);
+            canBeSales.Add((int)JobDescription.boss);
+           canBeSales.Add((int)JobDescription.sales);
+           canBeSales.Add((int)JobDescription.saleManager);
+           return canBeSales;
+        
+        }
+
+       public static List<int> GetUserCanBeBuyers()
+       {
+           List<int> canBeBuyers = new List<int>();
+           canBeBuyers.Add((int)JobDescription.admin);
+           canBeBuyers.Add((int)JobDescription.boss);
+           canBeBuyers.Add((int)JobDescription.buyer);
+           canBeBuyers.Add((int)JobDescription.buyerManager);
+           return canBeBuyers;
+       }
+
+
+
+    
     
     }
+
+
 
     public static class Tool
     {

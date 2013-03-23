@@ -43,7 +43,7 @@
             this.tsbClose});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(888, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(879, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -53,8 +53,8 @@
             this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
             this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(38, 22);
-            this.tsbSave.Text = "Save";
+            this.tsbSave.Size = new System.Drawing.Size(59, 22);
+            this.tsbSave.Text = "Save PO";
             this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
             // tsbClose
@@ -65,21 +65,21 @@
             this.tsbClose.Name = "tsbClose";
             this.tsbClose.Size = new System.Drawing.Size(43, 22);
             this.tsbClose.Text = "Close";
+            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
             // poViewControl1
             // 
             this.poViewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.poViewControl1.Location = new System.Drawing.Point(0, 25);
             this.poViewControl1.Name = "poViewControl1";
-            this.poViewControl1.Size = new System.Drawing.Size(888, 465);
+            this.poViewControl1.Size = new System.Drawing.Size(879, 471);
             this.poViewControl1.TabIndex = 1;
-            this.poViewControl1.Load += new System.EventHandler(this.poViewControl1_Load);
             // 
             // NewPo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(888, 490);
+            this.ClientSize = new System.Drawing.Size(879, 496);
             this.Controls.Add(this.poViewControl1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "NewPo";

@@ -75,6 +75,7 @@
             this.tsbPoEnter.Name = "tsbPoEnter";
             this.tsbPoEnter.Size = new System.Drawing.Size(62, 22);
             this.tsbPoEnter.Text = "Enter PO";
+            this.tsbPoEnter.Click += new System.EventHandler(this.tsbPoEnter_Click);
             // 
             // tsbViewPo
             // 
@@ -109,7 +110,7 @@
             // tscbStateList
             // 
             this.tscbStateList.Name = "tscbStateList";
-            this.tscbStateList.Size = new System.Drawing.Size(150, 25);
+            this.tscbStateList.Size = new System.Drawing.Size(180, 25);
             this.tscbStateList.SelectedIndexChanged += new System.EventHandler(this.tscbStateList_SelectedIndexChanged);
             // 
             // tabControl1

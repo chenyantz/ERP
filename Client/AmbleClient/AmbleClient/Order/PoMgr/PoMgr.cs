@@ -136,13 +136,21 @@ namespace AmbleClient.Order.PoMgr
        public static int GetSoIdAccordingToPoId(int poId)
        {
 
-            var soId=from poItem in poEntity.po
-                      where poItem.poId==poId
-                      select poItem.soId
+           var soId = from poItem in poEntity.po
+                      where poItem.poId == poId
+                      select poItem.soId;
 
              return (int)soId.First();
 
        }
+
+       public static void DeletePoItembyPoItemId(int poItemId)
+       {
+           poitems item = poEntity.poitems.Where(i => i.PoItemsId == poItemId).First();
+           poEntity.poitems.DeleteObject(item);
+           poEntity.SaveChanges();
+       }
+
 
 
 
@@ -169,12 +177,6 @@ namespace AmbleClient.Order.PoMgr
                    case OrderItemsState.Modified:
                        poitems item = poEntity.poitems.Where(pitem =>(pitem.PoItemsId == pics.poItem.PoItemsId)).First();
                        item = pics.poItem;
-                       break;
-
-                   case OrderItemsState.Deleted:
-
-                       poitems item = poEntity.poitems.Where(pitem => (pitem.PoItemsId == pics.poItem.PoItemsId)).First();
-                       poEntity.poitems.DeleteObject(item);
                        break;
                }
            }

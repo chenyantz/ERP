@@ -142,6 +142,8 @@ namespace AmbleClient.Order.PoView
 
         private void tsbUpdate_Click(object sender, EventArgs e)
         {
+            poViewControlList[tabControl1.SelectedIndex].PoUpdate();
+
 
         }
     }

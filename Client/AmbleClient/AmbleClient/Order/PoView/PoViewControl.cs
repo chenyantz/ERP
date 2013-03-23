@@ -10,27 +10,20 @@ using AmbleClient.Order.PoMgr;
 
 namespace AmbleClient.Order.PoView
 {
-    public class PoItemContentAndState
-    {
-     public poitems poItem;
-     public OrderItemsState state;
-
-    }
-
-
 
     public partial class PoViewControl : UserControl
     {
 
-        List<int> mysubs;
-        Dictionary<int, string> buyerIdsAndNames;
+      private  List<int> mysubs;
+      private  Dictionary<int, string> buyerIdsAndNames;
+      private int poId = int.MinValue;
 
         List<PoItemContentAndState> poItemsStateList = new List<PoItemContentAndState>();
 
         public PoViewControl()
         {
             InitializeComponent();
-            FillThePACombo();
+          
 
         }
 
@@ -41,13 +34,19 @@ namespace AmbleClient.Order.PoView
 
         private void PoViewControl_Load(object sender, EventArgs e)
         {
+            FillThePACombo();
+        }
 
+
+        public List<PoItemContentAndState> GetPoItemContentAndSate()
+        {
+            return poItemsStateList;
         }
 
 
         private void FillThePACombo()
         {
-
+          
             AmbleClient.Admin.AccountMgr.AccountMgr accountMgr = new Admin.AccountMgr.AccountMgr();
             mysubs = accountMgr.GetAllSubsId(UserInfo.UserId, UserCombine.GetUserCanBeBuyers());
 
@@ -61,10 +60,48 @@ namespace AmbleClient.Order.PoView
         }
 
 
+        public void PoSave()
+        {
+            CheckValues();
+            po poMain = GetValues();
+            poMain.poDate = DateTime.Now;
+            PoMgr.PoMgr.SavePoMain(poMain);
+
+            int poId = PoMgr.PoMgr.GetTheInsertId((int)poMain.pa);
+
+            foreach (PoItemContentAndState pics in poItemsStateList)
+            {
+                pics.poItem.poId = poId;
+            }
+            PoMgr.PoMgr.UpDatePoItems(poItemsStateList);
+
+            MessageBox.Show("Save Purchase Order Successfully");
+
+        }
+
+
+        public void PoUpdate()
+        {
+            CheckValues();
+            po poMain = GetValues();
+            PoMgr.PoMgr.UpdatePo(poMain);
+
+            PoMgr.PoMgr.UpDatePoItems(poItemsStateList);
+
+            MessageBox.Show("Update Purchase Order Successfully");
+        }
+
+        private void CheckValues()
+        { 
+        
+        }
+
+  
 
 
         public void FillTheTable(po poMain)
         {
+            this.poId = poMain.poId;
             tbVendor.Text = poMain.vendorName;
             tbContact.Text = poMain.contact;
             cbPa.SelectedItem = buyerIdsAndNames[poMain.pa.Value]; 
@@ -91,16 +128,16 @@ namespace AmbleClient.Order.PoView
             
             }
 
-            FillTheDataGridPoItems(poItemsStateList);
+            FillTheDataGridPoItems();
 
 
         }
 
-        public void FillTheDataGridPoItems(List<PoItemContentAndState> items)
+        public void FillTheDataGridPoItems()
         {
-
+            dataGridView1.Rows.Clear();
             int i = 0;
-            foreach (PoItemContentAndState cSitem in items)
+            foreach (PoItemContentAndState cSitem in poItemsStateList)
             {
                 dataGridView1.Rows.Add(i, cSitem.poItem.partNo, cSitem.poItem.mfg, cSitem.poItem.dc, cSitem.poItem.vendorIntPartNo, cSitem.poItem.org, cSitem.poItem.qty,
                                        cSitem.poItem.qtyRecd, cSitem.poItem.qtyCorrected, cSitem.poItem.qtyAccept, cSitem.poItem.qtyRejected, cSitem.poItem.qtyRTV, cSitem.poItem.qcPending,
@@ -115,11 +152,12 @@ namespace AmbleClient.Order.PoView
         {
             return new po
             {
+                poId=this.poId,
                 vendorName = tbVendor.Text.Trim(),
                 contact = tbContact.Text.Trim(),
                 pa = (short)mysubs[cbPa.SelectedIndex],
                 vendorNumber=tbVendorNumber.Text.Trim(),
-                poDate=DateTime.Now, //update时不可写入
+                //poDate=DateTime.Now, //update时不可写入
                 poNo=tbPoNo.Text.Trim(),
                 freight=tbFreight.Text.Trim(),
                 shipMethod=tbShipMethod.Text.Trim(),
@@ -141,8 +179,17 @@ namespace AmbleClient.Order.PoView
 
                 if (DialogResult.Yes == itemView.ShowDialog())
                 {
+                    int poId = poItemsStateList[e.RowIndex].poItem.poId.Value;
+                    int poItemId = poItemsStateList[e.RowIndex].poItem.PoItemsId;
+                    
                     poItemsStateList[e.RowIndex].poItem = itemView.GetPoItem();
+                    poItemsStateList[e.RowIndex].poItem.poId=poId;
+                    poItemsStateList[e.RowIndex].poItem.PoItemsId = poItemId;
+
+                    if(poItemsStateList[e.RowIndex].state!=OrderItemsState.New)
+                    {
                     poItemsStateList[e.RowIndex].state = OrderItemsState.Modified;
+                    }
                 }
             }
         }
@@ -153,15 +200,13 @@ namespace AmbleClient.Order.PoView
            if (itemView.ShowDialog() == DialogResult.Yes)
            {
                poitems item = itemView.GetPoItem();
-               poItemsStateList.Add(
-                   new PoItemContentAndState 
-                   { 
-                    poItem=item,
-                    state=OrderItemsState.New
-                   }
-                   );
+               var poItemContentAndState = new PoItemContentAndState();
+               poItemContentAndState.poItem = item;
+               poItemContentAndState.poItem.poId = this.poId;
+               poItemContentAndState.state = OrderItemsState.New;
+               poItemsStateList.Add(poItemContentAndState);
 
-               FillTheDataGridPoItems(poItemsStateList);
+               FillTheDataGridPoItems();
 
            }
        }
@@ -175,22 +220,24 @@ namespace AmbleClient.Order.PoView
           if( DialogResult.Yes==MessageBox.Show("Delete the selected PO item ?","Warning",MessageBoxButtons.YesNo))
           {
               int rowIndex=dataGridView1.SelectedRows[0].Index;
-             
-              var dgvsr=dataGridView1.SelectedRows[0];
-
-              dgvsr.ReadOnly=true;
-
-             foreach(DataGridViewSelectedCellCollection cell in dgvsr.Cells)
-             {
                
-             
-             }
-
-              poItemsStateList[rowIndex].state=OrderItemsState.Deleted;
+              PoMgr.PoMgr.DeletePoItembyPoItemId(poItemsStateList[rowIndex].poItem.PoItemsId);
+              poItemsStateList.RemoveAt(rowIndex);
+              
+              FillTheDataGridPoItems();
+            
           }
 
 
        }
     }
+
+    public class PoItemContentAndState
+    {
+        public poitems poItem;
+        public OrderItemsState state;
+
+    }
+
 }
  

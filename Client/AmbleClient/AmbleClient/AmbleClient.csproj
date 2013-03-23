@@ -198,6 +198,12 @@
     </Compile>
     <Compile Include="Order\PoMgr\PoMgr.cs" />
     <Compile Include="Order\PoStates.cs" />
+    <Compile Include="Order\PoView\NewPo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\PoView\NewPo.Designer.cs">
+      <DependentUpon>NewPo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Order\PoView\PoItemsView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,12 +217,6 @@
       <DependentUpon>PoView.cs</DependentUpon>
     </Compile>
     <Compile Include="Order\SoOrderState.cs" />
-    <Compile Include="Order\PoView\NewPo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Order\PoView\NewPo.Designer.cs">
-      <DependentUpon>NewPo.cs</DependentUpon>
-    </Compile>
     <Compile Include="Order\PoView\PoItemsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

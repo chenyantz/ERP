@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using AmbleClient.Order.PoMgr;
+
 
 namespace AmbleClient.Order.PoView
 {
@@ -16,14 +18,18 @@ namespace AmbleClient.Order.PoView
             InitializeComponent();
         }
 
-        private void poViewControl1_Load(object sender, EventArgs e)
+        private void tsbClose_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void tsbSave_Click(object sender, EventArgs e)
         {
+            PoMgr.PoMgr.SavePoMain(poViewControl1.GetValues());
+            int poId = PoMgr.PoMgr.GetTheInsertId(UserInfo.UserId);
+            PoMgr.PoMgr.UpDatePoItems(poViewControl1.GetPoItemContentAndSate());
 
         }
+
     }
 }

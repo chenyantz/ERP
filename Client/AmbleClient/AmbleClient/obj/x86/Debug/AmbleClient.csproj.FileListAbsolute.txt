@@ -210,5 +210,5 @@ E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.csproj.Genera
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Order.PoView.PoItemsView.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Order.PoView.NewPo.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Order.PoView.PoView.resources
-E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Order.PoView.PoItemContentAndState.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.SoItemsContentAndState.resources
+E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Order.PoView.PoViewControl.resources

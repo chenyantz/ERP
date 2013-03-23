@@ -146,6 +146,16 @@ namespace AmbleClient.SO
 
         private void tsbUpdate_Click(object sender, EventArgs e)
         {
+            soViewControlList[tabControl1.SelectedIndex].SoUpdate();
+        }
+
+        private void tsbPoEnter_Click(object sender, EventArgs e)
+        {
+            AmbleClient.Order.PoView.NewPo newPo = new Order.PoView.NewPo();
+            newPo.ShowDialog();
+
+
+
 
         }
     }

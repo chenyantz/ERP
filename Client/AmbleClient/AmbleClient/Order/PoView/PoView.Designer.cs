@@ -84,7 +84,7 @@
             // tscbStateList
             // 
             this.tscbStateList.Name = "tscbStateList";
-            this.tscbStateList.Size = new System.Drawing.Size(121, 25);
+            this.tscbStateList.Size = new System.Drawing.Size(180, 25);
             this.tscbStateList.SelectedIndexChanged += new System.EventHandler(this.tscbStateList_SelectedIndexChanged);
             // 
             // tabControl1

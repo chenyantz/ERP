@@ -27,6 +27,7 @@ namespace AmbleClient.SO
         List<int> mySubs;
 
         public int rfqId;
+        private int soId=int.MinValue;
         
         public SoViewControl()
         {
@@ -40,7 +41,9 @@ namespace AmbleClient.SO
 
 
         private void ShowDataInDataGridView()
-        { 
+        {
+            dataGridView1.Rows.Clear();
+
           for(int i=0;i<soItemsStateList.Count;i++)
           {
               string strSaleType, strCurrency;
@@ -122,6 +125,8 @@ namespace AmbleClient.SO
 
         public void FillTheTable(So so)
         {
+
+            this.soId = so.soId;
             tbCustomer.Text = so.customerName;
             tbContact.Text = so.contact;
             tbSalesOrder.Text = so.salesOrderNo;
@@ -175,28 +180,36 @@ namespace AmbleClient.SO
             }
             int soId = SoMgr.GetTheInsertId(so.salesId);
 
-            List<SoItems> soItemList=new List<SoItems>();
-            foreach (SoItemsContentAndState cs in soItemsStateList)
+            foreach(SoItemsContentAndState sics in soItemsStateList)
             {
-                soItemList.Add(cs.soitem);
-             
+              sics.soitem.soId=soId;
             }
+             SoMgr.UpdatePoItems(soItemsStateList);
 
-
-            if (!SoMgr.SaveSoItems(soId, soItemList))
-            {
-                MessageBox.Show("Save Sale Order Items Error!");
-
-            }
-            else
-            {
                 new AmbleClient.RfqGui.RfqManager.RfqMgr().ChangeRfqState(RfqStatesEnum.HasSO, rfqId);
 
                 MessageBox.Show("Save Sale Order Successfully");
-            
-            }
 
         }
+
+
+        public void SoUpdate()
+        {
+            CheckValues();
+            So so = GetValues();
+            if (!SoMgr.UpdateSoMain(so))
+            {
+                MessageBox.Show("Update Sale Order Error!");
+                return;
+            }
+
+            SoMgr.UpdatePoItems(soItemsStateList);
+
+            MessageBox.Show("Update Sale Order Successfully");
+        }
+
+
+
 
         private void CheckValues()
         { 
@@ -208,6 +221,7 @@ namespace AmbleClient.SO
            
             return new So
             {
+             soId=this.soId,
             customerName = tbCustomer.Text.Trim(),
             contact = tbContact.Text.Trim(),
             salesId = mySubs[cbSp.SelectedIndex],
@@ -225,15 +239,6 @@ namespace AmbleClient.SO
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-
-
-
-
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
@@ -244,9 +249,16 @@ namespace AmbleClient.SO
 
                 if (DialogResult.Yes == itemView.ShowDialog())
                 {
+                    int soId = soItemsStateList[e.RowIndex].soitem.soId;
+                    int soItemId = soItemsStateList[e.RowIndex].soitem.soItemsId;
                     soItemsStateList[e.RowIndex].soitem = itemView.GetSoItems();
-                    soItemsStateList[e.RowIndex].state = OrderItemsState.Modified;
-                
+                    soItemsStateList[e.RowIndex].soitem.soId = soId;
+                    soItemsStateList[e.RowIndex].soitem.soItemsId = soItemId;
+
+                    if (soItemsStateList[e.RowIndex].state != OrderItemsState.New)
+                    {
+                        soItemsStateList[e.RowIndex].state = OrderItemsState.Modified;
+                    }
                 }
 
             }
@@ -260,17 +272,12 @@ namespace AmbleClient.SO
             if (soItemView.ShowDialog() == DialogResult.Yes)
             {
                 SoItems item = soItemView.GetSoItems();
-                soItemsStateList.Add(
-                    new SoItemsContentAndState
-                    {
-                        soitem = item,
-                        state = OrderItemsState.New
-                    }
-                    );
+                var soItemContentAndState = new SoItemsContentAndState();
+                soItemContentAndState.soitem = item;
+                soItemContentAndState.soitem.soId = this.soId;
+                soItemContentAndState.state = OrderItemsState.New;
+                soItemsStateList.Add(soItemContentAndState);
                 ShowDataInDataGridView();
-
-
-
 
             }
 
@@ -285,20 +292,10 @@ namespace AmbleClient.SO
             if (DialogResult.Yes == MessageBox.Show("Delete the selected SO item ?", "Warning", MessageBoxButtons.YesNo))
             {
                 int rowIndex = dataGridView1.SelectedRows[0].Index;
-
-                var dgvsr = dataGridView1.SelectedRows[0];
-
-                dgvsr.ReadOnly = true;
-
-                foreach (DataGridViewSelectedCellCollection cell in dgvsr.Cells)
-                {
-
-
-                }
-
-                soItemsStateList[rowIndex].state = OrderItemsState.Deleted;
+                SoMgr.DeleteSoItembySoItemId(soItemsStateList[rowIndex].soitem.soItemsId);
+                soItemsStateList.RemoveAt(rowIndex);
+                ShowDataInDataGridView();
             }
-
 
 
 

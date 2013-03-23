@@ -12,8 +12,7 @@ namespace AmbleClient.Order
     { 
      Normal,
      New,
-     Modified,
-     Deleted
+     Modified
     };
 
 

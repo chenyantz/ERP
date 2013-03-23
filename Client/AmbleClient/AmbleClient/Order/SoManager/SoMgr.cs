@@ -303,8 +303,8 @@ namespace AmbleClient.Order.SoMgr
 
        public static bool UpdateSoMain(So so)
        {
-           string strSql = string.Format("update So set customerName='{0}',contact='{1}',salesId={2},salesOrderNo='{3}',orderDate='{4}',customerPo='{5}',paymentTerm='{6}',freightTerm='{7}',customerAccount='{8}',specialInstructions='{9}',billTo='{10}',shipTo='{11}' where soId={12}",
-        so.customerName, so.contact, so.salesId, so.salesOrderNo, so.orderDate.ToShortDateString(), so.customerPo,so.paymentTerm, so.freightTerm, so.customerAccount, so.specialInstructions, so.billTo, so.shipTo,so.soId);
+           string strSql = string.Format("update So set customerName='{0}',contact='{1}',salesId={2},salesOrderNo='{3}',customerPo='{4}',paymentTerm='{5}',freightTerm='{6}',customerAccount='{7}',specialInstructions='{8}',billTo='{9}',shipTo='{10}' where soId={11}",
+        so.customerName, so.contact, so.salesId, so.salesOrderNo, so.customerPo,so.paymentTerm, so.freightTerm, so.customerAccount, so.specialInstructions, so.billTo, so.shipTo,so.soId);
 
            if (db.ExecDataBySql(strSql) == 1)
                return true;
@@ -325,20 +325,22 @@ namespace AmbleClient.Order.SoMgr
        public static string GetSaveNewSoItemString(SoItems soItem)
        {
            string strsql = "insert into SoItems(soId,saleType,partNo,mfg,rohs,dc,intPartNo,shipFrom,shipMethod,trackingNo,qty,qtyShipped,currency,unitPrice,dockDate,shippedDate,shippingInstruction,packingInstruction) " +
-        string.Format(" values({0},{1},'{2}','{3}',{4},'{5}','{6}','{7}','{8}','{9}',{10},{11},{12},{13},'{14}','{15}','{16}','{17}')", soId, soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc,
+        string.Format(" values({0},{1},'{2}','{3}',{4},'{5}','{6}','{7}','{8}','{9}',{10},{11},{12},{13},'{14}','{15}','{16}','{17}')", soItem.soId, soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc,
         soItem.intPartNo, soItem.shipFrom, soItem.shipMethod, soItem.trackingNo, soItem.qty, soItem.qtyshipped, soItem.currencyType, soItem.unitPrice, soItem.dockDate.ToShortDateString(), soItem.shippedDate.HasValue ? soItem.shippedDate.Value.ToShortDateString() : "null",
         soItem.shippingInstruction, soItem.packingInstruction);
            return strsql;
        }
 
-       public static string GetDeleteSoItemString(SoItems soItem)
+       public static void DeleteSoItembySoItemId(int soItemsId)
        {
-           return string.Format("delete from SoItems where soItemsId={0}", soItem.soItemsId);
-       
+           string strSql= string.Format("delete from SoItems where soItemsId={0}",soItemsId);
+           db.ExecDataBySql(strSql);
+
+
        }
 
 
-       public static void UpDatePoItems(List<SoItemsContentAndState> soItemStateList)
+       public static void UpdatePoItems(List<SoItemsContentAndState> soItemStateList)
        {
            List<string> strSqls = new List<string>();
            
@@ -357,13 +359,7 @@ namespace AmbleClient.Order.SoMgr
                       strSqls.Add(GetUpDateSoItemString(sics.soitem));
                        break;
 
-                   case OrderItemsState.Deleted:
-                       strSqls.Add(GetDeleteSoItemString(sics.soitem));
-
-                       break;
                }
-
-
            }
            db.ExecDataBySqls(strSqls);
 

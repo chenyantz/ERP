@@ -1,6 +1,6 @@
 ﻿namespace AmbleClient.Order.PoView
 {
-    partial class NewPo
+    partial class PoItemsView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewPo));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PoItemsView));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsbSave = new System.Windows.Forms.ToolStripButton();
+            this.tscbOp = new System.Windows.Forms.ToolStripButton();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
-            this.poViewControl1 = new AmbleClient.Order.PoView.PoViewControl();
+            this.poItemsControl1 = new AmbleClient.PO.PoItemsControl();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbSave,
+            this.tscbOp,
             this.tsbClose});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(888, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(699, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // tsbSave
+            // tscbOp
             // 
-            this.tsbSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
-            this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(38, 22);
-            this.tsbSave.Text = "Save";
-            this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
+            this.tscbOp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tscbOp.Image = ((System.Drawing.Image)(resources.GetObject("tscbOp.Image")));
+            this.tscbOp.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tscbOp.Name = "tscbOp";
+            this.tscbOp.Size = new System.Drawing.Size(71, 22);
+            this.tscbOp.Text = "Op&&Close";
+            this.tscbOp.Click += new System.EventHandler(this.tscbOp_Click);
             // 
             // tsbClose
             // 
@@ -65,25 +65,25 @@
             this.tsbClose.Name = "tsbClose";
             this.tsbClose.Size = new System.Drawing.Size(43, 22);
             this.tsbClose.Text = "Close";
+            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
-            // poViewControl1
+            // poItemsControl1
             // 
-            this.poViewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.poViewControl1.Location = new System.Drawing.Point(0, 25);
-            this.poViewControl1.Name = "poViewControl1";
-            this.poViewControl1.Size = new System.Drawing.Size(888, 465);
-            this.poViewControl1.TabIndex = 1;
-            this.poViewControl1.Load += new System.EventHandler(this.poViewControl1_Load);
+            this.poItemsControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.poItemsControl1.Location = new System.Drawing.Point(0, 25);
+            this.poItemsControl1.Name = "poItemsControl1";
+            this.poItemsControl1.Size = new System.Drawing.Size(699, 425);
+            this.poItemsControl1.TabIndex = 1;
             // 
-            // NewPo
+            // PoItemsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(888, 490);
-            this.Controls.Add(this.poViewControl1);
+            this.ClientSize = new System.Drawing.Size(699, 450);
+            this.Controls.Add(this.poItemsControl1);
             this.Controls.Add(this.toolStrip1);
-            this.Name = "NewPo";
-            this.Text = "NewPo";
+            this.Name = "PoItemsView";
+            this.Text = "PoItemsViewAdd";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -94,8 +94,8 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton tsbSave;
+        private System.Windows.Forms.ToolStripButton tscbOp;
         private System.Windows.Forms.ToolStripButton tsbClose;
-        private PoViewControl poViewControl1;
+        private PO.PoItemsControl poItemsControl1;
     }
 }

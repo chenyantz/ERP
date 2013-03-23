@@ -39,7 +39,7 @@ namespace AmbleClient.SO
 
         private void tsbEnterPo_Click(object sender, EventArgs e)
         {
-            PO.NewPo newPo = new PO.NewPo();
+            AmbleClient.Order.PoView.NewPo newPo = new Order.PoView.NewPo();
             newPo.ShowDialog();
         }
 

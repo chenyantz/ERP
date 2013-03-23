@@ -7,7 +7,18 @@ using AmbleClient.Order.SoMgr;
 
 namespace AmbleClient.Order
 {
-    
+
+    public enum OrderItemsState
+    { 
+     Normal,
+     New,
+     Modified,
+     Deleted
+    };
+
+
+
+
     
     public class Operation
     {

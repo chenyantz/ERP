@@ -7,16 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using AmbleClient.Order.SoMgr;
+using AmbleClient.Order;
 using AmbleClient.RfqGui.RfqManager;
 
 
 namespace AmbleClient.SO
 {
+    public class SoItemsContentAndState
+    {
+      public  SoItems soitem;
+      public   OrderItemsState state;
+    }
+    
     public partial class SoViewControl : UserControl
     {
-
         bool needFreezeItemControl = false;
-        List<SoItems> soItemsList = new List<SoItems>();
+        List<SoItemsContentAndState> soItemsStateList = new List<SoItemsContentAndState>();
         
         List<int> mySubs;
 
@@ -35,10 +41,10 @@ namespace AmbleClient.SO
 
         private void ShowDataInDataGridView()
         { 
-          for(int i=0;i<soItemsList.Count;i++)
+          for(int i=0;i<soItemsStateList.Count;i++)
           {
               string strSaleType, strCurrency;
-              switch (soItemsList[i].saleType)
+              switch (soItemsStateList[i].soitem.saleType)
               { 
                   case 0:
                       strSaleType = "OEM EXCESS";
@@ -55,31 +61,13 @@ namespace AmbleClient.SO
               
               }
 
-              strCurrency = Enum.GetName(typeof(AmbleClient.Currency), soItemsList[i].currencyType);
+              strCurrency = Enum.GetName(typeof(AmbleClient.Currency), soItemsStateList[i].soitem.currencyType);
 
-              /*
-              switch (soItemsList[i].currencyType)
-              { 
-                  case 0:
-                      strCurrency = "USD";
-                      break;
-                  case 1:
-                      strCurrency = "CNY";break;
-                  case 2:
-                      strCurrency = "EUR";break;
-                  case 3:
-                      strCurrency = "HK";break;
-                  case 4:
-                      strCurrency = "JP";break;
-                  default:
-                      strCurrency = "ERROR";break;
-            
-              }*/
 
-              dataGridView1.Rows.Add(i + 1, strSaleType, soItemsList[i].partNo, soItemsList[i].mfg, soItemsList[i].rohs, soItemsList[i].dc,
-                  soItemsList[i].intPartNo, soItemsList[i].shipFrom, soItemsList[i].shipMethod, soItemsList[i].trackingNo, soItemsList[i].qty,
-                  soItemsList[i].qtyshipped, strCurrency, soItemsList[i].unitPrice, soItemsList[i].qtyshipped * soItemsList[i].unitPrice, soItemsList[i].dockDate,
-                  soItemsList[i].shippedDate);
+              dataGridView1.Rows.Add(i + 1, strSaleType, soItemsStateList[i].soitem.partNo, soItemsStateList[i].soitem.mfg, soItemsStateList[i].soitem.rohs, soItemsStateList[i].soitem.dc,
+                  soItemsStateList[i].soitem.intPartNo, soItemsStateList[i].soitem.shipFrom, soItemsStateList[i].soitem.shipMethod, soItemsStateList[i].soitem.trackingNo, soItemsStateList[i].soitem.qty,
+                  soItemsStateList[i].soitem.qtyshipped, strCurrency, soItemsStateList[i].soitem.unitPrice, soItemsStateList[i].soitem.qtyshipped * soItemsStateList[i].soitem.unitPrice, soItemsStateList[i].soitem.dockDate,
+                  soItemsStateList[i].soitem.shippedDate);
           }
 
      
@@ -158,9 +146,18 @@ namespace AmbleClient.SO
 
             cbSp.SelectedIndex = mySubs.IndexOf(so.salesId);
 
-            foreach (SoItems item in so.items)
+
+
+
+            foreach (SoItems item in SoMgr.GetSoItemsAccordingToSoId(so.soId))
             {
-                this.soItemsList.Add(item);            
+                this.soItemsStateList.Add(
+                new SoItemsContentAndState
+                {
+                    soitem = item,
+                    state = OrderItemsState.Normal
+                }
+                );
             }
             ShowDataInDataGridView();
 
@@ -177,7 +174,16 @@ namespace AmbleClient.SO
                 return;
             }
             int soId = SoMgr.GetTheInsertId(so.salesId);
-            if (!SoMgr.SaveSoItems(soId, so.items))
+
+            List<SoItems> soItemList=new List<SoItems>();
+            foreach (SoItemsContentAndState cs in soItemsStateList)
+            {
+                soItemList.Add(cs.soitem);
+             
+            }
+
+
+            if (!SoMgr.SaveSoItems(soId, soItemList))
             {
                 MessageBox.Show("Save Sale Order Items Error!");
 
@@ -199,15 +205,9 @@ namespace AmbleClient.SO
 
         private So GetValues()
         {
-      
-            
-            
-            
-            
-            
+           
             return new So
             {
-            items = soItemsList,
             customerName = tbCustomer.Text.Trim(),
             contact = tbContact.Text.Trim(),
             salesId = mySubs[cbSp.SelectedIndex],
@@ -230,19 +230,24 @@ namespace AmbleClient.SO
 
         }
 
+
+
+
+
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
 
                 SoItemView itemView = new SoItemView(false);
-                itemView.FillTheTable(soItemsList[e.RowIndex]);
+                itemView.FillTheTable(soItemsStateList[e.RowIndex].soitem);
 
-                if (needFreezeItemControl)
+                if (DialogResult.Yes == itemView.ShowDialog())
                 {
-                    itemView.FreeTheSoItems();
+                    soItemsStateList[e.RowIndex].soitem = itemView.GetSoItems();
+                    soItemsStateList[e.RowIndex].state = OrderItemsState.Modified;
+                
                 }
-                itemView.ShowDialog();
 
             }
 
@@ -254,20 +259,49 @@ namespace AmbleClient.SO
             SoItemView soItemView = new SoItemView(true);
             if (soItemView.ShowDialog() == DialogResult.Yes)
             {
-                soItemsList.Add(soItemView.GetSoItems());
+                SoItems item = soItemView.GetSoItems();
+                soItemsStateList.Add(
+                    new SoItemsContentAndState
+                    {
+                        soitem = item,
+                        state = OrderItemsState.New
+                    }
+                    );
                 ShowDataInDataGridView();
+
+
+
+
             }
 
         }
 
         private void btDelete_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows[0].Index >= 0)
+            if (dataGridView1.SelectedRows.Count == 0)
             {
-                soItemsList.RemoveAt(dataGridView1.SelectedRows[0].Index);
-                ShowDataInDataGridView();
-            
+                return;
             }
+            if (DialogResult.Yes == MessageBox.Show("Delete the selected SO item ?", "Warning", MessageBoxButtons.YesNo))
+            {
+                int rowIndex = dataGridView1.SelectedRows[0].Index;
+
+                var dgvsr = dataGridView1.SelectedRows[0];
+
+                dgvsr.ReadOnly = true;
+
+                foreach (DataGridViewSelectedCellCollection cell in dgvsr.Cells)
+                {
+
+
+                }
+
+                soItemsStateList[rowIndex].state = OrderItemsState.Deleted;
+            }
+
+
+
+
         }
     }
 }

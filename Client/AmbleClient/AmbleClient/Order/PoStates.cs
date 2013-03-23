@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using AmbleClient.Order.SoMgr;
+using AmbleClient.Order;
 
 namespace AmbleClient.Order
 {
@@ -20,11 +22,15 @@ namespace AmbleClient.Order
 
         public virtual List<JobDescription> WhoCanUpdate()
         {
-            return null;
+            var listJobDes = new List<JobDescription>();
+            listJobDes.Add(JobDescription.buyerManager);
+            listJobDes.Add(JobDescription.boss);
+            listJobDes.Add(JobDescription.admin);
+            return listJobDes; ;
         }
         public void UpdateState(int poId, int poState)
         {
-           // SoMgr.SoMgr.UpdateSoState(soId, UserInfo.UserId, soState);
+            PoMgr.PoMgr.UpdatePoState(poId, poState);
 
         }
         public List<Operation> GetOperationList()
@@ -39,6 +45,7 @@ namespace AmbleClient.Order
       public PoNew()
       {
           var opJobs=new List<JobDescription>();
+          opJobs.Add(JobDescription.buyer);
           opJobs.Add(JobDescription.buyerManager);
           opJobs.Add(JobDescription.boss);
           opJobs.Add(JobDescription.admin);
@@ -62,6 +69,17 @@ namespace AmbleClient.Order
           operationList.Add(operation1);
       
       }
+
+
+      public override List<JobDescription> WhoCanUpdate()
+      {
+          var listJobDes = new List<JobDescription>();
+          listJobDes.Add(JobDescription.buyerManager);
+          listJobDes.Add(JobDescription.boss);
+          listJobDes.Add(JobDescription.admin);
+          return listJobDes; ;
+      }
+
       public void RejectPo(int poId)
       {
           UpdateState(poId, new PoRejected().GetStateValue());
@@ -138,6 +156,10 @@ namespace AmbleClient.Order
       public void SetPoStateWatingForShip(int poId)
       {
           UpdateState(poId, new PoWaitingForShip().GetStateValue());
+          SoMgr.SoMgr.UpdateSoState(PoMgr.PoMgr.GetSoIdAccordingToPoId(poId),UserInfo.UserId, new SoWaitingForShip().GetStateValue());
+
+
+
       }
 
         public override int GetStateValue()

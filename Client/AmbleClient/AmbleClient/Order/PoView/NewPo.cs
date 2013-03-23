@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace AmbleClient.PO
+namespace AmbleClient.Order.PoView
 {
     public partial class NewPo : Form
     {

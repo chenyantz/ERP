@@ -1,4 +1,4 @@
-﻿namespace AmbleClient.PO
+﻿namespace AmbleClient.Order.PoView
 {
     partial class PoViewControl
     {
@@ -299,7 +299,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(778, 160);
             this.dataGridView1.TabIndex = 25;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
             // No
             // 
@@ -478,6 +478,7 @@
             this.btAdd.TabIndex = 27;
             this.btAdd.Text = "Add";
             this.btAdd.UseVisualStyleBackColor = true;
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
             // 
             // btDelete
             // 
@@ -487,6 +488,7 @@
             this.btDelete.TabIndex = 28;
             this.btDelete.Text = "Delete";
             this.btDelete.UseVisualStyleBackColor = true;
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
             // 
             // cbPa
             // 

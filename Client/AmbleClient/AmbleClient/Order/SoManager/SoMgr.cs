@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-
+using AmbleClient.SO;
 
 namespace AmbleClient.Order.SoMgr
 {
@@ -173,8 +173,7 @@ namespace AmbleClient.Order.SoMgr
                specialInstructions = dr["specialInstructions"].ToString(),
                billTo = dr["billTo"].ToString(),
                shipTo = dr["shipTo"].ToString(),
-               soStates = Convert.ToInt32(dr["soStates"]),
-               items=GetSoItemsAccordingToSoId(soId)
+               soStates = Convert.ToInt32(dr["soStates"])
            };
 
        }
@@ -255,6 +254,16 @@ namespace AmbleClient.Order.SoMgr
 
        }
 
+       public static int GetSoStateAccordingToSoId(int soId)
+       {
+           string strSql = " select soStates from so where soId=" + soId.ToString();
+           return (int)db.GetSingleObject(strSql);
+      
+       }
+
+
+
+
        public static bool UpdateSoState(int soId,int userid, int state)
        {
            string strSql;
@@ -262,6 +271,19 @@ namespace AmbleClient.Order.SoMgr
            if (state == new SoApprove().GetStateValue())
            {
                strSql = string.Format("update so set soStates={0},approverId={1},approveDate='{2}' where soId={3}", state, userid, DateTime.Now.ToShortDateString(), soId);
+           }
+           else if (state == new SoWaitingForShip().GetStateValue())
+           {
+               if (GetSoStateAccordingToSoId(soId) == new SoApprove().GetStateValue())
+               {
+                   strSql = string.Format("update so set soStates={0} where soId={1}", state, soId);
+
+               }
+               else
+               {
+                   return false;
+               }
+            
            }
            else
            {
@@ -276,6 +298,75 @@ namespace AmbleClient.Order.SoMgr
            {
                return false;
            }
+       }
+
+
+       public static bool UpdateSoMain(So so)
+       {
+           string strSql = string.Format("update So set customerName='{0}',contact='{1}',salesId={2},salesOrderNo='{3}',orderDate='{4}',customerPo='{5}',paymentTerm='{6}',freightTerm='{7}',customerAccount='{8}',specialInstructions='{9}',billTo='{10}',shipTo='{11}' where soId={12}",
+        so.customerName, so.contact, so.salesId, so.salesOrderNo, so.orderDate.ToShortDateString(), so.customerPo,so.paymentTerm, so.freightTerm, so.customerAccount, so.specialInstructions, so.billTo, so.shipTo,so.soId);
+
+           if (db.ExecDataBySql(strSql) == 1)
+               return true;
+
+           return false;
+       }
+
+
+       public static string GetUpDateSoItemString(SoItems soItem)
+       {
+
+          return string.Format("update SoItems set saleType={0},partNo='{1}',mfg='{2}',rohs={3},dc='{4}',intPartNo='{5}',shipFrom='{6}',shipMethod='{7}',trackingNo='{8}',qty={9},qtyShipped={10},currency={11},unitPrice={12},dockDate='{13}',shippedDate='{14}',shippingInstruction='{15}',packingInstruction='{16}' where soItemsId={17} " +
+       soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc,    soItem.intPartNo, soItem.shipFrom, soItem.shipMethod, soItem.trackingNo, soItem.qty, soItem.qtyshipped, soItem.currencyType, soItem.unitPrice, soItem.dockDate.ToShortDateString(), soItem.shippedDate.HasValue ? soItem.shippedDate.Value.ToShortDateString() : "null",
+    soItem.shippingInstruction, soItem.packingInstruction,soItem.soItemsId);
+
+       }
+
+       public static string GetSaveNewSoItemString(SoItems soItem)
+       {
+           string strsql = "insert into SoItems(soId,saleType,partNo,mfg,rohs,dc,intPartNo,shipFrom,shipMethod,trackingNo,qty,qtyShipped,currency,unitPrice,dockDate,shippedDate,shippingInstruction,packingInstruction) " +
+        string.Format(" values({0},{1},'{2}','{3}',{4},'{5}','{6}','{7}','{8}','{9}',{10},{11},{12},{13},'{14}','{15}','{16}','{17}')", soId, soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc,
+        soItem.intPartNo, soItem.shipFrom, soItem.shipMethod, soItem.trackingNo, soItem.qty, soItem.qtyshipped, soItem.currencyType, soItem.unitPrice, soItem.dockDate.ToShortDateString(), soItem.shippedDate.HasValue ? soItem.shippedDate.Value.ToShortDateString() : "null",
+        soItem.shippingInstruction, soItem.packingInstruction);
+           return strsql;
+       }
+
+       public static string GetDeleteSoItemString(SoItems soItem)
+       {
+           return string.Format("delete from SoItems where soItemsId={0}", soItem.soItemsId);
+       
+       }
+
+
+       public static void UpDatePoItems(List<SoItemsContentAndState> soItemStateList)
+       {
+           List<string> strSqls = new List<string>();
+           
+           foreach (SoItemsContentAndState sics in soItemStateList)
+           {
+               switch (sics.state)
+               {
+                   case OrderItemsState.Normal:
+                       break;
+
+                   case OrderItemsState.New:
+                       strSqls.Add(GetSaveNewSoItemString(sics.soitem));
+                       break;
+
+                   case OrderItemsState.Modified:
+                      strSqls.Add(GetUpDateSoItemString(sics.soitem));
+                       break;
+
+                   case OrderItemsState.Deleted:
+                       strSqls.Add(GetDeleteSoItemString(sics.soitem));
+
+                       break;
+               }
+
+
+           }
+           db.ExecDataBySqls(strSqls);
+
        }
     }
 }

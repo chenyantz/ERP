@@ -24,7 +24,6 @@ namespace AmbleClient.Order.SoMgr
         public string billTo;
         public string shipTo;
         public int soStates;
-        public List<SoItems> items;
     
     }
 

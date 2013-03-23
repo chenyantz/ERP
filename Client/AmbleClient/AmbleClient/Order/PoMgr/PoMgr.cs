@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using AmbleClient.Order.PoView;
 
 namespace AmbleClient.Order.PoMgr
 {
    public class PoMgr
     {
-      
-       
-       
-       
+      static private PoEntities poEntity=new PoEntities();
+
+
        public static List<po> GetPoAccordingToFilter(int userId, bool includedSubs, string filterColumn, string filterString, List<int> stateList)
        { 
          //get the sub;
@@ -29,9 +29,6 @@ namespace AmbleClient.Order.PoMgr
                userIds.Add(userId);
            }
 
-           using(PoEntities poEntity=new PoEntities())
-           {
-            
                if(filterColumn.Trim().Length==0||filterString.Trim().Length==0)
                {
                 var poListFromDb= from poItem in poEntity.po 
@@ -52,30 +49,37 @@ namespace AmbleClient.Order.PoMgr
                    poList.AddRange(poListFromDb);
                
               }
-           }
            return poList;
          
+       }
+
+       public static List<po> GetPoAccordingToSoId(int soId)
+       {
+           List<po> poList = new List<po>();
+
+               var poListFromDb = poEntity.po.Where(poMain => poMain.soId == soId);
+               poList.AddRange(poListFromDb);
+           return poList;
+       
        }
 
 
        public static po GetPoAccordingToPoId(int poId)
        {
-          using (PoEntities poEntity = new PoEntities())
-           {
+
                var poList = from poMain in poEntity.po
                             where poMain.poId == poId
                             select poMain;
                return poList.First();
          
-           }
+       
        }
 
 
        public static List<poitems> GetPoItemsAccordingToPoId(int poId)
        {
            List<poitems> poitems = new List<poitems>();
-           using (PoEntities poEntity = new PoEntities())
-           {
+
                var poitemsList = from poItem in poEntity.poitems
                                  where poItem.poId == poId
                                  select poItem;
@@ -85,66 +89,98 @@ namespace AmbleClient.Order.PoMgr
                
                }
                return poitems;
-           }
        }
 
 
 
        public static void SavePoMain(po poMain)
        {
-           using (PoEntities poEntity = new PoEntities())
-           {
+
                poEntity.po.AddObject(poMain);
                poEntity.SaveChanges();
-           }
+
 
        }
 
 
        public static int GetTheInsertId(int userId)
        {
-          using (PoEntities poEntity = new PoEntities())
-           {
               var maxId=(from poMain in poEntity.po
                         where (int)poMain.pa==userId
                         select poMain.poId).Max();
 
               return maxId;
-           }
-       
-       
-       
        }
 
 
 
        public static void SavePoItems(int poId, List<poitems> poitemsList)
        {
-           using (PoEntities poEntity = new PoEntities())
-           {
                foreach (poitems poitem in poitemsList)
                {
                    poEntity.poitems.AddObject(poitem);
                }
                poEntity.SaveChanges();
-           }
        
        }
 
 
        public static void UpdatePoState(int poId, int state)
        {
-           using (PoEntities poEntity = new PoEntities())
-           {
                po poMain = (poEntity.po.First(item => item.poId == poId));
                poMain.poStates = (sbyte)state;
                poEntity.SaveChanges();
-           }
+       }
+
+
+       public static int GetSoIdAccordingToPoId(int poId)
+       {
+
+            var soId=from poItem in poEntity.po
+                      where poItem.poId==poId
+                      select poItem.soId
+
+             return (int)soId.First();
+
        }
 
 
 
+       public static void UpdatePo(po poMain)
+       {
+           po poItem = poEntity.po.Where(item => item.poId == poMain.poId).First();
+           poItem = poMain;
+           poEntity.SaveChanges();
+       }
 
+       public static void UpDatePoItems(List<PoItemContentAndState> poItemStateList)
+       {
+           foreach (PoItemContentAndState pics in poItemStateList)
+           {
+               switch (pics.state)
+               { 
+                   case OrderItemsState.Normal:
+                       break;
+                   
+                   case OrderItemsState.New:
+                       poEntity.poitems.AddObject(pics.poItem);
+                       break;
+
+                   case OrderItemsState.Modified:
+                       poitems item = poEntity.poitems.Where(pitem =>(pitem.PoItemsId == pics.poItem.PoItemsId)).First();
+                       item = pics.poItem;
+                       break;
+
+                   case OrderItemsState.Deleted:
+
+                       poitems item = poEntity.poitems.Where(pitem => (pitem.PoItemsId == pics.poItem.PoItemsId)).First();
+                       poEntity.poitems.DeleteObject(item);
+                       break;
+               }
+           }
+
+           poEntity.SaveChanges();
+       }
 
 
 

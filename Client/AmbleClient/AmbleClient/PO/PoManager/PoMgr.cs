@@ -6,7 +6,7 @@ using System.Data;
 
 namespace AmbleClient.PO.PoMgr
 {
-   public class PoMgr
+   public class PoMgrBak
     {
        DataClass.DataBase db = new DataClass.DataBase();
 

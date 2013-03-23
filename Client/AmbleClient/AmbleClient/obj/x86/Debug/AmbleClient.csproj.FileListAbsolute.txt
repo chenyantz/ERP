@@ -188,9 +188,7 @@ E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.OfferGui.NewO
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.OfferGui.OfferItems.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.OfferGui.OfferList.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Order.OrderListView.resources
-E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.PO.NewPo.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.PO.PoItemsControl.resources
-E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.PO.PoViewControl.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.BuyerManagerRfqListView.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.BuyerManagerRfqView.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.BuyerRfqListView.resources
@@ -208,5 +206,9 @@ E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.NewSo.reso
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.SoItemsControl.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.SoItemView.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.SoView.resources
-E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.SoViewControl.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.csproj.GenerateResource.Cache
+E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Order.PoView.PoItemsView.resources
+E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Order.PoView.NewPo.resources
+E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Order.PoView.PoView.resources
+E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Order.PoView.PoItemContentAndState.resources
+E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.SoItemsContentAndState.resources

@@ -154,7 +154,7 @@ namespace AmbleClient.Admin.AccountMgr
                        allSubsId.Add(subId);
                       }
                       else
-                      {    if(jobs.Contains(Convert.ToInt32(dr["job"]))
+                      {    if(jobs.Contains(Convert.ToInt32(dr["job"])))
                              {
                               allSubsId.Add(subId);
                              }

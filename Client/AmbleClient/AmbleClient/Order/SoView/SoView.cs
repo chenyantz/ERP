@@ -151,7 +151,7 @@ namespace AmbleClient.SO
 
         private void tsbPoEnter_Click(object sender, EventArgs e)
         {
-            AmbleClient.Order.PoView.NewPo newPo = new Order.PoView.NewPo();
+            AmbleClient.Order.PoView.NewPo newPo = new Order.PoView.NewPo(soList[tabControl1.SelectedIndex].soId);
             newPo.ShowDialog();
 
 

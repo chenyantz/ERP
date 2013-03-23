@@ -13,10 +13,21 @@ namespace AmbleClient.Order.PoView
 {
     public partial class NewPo : Form
     {
+
+        int soId;
+        
         public NewPo()
         {
             InitializeComponent();
         }
+
+        public NewPo(int soId)
+        {
+            this.soId = soId;
+            InitializeComponent();
+        
+        }
+
 
         private void tsbClose_Click(object sender, EventArgs e)
         {
@@ -25,9 +36,20 @@ namespace AmbleClient.Order.PoView
 
         private void tsbSave_Click(object sender, EventArgs e)
         {
-            PoMgr.PoMgr.SavePoMain(poViewControl1.GetValues());
+            po poMain = poViewControl1.GetValues();
+            poMain.soId = this.soId;
+            poMain.poStates =(sbyte) new PoNew().GetStateValue();
+            poMain.poDate = DateTime.Now;
+            PoMgr.PoMgr.SavePoMain(poMain);
             int poId = PoMgr.PoMgr.GetTheInsertId(UserInfo.UserId);
-            PoMgr.PoMgr.UpDatePoItems(poViewControl1.GetPoItemContentAndSate());
+            List<PoItemContentAndState> items = poViewControl1.GetPoItemContentAndSate();
+            foreach (PoItemContentAndState pics in items)
+            {
+                pics.poItem.poId = poId;
+            
+            }
+            PoMgr.PoMgr.UpDatePoItems(items);
+            this.Close();
 
         }
 

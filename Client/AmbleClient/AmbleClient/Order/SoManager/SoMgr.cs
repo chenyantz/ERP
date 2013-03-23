@@ -257,7 +257,7 @@ namespace AmbleClient.Order.SoMgr
        public static int GetSoStateAccordingToSoId(int soId)
        {
            string strSql = " select soStates from so where soId=" + soId.ToString();
-           return (int)db.GetSingleObject(strSql);
+           return Convert.ToInt32(db.GetSingleObject(strSql));
       
        }
 

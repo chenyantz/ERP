@@ -49,6 +49,7 @@ namespace AmbleClient.SO
               rfqMgr.AddRfqHistory(rfqId,UserInfo.UserId,"Created an SO for "+new AmbleClient.Admin.AccountMgr.AccountMgr().GetNameById(soViewControl1.GetAssignedSaleID()));
             
             }
+            this.Close();
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)

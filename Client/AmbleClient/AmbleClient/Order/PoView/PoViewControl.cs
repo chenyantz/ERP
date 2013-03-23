@@ -19,11 +19,13 @@ namespace AmbleClient.Order.PoView
       private int poId = int.MinValue;
 
         List<PoItemContentAndState> poItemsStateList = new List<PoItemContentAndState>();
+        List<PoItemContentAndState> deletedList = new List<PoItemContentAndState>();
+
 
         public PoViewControl()
         {
             InitializeComponent();
-          
+            FillThePACombo();
 
         }
 
@@ -34,7 +36,7 @@ namespace AmbleClient.Order.PoView
 
         private void PoViewControl_Load(object sender, EventArgs e)
         {
-            FillThePACombo();
+          
         }
 
 
@@ -87,6 +89,12 @@ namespace AmbleClient.Order.PoView
             PoMgr.PoMgr.UpdatePo(poMain);
 
             PoMgr.PoMgr.UpDatePoItems(poItemsStateList);
+
+            foreach (PoItemContentAndState pics in deletedList)
+            {
+                PoMgr.PoMgr.DeletePoItembyPoItemId(pics.poItem.PoItemsId);
+            }
+
 
             MessageBox.Show("Update Purchase Order Successfully");
         }
@@ -220,8 +228,8 @@ namespace AmbleClient.Order.PoView
           if( DialogResult.Yes==MessageBox.Show("Delete the selected PO item ?","Warning",MessageBoxButtons.YesNo))
           {
               int rowIndex=dataGridView1.SelectedRows[0].Index;
-               
-              PoMgr.PoMgr.DeletePoItembyPoItemId(poItemsStateList[rowIndex].poItem.PoItemsId);
+
+              deletedList.Add(poItemsStateList[rowIndex]);
               poItemsStateList.RemoveAt(rowIndex);
               
               FillTheDataGridPoItems();

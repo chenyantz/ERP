@@ -13,17 +13,13 @@ using AmbleClient.RfqGui.RfqManager;
 
 namespace AmbleClient.SO
 {
-    public class SoItemsContentAndState
-    {
-      public  SoItems soitem;
-      public   OrderItemsState state;
-    }
-    
+
     public partial class SoViewControl : UserControl
     {
         bool needFreezeItemControl = false;
         List<SoItemsContentAndState> soItemsStateList = new List<SoItemsContentAndState>();
-        
+        List<SoItemsContentAndState> deletedList = new List<SoItemsContentAndState>();
+
         List<int> mySubs;
 
         public int rfqId;
@@ -205,6 +201,12 @@ namespace AmbleClient.SO
 
             SoMgr.UpdatePoItems(soItemsStateList);
 
+            foreach (SoItemsContentAndState sics in deletedList)
+            {
+                SoMgr.DeleteSoItembySoItemId(sics.soitem.soItemsId);
+            }
+
+
             MessageBox.Show("Update Sale Order Successfully");
         }
 
@@ -292,7 +294,7 @@ namespace AmbleClient.SO
             if (DialogResult.Yes == MessageBox.Show("Delete the selected SO item ?", "Warning", MessageBoxButtons.YesNo))
             {
                 int rowIndex = dataGridView1.SelectedRows[0].Index;
-                SoMgr.DeleteSoItembySoItemId(soItemsStateList[rowIndex].soitem.soItemsId);
+                deletedList.Add(soItemsStateList[rowIndex]);
                 soItemsStateList.RemoveAt(rowIndex);
                 ShowDataInDataGridView();
             }
@@ -301,4 +303,12 @@ namespace AmbleClient.SO
 
         }
     }
+  
+    
+    public class SoItemsContentAndState
+    {
+      public  SoItems soitem;
+      public   OrderItemsState state;
+    }
+    
 }

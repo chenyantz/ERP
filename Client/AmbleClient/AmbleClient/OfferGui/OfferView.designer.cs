@@ -1,6 +1,6 @@
 ﻿namespace AmbleClient.OfferGui
 {
-    partial class OfferList
+    partial class OfferView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OfferList));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OfferView));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbUpdate = new System.Windows.Forms.ToolStripButton();
+            this.tsbRoute = new System.Windows.Forms.ToolStripButton();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tsbRoute = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +45,7 @@
             this.tsbClose});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(920, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(688, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -55,8 +55,17 @@
             this.tsbUpdate.Image = ((System.Drawing.Image)(resources.GetObject("tsbUpdate.Image")));
             this.tsbUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbUpdate.Name = "tsbUpdate";
-            this.tsbUpdate.Size = new System.Drawing.Size(49, 22);
+            this.tsbUpdate.Size = new System.Drawing.Size(54, 22);
             this.tsbUpdate.Text = "Update";
+            // 
+            // tsbRoute
+            // 
+            this.tsbRoute.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbRoute.Image = ((System.Drawing.Image)(resources.GetObject("tsbRoute.Image")));
+            this.tsbRoute.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbRoute.Name = "tsbRoute";
+            this.tsbRoute.Size = new System.Drawing.Size(45, 22);
+            this.tsbRoute.Text = "Route";
             // 
             // tsbClose
             // 
@@ -64,7 +73,7 @@
             this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
             this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(40, 22);
+            this.tsbClose.Size = new System.Drawing.Size(43, 22);
             this.tsbClose.Text = "Close";
             // 
             // tabControl1
@@ -73,26 +82,18 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 25);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(920, 531);
+            this.tabControl1.Size = new System.Drawing.Size(688, 479);
             this.tabControl1.TabIndex = 1;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
-            // tsbRoute
+            // OfferView
             // 
-            this.tsbRoute.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbRoute.Image = ((System.Drawing.Image)(resources.GetObject("tsbRoute.Image")));
-            this.tsbRoute.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbRoute.Name = "tsbRoute";
-            this.tsbRoute.Size = new System.Drawing.Size(42, 22);
-            this.tsbRoute.Text = "Route";
-            // 
-            // OfferList
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(920, 556);
+            this.ClientSize = new System.Drawing.Size(688, 504);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
-            this.Name = "OfferList";
+            this.Name = "OfferView";
             this.Text = "OfferList";
             this.Load += new System.EventHandler(this.OfferList_Load);
             this.toolStrip1.ResumeLayout(false);

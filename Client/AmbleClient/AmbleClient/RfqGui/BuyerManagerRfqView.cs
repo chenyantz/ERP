@@ -97,7 +97,7 @@ namespace AmbleClient.RfqGui
 
         private void tsbViewOffers_Click(object sender, EventArgs e)
         {
-            AmbleClient.OfferGui.OfferList offerList = new OfferGui.OfferList(rfqId);
+            AmbleClient.OfferGui.OfferView offerList = new OfferGui.OfferView(rfqId);
             offerList.ShowDialog();
         }
     }

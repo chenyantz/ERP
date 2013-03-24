@@ -19,15 +19,23 @@ namespace AmbleClient.OfferGui
             InitializeComponent();
             offerMgr = new OfferMgr.OfferMgr();
         }
+      
 
-        private void tbMfg_TextChanged(object sender, EventArgs e)
+        public virtual void FillTheTable(Offer offer)
         {
+            this.tbMpn.Text = offer.mpn;
+            this.tbMfg.Text = offer.mfg;
 
+            this.tbAmount.Text = offer.amount.ToString();
+            this.tbPrice.Text = offer.price.ToString();
+            this.tbDeliverTime.Text = offer.deliverTime.ToString();
+            this.cbTimeUnit.SelectedIndex = offer.timeUnit;
+            this.tbOfferDate.Text = offer.offerDate.ToShortDateString();
+            this.tbOfferState.Text = (offer.offerStates == 0 ? "New" : "Routed");
+            this.tbNotes.Text = offer.notes;
+        
+        
         }
 
-        private void tbPrice_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace AmbleClient.Order
 {
-    abstract public partial class OrderListView : Form
+     public partial class OrderListView : Form
     {
 
         protected string filterColumn=string.Empty;

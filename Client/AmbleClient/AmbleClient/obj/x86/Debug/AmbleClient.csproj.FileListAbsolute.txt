@@ -186,7 +186,6 @@ E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Login.resourc
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.MainFrame.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.OfferGui.NewOffer.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.OfferGui.OfferItems.resources
-E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.OfferGui.OfferList.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Order.OrderListView.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.PO.PoItemsControl.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.BuyerManagerRfqListView.resources
@@ -212,3 +211,4 @@ E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Order.PoView.
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Order.PoView.PoView.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Order.PoView.PoViewControl.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.SoViewControl.resources
+E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.OfferGui.OfferView.resources

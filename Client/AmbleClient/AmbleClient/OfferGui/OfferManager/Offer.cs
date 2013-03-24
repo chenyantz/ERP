@@ -27,6 +27,21 @@ namespace AmbleClient.OfferGui.OfferMgr
    }
 
 
+  public enum OfferState
+  { 
+   New=0,
+   Routed=1,
+   Closed=2
+  };
+
+  public enum TimeUnit
+  { 
+   Days=0,
+   Weeks=1,
+   Month=2,
+   Years=3
+  };
+
 
 
 }

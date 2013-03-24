@@ -9,7 +9,11 @@ namespace AmbleClient.OfferGui.OfferMgr
 {
    public class OfferMgr
     {
+      
+       
        DataClass.DataBase db = new DataClass.DataBase();
+
+
        
        public bool SaveOffer(Offer offer)
        {
@@ -32,6 +36,55 @@ namespace AmbleClient.OfferGui.OfferMgr
        
        }
 
+       public List<Offer> GetOfferAccordingToFilter(int userId, bool includeSubs,string filterColumn,string filterString, List<int> intStateList)
+        {
+            List<Offer> offerList = new List<Offer>();
+            if (intStateList.Count == 0) return offerList;
+            List<int> buyerId = new List<int>();
+
+            if (includeSubs)
+            {
+                var accountMgr = new AmbleClient.Admin.AccountMgr.AccountMgr();
+                buyerId.AddRange(accountMgr.GetAllSubsId(userId, UserCombine.GetUserCanBeBuyers()));
+            }
+            else
+            {
+                buyerId.Add(userId);
+            }
+
+           StringBuilder sb=new StringBuilder();
+           sb.Append("select * from offer where ( buyerId="+buyerId[0]);
+           for(int i=1;i<buyerId.Count;i++)
+           {
+               sb.Append(" or buyerId=" + buyerId[i]);
+           }
+           sb.Append(" ) ");
+
+           //append the filter
+           if ((!string.IsNullOrWhiteSpace(filterColumn)) && (!string.IsNullOrWhiteSpace(filterString)))
+           { 
+            sb.Append(string.Format(" and {0} like '%{1}%' ",filterColumn,filterString));
+           }
+
+           sb.Append(" and ( offerStates="+intStateList[0]);
+           for(int i=1;i<intStateList.Count;i++)
+           {
+            sb.Append(" or offerStates="+intStateList[i]);
+           
+           }
+           sb.Append(" )");
+
+           DataTable dt=db.GetDataTable(sb.ToString(),"offers");
+           foreach (DataRow dr in dt.Rows)
+           {
+               offerList.Add(GetOfferFromDataRow(dr));
+           
+           }
+           return offerList;
+  
+      }
+
+
 
 
        public List<Offer> GetOffersByRfqId(int rfqId)
@@ -49,6 +102,21 @@ namespace AmbleClient.OfferGui.OfferMgr
            return offerList;
 
        }
+
+       public Offer GetOfferByOfferId(int offerId)
+       {
+
+           string strSql = "select * from offer where offerId=" + offerId.ToString();
+
+           DataTable dt = db.GetDataTable(strSql, "tempTable");
+
+         return GetOfferFromDataRow(dt.Rows[0]);
+
+
+       }
+
+
+
 
 
        private Offer GetOfferFromDataRow(DataRow dr)
@@ -94,13 +162,12 @@ namespace AmbleClient.OfferGui.OfferMgr
                amount=tmpAmount,
                price=tmpPrice,
                deliverTime=tmpDeliverTime,
+               buyerId=Convert.ToInt32(dr["buyerId"]),
                timeUnit=Convert.ToInt32(dr["timeUnit"]),
                offerDate=Convert.ToDateTime(dr["offerDate"]),
-               offerStates=Convert.ToInt32(dr["offerStates"])
+               offerStates=Convert.ToInt32(dr["offerStates"]),
+               notes=dr["notes"].ToString()
            };
-
-       
-       
        }
 
 

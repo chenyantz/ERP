@@ -6,7 +6,7 @@ using AmbleClient.Order.SoMgr;
 
 namespace AmbleClient.Order
 {
-   abstract public class SoListView:OrderListView
+    public class SoListView:OrderListView
     {
        protected List<So> soList;
 

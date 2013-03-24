@@ -120,7 +120,7 @@
             this.tbPrice.Name = "tbPrice";
             this.tbPrice.Size = new System.Drawing.Size(154, 20);
             this.tbPrice.TabIndex = 8;
-            this.tbPrice.TextChanged += new System.EventHandler(this.tbPrice_TextChanged);
+           
             // 
             // label5
             // 
@@ -153,7 +153,6 @@
             this.tbMfg.Name = "tbMfg";
             this.tbMfg.Size = new System.Drawing.Size(154, 20);
             this.tbMfg.TabIndex = 1;
-            this.tbMfg.TextChanged += new System.EventHandler(this.tbMfg_TextChanged);
             // 
             // label7
             // 

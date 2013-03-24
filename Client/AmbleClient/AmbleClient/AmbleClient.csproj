@@ -171,14 +171,20 @@
     <Compile Include="OfferGui\OfferItems.Designer.cs">
       <DependentUpon>OfferItems.cs</DependentUpon>
     </Compile>
-    <Compile Include="OfferGui\OfferList.cs">
+    <Compile Include="OfferGui\OfferListView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OfferGui\OfferList.Designer.cs">
-      <DependentUpon>OfferList.cs</DependentUpon>
+    <Compile Include="OfferGui\OfferView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OfferGui\OfferView.designer.cs">
+      <DependentUpon>OfferView.cs</DependentUpon>
     </Compile>
     <Compile Include="OfferGui\OfferManager\Offer.cs" />
     <Compile Include="OfferGui\OfferManager\OfferMgr.cs" />
+    <Compile Include="OfferGui\SalesOfferItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Order\OrderListView\OrderListView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -396,8 +402,8 @@
     <EmbeddedResource Include="OfferGui\OfferItems.resx">
       <DependentUpon>OfferItems.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OfferGui\OfferList.resx">
-      <DependentUpon>OfferList.cs</DependentUpon>
+    <EmbeddedResource Include="OfferGui\OfferView.resx">
+      <DependentUpon>OfferView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Order\OrderListView\OrderListView.resx">
       <DependentUpon>OrderListView.cs</DependentUpon>

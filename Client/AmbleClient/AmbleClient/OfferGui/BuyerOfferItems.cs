@@ -104,22 +104,14 @@ namespace AmbleClient.OfferGui
 
        }
 
-       public void FillTheTable(AmbleClient.OfferGui.OfferMgr.Offer offer)
+       public override void FillTheTable(AmbleClient.OfferGui.OfferMgr.Offer offer)
        {
-           this.tbMpn.Text = offer.mpn;
-           this.tbMfg.Text = offer.mfg;
-           this.tbVendorName.Text = offer.vendorName;
-           this.tbContact.Text = offer.contact;
-           this.tbPhone.Text = offer.phone;
-           this.tbFax.Text = offer.fax;
-           this.tbEmail.Text = offer.email;
-           this.tbAmount.Text = offer.amount.ToString();
-           this.tbPrice.Text = offer.price.ToString();
-           this.tbDeliverTime.Text = offer.deliverTime.ToString();
-           this.cbTimeUnit.SelectedIndex = offer.timeUnit;
-           this.tbOfferDate.Text = offer.offerDate.ToShortDateString();
-           this.tbOfferState.Text = (offer.offerStates == 0 ? "New" : "Routed");
-           this.tbNotes.Text = offer.notes;
+           base.FillTheTable(offer);
+           tbVendorName.Text = offer.vendorName;
+           tbContact.Text = offer.contact;
+           tbPhone.Text = offer.phone;
+           tbFax.Text = offer.fax;
+           tbEmail.Text = offer.email;
        }
        public bool SaveItems(int rfqId)
        {

@@ -158,5 +158,15 @@ namespace AmbleClient
             poListView.MdiParent = this;
             poListView.Show();
         }
+
+        private void offerListViewToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AmbleClient.OfferGui.OfferListView offerListView = new OfferGui.OfferListView();
+            offerListView.MdiParent = this;
+            offerListView.Show();
+
+
+
+        }
     }
 }

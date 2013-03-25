@@ -29,6 +29,17 @@ namespace AmbleClient.OfferGui.OfferMgr
        }
 
 
+       public void UpdateOffer(Offer offer)
+       {
+           string strSql = string.Format("update offer set mpn='{0}',mfg='{1}',vendorName='{2}',contact='{3}',phone='{4}',fax='{5}',email='{6}',amount={7},price={8},deliverTime='{9}',timeUnit={10},buyerId={11},notes='{12}' where offerId={13} ",
+          offer.mpn, offer.mfg, offer.vendorName, offer.contact,offer.phone, offer.fax, offer.email, offer.amount.HasValue ? offer.amount.Value.ToString() : "null", offer.price.HasValue ? offer.price.ToString() : "null", offer.deliverTime.HasValue ? offer.deliverTime.Value.ToString() : "null", offer.timeUnit, offer.buyerId, offer.notes,offer.offerId);
+
+         db.ExecDataBySql(strSql);
+
+       }
+
+
+
        public int GetNewSavedOfferId(int buyerId)
        {
            string strSql = "select max(offerId) from offer where buyerId=" + buyerId;

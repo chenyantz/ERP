@@ -144,6 +144,12 @@
       <DependentUpon>FinancesView.cs</DependentUpon>
     </Compile>
     <Compile Include="global.cs" />
+    <Compile Include="Help\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +190,12 @@
     <Compile Include="OfferGui\OfferManager\OfferMgr.cs" />
     <Compile Include="OfferGui\SalesOfferItems.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Order\OrderListView\FLPoListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\OrderListView\FLSoListView.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Order\OrderListView\OrderListView.cs">
       <SubType>Form</SubType>
@@ -389,6 +401,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Finances\FinancesView.resx">
       <DependentUpon>FinancesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

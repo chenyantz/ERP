@@ -34,6 +34,7 @@
             this.tsbRoute = new System.Windows.Forms.ToolStripButton();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tsbCloseOffer = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,6 +43,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbUpdate,
             this.tsbRoute,
+            this.tsbCloseOffer,
             this.tsbClose});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -57,6 +59,7 @@
             this.tsbUpdate.Name = "tsbUpdate";
             this.tsbUpdate.Size = new System.Drawing.Size(54, 22);
             this.tsbUpdate.Text = "Update";
+            this.tsbUpdate.Click += new System.EventHandler(this.tsbUpdate_Click);
             // 
             // tsbRoute
             // 
@@ -66,6 +69,7 @@
             this.tsbRoute.Name = "tsbRoute";
             this.tsbRoute.Size = new System.Drawing.Size(45, 22);
             this.tsbRoute.Text = "Route";
+            this.tsbRoute.Click += new System.EventHandler(this.tsbRoute_Click);
             // 
             // tsbClose
             // 
@@ -75,6 +79,7 @@
             this.tsbClose.Name = "tsbClose";
             this.tsbClose.Size = new System.Drawing.Size(43, 22);
             this.tsbClose.Text = "Close";
+            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
             // tabControl1
             // 
@@ -85,6 +90,16 @@
             this.tabControl1.Size = new System.Drawing.Size(688, 479);
             this.tabControl1.TabIndex = 1;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            // 
+            // tsbCloseOffer
+            // 
+            this.tsbCloseOffer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbCloseOffer.Image = ((System.Drawing.Image)(resources.GetObject("tsbCloseOffer.Image")));
+            this.tsbCloseOffer.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCloseOffer.Name = "tsbCloseOffer";
+            this.tsbCloseOffer.Size = new System.Drawing.Size(99, 22);
+            this.tsbCloseOffer.Text = "Close the Offer";
+            this.tsbCloseOffer.Click += new System.EventHandler(this.tsbCloseOffer_Click);
             // 
             // OfferView
             // 
@@ -110,6 +125,7 @@
         private System.Windows.Forms.ToolStripButton tsbClose;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.ToolStripButton tsbRoute;
+        private System.Windows.Forms.ToolStripButton tsbCloseOffer;
         /*
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;

@@ -106,6 +106,8 @@ namespace AmbleClient.OfferGui
 
        public override void FillTheTable(AmbleClient.OfferGui.OfferMgr.Offer offer)
        {
+           offerId = offer.offerId;
+
            base.FillTheTable(offer);
            tbVendorName.Text = offer.vendorName;
            tbContact.Text = offer.contact;
@@ -113,10 +115,11 @@ namespace AmbleClient.OfferGui
            tbFax.Text = offer.fax;
            tbEmail.Text = offer.email;
        }
-       public bool SaveItems(int rfqId)
+
+
+       public Offer GetValue()
        {
            Offer offer = new Offer();
-           offer.rfqNo = rfqId;
            offer.mpn = tbMpn.Text.Trim();
            offer.mfg = tbMfg.Text.Trim();
            offer.vendorName = tbVendorName.Text.Trim();
@@ -124,39 +127,49 @@ namespace AmbleClient.OfferGui
            offer.phone = tbPhone.Text.Trim();
            offer.fax = tbFax.Text.Trim();
            offer.email = tbEmail.Text.Trim();
-           if(string.IsNullOrWhiteSpace(tbAmount.Text.Trim()))
+           if (string.IsNullOrWhiteSpace(tbAmount.Text.Trim()))
            {
-            offer.amount=null;
+               offer.amount = null;
            }
            else
            {
-              offer.amount=int.Parse(tbAmount.Text.Trim());
+               offer.amount = int.Parse(tbAmount.Text.Trim());
            }
 
-           if(string.IsNullOrWhiteSpace(tbPrice.Text.Trim()))
+           if (string.IsNullOrWhiteSpace(tbPrice.Text.Trim()))
            {
-            offer.price=null;
+               offer.price = null;
            }
            else
            {
-             offer.price=float.Parse(tbPrice.Text.Trim());
+               offer.price = float.Parse(tbPrice.Text.Trim());
            }
-           if(string.IsNullOrWhiteSpace(tbDeliverTime.Text.Trim()))
+           if (string.IsNullOrWhiteSpace(tbDeliverTime.Text.Trim()))
            {
-            offer.deliverTime=null;
-           
+               offer.deliverTime = null;
+
            }
            else
            {
-            offer.deliverTime=int.Parse(tbDeliverTime.Text.Trim());
+               offer.deliverTime = int.Parse(tbDeliverTime.Text.Trim());
            }
            offer.timeUnit = cbTimeUnit.SelectedIndex;
            offer.buyerId = UserInfo.UserId;
 
            offer.offerDate = DateTime.Now;
            offer.offerStates = 0;//new 
-           offer.notes=tbNotes.Text.Trim();
+           offer.notes = tbNotes.Text.Trim();
 
+           return offer;
+       
+       
+       }
+
+       public bool SaveItems(int rfqId)
+       {
+           var offer = GetValue();
+           offer.rfqNo = rfqId;
+           
            return offerMgr.SaveOffer(offer);
 
        }
@@ -168,10 +181,22 @@ namespace AmbleClient.OfferGui
        
        }
 
-       public bool UpdateItems()
+       public void UpdateItems()
        {
-           return true;
+
+           var offer = GetValue();
+           offer.offerId = offerId;
+           offerMgr.UpdateOffer(offer);
+    
        }
+
+
+       public void UpdateOfferState(int state)
+       {
+           offerMgr.ChangeOfferState(state, offerId);
+       
+       }
+
 
 
 

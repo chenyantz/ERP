@@ -35,12 +35,6 @@ namespace AmbleClient.OfferGui
 
         private void OfferList_Load(object sender, EventArgs e)
         {
-            if (UserInfo.Job == JobDescription.sales || UserInfo.Job == JobDescription.saleManager)
-            {
-                this.tsbRoute.Enabled = false;
-                this.tsbUpdate.Enabled = false;
-            }
-
             for(int i=0;i<offerList.Count;i++)
             {
                 OfferItems offerItems;
@@ -77,11 +71,58 @@ namespace AmbleClient.OfferGui
                tabPage.UseVisualStyleBackColor = true;
                this.tabControl1.Controls.Add(tabPage);
             }
-
-            }
+            tabControl1_SelectedIndexChanged(this, null);
+    }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (UserInfo.Job == JobDescription.sales || UserInfo.Job == JobDescription.saleManager)
+            {
+                this.tsbRoute.Enabled = false;
+                this.tsbUpdate.Enabled = false;
+            }
+            else
+            {
+                if (offerList[tabControl1.SelectedIndex].offerStates == (int)OfferState.New)
+                {
+                    this.tsbRoute.Enabled = true;
+
+                }
+                else
+                {
+                    this.tsbRoute.Enabled = false;
+                }
+            
+            }
+
+        }
+
+        private void tsbUpdate_Click(object sender, EventArgs e)
+        {
+            OfferItems item = offerItemsList[tabControl1.SelectedIndex];
+            BuyerOfferItems bItem = item as BuyerOfferItems;
+            bItem.UpdateItems();
+
+        }
+
+        private void tsbRoute_Click(object sender, EventArgs e)
+        {
+            OfferItems item = offerItemsList[tabControl1.SelectedIndex];
+            BuyerOfferItems bItem = item as BuyerOfferItems;
+            bItem.UpdateOfferState((int)OfferState.Routed);
+
+        }
+
+        private void tsbCloseOffer_Click(object sender, EventArgs e)
+        {
+            OfferItems item = offerItemsList[tabControl1.SelectedIndex];
+            BuyerOfferItems bItem = item as BuyerOfferItems;
+            bItem.UpdateOfferState((int)OfferState.Closed);
+        }
+
+        private void tsbClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

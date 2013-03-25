@@ -101,8 +101,8 @@ namespace AmbleClient
 
         private void testsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           // SO.Test test = new SO.Test();
-          //  test.ShowDialog();
+            AmbleClient.Help.About about = new Help.About();
+            about.ShowDialog();
         }
 
         private void sOViewToolStripMenuItem_Click(object sender, EventArgs e)
@@ -165,6 +165,36 @@ namespace AmbleClient
             offerListView.MdiParent = this;
             offerListView.Show();
 
+
+
+        }
+
+        private void sOListViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AmbleClient.Order.FLSoListView flSoListView = new Order.FLSoListView();
+            flSoListView.MdiParent = this;
+            flSoListView.Show();
+        }
+
+        private void pOListViewToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AmbleClient.Order.FLPoListView flPoListView = new Order.FLPoListView();
+            flPoListView.MdiParent = this;
+            flPoListView.Show();
+        }
+
+        private void sOListViewToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AmbleClient.Order.FLSoListView flSoListView = new Order.FLSoListView();
+            flSoListView.MdiParent = this;
+            flSoListView.Show();
+        }
+
+        private void pOListViewToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            AmbleClient.Order.FLPoListView flPoListView = new Order.FLPoListView();
+            flPoListView.MdiParent = this;
+            flPoListView.Show();
 
 
         }

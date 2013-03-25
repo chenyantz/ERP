@@ -10,7 +10,7 @@ namespace AmbleClient.Order
     {
         protected PoStateList poStateList = new PoStateList();
 
-        private List<po> poList;
+        protected List<po> poList;
 
         protected override void ViewStart()
         {

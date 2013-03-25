@@ -14,6 +14,8 @@ namespace AmbleClient.OfferGui
     {
 
         protected OfferMgr.OfferMgr offerMgr;
+
+        protected int offerId;
         public OfferItems()
         {
             InitializeComponent();

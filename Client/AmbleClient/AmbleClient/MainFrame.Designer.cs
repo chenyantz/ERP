@@ -36,6 +36,7 @@
             this.buyersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendorManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.offerListViewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pOListViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.financesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,7 +53,10 @@
             this.offerListViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.testsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.offerListViewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sOListViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pOListViewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sOListViewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pOListViewToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -130,6 +134,13 @@
             this.toolStripMenuItem1.Text = "RFQ List View";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
+            // offerListViewToolStripMenuItem1
+            // 
+            this.offerListViewToolStripMenuItem1.Name = "offerListViewToolStripMenuItem1";
+            this.offerListViewToolStripMenuItem1.Size = new System.Drawing.Size(198, 22);
+            this.offerListViewToolStripMenuItem1.Text = "Offer List View";
+            this.offerListViewToolStripMenuItem1.Click += new System.EventHandler(this.offerListViewToolStripMenuItem1_Click);
+            // 
             // pOToolStripMenuItem
             // 
             this.pOToolStripMenuItem.Name = "pOToolStripMenuItem";
@@ -147,7 +158,9 @@
             // financesToolStripMenuItem
             // 
             this.financesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.assignCustomerVendorNumberToolStripMenuItem});
+            this.assignCustomerVendorNumberToolStripMenuItem,
+            this.sOListViewToolStripMenuItem,
+            this.pOListViewToolStripMenuItem1});
             this.financesToolStripMenuItem.Name = "financesToolStripMenuItem";
             this.financesToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.financesToolStripMenuItem.Text = "Finances";
@@ -161,9 +174,12 @@
             // 
             // warehousesToolStripMenuItem
             // 
+            this.warehousesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sOListViewToolStripMenuItem1,
+            this.pOListViewToolStripMenuItem2});
             this.warehousesToolStripMenuItem.Name = "warehousesToolStripMenuItem";
-            this.warehousesToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
-            this.warehousesToolStripMenuItem.Text = "Warehouse";
+            this.warehousesToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.warehousesToolStripMenuItem.Text = "Logistics";
             // 
             // adminToolStripMenuItem
             // 
@@ -245,16 +261,37 @@
             // testsToolStripMenuItem
             // 
             this.testsToolStripMenuItem.Name = "testsToolStripMenuItem";
-            this.testsToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
-            this.testsToolStripMenuItem.Text = "tests";
+            this.testsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.testsToolStripMenuItem.Text = "About";
             this.testsToolStripMenuItem.Click += new System.EventHandler(this.testsToolStripMenuItem_Click);
             // 
-            // offerListViewToolStripMenuItem1
+            // sOListViewToolStripMenuItem
             // 
-            this.offerListViewToolStripMenuItem1.Name = "offerListViewToolStripMenuItem1";
-            this.offerListViewToolStripMenuItem1.Size = new System.Drawing.Size(198, 22);
-            this.offerListViewToolStripMenuItem1.Text = "Offer List View";
-            this.offerListViewToolStripMenuItem1.Click += new System.EventHandler(this.offerListViewToolStripMenuItem1_Click);
+            this.sOListViewToolStripMenuItem.Name = "sOListViewToolStripMenuItem";
+            this.sOListViewToolStripMenuItem.Size = new System.Drawing.Size(270, 22);
+            this.sOListViewToolStripMenuItem.Text = "SO List View";
+            this.sOListViewToolStripMenuItem.Click += new System.EventHandler(this.sOListViewToolStripMenuItem_Click);
+            // 
+            // pOListViewToolStripMenuItem1
+            // 
+            this.pOListViewToolStripMenuItem1.Name = "pOListViewToolStripMenuItem1";
+            this.pOListViewToolStripMenuItem1.Size = new System.Drawing.Size(270, 22);
+            this.pOListViewToolStripMenuItem1.Text = "PO List View";
+            this.pOListViewToolStripMenuItem1.Click += new System.EventHandler(this.pOListViewToolStripMenuItem1_Click);
+            // 
+            // sOListViewToolStripMenuItem1
+            // 
+            this.sOListViewToolStripMenuItem1.Name = "sOListViewToolStripMenuItem1";
+            this.sOListViewToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.sOListViewToolStripMenuItem1.Text = "SO List View";
+            this.sOListViewToolStripMenuItem1.Click += new System.EventHandler(this.sOListViewToolStripMenuItem1_Click);
+            // 
+            // pOListViewToolStripMenuItem2
+            // 
+            this.pOListViewToolStripMenuItem2.Name = "pOListViewToolStripMenuItem2";
+            this.pOListViewToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.pOListViewToolStripMenuItem2.Text = "PO List View";
+            this.pOListViewToolStripMenuItem2.Click += new System.EventHandler(this.pOListViewToolStripMenuItem2_Click);
             // 
             // MainFrame
             // 
@@ -303,5 +340,9 @@
         private System.Windows.Forms.ToolStripMenuItem offerVendorListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem offerListViewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem offerListViewToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem sOListViewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pOListViewToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem sOListViewToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem pOListViewToolStripMenuItem2;
     }
 }

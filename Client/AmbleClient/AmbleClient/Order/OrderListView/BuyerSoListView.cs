@@ -74,7 +74,7 @@ namespace AmbleClient.Order
             SoState.Name = "SoState";
 
           
-            if (UserInfo.Job != JobDescription.sales)
+            if (UserInfo.Job != JobDescription.Sales)
             {
                 dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             No,
@@ -133,7 +133,7 @@ namespace AmbleClient.Order
             int i = 0;
             foreach (So so in soList)
             {
-                if (UserInfo.Job == JobDescription.buyer)
+                if (UserInfo.Job == JobDescription.Purchaser)
                 {
                     dataGridView1.Rows.Add(i++,idNameDict[so.salesId], so.salesOrderNo, so.orderDate.ToShortDateString(), so.customerPo,
                         so.paymentTerm, so.freightTerm, so.customerAccount, soStateList.GetSoStateStringAccordingToValue(so.soStates));

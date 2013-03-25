@@ -15,6 +15,10 @@ namespace AmbleClient.PO
         public PoItemsControl()
         {
             InitializeComponent();
+            this.cbCurrency.Items.AddRange(
+                       Enum.GetNames(typeof(Currency))
+              );
+
         }
 
         public void FillTheItems(poitems item)

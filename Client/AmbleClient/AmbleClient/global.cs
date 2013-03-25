@@ -20,7 +20,7 @@ namespace AmbleClient
 
 {
    public enum JobDescription
-    { admin=0,boss=1,sales=2,saleManager=3,buyer=4,buyerManager=5,warehousekeeper=6,wareshousekeeperManager=7,financial=8,financialManager=9
+    { Admin=0,Boss=1,Sales=2,SalesManager=3,Purchaser=4,PurchasersManager=5,Logistics=6,LogisticsManager=7,Financial=8,FinancialManager=9
     
     }
 
@@ -43,10 +43,10 @@ namespace AmbleClient
        public static List<int> GetUserCanBeSales()
         {
             List<int> canBeSales = new List<int>();
-            canBeSales.Add((int)JobDescription.admin);
-            canBeSales.Add((int)JobDescription.boss);
-           canBeSales.Add((int)JobDescription.sales);
-           canBeSales.Add((int)JobDescription.saleManager);
+            canBeSales.Add((int)JobDescription.Admin);
+            canBeSales.Add((int)JobDescription.Boss);
+           canBeSales.Add((int)JobDescription.Sales);
+           canBeSales.Add((int)JobDescription.SalesManager);
            return canBeSales;
         
         }
@@ -54,10 +54,10 @@ namespace AmbleClient
        public static List<int> GetUserCanBeBuyers()
        {
            List<int> canBeBuyers = new List<int>();
-           canBeBuyers.Add((int)JobDescription.admin);
-           canBeBuyers.Add((int)JobDescription.boss);
-           canBeBuyers.Add((int)JobDescription.buyer);
-           canBeBuyers.Add((int)JobDescription.buyerManager);
+           canBeBuyers.Add((int)JobDescription.Admin);
+           canBeBuyers.Add((int)JobDescription.Boss);
+           canBeBuyers.Add((int)JobDescription.Purchaser);
+           canBeBuyers.Add((int)JobDescription.PurchasersManager);
            return canBeBuyers;
        }
 

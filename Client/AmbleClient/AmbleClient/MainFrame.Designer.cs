@@ -90,8 +90,8 @@
             // customerManagermentToolStripMenuItem
             // 
             this.customerManagermentToolStripMenuItem.Name = "customerManagermentToolStripMenuItem";
-            this.customerManagermentToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.customerManagermentToolStripMenuItem.Text = "Customer Info";
+            this.customerManagermentToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.customerManagermentToolStripMenuItem.Text = "Customer Management";
             this.customerManagermentToolStripMenuItem.Click += new System.EventHandler(this.customerManagermentToolStripMenuItem_Click);
             // 
             // rFQViewNewSOToolStripMenuItem

@@ -28,12 +28,8 @@ namespace AmbleClient.Admin
 
         public override void Save()
         {
-            if (accountMgr.IsNameExist(textBox1.Text.Trim()))
-            {
-                MessageBox.Show("the name already exists");
 
-            }
-               accountMgr.AddAnAccount(textBox1.Text.Trim(), maskedTextBox1.Text.Trim(), textBox2.Text.Trim(),
+              accountMgr.AddAnAccount(textBox1.Text.Trim(), maskedTextBox1.Text.Trim(), textBox2.Text.Trim(),
                 GetJobIdFromJobName(comboBox1.Text), GetIdFromName(comboBox2.Text));
 
         }

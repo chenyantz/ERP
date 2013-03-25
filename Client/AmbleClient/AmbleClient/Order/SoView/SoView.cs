@@ -62,7 +62,7 @@ namespace AmbleClient.SO
                }
            }
         //for enter PO
-           if ((UserInfo.Job == JobDescription.admin || UserInfo.Job == JobDescription.boss || UserInfo.Job == JobDescription.buyerManager || UserInfo.Job == JobDescription.buyer)
+           if ((UserInfo.Job == JobDescription.Admin || UserInfo.Job == JobDescription.Boss || UserInfo.Job == JobDescription.PurchasersManager || UserInfo.Job == JobDescription.Purchaser)
                && (so.soStates == new SoApprove().GetStateValue()))
            {
                tsbPoEnter.Enabled = true;

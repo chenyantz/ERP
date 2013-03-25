@@ -83,7 +83,7 @@ namespace AmbleClient
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (UserInfo.Job == JobDescription.buyer)
+            if (UserInfo.Job == JobDescription.Purchaser)
             {
                 RfqGui.BuyerRfqListView rfqView = new RfqGui.BuyerRfqListView();
                 rfqView.MdiParent = this;

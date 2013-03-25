@@ -15,6 +15,10 @@ namespace AmbleClient.SO
         public SoItemsControl()
         {
             InitializeComponent();
+
+            this.cbCurrency.Items.AddRange(
+                Enum.GetNames(typeof(Currency))
+                );
         }
 
         public void NewCreateItems()

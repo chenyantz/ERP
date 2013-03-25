@@ -272,12 +272,7 @@
             // 
             this.cbCurrency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCurrency.FormattingEnabled = true;
-            this.cbCurrency.Items.AddRange(new object[] {
-            "USD",
-            "CNY",
-            "EUR",
-            "HK",
-            "JP"});
+
             this.cbCurrency.Location = new System.Drawing.Point(99, 194);
             this.cbCurrency.Name = "cbCurrency";
             this.cbCurrency.Size = new System.Drawing.Size(86, 21);

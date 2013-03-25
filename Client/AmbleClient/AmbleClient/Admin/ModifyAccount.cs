@@ -41,15 +41,19 @@ namespace AmbleClient.Admin
                 }
 
             }
+            //can not modify the job and superviser of admin
+            if (comboBox1.SelectedItem.ToString() == Enum.GetName(typeof(JobDescription), JobDescription.Admin))
+            {
+                comboBox1.Enabled = false;
+                comboBox2.Enabled = false;
+            
+            }
+
 
         }
 
         public override void Save()
         {
-            //base.Save();
-
-            //get the current id
-
             int id =int.Parse( dt.Rows[rowIndex]["id"].ToString());
 
             accountMgr.ModifyAnAccount(id,textBox1.Text.Trim(), maskedTextBox1.Text.Trim(), textBox2.Text.Trim(),

@@ -38,7 +38,7 @@ namespace AmbleClient.OfferGui
             for(int i=0;i<offerList.Count;i++)
             {
                 OfferItems offerItems;
-                if (UserInfo.Job == JobDescription.sales || UserInfo.Job == JobDescription.saleManager)
+                if (UserInfo.Job == JobDescription.Sales || UserInfo.Job == JobDescription.SalesManager)
                 {
                     offerItems = new SalesOfferItems();
                 
@@ -76,7 +76,7 @@ namespace AmbleClient.OfferGui
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (UserInfo.Job == JobDescription.sales || UserInfo.Job == JobDescription.saleManager)
+            if (UserInfo.Job == JobDescription.Sales || UserInfo.Job == JobDescription.SalesManager)
             {
                 this.tsbRoute.Enabled = false;
                 this.tsbUpdate.Enabled = false;

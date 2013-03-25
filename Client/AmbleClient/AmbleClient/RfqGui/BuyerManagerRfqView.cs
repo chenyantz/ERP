@@ -100,5 +100,10 @@ namespace AmbleClient.RfqGui
             AmbleClient.OfferGui.OfferView offerList = new OfferGui.OfferView(rfqId);
             offerList.ShowDialog();
         }
+
+        private void tsbClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

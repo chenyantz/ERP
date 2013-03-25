@@ -32,9 +32,9 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbAssign = new System.Windows.Forms.ToolStripButton();
             this.tsbEnterOffer = new System.Windows.Forms.ToolStripButton();
+            this.tsbViewOffers = new System.Windows.Forms.ToolStripButton();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.buyerManagerRfqItems1 = new AmbleClient.RfqGui.BuyerManagerRfqItems();
-            this.tsbViewOffers = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,24 +71,6 @@
             this.tsbEnterOffer.Text = "Enter Offer";
             this.tsbEnterOffer.Click += new System.EventHandler(this.tsbOffer_Click);
             // 
-            // tsbClose
-            // 
-            this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
-            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(43, 22);
-            this.tsbClose.Text = "Close";
-            // 
-            // buyerManagerRfqItems1
-            // 
-            this.buyerManagerRfqItems1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.buyerManagerRfqItems1.Location = new System.Drawing.Point(0, 28);
-            this.buyerManagerRfqItems1.Name = "buyerManagerRfqItems1";
-            this.buyerManagerRfqItems1.Size = new System.Drawing.Size(886, 515);
-            this.buyerManagerRfqItems1.TabIndex = 1;
-            // 
             // tsbViewOffers
             // 
             this.tsbViewOffers.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -98,6 +80,25 @@
             this.tsbViewOffers.Size = new System.Drawing.Size(86, 22);
             this.tsbViewOffers.Text = "View Offer(s)";
             this.tsbViewOffers.Click += new System.EventHandler(this.tsbViewOffers_Click);
+            // 
+            // tsbClose
+            // 
+            this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
+            this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbClose.Name = "tsbClose";
+            this.tsbClose.Size = new System.Drawing.Size(43, 22);
+            this.tsbClose.Text = "Close";
+            this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
+            // 
+            // buyerManagerRfqItems1
+            // 
+            this.buyerManagerRfqItems1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.buyerManagerRfqItems1.Location = new System.Drawing.Point(0, 28);
+            this.buyerManagerRfqItems1.Name = "buyerManagerRfqItems1";
+            this.buyerManagerRfqItems1.Size = new System.Drawing.Size(886, 515);
+            this.buyerManagerRfqItems1.TabIndex = 1;
             // 
             // BuyerManagerRfqView
             // 

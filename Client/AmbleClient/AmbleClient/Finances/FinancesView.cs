@@ -185,8 +185,17 @@ namespace AmbleClient.Finances
             DataGridViewRow dgvr = dataGridView1.Rows[e.RowIndex];
             int cvtypeValue = (dgvr.Cells[CompanyType.Index].Value.ToString() == "C" ? 0 : 1);
             string cvNameValue=dgvr.Cells[CompanyName.Index].Value.ToString();
-            string cvNumberValue = dgvr.Cells[CustomerVendorNumber.Index].Value.ToString();
-            string ownerNameStr=dgvr.Cells[OwnerName.Index].Value.ToString();
+
+            string cvNumberValue;
+            if (dgvr.Cells[CustomerVendorNumber.Index].Value == null)
+            {
+                cvNumberValue = "";
+            }
+            else
+            {
+                cvNumberValue = dgvr.Cells[CustomerVendorNumber.Index].Value.ToString();
+            }
+            string ownerNameStr = dgvr.Cells[OwnerName.Index].Value.ToString();
             var ids = from row in userTable.AsEnumerable()
                       where row["accountName"].ToString() == ownerNameStr
                       select row["id"];

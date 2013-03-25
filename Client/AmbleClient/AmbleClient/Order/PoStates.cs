@@ -23,9 +23,9 @@ namespace AmbleClient.Order
         public virtual List<JobDescription> WhoCanUpdate()
         {
             var listJobDes = new List<JobDescription>();
-            listJobDes.Add(JobDescription.buyerManager);
-            listJobDes.Add(JobDescription.boss);
-            listJobDes.Add(JobDescription.admin);
+            listJobDes.Add(JobDescription.PurchasersManager);
+            listJobDes.Add(JobDescription.Boss);
+            listJobDes.Add(JobDescription.Admin);
             return listJobDes; ;
         }
         public void UpdateState(int poId, int poState)
@@ -45,10 +45,10 @@ namespace AmbleClient.Order
       public PoNew()
       {
           var opJobs=new List<JobDescription>();
-          opJobs.Add(JobDescription.buyer);
-          opJobs.Add(JobDescription.buyerManager);
-          opJobs.Add(JobDescription.boss);
-          opJobs.Add(JobDescription.admin);
+          opJobs.Add(JobDescription.Purchaser);
+          opJobs.Add(JobDescription.PurchasersManager);
+          opJobs.Add(JobDescription.Boss);
+          opJobs.Add(JobDescription.Admin);
 
           var operation = new Operation
           {
@@ -74,9 +74,9 @@ namespace AmbleClient.Order
       public override List<JobDescription> WhoCanUpdate()
       {
           var listJobDes = new List<JobDescription>();
-          listJobDes.Add(JobDescription.buyerManager);
-          listJobDes.Add(JobDescription.boss);
-          listJobDes.Add(JobDescription.admin);
+          listJobDes.Add(JobDescription.PurchasersManager);
+          listJobDes.Add(JobDescription.Boss);
+          listJobDes.Add(JobDescription.Admin);
           return listJobDes; ;
       }
 
@@ -118,9 +118,9 @@ namespace AmbleClient.Order
       public PoApproved()
       {
           var opJobs=new List<JobDescription>();
-          opJobs.Add(JobDescription.buyerManager);
-          opJobs.Add(JobDescription.boss);
-          opJobs.Add(JobDescription.admin);
+          opJobs.Add(JobDescription.PurchasersManager);
+          opJobs.Add(JobDescription.Boss);
+          opJobs.Add(JobDescription.Admin);
 
           var operation = new Operation
           {
@@ -130,10 +130,10 @@ namespace AmbleClient.Order
           };
 
           var opJobs1 = new List<JobDescription>();
-          opJobs1.Add(JobDescription.buyer);
-          opJobs1.Add(JobDescription.buyerManager);
-          opJobs1.Add(JobDescription.boss);
-          opJobs1.Add(JobDescription.admin);
+          opJobs1.Add(JobDescription.Purchaser);
+          opJobs1.Add(JobDescription.PurchasersManager);
+          opJobs1.Add(JobDescription.Boss);
+          opJobs1.Add(JobDescription.Admin);
           
           var operation1 = new Operation
           {
@@ -190,9 +190,9 @@ namespace AmbleClient.Order
         public PoWaitingForShip()
       {
           var opJobs=new List<JobDescription>();
-          opJobs.Add(JobDescription.financialManager);
-          opJobs.Add(JobDescription.boss);
-          opJobs.Add(JobDescription.admin);
+          opJobs.Add(JobDescription.FinancialManager);
+          opJobs.Add(JobDescription.Boss);
+          opJobs.Add(JobDescription.Admin);
 
           var operation = new Operation
           {
@@ -210,9 +210,9 @@ namespace AmbleClient.Order
 
           var opJobs1 = new List<JobDescription>();
 
-          opJobs1.Add(JobDescription.wareshousekeeperManager);
-          opJobs1.Add(JobDescription.boss);
-          opJobs1.Add(JobDescription.admin);
+          opJobs1.Add(JobDescription.LogisticsManager);
+          opJobs1.Add(JobDescription.Boss);
+          opJobs1.Add(JobDescription.Admin);
           
           var operation2 = new Operation
           {
@@ -272,9 +272,9 @@ namespace AmbleClient.Order
        public PoFullPaymentBeforeReceived()
        {
         var opJobs=new List<JobDescription>();
-          opJobs.Add(JobDescription.wareshousekeeperManager);
-          opJobs.Add(JobDescription.boss);
-          opJobs.Add(JobDescription.admin);
+          opJobs.Add(JobDescription.LogisticsManager);
+          opJobs.Add(JobDescription.Boss);
+          opJobs.Add(JobDescription.Admin);
 
           var operation = new Operation
           {
@@ -323,9 +323,9 @@ namespace AmbleClient.Order
      public PoDeposit()
        {
         var opJobs=new List<JobDescription>();
-          opJobs.Add(JobDescription.financialManager);
-          opJobs.Add(JobDescription.boss);
-          opJobs.Add(JobDescription.admin);
+          opJobs.Add(JobDescription.FinancialManager);
+          opJobs.Add(JobDescription.Boss);
+          opJobs.Add(JobDescription.Admin);
 
           var operation = new Operation
           {
@@ -361,9 +361,9 @@ namespace AmbleClient.Order
       public PoBalance()
        {
         var opJobs=new List<JobDescription>();
-          opJobs.Add(JobDescription.wareshousekeeperManager);
-          opJobs.Add(JobDescription.boss);
-          opJobs.Add(JobDescription.admin);
+          opJobs.Add(JobDescription.LogisticsManager);
+          opJobs.Add(JobDescription.Boss);
+          opJobs.Add(JobDescription.Admin);
 
           var operation = new Operation
           {
@@ -413,9 +413,9 @@ namespace AmbleClient.Order
       public PoFullReceivedAfterPay()
       {
           var opJobs=new List<JobDescription>();
-          opJobs.Add(JobDescription.wareshousekeeperManager);
-          opJobs.Add(JobDescription.boss);
-          opJobs.Add(JobDescription.admin);
+          opJobs.Add(JobDescription.LogisticsManager);
+          opJobs.Add(JobDescription.Boss);
+          opJobs.Add(JobDescription.Admin);
 
           var operation = new Operation
           {
@@ -451,9 +451,9 @@ namespace AmbleClient.Order
         public PoPartialReceivedAfterPay()
       {
           var opJobs=new List<JobDescription>();
-          opJobs.Add(JobDescription.wareshousekeeperManager);
-          opJobs.Add(JobDescription.boss);
-          opJobs.Add(JobDescription.admin);
+          opJobs.Add(JobDescription.LogisticsManager);
+          opJobs.Add(JobDescription.Boss);
+          opJobs.Add(JobDescription.Admin);
 
           var operation = new Operation
           {
@@ -487,9 +487,9 @@ namespace AmbleClient.Order
       public PoFullReceivedBeforePay()
       {
           var opJobs=new List<JobDescription>();
-          opJobs.Add(JobDescription.financialManager);
-          opJobs.Add(JobDescription.boss);
-          opJobs.Add(JobDescription.admin);
+          opJobs.Add(JobDescription.FinancialManager);
+          opJobs.Add(JobDescription.Boss);
+          opJobs.Add(JobDescription.Admin);
 
           var operation = new Operation
           {
@@ -524,9 +524,9 @@ namespace AmbleClient.Order
         public PoPartialReceivedBeforePay()
       {
           var opJobs1 = new List<JobDescription>();
-          opJobs1.Add(JobDescription.wareshousekeeperManager);
-          opJobs1.Add(JobDescription.boss);
-          opJobs1.Add(JobDescription.admin);
+          opJobs1.Add(JobDescription.LogisticsManager);
+          opJobs1.Add(JobDescription.Boss);
+          opJobs1.Add(JobDescription.Admin);
           
           var operation2 = new Operation
           {
@@ -564,9 +564,9 @@ namespace AmbleClient.Order
       public PoFullPaymentAfterReceived()
       {
           var opJobs=new List<JobDescription>();
-          opJobs.Add(JobDescription.wareshousekeeperManager);
-          opJobs.Add(JobDescription.boss);
-          opJobs.Add(JobDescription.admin);
+          opJobs.Add(JobDescription.LogisticsManager);
+          opJobs.Add(JobDescription.Boss);
+          opJobs.Add(JobDescription.Admin);
 
           var operation = new Operation
           {

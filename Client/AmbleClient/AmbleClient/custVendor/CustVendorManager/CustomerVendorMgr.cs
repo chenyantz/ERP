@@ -165,9 +165,9 @@ namespace AmbleClient.custVendor.customerVendorMgr
                       
        }
 
-       public bool DeleteCustomerOrVendor(int cvtype, string cvname)
+       public bool DeleteCustomerOrVendor(int cvtype, string cvname,int ownerId)
        {
-           string strSql = "DELETE from custVendor WHERE cvtype=" + cvtype + " AND cvname='" + cvtype + "'";
+           string strSql = string.Format("DELETE from custVendor WHERE cvtype={0} AND cvname='{1}' AND ownerName={2}", cvtype, cvname, ownerId);
            if (db.ExecDataBySql(strSql) > 0)
                return true;
            return false;

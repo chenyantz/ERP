@@ -77,7 +77,7 @@ namespace AmbleClient.RfqGui
                 if (rfqMgr.ChangeRfqState(RfqStatesEnum.Quoted, rfqId))
                 {
                     rfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Quoted the RFQ");
-                    //MessageBox.Show("This RFQ has been Quoted");
+                    GuiOpAccordingToRfqState(RfqStatesEnum.Quoted);
                 }
                 else
                 {
@@ -94,7 +94,8 @@ namespace AmbleClient.RfqGui
                 if (rfqMgr.ChangeRfqState(RfqStatesEnum.Routed, rfqId))
                 {
                     rfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Routed the RFQ");
-                   // MessageBox.Show("This RFQ has been Routed");
+                    GuiOpAccordingToRfqState(RfqStatesEnum.Routed);
+
                 }
                 else
                 {
@@ -149,27 +150,16 @@ namespace AmbleClient.RfqGui
                     rfqItems1.UpdateInfo(rfqId);
                     rfqMgr.ChangeRfqState(RfqStatesEnum.Closed, rfqId);
                     rfqMgr.AddRfqHistory(rfqId, UserInfo.UserId, "Closed the RFQ");
+                    GuiOpAccordingToRfqState(RfqStatesEnum.Closed);
                 }
             }
             
-
-
         }
 
         private void tsbClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private void tsbPrint_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-
-
 
     }
 }

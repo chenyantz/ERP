@@ -44,7 +44,7 @@ namespace AmbleClient.custVendor
         {
             userTable = new AmbleClient.Admin.AccountMgr.AccountMgr().ReturnWholeAccountTable();
                     
-            //Add columns to DataGridview
+           
             showTable = new DataTable();
             showTable.Columns.AddRange(
                 new DataColumn[]{
@@ -61,6 +61,7 @@ namespace AmbleClient.custVendor
                     new DataColumn("Fax",typeof(string)), 
                     new DataColumn("Email 1",typeof(string)),
                     new DataColumn("Email 2",typeof(string)),
+                    new DataColumn("Owner Id",typeof(int)),
                     new DataColumn("Owner Name",typeof(string)),
                     new DataColumn("Last Modify Name",typeof(string)),
                     new DataColumn("Last Update Date",typeof(DateTime)),
@@ -92,7 +93,6 @@ namespace AmbleClient.custVendor
                            join userrow2 in userTable.AsEnumerable() on cvrow["lastUpdateName"] equals userrow2["id"]
                        select new
                        {
-                           
                            name = cvrow["cvname"],
                            country = cvrow["country"],
                            number=cvrow["cvnumber"],
@@ -106,6 +106,7 @@ namespace AmbleClient.custVendor
                            fax=cvrow["fax"],
                            email1=cvrow["email1"],
                            email2=cvrow["email2"],
+                           ownerId=cvrow["ownerName"],
                            ownerName=userrow["accountName"],
                            lastUpdateName=userrow2.Field<string>("accountName"),
                            lastUpdateDate=cvrow.Field<DateTime>("lastUpdateDate"),
@@ -117,11 +118,39 @@ namespace AmbleClient.custVendor
            foreach(var row in showRows)
            {
                showTable.Rows.Add(row.name, row.country,row.number, row.rate,row.term, row.contact1, row.contact2, row.phone1, row.phone2, row.cellphone,
-                  row.fax, row.email1, row.email2, row.ownerName, row.lastUpdateName,row.lastUpdateDate, row.blacklisted, row.amount, row.notes);
+                  row.fax, row.email1, row.email2,row.ownerId,row.ownerName, row.lastUpdateName,row.lastUpdateDate, row.blacklisted, row.amount, row.notes);
 
            }
-           
-           dataGridView1.DataSource = showTable;
+
+            //remove unnecessary columns in the list view
+           var tableForDataGrid = new DataTable();
+           tableForDataGrid.Columns.AddRange(
+               new DataColumn[]{
+                    new DataColumn("Company Name",typeof(string)),
+                    new DataColumn("Country",typeof(string)),
+                    new DataColumn("Company Number",typeof(string)),
+                    new DataColumn("Rate",typeof(int)),
+                    new DataColumn("Term",typeof(string)),
+                    new DataColumn("Contact 1",typeof(string)),
+                    new DataColumn("Phone 1",typeof(string)),
+                    new DataColumn("Cell Phone",typeof(string)),
+                    new DataColumn("Fax",typeof(string)), 
+                    new DataColumn("Email 1",typeof(string)),
+                    new DataColumn("Owner Name",typeof(string)),
+                    new DataColumn("Last Modify Name",typeof(string)),
+                    new DataColumn("Last Update Date",typeof(DateTime)),
+                    new DataColumn("Amount",typeof(int)),
+                });
+
+           foreach (var row in showRows)
+           {
+               tableForDataGrid.Rows.Add(row.name, row.country, row.number, row.rate, row.term, row.contact1, row.phone1,row.cellphone,
+                  row.fax, row.email1,row.ownerName, row.lastUpdateName, row.lastUpdateDate,row.amount);
+
+           }
+
+
+           dataGridView1.DataSource = tableForDataGrid;
             //列宽自适应
             for (int i = 0; i < dataGridView1.ColumnCount; i++)
             {
@@ -161,7 +190,6 @@ namespace AmbleClient.custVendor
             
             }
 
-
         }
 
 
@@ -188,11 +216,13 @@ namespace AmbleClient.custVendor
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
+        if(DialogResult.Yes==MessageBox.Show("Delete the selected item?","",MessageBoxButtons.YesNo,MessageBoxIcon.Warning))
+        {
             DataRow dr = GetDataRowInShowTableFromIndex(this.dataGridView1.CurrentRow.Index);
-            customerVendorMgr.DeleteCustomerOrVendor(customerOrVendor, dr["Compnay Name"].ToString());
+            customerVendorMgr.DeleteCustomerOrVendor(customerOrVendor, dr["Company Name"].ToString(), Convert.ToInt32(dr["Owner Id"]));
             FillTheDataGrid();
         }
-
+        }
 
     }
 }

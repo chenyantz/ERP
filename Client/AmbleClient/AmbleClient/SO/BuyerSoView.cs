@@ -27,7 +27,7 @@ namespace AmbleClient.SO
              soViewControl1.tbContact.Text=string.Empty;
              soViewControl1.tbContact.ReadOnly = true;
             
-             if (UserInfo.Job == JobDescription.sales)
+             if (UserInfo.Job == JobDescription.Sales)
              {
                  soViewControl1.tbCustomer.Text = string.Empty;
                  soViewControl1.tbCustomer.ReadOnly = true;

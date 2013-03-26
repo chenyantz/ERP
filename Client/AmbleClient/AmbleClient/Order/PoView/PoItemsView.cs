@@ -39,9 +39,10 @@ namespace AmbleClient.Order.PoView
 
         private void tscbOp_Click(object sender, EventArgs e)
         {
-           
-            
-            
+            if (!poItemsControl1.CheckValues())
+            {
+                return;
+            }
             this.DialogResult = DialogResult.Yes;
             this.Close();
         }

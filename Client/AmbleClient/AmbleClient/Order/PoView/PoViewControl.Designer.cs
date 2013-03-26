@@ -159,6 +159,7 @@
             this.tbPoDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPoDate.Location = new System.Drawing.Point(348, 77);
             this.tbPoDate.Name = "tbPoDate";
+            this.tbPoDate.ReadOnly = true;
             this.tbPoDate.Size = new System.Drawing.Size(114, 21);
             this.tbPoDate.TabIndex = 10;
             // 
@@ -321,7 +322,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(778, 160);
-            this.dataGridView1.TabIndex = 25;
+            this.dataGridView1.TabIndex = 29;
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
             // No
@@ -524,7 +525,7 @@
             this.cbPa.Location = new System.Drawing.Point(656, 22);
             this.cbPa.Name = "cbPa";
             this.cbPa.Size = new System.Drawing.Size(153, 23);
-            this.cbPa.TabIndex = 29;
+            this.cbPa.TabIndex = 5;
             // 
             // PoViewControl
             // 

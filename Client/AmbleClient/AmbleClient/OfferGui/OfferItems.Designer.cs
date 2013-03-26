@@ -307,7 +307,7 @@
             this.tbNotes.Multiline = true;
             this.tbNotes.Name = "tbNotes";
             this.tbNotes.Size = new System.Drawing.Size(444, 85);
-            this.tbNotes.TabIndex = 25;
+            this.tbNotes.TabIndex = 13;
             // 
             // OfferItems
             // 

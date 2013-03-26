@@ -86,7 +86,7 @@
             this.btAdd.Location = new System.Drawing.Point(107, 300);
             this.btAdd.Name = "btAdd";
             this.btAdd.Size = new System.Drawing.Size(75, 23);
-            this.btAdd.TabIndex = 53;
+            this.btAdd.TabIndex = 55;
             this.btAdd.Text = "Add";
             this.btAdd.UseVisualStyleBackColor = true;
             this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
@@ -98,7 +98,7 @@
             this.label13.Location = new System.Drawing.Point(32, 304);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(40, 15);
-            this.label13.TabIndex = 51;
+            this.label13.TabIndex = 54;
             this.label13.Text = "Items:";
             // 
             // tbShipTo
@@ -108,7 +108,7 @@
             this.tbShipTo.Multiline = true;
             this.tbShipTo.Name = "tbShipTo";
             this.tbShipTo.Size = new System.Drawing.Size(325, 42);
-            this.tbShipTo.TabIndex = 50;
+            this.tbShipTo.TabIndex = 53;
             // 
             // label12
             // 
@@ -117,7 +117,7 @@
             this.label12.Location = new System.Drawing.Point(454, 238);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(52, 15);
-            this.label12.TabIndex = 49;
+            this.label12.TabIndex = 52;
             this.label12.Text = "Ship To:";
             // 
             // tbBillto
@@ -127,7 +127,7 @@
             this.tbBillto.Multiline = true;
             this.tbBillto.Name = "tbBillto";
             this.tbBillto.Size = new System.Drawing.Size(315, 42);
-            this.tbBillto.TabIndex = 48;
+            this.tbBillto.TabIndex = 51;
             // 
             // label11
             // 
@@ -136,7 +136,7 @@
             this.label11.Location = new System.Drawing.Point(34, 238);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(44, 15);
-            this.label11.TabIndex = 47;
+            this.label11.TabIndex = 50;
             this.label11.Text = "Bill To:";
             // 
             // tbSpecialInstructions
@@ -146,7 +146,7 @@
             this.tbSpecialInstructions.Multiline = true;
             this.tbSpecialInstructions.Name = "tbSpecialInstructions";
             this.tbSpecialInstructions.Size = new System.Drawing.Size(686, 50);
-            this.tbSpecialInstructions.TabIndex = 46;
+            this.tbSpecialInstructions.TabIndex = 49;
             // 
             // label10
             // 
@@ -155,7 +155,7 @@
             this.label10.Location = new System.Drawing.Point(32, 181);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(116, 15);
-            this.label10.TabIndex = 45;
+            this.label10.TabIndex = 48;
             this.label10.Text = "Special Instructions:";
             // 
             // tbCustomerAccount
@@ -164,7 +164,7 @@
             this.tbCustomerAccount.Location = new System.Drawing.Point(723, 125);
             this.tbCustomerAccount.Name = "tbCustomerAccount";
             this.tbCustomerAccount.Size = new System.Drawing.Size(127, 21);
-            this.tbCustomerAccount.TabIndex = 44;
+            this.tbCustomerAccount.TabIndex = 47;
             // 
             // label9
             // 
@@ -173,7 +173,7 @@
             this.label9.Location = new System.Drawing.Point(597, 126);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(109, 15);
-            this.label9.TabIndex = 43;
+            this.label9.TabIndex = 46;
             this.label9.Text = "Customer Account:";
             // 
             // tbFreightTerm
@@ -182,7 +182,7 @@
             this.tbFreightTerm.Location = new System.Drawing.Point(399, 125);
             this.tbFreightTerm.Name = "tbFreightTerm";
             this.tbFreightTerm.Size = new System.Drawing.Size(169, 21);
-            this.tbFreightTerm.TabIndex = 42;
+            this.tbFreightTerm.TabIndex = 45;
             // 
             // label8
             // 
@@ -191,7 +191,7 @@
             this.label8.Location = new System.Drawing.Point(303, 126);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(86, 15);
-            this.label8.TabIndex = 41;
+            this.label8.TabIndex = 44;
             this.label8.Text = "Freight Terms:";
             // 
             // tbPaymentTerm
@@ -200,7 +200,7 @@
             this.tbPaymentTerm.Location = new System.Drawing.Point(121, 128);
             this.tbPaymentTerm.Name = "tbPaymentTerm";
             this.tbPaymentTerm.Size = new System.Drawing.Size(160, 21);
-            this.tbPaymentTerm.TabIndex = 40;
+            this.tbPaymentTerm.TabIndex = 43;
             // 
             // label7
             // 
@@ -209,7 +209,7 @@
             this.label7.Location = new System.Drawing.Point(25, 128);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 15);
-            this.label7.TabIndex = 39;
+            this.label7.TabIndex = 42;
             this.label7.Text = "Payment Term:";
             // 
             // tbCustomerPo
@@ -218,7 +218,7 @@
             this.tbCustomerPo.Location = new System.Drawing.Point(723, 82);
             this.tbCustomerPo.Name = "tbCustomerPo";
             this.tbCustomerPo.Size = new System.Drawing.Size(127, 21);
-            this.tbCustomerPo.TabIndex = 38;
+            this.tbCustomerPo.TabIndex = 41;
             // 
             // label6
             // 
@@ -227,7 +227,7 @@
             this.label6.Location = new System.Drawing.Point(616, 85);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(90, 15);
-            this.label6.TabIndex = 37;
+            this.label6.TabIndex = 40;
             this.label6.Text = "Customer PO#:";
             // 
             // dateTimePicker1
@@ -236,7 +236,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(399, 82);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(169, 21);
-            this.dateTimePicker1.TabIndex = 36;
+            this.dateTimePicker1.TabIndex = 39;
             // 
             // label5
             // 
@@ -245,7 +245,7 @@
             this.label5.Location = new System.Drawing.Point(319, 85);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 15);
-            this.label5.TabIndex = 35;
+            this.label5.TabIndex = 38;
             this.label5.Text = "Order Date:";
             // 
             // tbSalesOrder
@@ -254,7 +254,7 @@
             this.tbSalesOrder.Location = new System.Drawing.Point(119, 82);
             this.tbSalesOrder.Name = "tbSalesOrder";
             this.tbSalesOrder.Size = new System.Drawing.Size(162, 21);
-            this.tbSalesOrder.TabIndex = 34;
+            this.tbSalesOrder.TabIndex = 37;
             // 
             // label4
             // 
@@ -263,7 +263,7 @@
             this.label4.Location = new System.Drawing.Point(31, 85);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 15);
-            this.label4.TabIndex = 33;
+            this.label4.TabIndex = 36;
             this.label4.Text = "Sales Order#:";
             // 
             // label3
@@ -320,7 +320,7 @@
             this.label14.Location = new System.Drawing.Point(685, 36);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(55, 15);
-            this.label14.TabIndex = 54;
+            this.label14.TabIndex = 33;
             this.label14.Text = "Apvd. By:";
             // 
             // label15
@@ -340,7 +340,7 @@
             this.tbApprover.Name = "tbApprover";
             this.tbApprover.ReadOnly = true;
             this.tbApprover.Size = new System.Drawing.Size(101, 21);
-            this.tbApprover.TabIndex = 56;
+            this.tbApprover.TabIndex = 34;
             // 
             // tbApproveDate
             // 
@@ -349,7 +349,7 @@
             this.tbApproveDate.Name = "tbApproveDate";
             this.tbApproveDate.ReadOnly = true;
             this.tbApproveDate.Size = new System.Drawing.Size(100, 21);
-            this.tbApproveDate.TabIndex = 57;
+            this.tbApproveDate.TabIndex = 35;
             // 
             // dataGridView1
             // 
@@ -381,7 +381,7 @@
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(829, 188);
-            this.dataGridView1.TabIndex = 58;
+            this.dataGridView1.TabIndex = 57;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // No
@@ -528,7 +528,7 @@
             this.cbSp.Location = new System.Drawing.Point(557, 33);
             this.cbSp.Name = "cbSp";
             this.cbSp.Size = new System.Drawing.Size(110, 23);
-            this.cbSp.TabIndex = 59;
+            this.cbSp.TabIndex = 32;
             // 
             // btDelete
             // 
@@ -536,7 +536,7 @@
             this.btDelete.Location = new System.Drawing.Point(206, 300);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(75, 23);
-            this.btDelete.TabIndex = 60;
+            this.btDelete.TabIndex = 56;
             this.btDelete.Text = "Delete";
             this.btDelete.UseVisualStyleBackColor = true;
             this.btDelete.Click += new System.EventHandler(this.btDelete_Click);

@@ -64,7 +64,10 @@ namespace AmbleClient.Order.PoView
 
         public void PoSave()
         {
-            CheckValues();
+            if (false == CheckValues())
+            {
+                return;
+            }
             po poMain = GetValues();
             poMain.poDate = DateTime.Now;
             PoMgr.PoMgr.SavePoMain(poMain);
@@ -84,7 +87,10 @@ namespace AmbleClient.Order.PoView
 
         public void PoUpdate()
         {
-            CheckValues();
+            if (false == CheckValues())
+            {
+                return;
+            }
             po poMain = GetValues();
             PoMgr.PoMgr.UpdatePo(poMain);
 
@@ -99,9 +105,19 @@ namespace AmbleClient.Order.PoView
             MessageBox.Show("Update Purchase Order Successfully");
         }
 
-        private void CheckValues()
-        { 
-        
+        private bool CheckValues()
+        {
+            if (ItemsCheck.CheckTextBoxEmpty(tbVendor) == false)
+            {
+                MessageBox.Show("Please input the Vendor name");
+                return false;
+            }
+            if (ItemsCheck.CheckTextBoxEmpty(tbContact) == false)
+            {
+                MessageBox.Show("Please input the Contact name");
+                return false;
+            }
+            return true;
         }
 
   

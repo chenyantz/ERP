@@ -79,10 +79,10 @@
             // tbPartNo
             // 
             this.tbPartNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPartNo.Location = new System.Drawing.Point(322, 29);
+            this.tbPartNo.Location = new System.Drawing.Point(323, 29);
             this.tbPartNo.Name = "tbPartNo";
             this.tbPartNo.Size = new System.Drawing.Size(100, 21);
-            this.tbPartNo.TabIndex = 1;
+            this.tbPartNo.TabIndex = 4;
             // 
             // cbSaleType
             // 
@@ -115,7 +115,7 @@
             this.label3.Location = new System.Drawing.Point(451, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 15);
-            this.label3.TabIndex = 4;
+            this.label3.TabIndex = 5;
             this.label3.Text = "MFG*:";
             // 
             // tbMfg
@@ -124,7 +124,7 @@
             this.tbMfg.Location = new System.Drawing.Point(494, 29);
             this.tbMfg.Name = "tbMfg";
             this.tbMfg.Size = new System.Drawing.Size(100, 21);
-            this.tbMfg.TabIndex = 5;
+            this.tbMfg.TabIndex = 6;
             // 
             // label4
             // 
@@ -133,7 +133,7 @@
             this.label4.Location = new System.Drawing.Point(25, 68);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 15);
-            this.label4.TabIndex = 6;
+            this.label4.TabIndex = 7;
             this.label4.Text = "RoHS:";
             // 
             // cbRohs
@@ -143,7 +143,7 @@
             this.cbRohs.Location = new System.Drawing.Point(84, 69);
             this.cbRohs.Name = "cbRohs";
             this.cbRohs.Size = new System.Drawing.Size(15, 14);
-            this.cbRohs.TabIndex = 7;
+            this.cbRohs.TabIndex = 8;
             this.cbRohs.UseVisualStyleBackColor = true;
             // 
             // label5
@@ -153,7 +153,7 @@
             this.label5.Location = new System.Drawing.Point(142, 68);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 15);
-            this.label5.TabIndex = 8;
+            this.label5.TabIndex = 9;
             this.label5.Text = "D/C*:";
             // 
             // label6
@@ -163,7 +163,7 @@
             this.label6.Location = new System.Drawing.Point(379, 68);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 15);
-            this.label6.TabIndex = 9;
+            this.label6.TabIndex = 11;
             this.label6.Text = "Int Part #:";
             // 
             // tbDc
@@ -180,7 +180,7 @@
             this.tbIntPartNo.Location = new System.Drawing.Point(443, 65);
             this.tbIntPartNo.Name = "tbIntPartNo";
             this.tbIntPartNo.Size = new System.Drawing.Size(150, 21);
-            this.tbIntPartNo.TabIndex = 11;
+            this.tbIntPartNo.TabIndex = 12;
             // 
             // label7
             // 
@@ -189,7 +189,7 @@
             this.label7.Location = new System.Drawing.Point(22, 106);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 15);
-            this.label7.TabIndex = 12;
+            this.label7.TabIndex = 13;
             this.label7.Text = "Ship From:";
             // 
             // tbShipFrom
@@ -198,7 +198,7 @@
             this.tbShipFrom.Location = new System.Drawing.Point(99, 103);
             this.tbShipFrom.Name = "tbShipFrom";
             this.tbShipFrom.Size = new System.Drawing.Size(134, 21);
-            this.tbShipFrom.TabIndex = 13;
+            this.tbShipFrom.TabIndex = 14;
             // 
             // label8
             // 
@@ -207,7 +207,7 @@
             this.label8.Location = new System.Drawing.Point(264, 106);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(80, 15);
-            this.label8.TabIndex = 14;
+            this.label8.TabIndex = 15;
             this.label8.Text = "Ship Method:";
             // 
             // tbShipMethod
@@ -216,7 +216,7 @@
             this.tbShipMethod.Location = new System.Drawing.Point(350, 103);
             this.tbShipMethod.Name = "tbShipMethod";
             this.tbShipMethod.Size = new System.Drawing.Size(119, 21);
-            this.tbShipMethod.TabIndex = 15;
+            this.tbShipMethod.TabIndex = 16;
             // 
             // label9
             // 
@@ -225,7 +225,7 @@
             this.label9.Location = new System.Drawing.Point(20, 146);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(67, 15);
-            this.label9.TabIndex = 16;
+            this.label9.TabIndex = 17;
             this.label9.Text = "Tracking #:";
             // 
             // tbTrackingNo
@@ -234,7 +234,7 @@
             this.tbTrackingNo.Location = new System.Drawing.Point(99, 145);
             this.tbTrackingNo.Name = "tbTrackingNo";
             this.tbTrackingNo.Size = new System.Drawing.Size(134, 21);
-            this.tbTrackingNo.TabIndex = 17;
+            this.tbTrackingNo.TabIndex = 18;
             // 
             // label10
             // 
@@ -243,7 +243,7 @@
             this.label10.Location = new System.Drawing.Point(251, 145);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(27, 15);
-            this.label10.TabIndex = 18;
+            this.label10.TabIndex = 19;
             this.label10.Text = "Qty:";
             // 
             // tbQty
@@ -252,7 +252,7 @@
             this.tbQty.Location = new System.Drawing.Point(287, 143);
             this.tbQty.Name = "tbQty";
             this.tbQty.Size = new System.Drawing.Size(100, 21);
-            this.tbQty.TabIndex = 19;
+            this.tbQty.TabIndex = 20;
             // 
             // label11
             // 
@@ -261,7 +261,7 @@
             this.label11.Location = new System.Drawing.Point(408, 145);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(76, 15);
-            this.label11.TabIndex = 20;
+            this.label11.TabIndex = 21;
             this.label11.Text = "Qty Shipped:";
             // 
             // tbQtyShipped
@@ -270,7 +270,7 @@
             this.tbQtyShipped.Location = new System.Drawing.Point(494, 143);
             this.tbQtyShipped.Name = "tbQtyShipped";
             this.tbQtyShipped.Size = new System.Drawing.Size(99, 21);
-            this.tbQtyShipped.TabIndex = 21;
+            this.tbQtyShipped.TabIndex = 22;
             this.tbQtyShipped.TextChanged += new System.EventHandler(this.tbQtyShipped_TextChanged);
             // 
             // label12
@@ -280,7 +280,7 @@
             this.label12.Location = new System.Drawing.Point(20, 188);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(58, 15);
-            this.label12.TabIndex = 22;
+            this.label12.TabIndex = 23;
             this.label12.Text = "Currency:";
             // 
             // tbUnitPrice
@@ -289,7 +289,7 @@
             this.tbUnitPrice.Location = new System.Drawing.Point(287, 185);
             this.tbUnitPrice.Name = "tbUnitPrice";
             this.tbUnitPrice.Size = new System.Drawing.Size(100, 21);
-            this.tbUnitPrice.TabIndex = 23;
+            this.tbUnitPrice.TabIndex = 32;
             this.tbUnitPrice.TextChanged += new System.EventHandler(this.tbUnitPrice_TextChanged);
             // 
             // cbCurrency
@@ -300,7 +300,7 @@
             this.cbCurrency.Location = new System.Drawing.Point(99, 185);
             this.cbCurrency.Name = "cbCurrency";
             this.cbCurrency.Size = new System.Drawing.Size(86, 23);
-            this.cbCurrency.TabIndex = 24;
+            this.cbCurrency.TabIndex = 30;
             // 
             // label13
             // 
@@ -309,7 +309,7 @@
             this.label13.Location = new System.Drawing.Point(212, 187);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(63, 15);
-            this.label13.TabIndex = 25;
+            this.label13.TabIndex = 31;
             this.label13.Text = "Unit Price:";
             // 
             // label14
@@ -319,7 +319,7 @@
             this.label14.Location = new System.Drawing.Point(447, 187);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(37, 15);
-            this.label14.TabIndex = 26;
+            this.label14.TabIndex = 33;
             this.label14.Text = "Total:";
             // 
             // tbTotal
@@ -329,7 +329,7 @@
             this.tbTotal.Name = "tbTotal";
             this.tbTotal.ReadOnly = true;
             this.tbTotal.Size = new System.Drawing.Size(100, 21);
-            this.tbTotal.TabIndex = 27;
+            this.tbTotal.TabIndex = 34;
             // 
             // label15
             // 
@@ -338,7 +338,7 @@
             this.label15.Location = new System.Drawing.Point(22, 228);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(67, 15);
-            this.label15.TabIndex = 28;
+            this.label15.TabIndex = 29;
             this.label15.Text = "Dock Date:";
             // 
             // dateTimePicker1
@@ -375,7 +375,7 @@
             this.label17.Location = new System.Drawing.Point(22, 267);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(124, 15);
-            this.label17.TabIndex = 32;
+            this.label17.TabIndex = 35;
             this.label17.Text = "Shipping Instructions:";
             // 
             // tbShipInst
@@ -385,7 +385,7 @@
             this.tbShipInst.Multiline = true;
             this.tbShipInst.Name = "tbShipInst";
             this.tbShipInst.Size = new System.Drawing.Size(604, 58);
-            this.tbShipInst.TabIndex = 33;
+            this.tbShipInst.TabIndex = 36;
             // 
             // label18
             // 
@@ -394,7 +394,7 @@
             this.label18.Location = new System.Drawing.Point(22, 360);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(119, 15);
-            this.label18.TabIndex = 34;
+            this.label18.TabIndex = 37;
             this.label18.Text = "Packing Instructions:";
             // 
             // tbPackingInst
@@ -404,7 +404,7 @@
             this.tbPackingInst.Multiline = true;
             this.tbPackingInst.Name = "tbPackingInst";
             this.tbPackingInst.Size = new System.Drawing.Size(606, 53);
-            this.tbPackingInst.TabIndex = 35;
+            this.tbPackingInst.TabIndex = 38;
             // 
             // SoItemsControl
             // 

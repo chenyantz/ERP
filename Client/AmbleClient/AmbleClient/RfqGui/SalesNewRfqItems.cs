@@ -18,7 +18,10 @@ namespace AmbleClient.RfqGui
  
     public bool SaveInfo()
         {
-            base.CheckItems();
+            if (base.CheckItems() == false)
+            {
+                return false;
+            }
             
             Rfq rfq=new Rfq();
             GetValuesFromGui(rfq);

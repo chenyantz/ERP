@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SoItemView));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsbAdd = new System.Windows.Forms.ToolStripButton();
+            this.tsbOp = new System.Windows.Forms.ToolStripButton();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.soItemsControl1 = new AmbleClient.SO.SoItemsControl();
             this.toolStrip1.SuspendLayout();
@@ -39,7 +39,7 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbAdd,
+            this.tsbOp,
             this.tsbClose});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -47,15 +47,15 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // tsbAdd
+            // tsbOp
             // 
-            this.tsbAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbAdd.Image = ((System.Drawing.Image)(resources.GetObject("tsbAdd.Image")));
-            this.tsbAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbAdd.Name = "tsbAdd";
-            this.tsbAdd.Size = new System.Drawing.Size(35, 22);
-            this.tsbAdd.Text = "Add";
-            this.tsbAdd.Click += new System.EventHandler(this.tsbAdd_Click);
+            this.tsbOp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbOp.Image = ((System.Drawing.Image)(resources.GetObject("tsbOp.Image")));
+            this.tsbOp.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbOp.Name = "tsbOp";
+            this.tsbOp.Size = new System.Drawing.Size(71, 22);
+            this.tsbOp.Text = "Op&&Close";
+            this.tsbOp.Click += new System.EventHandler(this.tsbOp_Click);
             // 
             // tsbClose
             // 
@@ -83,7 +83,6 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "SoItemView";
             this.Text = "SoItemView";
-            this.Load += new System.EventHandler(this.SoItemView_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -94,7 +93,7 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton tsbAdd;
+        private System.Windows.Forms.ToolStripButton tsbOp;
         private System.Windows.Forms.ToolStripButton tsbClose;
         private SoItemsControl soItemsControl1;
 

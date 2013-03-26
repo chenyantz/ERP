@@ -21,11 +21,13 @@ namespace AmbleClient.Order.PoView
             if (isNewAdd)
             {
                 tscbOp.Text = @"Add&Close";
+                this.Text = "Add a PO Item";
 
             }
             else
             {
                 tscbOp.Text = @"Update&Close";
+                this.Text = "PO Item View";
             }
 
         }
@@ -37,6 +39,9 @@ namespace AmbleClient.Order.PoView
 
         private void tscbOp_Click(object sender, EventArgs e)
         {
+           
+            
+            
             this.DialogResult = DialogResult.Yes;
             this.Close();
         }

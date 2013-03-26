@@ -71,6 +71,54 @@ namespace AmbleClient.SO
         
         }
 
+
+        public bool CheckValues()
+        {
+            if (ItemsCheck.CheckTextBoxEmpty(tbPartNo) == false)
+            {
+                MessageBox.Show("Please input the Part number");
+                return false;
+            
+            }
+            if (ItemsCheck.CheckTextBoxEmpty(tbMfg) == false)
+            {
+                MessageBox.Show("Please input the MFG");
+                return false;
+            }
+            if (ItemsCheck.CheckTextBoxEmpty(tbDc) == false)
+            {
+                MessageBox.Show("Please input the D/C");
+                return false;
+            }
+            if (ItemsCheck.CheckTextBoxEmpty(tbQty) && ItemsCheck.CheckIntNumber(tbQty))
+            {
+                MessageBox.Show("The Qty should be an integer value");
+                tbQty.Focus();
+                return false;
+            }
+            if(ItemsCheck.CheckTextBoxEmpty(tbQtyShipped)&&ItemsCheck.CheckIntNumber(tbQtyShipped))
+            {
+               MessageBox.Show("The Qty Shipped should be an integer value");
+                tbQtyShipped.Focus();
+                return false;
+            }
+
+            if (ItemsCheck.CheckTextBoxEmpty(tbUnitPrice) && ItemsCheck.CheckFloatNumber(tbUnitPrice))
+            {
+                MessageBox.Show("The Unit Price should be a float value");
+                tbUnitPrice.Focus();
+                return false;
+            }
+
+            return true;
+        
+        
+        }
+
+
+
+
+
         public SoItems GetSoItem()
         {
             DateTime? datetime;
@@ -114,9 +162,9 @@ namespace AmbleClient.SO
 
         private void tbUnitPrice_TextChanged(object sender, EventArgs e)
         {
-            if ((!string.IsNullOrWhiteSpace(tbQtyShipped.Text.Trim())) && ItemsCheck.CheckIntNumber(tbQtyShipped.Text.Trim()))
+            if ((!string.IsNullOrWhiteSpace(tbQtyShipped.Text.Trim())) && ItemsCheck.CheckIntNumber(tbQtyShipped))
             {
-                if (ItemsCheck.CheckFloatNumber(tbUnitPrice.Text.Trim()))
+                if (ItemsCheck.CheckFloatNumber(tbUnitPrice))
                 {
                     tbTotal.Text = (Convert.ToInt32(tbQtyShipped.Text.Trim()) * Convert.ToSingle(tbUnitPrice.Text.Trim())).ToString();
                 }
@@ -132,9 +180,9 @@ namespace AmbleClient.SO
 
         private void tbQtyShipped_TextChanged(object sender, EventArgs e)
         {
-            if ((!string.IsNullOrWhiteSpace(tbUnitPrice.Text.Trim())) && ItemsCheck.CheckFloatNumber(tbUnitPrice.Text.Trim()))
+            if ((!string.IsNullOrWhiteSpace(tbUnitPrice.Text.Trim())) && ItemsCheck.CheckFloatNumber(tbUnitPrice))
             {
-                if (ItemsCheck.CheckIntNumber(tbQtyShipped.Text.Trim()))
+                if (ItemsCheck.CheckIntNumber(tbQtyShipped))
                 {
                     tbTotal.Text = (Convert.ToInt32(tbQtyShipped.Text.Trim()) * Convert.ToSingle(tbUnitPrice.Text.Trim())).ToString();
                 }

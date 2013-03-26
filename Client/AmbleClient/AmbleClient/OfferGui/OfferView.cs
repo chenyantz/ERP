@@ -108,9 +108,12 @@ namespace AmbleClient.OfferGui
         private void tsbRoute_Click(object sender, EventArgs e)
         {
             OfferItems item = offerItemsList[tabControl1.SelectedIndex];
+
+            if(DialogResult.Yes==MessageBox.Show("Route the Offer?","",MessageBoxButtons.YesNo))
+            {
             BuyerOfferItems bItem = item as BuyerOfferItems;
             bItem.UpdateOfferState((int)OfferState.Routed);
-
+            }
         }
 
         private void tsbCloseOffer_Click(object sender, EventArgs e)

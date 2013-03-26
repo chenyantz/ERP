@@ -45,7 +45,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.tbAmount = new System.Windows.Forms.TextBox();
+            this.tbQuantity = new System.Windows.Forms.TextBox();
             this.cbTimeUnit = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tbDeliverTime = new System.Windows.Forms.TextBox();
@@ -60,15 +60,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 75);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(30, 75);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 12);
+            this.label1.Size = new System.Drawing.Size(91, 15);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Vendor Name:";
+            this.label1.Text = "Vendor Name*:";
             // 
             // tbVendorName
             // 
-            this.tbVendorName.Location = new System.Drawing.Point(113, 67);
+            this.tbVendorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbVendorName.Location = new System.Drawing.Point(127, 72);
             this.tbVendorName.Name = "tbVendorName";
             this.tbVendorName.Size = new System.Drawing.Size(192, 21);
             this.tbVendorName.TabIndex = 2;
@@ -76,15 +78,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(345, 79);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(356, 75);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.Size = new System.Drawing.Size(56, 15);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Contact:";
+            this.label2.Text = "Contact*:";
             // 
             // tbContact
             // 
-            this.tbContact.Location = new System.Drawing.Point(404, 75);
+            this.tbContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbContact.Location = new System.Drawing.Point(418, 69);
             this.tbContact.Name = "tbContact";
             this.tbContact.Size = new System.Drawing.Size(154, 21);
             this.tbContact.TabIndex = 3;
@@ -92,15 +96,17 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(57, 118);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(66, 117);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.Size = new System.Drawing.Size(51, 15);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Phone:";
+            this.label3.Text = "Phone*:";
             // 
             // tbPhone
             // 
-            this.tbPhone.Location = new System.Drawing.Point(114, 109);
+            this.tbPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPhone.Location = new System.Drawing.Point(128, 114);
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(191, 21);
             this.tbPhone.TabIndex = 4;
@@ -108,15 +114,17 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(356, 204);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(365, 200);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 12);
+            this.label4.Size = new System.Drawing.Size(43, 15);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Price:";
+            this.label4.Text = "Price*:";
             // 
             // tbPrice
             // 
-            this.tbPrice.Location = new System.Drawing.Point(404, 201);
+            this.tbPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPrice.Location = new System.Drawing.Point(418, 197);
             this.tbPrice.Name = "tbPrice";
             this.tbPrice.Size = new System.Drawing.Size(154, 21);
             this.tbPrice.TabIndex = 8;
@@ -124,15 +132,17 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(62, 27);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(83, 35);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 12);
+            this.label5.Size = new System.Drawing.Size(38, 15);
             this.label5.TabIndex = 8;
             this.label5.Text = "MPN:";
             // 
             // tbMpn
             // 
-            this.tbMpn.Location = new System.Drawing.Point(114, 24);
+            this.tbMpn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMpn.Location = new System.Drawing.Point(127, 32);
             this.tbMpn.Name = "tbMpn";
             this.tbMpn.Size = new System.Drawing.Size(191, 21);
             this.tbMpn.TabIndex = 0;
@@ -140,15 +150,17 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(354, 33);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(374, 38);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 12);
+            this.label6.Size = new System.Drawing.Size(42, 15);
             this.label6.TabIndex = 10;
-            this.label6.Text = "MFG:";
+            this.label6.Text = "MFG*:";
             // 
             // tbMfg
             // 
-            this.tbMfg.Location = new System.Drawing.Point(404, 27);
+            this.tbMfg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMfg.Location = new System.Drawing.Point(418, 32);
             this.tbMfg.Name = "tbMfg";
             this.tbMfg.Size = new System.Drawing.Size(154, 21);
             this.tbMfg.TabIndex = 1;
@@ -156,15 +168,17 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(360, 118);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(378, 117);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(29, 12);
+            this.label7.Size = new System.Drawing.Size(30, 15);
             this.label7.TabIndex = 12;
             this.label7.Text = "Fax:";
             // 
             // tbFax
             // 
-            this.tbFax.Location = new System.Drawing.Point(404, 112);
+            this.tbFax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbFax.Location = new System.Drawing.Point(418, 114);
             this.tbFax.Name = "tbFax";
             this.tbFax.Size = new System.Drawing.Size(154, 21);
             this.tbFax.TabIndex = 5;
@@ -172,15 +186,17 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(61, 155);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(75, 160);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 12);
+            this.label8.Size = new System.Drawing.Size(42, 15);
             this.label8.TabIndex = 14;
             this.label8.Text = "Email:";
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(114, 155);
+            this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbEmail.Location = new System.Drawing.Point(128, 157);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(191, 21);
             this.tbEmail.TabIndex = 6;
@@ -188,52 +204,58 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(47, 195);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(59, 200);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 12);
+            this.label9.Size = new System.Drawing.Size(59, 15);
             this.label9.TabIndex = 16;
-            this.label9.Text = "Quantity:";
+            this.label9.Text = "Quantity*:";
             // 
-            // tbAmount
+            // tbQuantity
             // 
-            this.tbAmount.Location = new System.Drawing.Point(113, 195);
-            this.tbAmount.Name = "tbAmount";
-            this.tbAmount.Size = new System.Drawing.Size(192, 21);
-            this.tbAmount.TabIndex = 7;
+            this.tbQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbQuantity.Location = new System.Drawing.Point(126, 197);
+            this.tbQuantity.Name = "tbQuantity";
+            this.tbQuantity.Size = new System.Drawing.Size(192, 21);
+            this.tbQuantity.TabIndex = 7;
             // 
             // cbTimeUnit
             // 
             this.cbTimeUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTimeUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTimeUnit.FormattingEnabled = true;
             this.cbTimeUnit.Items.AddRange(new object[] {
             "Day(s)",
             "Week(s)",
             "Month(s)",
             "Year(s)"});
-            this.cbTimeUnit.Location = new System.Drawing.Point(220, 232);
+            this.cbTimeUnit.Location = new System.Drawing.Point(234, 237);
             this.cbTimeUnit.Name = "cbTimeUnit";
-            this.cbTimeUnit.Size = new System.Drawing.Size(62, 20);
+            this.cbTimeUnit.Size = new System.Drawing.Size(62, 23);
             this.cbTimeUnit.TabIndex = 10;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(27, 242);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(38, 240);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(83, 12);
+            this.label10.Size = new System.Drawing.Size(79, 15);
             this.label10.TabIndex = 19;
             this.label10.Text = "Deliver Time:";
             // 
             // tbDeliverTime
             // 
-            this.tbDeliverTime.Location = new System.Drawing.Point(114, 233);
+            this.tbDeliverTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDeliverTime.Location = new System.Drawing.Point(128, 238);
             this.tbDeliverTime.Name = "tbDeliverTime";
             this.tbDeliverTime.Size = new System.Drawing.Size(100, 21);
             this.tbDeliverTime.TabIndex = 9;
             // 
             // tbOfferDate
             // 
-            this.tbOfferDate.Location = new System.Drawing.Point(404, 236);
+            this.tbOfferDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbOfferDate.Location = new System.Drawing.Point(416, 239);
             this.tbOfferDate.Name = "tbOfferDate";
             this.tbOfferDate.ReadOnly = true;
             this.tbOfferDate.Size = new System.Drawing.Size(154, 21);
@@ -242,24 +264,27 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(334, 239);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(350, 240);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(65, 12);
+            this.label11.Size = new System.Drawing.Size(62, 15);
             this.label11.TabIndex = 22;
             this.label11.Text = "OfferDate:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(35, 293);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(51, 292);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(77, 12);
+            this.label12.Size = new System.Drawing.Size(67, 15);
             this.label12.TabIndex = 23;
             this.label12.Text = "Offer State:";
             // 
             // tbOfferState
             // 
-            this.tbOfferState.Location = new System.Drawing.Point(113, 293);
+            this.tbOfferState.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbOfferState.Location = new System.Drawing.Point(128, 292);
             this.tbOfferState.Name = "tbOfferState";
             this.tbOfferState.ReadOnly = true;
             this.tbOfferState.Size = new System.Drawing.Size(162, 21);
@@ -268,15 +293,17 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(58, 327);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(73, 332);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(41, 12);
+            this.label13.Size = new System.Drawing.Size(42, 15);
             this.label13.TabIndex = 24;
             this.label13.Text = "Notes:";
             // 
             // tbNotes
             // 
-            this.tbNotes.Location = new System.Drawing.Point(114, 327);
+            this.tbNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNotes.Location = new System.Drawing.Point(128, 332);
             this.tbNotes.Multiline = true;
             this.tbNotes.Name = "tbNotes";
             this.tbNotes.Size = new System.Drawing.Size(444, 85);
@@ -295,7 +322,7 @@
             this.Controls.Add(this.tbDeliverTime);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cbTimeUnit);
-            this.Controls.Add(this.tbAmount);
+            this.Controls.Add(this.tbQuantity);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.label8);
@@ -314,7 +341,7 @@
             this.Controls.Add(this.tbVendorName);
             this.Controls.Add(this.label1);
             this.Name = "OfferItems";
-            this.Size = new System.Drawing.Size(680, 462);
+            this.Size = new System.Drawing.Size(661, 473);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,7 +366,7 @@
         private System.Windows.Forms.Label label8;
         protected System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Label label9;
-        protected System.Windows.Forms.TextBox tbAmount;
+        protected System.Windows.Forms.TextBox tbQuantity;
         protected System.Windows.Forms.ComboBox cbTimeUnit;
         private System.Windows.Forms.Label label10;
         protected System.Windows.Forms.TextBox tbDeliverTime;

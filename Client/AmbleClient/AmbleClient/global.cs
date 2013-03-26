@@ -7,14 +7,6 @@ using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Windows;
 using System.Windows.Forms;
-using AmbleAppServer.AccountMgr;
-using AmbleAppServer.customerVendorMgr;
-using AmbleAppServer.RfqMgr;
-using AmbleAppServer.OfferMgr;
-using AmbleAppServer.SoMgr;
-using AmbleAppServer.PoMgr;
-using System.Runtime.InteropServices;
-
 
 namespace AmbleClient
 
@@ -126,18 +118,18 @@ namespace AmbleClient
 
         }
 
-        public static bool CheckIntNumber(string intNumber)
+        public static bool CheckIntNumber(TextBox tb)
         {
             int tempvalue;
 
-            return int.TryParse(intNumber,out tempvalue);
+            return int.TryParse(tb.Text.Trim(),out tempvalue);
 
         }
      
-        public static bool CheckFloatNumber(string floatNumber)
+        public static bool CheckFloatNumber(TextBox tb)
         {
             float tempvalue;
-            return float.TryParse(floatNumber, out tempvalue);
+            return float.TryParse(tb.Text.Trim(), out tempvalue);
            
         }
             

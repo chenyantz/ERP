@@ -167,7 +167,8 @@ namespace AmbleClient.SO
 
         public void SoSave()
         {
-            CheckValues();
+            if (false == CheckValues())
+            { return; }
             So so=GetValues();
             if (!SoMgr.SaveSoMain(so))
             {
@@ -191,7 +192,8 @@ namespace AmbleClient.SO
 
         public void SoUpdate()
         {
-            CheckValues();
+            if (false == CheckValues())
+            { return; }
             So so = GetValues();
             if (!SoMgr.UpdateSoMain(so))
             {
@@ -213,9 +215,22 @@ namespace AmbleClient.SO
 
 
 
-        private void CheckValues()
-        { 
-        
+        private bool CheckValues()
+        {
+            if (ItemsCheck.CheckTextBoxEmpty(tbCustomer) == false)
+            {
+                MessageBox.Show("Please input the customer name");
+                return false;
+            }
+
+            if (ItemsCheck.CheckTextBoxEmpty(tbContact) == false)
+            {
+                MessageBox.Show("Please input the Contact name");
+                return false;
+            }
+
+            return true;
+
         }
 
         private So GetValues()

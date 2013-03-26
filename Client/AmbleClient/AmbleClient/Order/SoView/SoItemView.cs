@@ -25,11 +25,13 @@ namespace AmbleClient.SO
             if (newItems)
             {
                 this.Text = "Add an SO Item";
+                tsbOp.Text = "Add&&Close";
                 this.soItemsControl1.NewCreateItems();
             }
             else
             {
                 this.Text = "So Item View";
+                tsbOp.Text="Update&&Close";
            
             }
         }
@@ -39,8 +41,12 @@ namespace AmbleClient.SO
             return soItemsControl1.GetSoItem();
         }
 
-        private void tsbAdd_Click(object sender, EventArgs e)
+        private void tsbOp_Click(object sender, EventArgs e)
         {
+            if (soItemsControl1.CheckValues() == false)
+            {
+                return;
+            }
             this.DialogResult = DialogResult.Yes;
             this.Close();
         }
@@ -55,18 +61,5 @@ namespace AmbleClient.SO
         {
             this.soItemsControl1.FreezeAllControls();
         }
-
-        private void SoItemView_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tsbUpdate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
     }
 }

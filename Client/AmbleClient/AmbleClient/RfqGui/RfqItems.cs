@@ -141,8 +141,81 @@ namespace AmbleClient.RfqGui
             tbRoutingHistory.Text = rfq.routingHistory;
         }
 
-        public void CheckItems()
-        {}
+        public bool CheckItems()
+        {
+            if (tbCustomer.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Please input the customer name.");
+                tbCustomer.Focus();
+                return false;
+            
+            }
+            if (tbContact.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Please input the contact name.");
+                tbContact.Focus();
+                return false;
+            }
+            if (tbPhone.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Please input the phone number.");
+                tbPhone.Focus();
+                return false;
+            }
+            if (tbPartNo.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Please input the part number.");
+                tbPartNo.Focus();
+                return false;
+            }
+            if (tbMfg.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Please input the MFG.");
+                tbMfg.Focus();
+                return false;
+            
+            }
+            if (tbDc.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Please input the D/C.");
+                tbDc.Focus();
+                return false;
+            }
+            if (tbQuantity.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Please input the quantity.");
+                tbDc.Focus();
+                return false;
+
+            }
+            else
+            {
+                if (false == ItemsCheck.CheckIntNumber(tbQuantity))
+                {
+                    MessageBox.Show("The Quanity should be an integer number.");
+                    tbQuantity.Focus();
+                    return false;
+                
+                }
+            
+            }
+
+            if (tbTargetPrice.Text.Trim().Length != 0 && false == ItemsCheck.CheckFloatNumber(tbTargetPrice))
+            {
+                MessageBox.Show("The Target Price should be a float number.");
+                tbTargetPrice.Focus();
+                return false;
+            }
+
+            if (tbResale.Text.Trim().Length != 0 && false == ItemsCheck.CheckFloatNumber(tbResale))
+            {
+                MessageBox.Show("The Resale should be a float number.");
+                tbResale.Focus();
+                return false;
+            }
+
+            return true;
+        }
 
     }
 }

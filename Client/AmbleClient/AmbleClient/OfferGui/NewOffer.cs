@@ -42,10 +42,7 @@ namespace AmbleClient.OfferGui
                 newOfferId = buyerOfferItems1.GetTheSavedOfferId();
                 tsbRoute.Enabled = true;
             }
-            else
-            {
-                MessageBox.Show("Fail to Save the Offer Info");
-            }
+
         }
         private void tsbRoute_Click(object sender, EventArgs e)
         {

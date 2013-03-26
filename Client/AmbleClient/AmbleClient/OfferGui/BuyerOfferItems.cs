@@ -127,13 +127,13 @@ namespace AmbleClient.OfferGui
            offer.phone = tbPhone.Text.Trim();
            offer.fax = tbFax.Text.Trim();
            offer.email = tbEmail.Text.Trim();
-           if (string.IsNullOrWhiteSpace(tbAmount.Text.Trim()))
+           if (string.IsNullOrWhiteSpace(tbQuantity.Text.Trim()))
            {
                offer.amount = null;
            }
            else
            {
-               offer.amount = int.Parse(tbAmount.Text.Trim());
+               offer.amount = int.Parse(tbQuantity.Text.Trim());
            }
 
            if (string.IsNullOrWhiteSpace(tbPrice.Text.Trim()))
@@ -167,9 +167,12 @@ namespace AmbleClient.OfferGui
 
        public bool SaveItems(int rfqId)
        {
+           if (CheckItems() == false)
+           {
+               return false;
+           }
            var offer = GetValue();
            offer.rfqNo = rfqId;
-           
            return offerMgr.SaveOffer(offer);
 
        }
@@ -183,6 +186,11 @@ namespace AmbleClient.OfferGui
 
        public void UpdateItems()
        {
+           if (CheckItems() == false)
+           {
+               return;
+           }
+
 
            var offer = GetValue();
            offer.offerId = offerId;

@@ -39,9 +39,9 @@
             this.tscbAllOrMine = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.tscbFilterColumn = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.tstbFilterString = new System.Windows.Forms.ToolStripTextBox();
             this.tsbApply = new System.Windows.Forms.ToolStripButton();
             this.tsbClear = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -90,6 +90,7 @@
             // 
             // toolStrip2
             // 
+            this.toolStrip2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNewRfq,
             this.toolStripSeparator2,
@@ -97,9 +98,9 @@
             this.tscbAllOrMine,
             this.toolStripSeparator3,
             this.toolStripLabel3,
-            this.toolStripComboBox1,
+            this.tscbFilterColumn,
             this.toolStripLabel4,
-            this.toolStripTextBox1,
+            this.tstbFilterString,
             this.tsbApply,
             this.tsbClear,
             this.toolStripSeparator1,
@@ -117,7 +118,7 @@
             this.tsbNewRfq.Image = ((System.Drawing.Image)(resources.GetObject("tsbNewRfq.Image")));
             this.tsbNewRfq.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNewRfq.Name = "tsbNewRfq";
-            this.tsbNewRfq.Size = new System.Drawing.Size(60, 22);
+            this.tsbNewRfq.Size = new System.Drawing.Size(64, 22);
             this.tsbNewRfq.Text = "New RFQ";
             this.tsbNewRfq.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -129,7 +130,7 @@
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(28, 22);
+            this.toolStripLabel2.Size = new System.Drawing.Size(29, 22);
             this.toolStripLabel2.Text = "List:";
             // 
             // tscbAllOrMine
@@ -138,11 +139,8 @@
             "All RFQ I Can See",
             "My RFQ"});
             this.tscbAllOrMine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tscbAllOrMine.Items.AddRange(new object[] {
-            "All RFQs I Can See",
-            "My RFQ"});
             this.tscbAllOrMine.Name = "tscbAllOrMine";
-            this.tscbAllOrMine.Size = new System.Drawing.Size(130, 25);
+            this.tscbAllOrMine.Size = new System.Drawing.Size(150, 25);
             this.tscbAllOrMine.SelectedIndexChanged += new System.EventHandler(this.tscbAllOrMine_SelectedIndexChanged);
             this.tscbAllOrMine.Click += new System.EventHandler(this.tscbAllOrMine_Click);
             // 
@@ -154,31 +152,32 @@
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(52, 22);
+            this.toolStripLabel3.Size = new System.Drawing.Size(53, 22);
             this.toolStripLabel3.Text = "Filter By:";
             // 
-            // toolStripComboBox1
+            // tscbFilterColumn
             // 
-            this.toolStripComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.toolStripComboBox1.Items.AddRange(new object[] {
+            this.tscbFilterColumn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tscbFilterColumn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tscbFilterColumn.Items.AddRange(new object[] {
             "Part No.",
             "Customer Name",
             "RFQ ID",
             "Date"});
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
-            this.toolStripComboBox1.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox1_SelectedIndexChanged);
+            this.tscbFilterColumn.Name = "tscbFilterColumn";
+            this.tscbFilterColumn.Size = new System.Drawing.Size(121, 25);
+            this.tscbFilterColumn.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox1_SelectedIndexChanged);
             // 
             // toolStripLabel4
             // 
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(70, 22);
+            this.toolStripLabel4.Size = new System.Drawing.Size(72, 22);
             this.toolStripLabel4.Text = "Filter String:";
             // 
-            // toolStripTextBox1
+            // tstbFilterString
             // 
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
+            this.tstbFilterString.Name = "tstbFilterString";
+            this.tstbFilterString.Size = new System.Drawing.Size(125, 25);
             // 
             // tsbApply
             // 
@@ -186,7 +185,7 @@
             this.tsbApply.Image = ((System.Drawing.Image)(resources.GetObject("tsbApply.Image")));
             this.tsbApply.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbApply.Name = "tsbApply";
-            this.tsbApply.Size = new System.Drawing.Size(42, 22);
+            this.tsbApply.Size = new System.Drawing.Size(40, 22);
             this.tsbApply.Text = "Apply";
             this.tsbApply.Click += new System.EventHandler(this.tsbApply_Click);
             // 
@@ -196,7 +195,7 @@
             this.tsbClear.Image = ((System.Drawing.Image)(resources.GetObject("tsbClear.Image")));
             this.tsbClear.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClear.Name = "tsbClear";
-            this.tsbClear.Size = new System.Drawing.Size(38, 22);
+            this.tsbClear.Size = new System.Drawing.Size(40, 22);
             this.tsbClear.Text = "Clear";
             this.tsbClear.Click += new System.EventHandler(this.tsbClear_Click);
             // 
@@ -211,7 +210,7 @@
             this.tsbRefresh.Image = ((System.Drawing.Image)(resources.GetObject("tsbRefresh.Image")));
             this.tsbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbRefresh.Name = "tsbRefresh";
-            this.tsbRefresh.Size = new System.Drawing.Size(50, 22);
+            this.tsbRefresh.Size = new System.Drawing.Size(54, 22);
             this.tsbRefresh.Text = "Refresh";
             this.tsbRefresh.Click += new System.EventHandler(this.tsbRefresh_Click);
             // 
@@ -261,7 +260,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 85);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 78);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -273,7 +272,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1082, 445);
+            this.dataGridView1.Size = new System.Drawing.Size(1082, 411);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
@@ -411,7 +410,7 @@
             this.tsbMoveFirst.Image = ((System.Drawing.Image)(resources.GetObject("tsbMoveFirst.Image")));
             this.tsbMoveFirst.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbMoveFirst.Name = "tsbMoveFirst";
-            this.tsbMoveFirst.Size = new System.Drawing.Size(30, 22);
+            this.tsbMoveFirst.Size = new System.Drawing.Size(32, 22);
             this.tsbMoveFirst.Text = "|<<";
             this.tsbMoveFirst.Click += new System.EventHandler(this.tsbMoveFirst_Click);
             // 
@@ -435,7 +434,7 @@
             // tslCount
             // 
             this.tslCount.Name = "tslCount";
-            this.tslCount.Size = new System.Drawing.Size(29, 22);
+            this.tslCount.Size = new System.Drawing.Size(31, 22);
             this.tslCount.Text = "/ {0}";
             this.tslCount.Click += new System.EventHandler(this.tslCount_Click);
             // 
@@ -455,7 +454,7 @@
             this.tsbMoveLast.Image = ((System.Drawing.Image)(resources.GetObject("tsbMoveLast.Image")));
             this.tsbMoveLast.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbMoveLast.Name = "tsbMoveLast";
-            this.tsbMoveLast.Size = new System.Drawing.Size(30, 22);
+            this.tsbMoveLast.Size = new System.Drawing.Size(32, 22);
             this.tsbMoveLast.Text = ">>|";
             this.tsbMoveLast.Click += new System.EventHandler(this.tsbMoveLast_Click);
             // 
@@ -467,7 +466,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(88, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(98, 22);
             this.toolStripLabel1.Text = "Items Per Page:";
             // 
             // toolStripTextBox2
@@ -482,7 +481,7 @@
             this.tsbSet.Image = ((System.Drawing.Image)(resources.GetObject("tsbSet.Image")));
             this.tsbSet.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSet.Name = "tsbSet";
-            this.tsbSet.Size = new System.Drawing.Size(27, 22);
+            this.tsbSet.Size = new System.Drawing.Size(29, 22);
             this.tsbSet.Text = "Set";
             this.tsbSet.Click += new System.EventHandler(this.tsbSet_Click);
             // 
@@ -500,9 +499,9 @@
             this.toolStripLabel1,
             this.toolStripTextBox2,
             this.tsbSet});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 54);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 50);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(327, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(345, 25);
             this.toolStrip1.TabIndex = 5;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -517,7 +516,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1082, 27);
+            this.panel1.Size = new System.Drawing.Size(1082, 25);
             this.panel1.TabIndex = 6;
             // 
             // cbOffered
@@ -530,7 +529,6 @@
             this.cbOffered.TabIndex = 6;
             this.cbOffered.Text = "Offered";
             this.cbOffered.UseVisualStyleBackColor = true;
-            this.cbOffered.CheckedChanged += new System.EventHandler(this.rfqStatesSelectedChanged);
             // 
             // cbClosed
             // 
@@ -542,7 +540,6 @@
             this.cbClosed.TabIndex = 5;
             this.cbClosed.Text = "Closed";
             this.cbClosed.UseVisualStyleBackColor = true;
-            this.cbClosed.CheckStateChanged += new System.EventHandler(this.rfqStatesSelectedChanged);
             // 
             // cbHasSo
             // 
@@ -554,7 +551,6 @@
             this.cbHasSo.TabIndex = 3;
             this.cbHasSo.Text = "Has SO";
             this.cbHasSo.UseVisualStyleBackColor = true;
-            this.cbHasSo.CheckStateChanged += new System.EventHandler(this.rfqStatesSelectedChanged);
             // 
             // cbQuoted
             // 
@@ -566,7 +562,6 @@
             this.cbQuoted.TabIndex = 2;
             this.cbQuoted.Text = "Quoted";
             this.cbQuoted.UseVisualStyleBackColor = true;
-            this.cbQuoted.CheckStateChanged += new System.EventHandler(this.rfqStatesSelectedChanged);
             // 
             // cbRouted
             // 
@@ -578,7 +573,6 @@
             this.cbRouted.TabIndex = 1;
             this.cbRouted.Text = "Routed";
             this.cbRouted.UseVisualStyleBackColor = true;
-            this.cbRouted.CheckStateChanged += new System.EventHandler(this.rfqStatesSelectedChanged);
             // 
             // cbNew
             // 
@@ -590,13 +584,12 @@
             this.cbNew.TabIndex = 0;
             this.cbNew.Text = "New";
             this.cbNew.UseVisualStyleBackColor = true;
-            this.cbNew.CheckedChanged += new System.EventHandler(this.rfqStatesSelectedChanged);
             // 
             // RFQListView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 527);
+            this.ClientSize = new System.Drawing.Size(1082, 486);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridView1);
@@ -623,9 +616,9 @@
         protected System.Windows.Forms.ToolStripButton tsbNewRfq;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.ToolStripComboBox tscbFilterColumn;
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripTextBox tstbFilterString;
         private System.Windows.Forms.ToolStripButton tsbApply;
         private System.Windows.Forms.ToolStripButton tsbClear;
         protected System.Windows.Forms.DataGridView dataGridView1;

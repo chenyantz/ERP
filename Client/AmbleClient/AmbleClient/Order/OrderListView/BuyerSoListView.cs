@@ -13,7 +13,7 @@ namespace AmbleClient.Order
         protected override void ViewStart()
         {
             tscbList.Items.Add("List All SO I Can See");
-            tscbList.Items.Add("List My Related SO");
+            tscbList.Items.Add("List SO which PA is me");
             tscbFilterColumn.Items.Add("SalesOrderNo");
 
             OrderStatesCheckedChanged(null, null);
@@ -74,9 +74,9 @@ namespace AmbleClient.Order
             SoState.Name = "SoState";
 
           
-            if (UserInfo.Job != JobDescription.Sales)
+            if (UserInfo.Job != JobDescription.Purchaser)
             {
-                dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             No,
             Customer,
             Sp,
@@ -91,7 +91,7 @@ namespace AmbleClient.Order
             }
             else
             {
-                dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             No,
             Sp,
             SalesOrderNo,
@@ -103,15 +103,6 @@ namespace AmbleClient.Order
             SoState
               });
             
-            }
-
-        }
-
-        protected override void GetTheStateList()
-        {
-            foreach (SoState soState in soStateList.GetWholeSoStateList())
-            {
-                intStateList.Add(soState.GetStateValue());
             }
 
         }

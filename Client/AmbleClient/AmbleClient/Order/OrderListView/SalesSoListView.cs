@@ -16,7 +16,6 @@ namespace AmbleClient.Order
            this.Text = "SO List for Sales";
            tscbList.Items.Add("List All SO I Can See");
            tscbList.Items.Add("List My SO");
-           tscbFilterColumn.Items.Add("customerName");
 
            //Add columns for datagridView1
          System.Windows.Forms.DataGridViewTextBoxColumn No = new System.Windows.Forms.DataGridViewTextBoxColumn(); 
@@ -90,15 +89,7 @@ namespace AmbleClient.Order
 
        }
 
-       protected override void GetTheStateList()
-       {
-           foreach (SoState soState in soStateList.GetWholeSoStateList())
-           {
-               intStateList.Add(soState.GetStateValue());
-           }
 
-
-       }
 
        protected override void FillTheDataGrid()
        {

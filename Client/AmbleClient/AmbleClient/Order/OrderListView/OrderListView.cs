@@ -18,7 +18,7 @@ namespace AmbleClient.Order
         protected Dictionary<int, string> idNameDict;
         protected List<int> intStateList = new List<int>();
 
-        
+        protected Dictionary<string, string> filterColumnDict = new Dictionary<string, string>();
         
         public OrderListView()
         {
@@ -30,6 +30,11 @@ namespace AmbleClient.Order
 
             ViewStart();
 
+            FillTheFilterColumnDict();
+            foreach (string filterColumn in filterColumnDict.Keys)
+            {
+                tscbFilterColumn.Items.Add(filterColumn);
+            }
             tscbList.SelectedIndexChanged -= tscbList_SelectedIndexChanged;
             tscbList.SelectedIndex = 0;
             tscbList.SelectedIndexChanged += tscbList_SelectedIndexChanged;
@@ -51,6 +56,9 @@ namespace AmbleClient.Order
    
         }
 
+        protected virtual void FillTheFilterColumnDict()
+        { 
+        }
         protected virtual void FillTheStateCombox()
         { 
         
@@ -74,23 +82,19 @@ namespace AmbleClient.Order
 
         protected void OrderStatesCheckedChanged(object sender, EventArgs e)
         {
-
             FillTheDataGrid();
-
-
         }
 
         private void tscbList_SelectedIndexChanged(object sender, EventArgs e)
         {
             FillTheDataGrid();
-
         }
 
         private void tsbApply_Click(object sender, EventArgs e)
         {
             if (this.tscbFilterColumn.SelectedIndex != -1)
             {
-                this.filterColumn = tscbFilterColumn.SelectedItem.ToString();
+                this.filterColumn = filterColumnDict[(string)tscbFilterColumn.SelectedItem];
             }
             else
             {
@@ -111,8 +115,6 @@ namespace AmbleClient.Order
         { 
         
         }
-
-
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

@@ -12,13 +12,13 @@ namespace AmbleClient.RfqGui
 
         public SalesRfqListView()
         {
-            cbNew.CheckedChanged -= rfqStatesSelectedChanged;
-            cbRouted.CheckedChanged -= rfqStatesSelectedChanged;
-            cbOffered.CheckedChanged -= rfqStatesSelectedChanged;
-            cbQuoted.CheckedChanged -= rfqStatesSelectedChanged;
-            cbHasSo.CheckedChanged -= rfqStatesSelectedChanged;
-            cbClosed.CheckedChanged -= rfqStatesSelectedChanged;
-          
+            base.tscbAllOrMine.Items.Add("List All RFQ I Can See");
+            base.tscbAllOrMine.Items.Add("Only List My RFQ");
+            tscbAllOrMine.SelectedIndexChanged -= tscbAllOrMine_SelectedIndexChanged;
+            tscbAllOrMine.SelectedIndex = 0;
+            tscbAllOrMine.SelectedIndexChanged += tscbAllOrMine_SelectedIndexChanged;
+
+
             base.cbNew.Checked = true;
             base.cbRouted.Checked = true;
             base.cbOffered.Checked = true;
@@ -26,12 +26,14 @@ namespace AmbleClient.RfqGui
             base.cbHasSo.Checked = true;
             base.cbClosed.Checked = false;
 
-            cbNew.CheckedChanged += rfqStatesSelectedChanged;
-            cbRouted.CheckedChanged += rfqStatesSelectedChanged;
-            cbOffered.CheckedChanged += rfqStatesSelectedChanged;
-            cbQuoted.CheckedChanged += rfqStatesSelectedChanged;
-            cbHasSo.CheckedChanged += rfqStatesSelectedChanged;
-            cbClosed.CheckedChanged += rfqStatesSelectedChanged;
+            base.cbNew.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
+            base.cbRouted.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
+            base.cbOffered.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
+            base.cbQuoted.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
+            base.cbHasSo.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
+            base.cbClosed.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
+
+            base.rfqStatesSelectedChanged(this, null);
 
         }
 

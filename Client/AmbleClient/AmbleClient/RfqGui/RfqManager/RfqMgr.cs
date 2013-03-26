@@ -202,6 +202,23 @@ namespace AmbleClient.RfqGui.RfqManager
        }
 
 
+       public string[] GetStartDateAndEndDate(string fromto)
+       {
+
+           string[] spliter={
+                             "To"
+                            };
+           string[] str = fromto.Split(spliter, StringSplitOptions.RemoveEmptyEntries);
+           return str;
+
+       
+       }
+
+
+
+
+
+
        //for sale
         public int GetCountOfDataTablePerSale(int itemsPerPage,int salesId,string filterColumn,string filterString,List<RfqStatesEnum> selections)
         { 
@@ -212,8 +229,17 @@ namespace AmbleClient.RfqGui.RfqManager
             StringBuilder strSql=new StringBuilder();
             if ((!string.IsNullOrEmpty(filterColumn)) && (!(string.IsNullOrEmpty(filterString))))
             {
-                strSql.Append(string.Format("select count(*) from rfq where {0} like '%{1}%' and salesId={2}", filterColumn, filterString,salesId));
+                if (filterColumn == "rfqDate")
+                {
+                    string[] date = GetStartDateAndEndDate(filterString);
 
+                 strSql.Append(string.Format("select count(*) from rfq where {0} between '{1}' and '{2}' and salesId={3} ", filterColumn, date[0],date[1], salesId));
+                }
+                else
+                {
+
+                    strSql.Append(string.Format("select count(*) from rfq where {0} like '%{1}%' and salesId={2}", filterColumn, filterString, salesId));
+                }
             }
             else
 
@@ -241,7 +267,18 @@ namespace AmbleClient.RfqGui.RfqManager
             StringBuilder strSql=new StringBuilder();
            if ((!string.IsNullOrEmpty(filterColumn)) && (!(string.IsNullOrEmpty(filterString))))
             {
-                strSql.Append(string.Format("select * from rfq where {0} like '%{1}%' and salesId={2} ",filterColumn,filterString,salesId));
+
+                if (filterColumn == "rfqDate")
+                {
+                    string[] date = GetStartDateAndEndDate(filterString);
+
+                    strSql.Append(string.Format("select * from rfq where {0} between '{1}' and '{2}' and salesId={3} ", filterColumn, date[0], date[1], salesId));
+                }
+                else
+                {
+
+                    strSql.Append(string.Format("select * from rfq where {0} like '%{1}%' and salesId={2}", filterColumn, filterString, salesId));
+                }
      
             }   
            else
@@ -275,7 +312,18 @@ namespace AmbleClient.RfqGui.RfqManager
 
             if ((!string.IsNullOrEmpty(filterColumn)) && (!(string.IsNullOrEmpty(filterString))))
             {
-                sb.Append(string.Format("select * from rfq where {0} like '%{1}%' and ( salesId={2}",filterColumn,filterString,subIds[0]));
+                if (filterColumn == "rfqDate")
+                {
+                    string[] date = GetStartDateAndEndDate(filterString);
+
+                    sb.Append(string.Format("select * from rfq where {0} between '{1}' and '{2}' and ( salesId={3} ", filterColumn, date[0], date[1], subIds[0]));
+                }
+                else
+                {
+
+                    sb.Append(string.Format("select * from rfq where {0} like '%{1}%' and ( salesId={2}", filterColumn, filterString, subIds[0]));
+                }
+
             }
             else
             {
@@ -311,7 +359,17 @@ namespace AmbleClient.RfqGui.RfqManager
             StringBuilder strSql = new StringBuilder();
             if ((!string.IsNullOrEmpty(filterColumn)) && (!(string.IsNullOrEmpty(filterString))))
             {
-                strSql.Append(string.Format("select count(*) from rfq where {0} like '%{1}%' ", filterColumn, filterString));
+                if (filterColumn == "rfqDate")
+                {
+                    string[] date = GetStartDateAndEndDate(filterString);
+
+                    strSql.Append(string.Format("select count(*) from rfq where {0} between '{1}' and '{2}' ", filterColumn, date[0], date[1]));
+                }
+                else
+                {
+
+                    strSql.Append(string.Format("select count(*) from rfq where {0} like '%{1}%' ", filterColumn, filterString));
+                }
                 strSql.Append(" and (rfqstates=" + selections[0].GetHashCode());
             }
             else
@@ -338,7 +396,20 @@ namespace AmbleClient.RfqGui.RfqManager
             StringBuilder strSql=new StringBuilder();
            if ((!string.IsNullOrEmpty(filterColumn)) && (!(string.IsNullOrEmpty(filterString))))
             {
-                strSql.Append(string.Format("select * from rfq where {0} like '%{1}%' ",filterColumn,filterString));
+
+                if (filterColumn == "rfqDate")
+                {
+                    string[] date = GetStartDateAndEndDate(filterString);
+
+                    strSql.Append(string.Format("select * from rfq where {0} between '{1}' and '{2}' ", filterColumn, date[0], date[1]));
+                }
+                else
+                {
+
+                    strSql.Append(string.Format("select * from rfq where {0} like '%{1}%' ", filterColumn, filterString));
+                }
+
+
                 strSql.Append(" and (rfqstates=" + selections[0].GetHashCode());
             }   
            else
@@ -369,8 +440,18 @@ namespace AmbleClient.RfqGui.RfqManager
             StringBuilder strSql = new StringBuilder();
             if ((!string.IsNullOrEmpty(filterColumn)) && (!(string.IsNullOrEmpty(filterString))))
             {
-                strSql.Append(string.Format("select count(*) from rfq where {0} like '%{1}%' and (firstPA={2} or secondPA={2})", filterColumn, filterString, buyerId));
+                if (filterColumn == "rfqDate")
+                {
+                    string[] date = GetStartDateAndEndDate(filterString);
 
+                    strSql.Append(string.Format("select count(*) from rfq where {0} between '{1}' and '{2}' and (firstPA={3} or secondPA={3} ", filterColumn, date[0], date[1],buyerId));
+                }
+                else
+                {
+
+                    strSql.Append(string.Format("select count(*) from rfq where {0} like '%{1}%' and (firstPA={2} or secondPA={2}) ", filterColumn, filterString, buyerId));
+                }
+                
             }
             else
             {
@@ -394,6 +475,20 @@ namespace AmbleClient.RfqGui.RfqManager
             StringBuilder strSql = new StringBuilder();
             if ((!string.IsNullOrEmpty(filterColumn)) && (!(string.IsNullOrEmpty(filterString))))
             {
+               if (filterColumn == "rfqDate")
+                {
+                    string[] date = GetStartDateAndEndDate(filterString);
+
+                    strSql.Append(string.Format("select * from rfq where {0} between '{1}' and '{2}' and (firstPA={3} or secondPA={3} ", filterColumn, date[0], date[1],buyerId));
+                }
+                else
+                {
+
+                     strSql.Append(string.Format("select * from rfq where {0} like '%{1}%' and (firstPA={2} or secondPA={2}}) ", filterColumn, filterString, buyerId));
+                }
+                
+                
+                
                 strSql.Append(string.Format("select * from rfq where {0} like '%{1}%' and (firstPA={2} or secondPA={2}}) ", filterColumn, filterString, buyerId));
 
             }

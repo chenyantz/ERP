@@ -24,6 +24,28 @@ namespace AmbleClient.Order
 
        }
 
+       protected override void GetTheStateList()
+       {
+           foreach (SoState soState in soStateList.GetWholeSoStateList())
+           {
+               intStateList.Add(soState.GetStateValue());
+           }
+           intStateList.Remove(new SoRejected().GetStateValue());
+           intStateList.Remove(new SoCancelled().GetStateValue());
+           intStateList.Remove(new SoClose().GetStateValue());
+
+
+
+       }
+
+
+       protected override void FillTheFilterColumnDict()
+       {
+           filterColumnDict.Add("Customer", "customerName");
+           filterColumnDict.Add("SO number", "salesOrderNo");
+           filterColumnDict.Add("Customer PO No", "customerPo");
+       }
+
        protected override void StateChanged(object sender, EventArgs e)
        {
            intStateList.Clear();

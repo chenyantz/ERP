@@ -85,6 +85,14 @@ namespace AmbleClient.Order
 
         }
 
+        protected override void FillTheFilterColumnDict()
+        {
+            filterColumnDict.Add("Vendor Name", "vendorName");
+            filterColumnDict.Add("PO number", "poNo");
+
+        }
+
+
         protected override void GetTheStateList()
         {
             foreach (PoState soState in poStateList.GetWholeSoStateList())
@@ -92,7 +100,10 @@ namespace AmbleClient.Order
                 intStateList.Add(soState.GetStateValue());
             }
 
-
+            //remove rejected,cancelled,closed
+            intStateList.Remove(new PoRejected().GetStateValue());
+            intStateList.Remove(new PoCancelled().GetStateValue());
+            intStateList.Remove(new PoClosed().GetStateValue());
         }
 
 

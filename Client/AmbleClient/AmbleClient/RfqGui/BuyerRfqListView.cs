@@ -14,13 +14,6 @@ namespace AmbleClient.RfqGui
             base.tsbNewRfq.Enabled = false;
             base.tscbAllOrMine.Enabled = false;
 
-            cbNew.CheckedChanged -= rfqStatesSelectedChanged;
-            cbRouted.CheckedChanged -= rfqStatesSelectedChanged;
-            cbOffered.CheckedChanged -= rfqStatesSelectedChanged;
-            cbQuoted.CheckedChanged -= rfqStatesSelectedChanged;
-            cbHasSo.CheckedChanged -= rfqStatesSelectedChanged;
-            cbClosed.CheckedChanged -= rfqStatesSelectedChanged;
-
             base.cbNew.Checked = false;
             base.cbRouted.Checked = true;
             base.cbOffered.Checked = true;
@@ -28,12 +21,13 @@ namespace AmbleClient.RfqGui
             base.cbHasSo.Checked = false;
             base.cbClosed.Checked = false;
 
-            cbNew.CheckedChanged += rfqStatesSelectedChanged;
-            cbRouted.CheckedChanged += rfqStatesSelectedChanged;
-            cbOffered.CheckedChanged += rfqStatesSelectedChanged;
-            cbQuoted.CheckedChanged += rfqStatesSelectedChanged;
-            cbHasSo.CheckedChanged += rfqStatesSelectedChanged;
-            cbClosed.CheckedChanged += rfqStatesSelectedChanged;
+            base.cbNew.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
+            base.cbRouted.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
+            base.cbOffered.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
+            base.cbQuoted.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
+            base.cbHasSo.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
+            base.cbClosed.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
+            base.rfqStatesSelectedChanged(this, null);//to fill the datagrid
 
             //in the list ,do not show the customer
             Customer.Visible = false;

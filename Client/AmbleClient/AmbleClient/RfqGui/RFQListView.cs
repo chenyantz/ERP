@@ -29,19 +29,16 @@ namespace AmbleClient.RfqGui
             InitializeComponent();
             rfqMgr = new RfqMgr();
 
-            tscbAllOrMine.SelectedIndexChanged -= tscbAllOrMine_SelectedIndexChanged;
-            tscbAllOrMine.SelectedIndex = 0;
-            tscbAllOrMine.SelectedIndexChanged += tscbAllOrMine_SelectedIndexChanged;
             FillTheIdNameDict();
             GetRfqStatesSelected();
-            CountPageAndShowDataGridView();
+          
 
         }
 
 
         private void RFQView_Load(object sender, EventArgs e)
         {
-
+           
         }
 
 
@@ -197,30 +194,38 @@ namespace AmbleClient.RfqGui
         {
             filterColumn = string.Empty;
             filterString = string.Empty;
-            toolStripTextBox1.Text = "";
-            toolStripComboBox1.SelectedIndex = -1;
+            tstbFilterString.Text = "";
+            tscbFilterColumn.SelectedIndex = -1;
 
             CountPageAndShowDataGridView();
         }
 
         private void tsbApply_Click(object sender, EventArgs e)
         {
-            if (toolStripComboBox1.SelectedIndex == 0)
+            if (tscbFilterColumn.SelectedIndex == 0)
                 filterColumn = "partNo";
-            if (toolStripComboBox1.SelectedIndex == 1)
-                filterColumn = "customerName";
-            if (toolStripComboBox1.SelectedIndex == 2)
-                filterColumn = "rfqNo";
-            if (toolStripComboBox1.SelectedIndex == 3)
+            if (tscbFilterColumn.SelectedIndex == 1)
             {
-                filterColumn = "rfqdate";
+                if (UserInfo.Job == JobDescription.Purchaser)
+                {
+                    MessageBox.Show("Purchaser can not search by Customer Name");
+                    return;
+                }
+                filterColumn = "customerName";
+
+            }
+            if (tscbFilterColumn.SelectedIndex == 2)
+                filterColumn = "rfqNo";
+            if (tscbFilterColumn.SelectedIndex == 3)
+            {
+                filterColumn = "rfqDate";
           
             }
 
 
-            if (string.IsNullOrWhiteSpace(toolStripComboBox1.Text.Trim()))
+            if (string.IsNullOrWhiteSpace(tscbFilterColumn.Text.Trim()))
             { return; }
-            filterString = toolStripTextBox1.Text.Trim();
+            filterString = tstbFilterString.Text.Trim();
             if (string.IsNullOrWhiteSpace(filterString))
             { return; }
 
@@ -229,7 +234,7 @@ namespace AmbleClient.RfqGui
 
         }
 
-        private void tscbAllOrMine_SelectedIndexChanged(object sender, EventArgs e)
+        protected void tscbAllOrMine_SelectedIndexChanged(object sender, EventArgs e)
         {
             CountPageAndShowDataGridView();
 
@@ -315,7 +320,6 @@ namespace AmbleClient.RfqGui
                 rfqStatesSelected.Add(RfqStatesEnum.HasSO);
             if (cbClosed.Checked)
                 rfqStatesSelected.Add(RfqStatesEnum.Closed);
-        
         }
 
         private void tsbRefresh_Click(object sender, EventArgs e)
@@ -334,11 +338,11 @@ namespace AmbleClient.RfqGui
 
         private void toolStripComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (toolStripComboBox1.SelectedIndex == 3)
+            if (tscbFilterColumn.SelectedIndex == 3)
             {
                 basicGui.TimePicker tp = new basicGui.TimePicker();
                 tp.ShowDialog();
-                toolStripTextBox1.Text = tp.FromTo;
+                tstbFilterString.Text = tp.FromTo;
             }
         }
   }

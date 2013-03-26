@@ -133,11 +133,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(83, 35);
+            this.label5.Location = new System.Drawing.Point(75, 35);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 15);
+            this.label5.Size = new System.Drawing.Size(43, 15);
             this.label5.TabIndex = 8;
-            this.label5.Text = "MPN:";
+            this.label5.Text = "MPN*:";
             // 
             // tbMpn
             // 

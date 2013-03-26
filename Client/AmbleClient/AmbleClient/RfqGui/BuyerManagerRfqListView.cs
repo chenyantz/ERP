@@ -11,18 +11,19 @@ namespace AmbleClient.RfqGui
     {
         public BuyerManagerRfqListView()
         {
-            //Freeze only list my RFQ
-            base.tsbNewRfq.Enabled = false;
-            base.tscbAllOrMine.Enabled = false;
-            
-            
-            cbNew.CheckedChanged -= rfqStatesSelectedChanged;
-            cbRouted.CheckedChanged -= rfqStatesSelectedChanged;
-            cbOffered.CheckedChanged -= rfqStatesSelectedChanged;
-            cbQuoted.CheckedChanged -= rfqStatesSelectedChanged;
-            cbHasSo.CheckedChanged -= rfqStatesSelectedChanged;
-            cbClosed.CheckedChanged -= rfqStatesSelectedChanged;
+           
 
+
+            base.tsbNewRfq.Enabled = false;
+            base.tscbAllOrMine.Enabled = true;
+            base.tscbAllOrMine.Items.Add("List All RFQ");
+            base.tscbAllOrMine.Items.Add("List RFQ which PA is me");
+
+
+            tscbAllOrMine.SelectedIndexChanged -= tscbAllOrMine_SelectedIndexChanged;
+            tscbAllOrMine.SelectedIndex = 0;
+            tscbAllOrMine.SelectedIndexChanged += tscbAllOrMine_SelectedIndexChanged;
+            
             base.cbNew.Checked = false;
             base.cbRouted.Checked = true;
             base.cbOffered.Checked = true;
@@ -30,22 +31,37 @@ namespace AmbleClient.RfqGui
             base.cbHasSo.Checked = false;
             base.cbClosed.Checked = false;
 
-            cbNew.CheckedChanged += rfqStatesSelectedChanged;
-            cbRouted.CheckedChanged += rfqStatesSelectedChanged;
-            cbOffered.CheckedChanged += rfqStatesSelectedChanged;
-            cbQuoted.CheckedChanged += rfqStatesSelectedChanged;
-            cbHasSo.CheckedChanged += rfqStatesSelectedChanged;
-            cbClosed.CheckedChanged += rfqStatesSelectedChanged;
+            base.cbNew.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
+            base.cbRouted.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
+            base.cbOffered.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
+            base.cbQuoted.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
+            base.cbHasSo.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
+            base.cbClosed.CheckedChanged += new System.EventHandler(base.rfqStatesSelectedChanged);
+            base.rfqStatesSelectedChanged(this, null);
         }
 
       public override int GetPageCount(int itemsPerPage, string filterColumn, string filterString,List<RfqStatesEnum> selections,bool includeSubs)
       {
-          return rfqMgr.BMGetThePageCountOfDataTable(itemsPerPage, filterColumn, filterString, selections);
-  
+          if (includeSubs)
+          {
+              return rfqMgr.BMGetThePageCountOfDataTable(itemsPerPage, filterColumn, filterString, selections);
+          }
+          else
+          {
+              return rfqMgr.BuyerGetThePageCountOfDataTable(UserInfo.UserId, itemsPerPage, filterColumn, filterString, selections);
+          }
       }
       public override DataTable GetDataTableAccordingToPageNumber(int itemsPerPage, int currentPage, string filterColumn, string filterString, List<RfqStatesEnum> selections, bool includeSubs)
       {
-          return rfqMgr.BMGetRfqDataTableAccordingToPageNumber(currentPage, itemsPerPage, filterColumn, filterString, selections);
+          if (includeSubs)
+          {
+              return rfqMgr.BMGetRfqDataTableAccordingToPageNumber(currentPage, itemsPerPage, filterColumn, filterString, selections);
+          }
+          else
+          {
+              return rfqMgr.BuyerGetRfqDataTableAccordingToPageNumber(UserInfo.UserId, currentPage, itemsPerPage, filterColumn, filterString, selections);
+          }
+
       }
       public override void CellDoubleClickShow(int rfqId)
       {

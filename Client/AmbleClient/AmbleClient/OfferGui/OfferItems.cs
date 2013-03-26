@@ -41,6 +41,12 @@ namespace AmbleClient.OfferGui
 
         public bool CheckItems()
         {
+            if (!ItemsCheck.CheckTextBoxEmpty(tbMpn))
+            {
+                MessageBox.Show("Please input the MPN.");
+                return false;
+            }
+            
             if (ItemsCheck.CheckTextBoxEmpty(tbMfg) == false)
             {
                 MessageBox.Show("Please input the MFG.");

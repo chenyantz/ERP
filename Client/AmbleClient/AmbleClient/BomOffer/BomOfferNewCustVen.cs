@@ -17,6 +17,16 @@ namespace AmbleClient.BomOffer
         {
             InitializeComponent();
             this.isOffer=isOffer;
+            if (isOffer)
+            {
+                this.Text = "Add a Vendor's Info";
+                label1.Text="Customer Name*:";
+            }
+            else
+                this.Text = "Add a Customer's Info";
+            label1.Text = "Vendor Name*:";
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,6 +51,8 @@ namespace AmbleClient.BomOffer
                 entity.SaveChanges();
             }
 
+            this.DialogResult = DialogResult.OK;
+
             this.Close();
 
 
@@ -49,6 +61,11 @@ namespace AmbleClient.BomOffer
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void BomOfferNewCustVen_Load(object sender, EventArgs e)
+        {
+
         }
 
 

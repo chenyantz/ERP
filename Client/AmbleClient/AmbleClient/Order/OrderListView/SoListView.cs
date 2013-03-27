@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using AmbleClient.Order.SoMgr;
+using System.Windows.Forms;
 
 namespace AmbleClient.Order
 {
@@ -64,7 +65,10 @@ namespace AmbleClient.Order
                return;
            int realRowIndex = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["No"].Value);
            SO.SoView soView=new SO.SoView(soList[realRowIndex]);
-            soView.ShowDialog();
+           if (DialogResult.Yes == soView.ShowDialog())
+           {
+               FillTheDataGrid();
+           }
 
        }
 

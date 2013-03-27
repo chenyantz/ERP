@@ -19,11 +19,61 @@ namespace AmbleClient.BomOffer
             InitializeComponent();
             this.isOffer = isOffer;
             this.custVenId = custVenId;
+            if (isOffer)
+            {
+                this.Text = "Add a New Offer";
+
+            }
+            else
+            {
+                this.Text = "Add a New BOM";
+            }
+
+
         
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (!ItemsCheck.CheckTextBoxEmpty(tbMfg))
+            {
+                MessageBox.Show("Please input the MFG");
+                return;
+            
+            }
+
+            if (!ItemsCheck.CheckTextBoxEmpty(tbMpn))
+            {
+                MessageBox.Show("Please input the MPN");
+                return;
+            }
+
+            if (!ItemsCheck.CheckIntNumber(tbQty))
+            {
+                MessageBox.Show("The QTY should be an integer value");
+                tbQty.Focus();
+                return;
+            }
+
+            if (!ItemsCheck.CheckTextBoxEmpty(tbPrice))
+            {
+                MessageBox.Show("Please input the Price");
+                return;
+
+            }
+            else
+            {
+                if (!ItemsCheck.CheckFloatNumber(tbPrice))
+                {
+                    MessageBox.Show("The Price should be a float number");
+                    tbPrice.Focus();
+                    return;
+                
+                }
+            }
+
+            
+            
             var publicBomOff = new publicbomoffer
             {
                 mfg = tbMfg.Text.Trim(),
@@ -40,7 +90,7 @@ namespace AmbleClient.BomOffer
                 entity.publicbomoffer.AddObject(publicBomOff);
                 entity.SaveChanges();
             }
-
+            this.DialogResult = DialogResult.OK;
             this.Close();
 
 

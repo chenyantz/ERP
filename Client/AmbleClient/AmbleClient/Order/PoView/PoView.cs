@@ -137,13 +137,14 @@ namespace AmbleClient.Order.PoView
                 }
 
             }
+            this.DialogResult = DialogResult.Yes;
 
         }
 
         private void tsbUpdate_Click(object sender, EventArgs e)
         {
             poViewControlList[tabControl1.SelectedIndex].PoUpdate();
-
+            this.DialogResult = DialogResult.Yes;
 
         }
     }

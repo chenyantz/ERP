@@ -85,6 +85,7 @@
             this.tsbViewPo.Name = "tsbViewPo";
             this.tsbViewPo.Size = new System.Drawing.Size(59, 22);
             this.tsbViewPo.Text = "View PO";
+            this.tsbViewPo.Click += new System.EventHandler(this.tsbViewPo_Click);
             // 
             // tsbClose
             // 

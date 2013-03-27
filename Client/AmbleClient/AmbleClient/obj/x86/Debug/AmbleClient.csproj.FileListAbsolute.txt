@@ -200,7 +200,6 @@ E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.RFQVie
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.RfqGui.SalesNewRfqItems.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Settings.PasswordChange.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Properties.Resources.resources
-E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.BuyerSoView.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.NewSo.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.SoItemsControl.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.SoItemView.resources

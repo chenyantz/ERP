@@ -72,7 +72,15 @@ namespace AmbleClient.SO
            {
                tsbPoEnter.Enabled = false;
            }
-         
+        //for view Po
+           if (Order.PoMgr.PoMgr.GetPoNumberAccordingToSoId(soList[tabControl1.SelectedIndex].soId) <= 0)
+           {
+               tsbViewPo.Enabled = false;
+           }
+           else
+           {
+               tsbViewPo.Enabled = true;           
+           }
 
 
 
@@ -141,12 +149,15 @@ namespace AmbleClient.SO
                 }
             
             }
+            this.DialogResult = DialogResult.Yes;
 
         }
 
         private void tsbUpdate_Click(object sender, EventArgs e)
         {
             soViewControlList[tabControl1.SelectedIndex].SoUpdate();
+            this.DialogResult = DialogResult.Yes;
+
         }
 
         private void tsbPoEnter_Click(object sender, EventArgs e)
@@ -154,6 +165,15 @@ namespace AmbleClient.SO
             AmbleClient.Order.PoView.NewPo newPo = new Order.PoView.NewPo(soList[tabControl1.SelectedIndex].soId);
             newPo.ShowDialog();
 
+
+
+
+        }
+
+        private void tsbViewPo_Click(object sender, EventArgs e)
+        {
+            Order.PoView.PoView poview = new Order.PoView.PoView(soList[tabControl1.SelectedIndex].soId, 0);
+            poview.ShowDialog();
 
 
 

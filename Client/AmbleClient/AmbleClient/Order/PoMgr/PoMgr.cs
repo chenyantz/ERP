@@ -53,6 +53,13 @@ namespace AmbleClient.Order.PoMgr
          
        }
 
+
+       public static int GetPoNumberAccordingToSoId(int soId)
+       {
+           return poEntity.po.Where(poMain => poMain.soId == soId).Count();
+       }
+       
+       
        public static List<po> GetPoAccordingToSoId(int soId)
        {
            List<po> poList = new List<po>();

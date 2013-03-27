@@ -89,7 +89,7 @@ namespace AmbleClient.BomOffer
         private void toolStripButton1_Click(object sender, EventArgs e)
           {
               BomOfferNewCustVen bomOfferNewCustVen = new BomOfferNewCustVen(isOffer);
-              if (bomOfferNewCustVen.ShowDialog() == DialogResult.Yes)
+              if (bomOfferNewCustVen.ShowDialog() == DialogResult.OK)
               {
                   BomOfferCustVendor_Load(this, null);
               
@@ -128,6 +128,7 @@ namespace AmbleClient.BomOffer
         {
             BomOfferNew bomOfferNew = new BomOfferNew(isOffer, custVenId);
             bomOfferNew.ShowDialog();
+
         
         }
 

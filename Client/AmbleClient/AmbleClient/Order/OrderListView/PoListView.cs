@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using AmbleClient.Order.PoMgr;
 
 namespace AmbleClient.Order
@@ -156,7 +157,10 @@ namespace AmbleClient.Order
                 return;
             int poId = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["PoId"].Value);
             AmbleClient.Order.PoView.PoView poView = new AmbleClient.Order.PoView.PoView(poId);
-            poView.ShowDialog();
+           if(DialogResult.Yes==poView.ShowDialog())
+           {
+            FillTheDataGrid();
+           }
         }
 
 

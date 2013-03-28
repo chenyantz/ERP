@@ -164,7 +164,7 @@
             // tscbListState
             // 
             this.tscbListState.Name = "tscbListState";
-            this.tscbListState.Size = new System.Drawing.Size(150, 25);
+            this.tscbListState.Size = new System.Drawing.Size(170, 25);
             this.tscbListState.SelectedIndexChanged += new System.EventHandler(this.tscbListState_SelectedIndexChanged);
             // 
             // dataGridView1

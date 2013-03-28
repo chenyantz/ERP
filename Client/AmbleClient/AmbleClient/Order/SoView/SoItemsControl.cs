@@ -90,20 +90,20 @@ namespace AmbleClient.SO
                 MessageBox.Show("Please input the D/C");
                 return false;
             }
-            if (ItemsCheck.CheckTextBoxEmpty(tbQty) && ItemsCheck.CheckIntNumber(tbQty))
+            if (ItemsCheck.CheckTextBoxEmpty(tbQty) && !ItemsCheck.CheckIntNumber(tbQty))
             {
                 MessageBox.Show("The Qty should be an integer value");
                 tbQty.Focus();
                 return false;
             }
-            if(ItemsCheck.CheckTextBoxEmpty(tbQtyShipped)&&ItemsCheck.CheckIntNumber(tbQtyShipped))
+            if(ItemsCheck.CheckTextBoxEmpty(tbQtyShipped)&&!ItemsCheck.CheckIntNumber(tbQtyShipped))
             {
                MessageBox.Show("The Qty Shipped should be an integer value");
                 tbQtyShipped.Focus();
                 return false;
             }
 
-            if (ItemsCheck.CheckTextBoxEmpty(tbUnitPrice) && ItemsCheck.CheckFloatNumber(tbUnitPrice))
+            if (ItemsCheck.CheckTextBoxEmpty(tbUnitPrice) && !ItemsCheck.CheckFloatNumber(tbUnitPrice))
             {
                 MessageBox.Show("The Unit Price should be a float value");
                 tbUnitPrice.Focus();

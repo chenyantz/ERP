@@ -18,8 +18,7 @@ namespace AmbleClient.Order
             this.Text = "PO List";
             tscbList.Items.Add("List All PO I Can See");
             tscbList.Items.Add("List My PO");
-            tscbFilterColumn.Items.Add("vendorName");
-
+         
             //Add columns for datagridView1
             System.Windows.Forms.DataGridViewTextBoxColumn PoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             System.Windows.Forms.DataGridViewTextBoxColumn PoNo = new System.Windows.Forms.DataGridViewTextBoxColumn();

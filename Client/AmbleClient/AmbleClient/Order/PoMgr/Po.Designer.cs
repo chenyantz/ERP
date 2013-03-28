@@ -8,15 +8,15 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
-
 namespace AmbleClient.Order.PoMgr
 {
     #region 上下文
@@ -98,6 +98,7 @@ namespace AmbleClient.Order.PoMgr
         private ObjectSet<poitems> _poitems;
 
         #endregion
+
         #region AddTo 方法
     
         /// <summary>
@@ -117,11 +118,11 @@ namespace AmbleClient.Order.PoMgr
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region 实体
     
     /// <summary>
@@ -146,6 +147,7 @@ namespace AmbleClient.Order.PoMgr
         }
 
         #endregion
+
         #region 基元属性
     
         /// <summary>
@@ -536,6 +538,7 @@ namespace AmbleClient.Order.PoMgr
         partial void OnpoStatesChanged();
 
         #endregion
+
     
     }
     
@@ -561,6 +564,7 @@ namespace AmbleClient.Order.PoMgr
         }
 
         #endregion
+
         #region 基元属性
     
         /// <summary>
@@ -1071,9 +1075,11 @@ namespace AmbleClient.Order.PoMgr
         partial void OnnoteToVendorChanged();
 
         #endregion
+
     
     }
 
     #endregion
+
     
 }

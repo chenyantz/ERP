@@ -167,8 +167,6 @@ E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.exe
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.pdb
 E:\ERPone\Client\AmbleClient\AmbleClient\bin\Debug\AmbleClient.exe
 E:\ERPone\Client\AmbleClient\AmbleClient\bin\Debug\AmbleClient.pdb
-E:\ERPone\Client\AmbleClient\AmbleClient\bin\Debug\AmpleAppServer.exe
-E:\ERPone\Client\AmbleClient\AmbleClient\bin\Debug\AmpleAppServer.pdb
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.csprojResolveAssemblyReference.cache
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Admin.AccountMainFrame.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Admin.AccountOperation.resources
@@ -212,3 +210,5 @@ E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Order.PoView.
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.SO.SoViewControl.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.OfferGui.OfferView.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Help.About.resources
+E:\ERPone\Client\AmbleClient\AmbleClient\bin\Debug\AmpleAppServer.exe
+E:\ERPone\Client\AmbleClient\AmbleClient\bin\Debug\AmpleAppServer.pdb

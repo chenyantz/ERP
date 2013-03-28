@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using AmbleClient.Admin.AccountMgr;
+using log4net;
+
 
 
 
@@ -15,34 +17,32 @@ namespace AmbleClient
     public partial class Login : Form
     {
         AccountMgr accountMgr;
-
-
         PropertyClass accountProperty;
+
         
         public Login()
         {
             accountMgr = new AccountMgr();
             InitializeComponent();
-
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
-            
-
         }
-
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             try
             {
                 accountProperty =accountMgr.CheckNameAndPasswd(textBox1.Text.Trim(), maskedTextBox1.Text.Trim());
+                Logger.Info(accountProperty.UserId + "," + accountProperty.Job + " logged in");
+
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Can not connect to the server.Please contact the admin");
+                Logger.Error(ex.StackTrace);
                 return;
             
             }
@@ -90,9 +90,6 @@ namespace AmbleClient
                 BtnLogin_Click(sender, e);
             }
         }
-
-        
-
 
 
     }

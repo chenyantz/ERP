@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using log4net;
+using System.IO;
+
 
 namespace AmbleClient
 {
@@ -15,7 +18,17 @@ namespace AmbleClient
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
-        }
+            try
+            {
+                Application.Run(new Login());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("System error,please restart the program");
+                Logger.Fatal(ex.StackTrace);
+            }
+            
+       }
+
     }
 }

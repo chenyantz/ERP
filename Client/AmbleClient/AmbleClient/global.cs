@@ -7,6 +7,7 @@ using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Windows;
 using System.Windows.Forms;
+using log4net;
 
 namespace AmbleClient
 
@@ -58,6 +59,38 @@ namespace AmbleClient
     
     
     }
+
+
+
+    public class Logger
+    {
+        private static ILog logger = LogManager.GetLogger("Amble");
+
+        public static void Debug(string Message)
+        {
+            logger.Debug(Message);
+        }
+
+        public static void Info(string Message)
+        {
+            logger.Info(Message);
+        }
+
+        public static void Warning(string Message)
+        {
+            logger.Warn(Message);
+        }
+
+        public static void Error( string Message)
+        {
+            logger.Error(Message);
+        }
+
+        public static void Fatal(string Message)
+        {
+            logger.Fatal(Message);
+        }
+    } 
 
 
 

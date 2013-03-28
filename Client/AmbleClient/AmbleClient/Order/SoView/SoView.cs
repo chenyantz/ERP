@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using AmbleClient.Order.SoMgr;
 using AmbleClient.Order;
 
+
 namespace AmbleClient.SO
 {
 
@@ -22,6 +23,8 @@ namespace AmbleClient.SO
         private List<So> soList;
         List<SoViewControl> soViewControlList = new List<SoViewControl>();
         
+
+       
 
         public SoView(int rfqId)
         {
@@ -155,7 +158,10 @@ namespace AmbleClient.SO
 
         private void tsbUpdate_Click(object sender, EventArgs e)
         {
+            
             soViewControlList[tabControl1.SelectedIndex].SoUpdate();
+            
+            
             this.DialogResult = DialogResult.Yes;
 
         }

@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using AmbleClient.RfqGui.RfqManager;
+using log4net;
 
 namespace AmbleClient.RfqGui
 {
     public class SalesNewRfqItems:RfqItems
     {
         List<int> mySubs;
+
         public SalesNewRfqItems()
         {
             cbCloseReason.Enabled = false;
@@ -28,15 +30,27 @@ namespace AmbleClient.RfqGui
             rfq.closeReason = null;
             rfq.salesId = mySubs[cbSales.SelectedIndex];
 
+            bool suc;
+            try
+            {
+                suc = rfqMgr.SaveRfq(rfq);
 
-            if(UserInfo.UserId==rfq.salesId)
-               rfq.routingHistory =DateTime.Now.ToString()+":"+UserInfo.UserName.ToString() + "  Created the RFQ"+System.Environment.NewLine;
-            else
-              rfq.routingHistory = DateTime.Now.ToString() + ":" + UserInfo.UserName.ToString() + " Created the RFQ for "+new AmbleClient.Admin.AccountMgr.AccountMgr().GetNameById(rfq.salesId)+System.Environment.NewLine;
+                if (UserInfo.UserId == rfq.salesId)
+                    rfq.routingHistory = DateTime.Now.ToString() + ":" + UserInfo.UserName.ToString() + "  Created the RFQ" + System.Environment.NewLine;
+                else
+                    rfq.routingHistory = DateTime.Now.ToString() + ":" + UserInfo.UserName.ToString() + " Created the RFQ for " + new AmbleClient.Admin.AccountMgr.AccountMgr().GetNameById(rfq.salesId) + System.Environment.NewLine;
+            }
+            catch (Exception ex)
+            {
+                suc = false;
+                Logger.Error(ex.StackTrace);
+            
+            }
 
-          return  rfqMgr.SaveRfq(rfq);
-           // rfq.salesId
+            return suc;
         }
+
+
     public int GetSavedRfqId()
     {
         return rfqMgr.GetSavedRfqId(mySubs[cbSales.SelectedIndex]);
@@ -120,23 +134,6 @@ namespace AmbleClient.RfqGui
         base.tbCustomer.Text = rfq.customerName;
 
     }
-
-    /*private void InitializeComponent()
-    {
-        this.SuspendLayout();
-        // 
-        // tbCustomer
-        // 
-
-        // 
-        // SalesNewRfqItems
-        // 
-        this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-        this.Name = "SalesNewRfqItems";
-        this.ResumeLayout(false);
-        this.PerformLayout();
-
-    }*/
 
     private void tbCustomer_Leave(object sender, EventArgs e)
     {

@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using AmbleClient.RfqGui.RfqManager;
+using log4net;
 
 namespace AmbleClient.RfqGui
 {
    public class SalesRfqItems:RfqItems
     {
 
-       List<int> mySubs; 
+       List<int> mySubs;
+
        public SalesRfqItems()
        { 
        }
@@ -20,7 +22,18 @@ namespace AmbleClient.RfqGui
            GetValuesFromGui(rfq);
            rfq.rfqNo = rfqId;
            rfq.salesId = mySubs[cbSales.SelectedIndex];
-         return  rfqMgr.UpdateRfq(rfq);
+           bool suc;
+
+           try
+           {
+               suc = rfqMgr.UpdateRfq(rfq);
+           }
+           catch (Exception ex)
+           {
+               suc = false;
+               Logger.Error(ex.StackTrace);
+           }
+           return suc;
        }
 
 

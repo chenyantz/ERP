@@ -6,12 +6,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using log4net;
 
 namespace AmbleClient.SO
 {
     public partial class NewSo : Form
     {
         public int rfqId;
+
+        ILog logger = LogManager.GetLogger(typeof(NewSo));
 
         public NewSo()
         {
@@ -38,7 +41,17 @@ namespace AmbleClient.SO
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             this.soViewControl1.rfqId = this.rfqId;
-            this.soViewControl1.SoSave();
+            try
+            {
+                this.soViewControl1.SoSave();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.StackTrace);
+                MessageBox.Show("Save So Error");
+                return;
+            }
+            
             AmbleClient.RfqGui.RfqManager.RfqMgr rfqMgr = new RfqGui.RfqManager.RfqMgr();
             if (UserInfo.UserId == soViewControl1.GetAssignedSaleID())
             {

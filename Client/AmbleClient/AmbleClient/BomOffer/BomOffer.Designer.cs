@@ -8,15 +8,15 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
-
 namespace AmbleClient.BomOffer
 {
     #region 上下文
@@ -114,6 +114,7 @@ namespace AmbleClient.BomOffer
         private ObjectSet<publiccustven> _publiccustven;
 
         #endregion
+
         #region AddTo 方法
     
         /// <summary>
@@ -141,11 +142,11 @@ namespace AmbleClient.BomOffer
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region 实体
     
     /// <summary>
@@ -170,6 +171,7 @@ namespace AmbleClient.BomOffer
         }
 
         #endregion
+
         #region 基元属性
     
         /// <summary>
@@ -320,6 +322,7 @@ namespace AmbleClient.BomOffer
         partial void OnsuperviserChanged();
 
         #endregion
+
     
     }
     
@@ -349,6 +352,7 @@ namespace AmbleClient.BomOffer
         }
 
         #endregion
+
         #region 基元属性
     
         /// <summary>
@@ -571,6 +575,7 @@ namespace AmbleClient.BomOffer
         partial void OnenerDayChanged();
 
         #endregion
+
     
     }
     
@@ -600,6 +605,7 @@ namespace AmbleClient.BomOffer
         }
 
         #endregion
+
         #region 基元属性
     
         /// <summary>
@@ -798,9 +804,11 @@ namespace AmbleClient.BomOffer
         partial void OnenterDayChanged();
 
         #endregion
+
     
     }
 
     #endregion
+
     
 }

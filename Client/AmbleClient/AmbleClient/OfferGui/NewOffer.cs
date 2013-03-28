@@ -35,14 +35,22 @@ namespace AmbleClient.OfferGui
 
         private void tsbSave_Click(object sender, EventArgs e)
         {
-            if (buyerOfferItems1.SaveItems(rfqId))
+            try
             {
-                MessageBox.Show("Save the Offer Info Successfully");
-                tsbSave.Enabled = false;
-                newOfferId = buyerOfferItems1.GetTheSavedOfferId();
-                tsbRoute.Enabled = true;
+                if (buyerOfferItems1.SaveItems(rfqId))
+                {
+                    MessageBox.Show("Save the Offer Info Successfully");
+                    tsbSave.Enabled = false;
+                    newOfferId = buyerOfferItems1.GetTheSavedOfferId();
+                    tsbRoute.Enabled = true;
+                }
             }
-
+            catch (Exception ex)
+            {
+                Logger.Error(ex.StackTrace);
+                MessageBox.Show("Save Offer Error");
+            
+            }
         }
         private void tsbRoute_Click(object sender, EventArgs e)
         {

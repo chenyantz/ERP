@@ -1,0 +1,4 @@
+53   [8] FATAL Amble.logger (null) - good
+2013-03-28 15:30:23,053 [10] FATAL AmbleClient.Login (null) - good
+2013-03-28 15:56:49,162 [9] INFO  Amble (null) - 1,0 logged in
+2013-03-28 16:02:21,564 [10] INFO  Amble (null) - 1,0 logged in

@@ -99,10 +99,17 @@ namespace AmbleClient.OfferGui
 
         private void tsbUpdate_Click(object sender, EventArgs e)
         {
-            OfferItems item = offerItemsList[tabControl1.SelectedIndex];
-            BuyerOfferItems bItem = item as BuyerOfferItems;
-            bItem.UpdateItems();
-
+            try
+            {
+                OfferItems item = offerItemsList[tabControl1.SelectedIndex];
+                BuyerOfferItems bItem = item as BuyerOfferItems;
+                bItem.UpdateItems();
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex.StackTrace);
+                MessageBox.Show("Update offer error");
+            }
         }
 
         private void tsbRoute_Click(object sender, EventArgs e)

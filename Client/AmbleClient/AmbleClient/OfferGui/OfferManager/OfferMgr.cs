@@ -213,9 +213,9 @@ namespace AmbleClient.OfferGui.OfferMgr
 
            if ((dr["cost"] == DBNull.Value) || Convert.ToSingle(dr["cost"]) > price)
            {
-               if (rfqStates == (int)AmbleAppServer.RfqMgr.RfqStatesEnum.Routed)
+               if (rfqStates == (int)AmbleClient.RfqGui.RfqManager.RfqStatesEnum.Routed)
                {
-                   strSql = string.Format("update rfq set cost={0},rfqStates={1} where rfqNo={2}", price,(int)AmbleAppServer.RfqMgr.RfqStatesEnum.Offered, rfqNo);
+                   strSql = string.Format("update rfq set cost={0},rfqStates={1} where rfqNo={2}", price, (int)AmbleClient.RfqGui.RfqManager.RfqStatesEnum.Offered, rfqNo);
 
                }
                else

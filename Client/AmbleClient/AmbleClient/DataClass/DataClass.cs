@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using MySql.Data.MySqlClient;
+//using AmbleClient.ComClass;
 using AmbleAppServer.ComClass;
-
 namespace AmbleClient.DataClass
 {
     /// <summary>

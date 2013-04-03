@@ -108,8 +108,6 @@ namespace AmbleClient.BomOffer
                 var bomOfferItem = entity.publicbomoffer.First(item => item.BomCustVendId == bomOfferId);
                 entity.DeleteObject(bomOfferItem);
                 entity.SaveChanges();
-            
-            
             }
             BomOfferList_Load(this,null);
 
@@ -156,7 +154,77 @@ namespace AmbleClient.BomOffer
 
 
         }
+
+        private void tsbToExcel_Click(object sender, EventArgs e)
+        {
+
+            DataTable dt;
+            //generate datatable according to DataGridView
+            try
+            {
+              dt=GridView2DataTable(dataGridView1);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex.StackTrace);
+                MessageBox.Show("Met some errors while generating the Excel format file ");
+                return;
+            }
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+              saveFileDialog1.Filter = "Excel 文件(*.xls)|*.xls|Excel 文件(*.xlsx)|*.xlsx|所有文件(*.*)|*.*";
+            //以文件“*.xls”导出
+
+              List<string> columnName = new List<string>();
+              foreach (DataColumn column in dt.Columns)
+              {
+                  columnName.Add(column.ColumnName);
+              
+              }
+
+
+
+              if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+              {
+                  AmbleClient.ExcelHelper.ExcelHelper.Export(dt, this.isOffer?"Offer":"BOM", saveFileDialog1.FileName, "WorkSheet1",columnName.ToArray(),columnName.ToArray());
+              }
+
+
+        }
     
+         private  DataTable GridView2DataTable(DataGridView gv)
+        {
+            DataTable table = new DataTable();
+            if (gv.Rows.Count==0 && gv.Columns.Count == 0)
+            {
+                return table;
+            }
+            int columnCount = gv.Columns.Count;
+            for (int i = 0; i < columnCount; i++)
+            {
+                string text = gv.Columns[i].HeaderText;
+                table.Columns.Add(text);
+            }
+            foreach (DataGridViewRow r in gv.Rows)
+            {
+                    DataRow row = table.NewRow();
+                    int j = 0;
+                    for (int i = 0; i < columnCount; i++)
+                    {
+                        string text = r.Cells[i].Value.ToString();
+
+                            row[j] = text;
+                            j++;
+                  
+                    }
+                    table.Rows.Add(row);
+            }
+            return table;
+     }
+
+
+     
+
+
     
     
     

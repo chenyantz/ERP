@@ -212,3 +212,6 @@ E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.OfferGui.Offe
 E:\ERPone\Client\AmbleClient\AmbleClient\obj\x86\Debug\AmbleClient.Help.About.resources
 E:\ERPone\Client\AmbleClient\AmbleClient\bin\Debug\AmpleAppServer.exe
 E:\ERPone\Client\AmbleClient\AmbleClient\bin\Debug\AmpleAppServer.pdb
+E:\ERPone\Client\AmbleClient\AmbleClient\bin\Debug\NPOI.dll
+E:\ERPone\Client\AmbleClient\AmbleClient\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\ERPone\Client\AmbleClient\AmbleClient\bin\Debug\NPOI.xml

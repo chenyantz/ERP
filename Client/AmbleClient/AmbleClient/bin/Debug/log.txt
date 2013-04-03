@@ -15,3 +15,40 @@
    在 AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) 位置 E:\ERPone\Client\AmbleClient\AmbleClient\Login.cs:行号 37
 2013-03-28 23:10:42,449 [9] INFO  Amble (null) - 1,0 logged in
 2013-03-28 23:12:53,662 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-03 23:53:00,630 [10] ERROR Amble (null) -    在 AmbleClient.Admin.AccountMgr.AccountMgr.CheckNameAndPasswd(String name, String password) 位置 E:\ERPone\Client\AmbleClient\AmbleClient\Admin\AccountManager\AccountMgr.cs:行号 66
+   在 AmbleClient.Login.BtnLogin_Click(Object sender, EventArgs e) 位置 E:\ERPone\Client\AmbleClient\AmbleClient\Login.cs:行号 37
+2013-04-03 23:55:44,870 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-03 23:55:54,807 [9] FATAL Amble (null) -    在 System.Data.DataColumnCollection.get_Item(Int32 index)
+   在 System.Data.DataRow.set_Item(Int32 columnIndex, Object value)
+   在 AmbleClient.BomOffer.BomOfferList.GridView2DataTable(DataGridView gv) 位置 E:\ERPone\Client\AmbleClient\AmbleClient\BomOffer\BomOfferList.cs:行号 205
+   在 AmbleClient.BomOffer.BomOfferList.tsbToExcel_Click(Object sender, EventArgs e) 位置 E:\ERPone\Client\AmbleClient\AmbleClient\BomOffer\BomOfferList.cs:行号 161
+   在 System.Windows.Forms.ToolStripItem.RaiseEvent(Object key, EventArgs e)
+   在 System.Windows.Forms.ToolStripButton.OnClick(EventArgs e)
+   在 System.Windows.Forms.ToolStripItem.HandleClick(EventArgs e)
+   在 System.Windows.Forms.ToolStripItem.HandleMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.ToolStripItem.FireEventInteractive(EventArgs e, ToolStripItemEventType met)
+   在 System.Windows.Forms.ToolStripItem.FireEvent(EventArgs e, ToolStripItemEventType met)
+   在 System.Windows.Forms.ToolStrip.OnMouseUp(MouseEventArgs mea)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   在 System.Windows.Forms.ToolStrip.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 AmbleClient.Program.Main() 位置 E:\ERPone\Client\AmbleClient\AmbleClient\Program.cs:行号 23
+2013-04-03 23:56:49,084 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-04 00:01:21,227 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-04 00:07:08,269 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-04 00:15:33,463 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-04 00:16:42,284 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-04 00:17:30,120 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-04 00:18:42,775 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-04 00:20:07,870 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-04 00:54:14,133 [10] INFO  Amble (null) - 1,0 logged in
+2013-04-04 00:56:38,557 [9] INFO  Amble (null) - 1,0 logged in

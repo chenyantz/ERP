@@ -25,6 +25,7 @@ namespace AmbleClient
             catch (Exception ex)
             {
                 MessageBox.Show("System error,please restart the program");
+                Logger.Fatal(ex.Message);
                 Logger.Fatal(ex.StackTrace);
             }
             

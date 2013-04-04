@@ -53,7 +53,7 @@
             this.tscbOp.Image = ((System.Drawing.Image)(resources.GetObject("tscbOp.Image")));
             this.tscbOp.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tscbOp.Name = "tscbOp";
-            this.tscbOp.Size = new System.Drawing.Size(71, 22);
+            this.tscbOp.Size = new System.Drawing.Size(66, 22);
             this.tscbOp.Text = "Op&&Close";
             this.tscbOp.Click += new System.EventHandler(this.tscbOp_Click);
             // 
@@ -63,7 +63,7 @@
             this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
             this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(43, 22);
+            this.tsbClose.Size = new System.Drawing.Size(40, 22);
             this.tsbClose.Text = "Close";
             this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
@@ -72,14 +72,14 @@
             this.poItemsControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.poItemsControl1.Location = new System.Drawing.Point(0, 25);
             this.poItemsControl1.Name = "poItemsControl1";
-            this.poItemsControl1.Size = new System.Drawing.Size(699, 425);
+            this.poItemsControl1.Size = new System.Drawing.Size(699, 463);
             this.poItemsControl1.TabIndex = 1;
             // 
             // PoItemsView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(699, 450);
+            this.ClientSize = new System.Drawing.Size(699, 488);
             this.Controls.Add(this.poItemsControl1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "PoItemsView";

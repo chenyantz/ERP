@@ -44,9 +44,12 @@ namespace AmbleClient.SO
           {
               string strSaleType, strCurrency;
               switch (soItemsStateList[i].soitem.saleType)
-              { 
+                 
+              {
+
                   case 0:
-                      strSaleType = "OEM EXCESS";
+                  
+                  strSaleType = "OEM EXCESS";
                       break;
                   case 1:
                       strSaleType = "OWN STOCK";
@@ -181,7 +184,7 @@ namespace AmbleClient.SO
             {
               sics.soitem.soId=soId;
             }
-             SoMgr.UpdatePoItems(soItemsStateList);
+             SoMgr.UpdateSoItems(soItemsStateList);
 
                 new AmbleClient.RfqGui.RfqManager.RfqMgr().ChangeRfqState(RfqStatesEnum.HasSO, rfqId);
 
@@ -201,7 +204,7 @@ namespace AmbleClient.SO
                 return;
             }
 
-            SoMgr.UpdatePoItems(soItemsStateList);
+            SoMgr.UpdateSoItems(soItemsStateList);
 
             foreach (SoItemsContentAndState sics in deletedList)
             {
@@ -276,6 +279,7 @@ namespace AmbleClient.SO
                     {
                         soItemsStateList[e.RowIndex].state = OrderItemsState.Modified;
                     }
+                    ShowDataInDataGridView();
                 }
 
             }
@@ -317,6 +321,41 @@ namespace AmbleClient.SO
 
 
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btSplit_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                return;
+            }
+            int rowIndex = dataGridView1.SelectedRows[0].Index;
+            int qty = soItemsStateList[rowIndex].soitem.qty;
+
+            ItemSplit itemSplit = new ItemSplit(qty);
+            if (DialogResult.OK == itemSplit.ShowDialog())
+            { 
+             //get the first value;
+                int firstValue = itemSplit.GetFirstQty();
+                soItemsStateList[rowIndex].soitem.qty = firstValue;
+                soItemsStateList[rowIndex].state = OrderItemsState.Modified;
+            //set the second one
+
+                var soItemContentAndState = new SoItemsContentAndState();
+                soItemContentAndState.soitem = (SoItems)soItemsStateList[rowIndex].soitem.Clone();
+                soItemContentAndState.soitem.soId = this.soId;
+                soItemContentAndState.soitem.qty = qty - firstValue;
+                soItemContentAndState.state = OrderItemsState.New;
+                soItemsStateList.Insert(rowIndex + 1, soItemContentAndState);
+                ShowDataInDataGridView();
+            }
+
+
+        }
     }
   
     
@@ -324,6 +363,7 @@ namespace AmbleClient.SO
     {
       public  SoItems soitem;
       public   OrderItemsState state;
+
     }
     
 }

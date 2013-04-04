@@ -63,7 +63,7 @@
             this.tsbUpdate.Image = ((System.Drawing.Image)(resources.GetObject("tsbUpdate.Image")));
             this.tsbUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbUpdate.Name = "tsbUpdate";
-            this.tsbUpdate.Size = new System.Drawing.Size(54, 22);
+            this.tsbUpdate.Size = new System.Drawing.Size(49, 22);
             this.tsbUpdate.Text = "Update";
             this.tsbUpdate.Click += new System.EventHandler(this.tsbUpdate_Click);
             // 
@@ -73,7 +73,7 @@
             this.tsbPoEnter.Image = ((System.Drawing.Image)(resources.GetObject("tsbPoEnter.Image")));
             this.tsbPoEnter.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbPoEnter.Name = "tsbPoEnter";
-            this.tsbPoEnter.Size = new System.Drawing.Size(62, 22);
+            this.tsbPoEnter.Size = new System.Drawing.Size(57, 22);
             this.tsbPoEnter.Text = "Enter PO";
             this.tsbPoEnter.Click += new System.EventHandler(this.tsbPoEnter_Click);
             // 
@@ -83,7 +83,7 @@
             this.tsbViewPo.Image = ((System.Drawing.Image)(resources.GetObject("tsbViewPo.Image")));
             this.tsbViewPo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbViewPo.Name = "tsbViewPo";
-            this.tsbViewPo.Size = new System.Drawing.Size(59, 22);
+            this.tsbViewPo.Size = new System.Drawing.Size(55, 22);
             this.tsbViewPo.Text = "View PO";
             this.tsbViewPo.Click += new System.EventHandler(this.tsbViewPo_Click);
             // 
@@ -93,7 +93,7 @@
             this.tsbClose.Image = ((System.Drawing.Image)(resources.GetObject("tsbClose.Image")));
             this.tsbClose.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(43, 22);
+            this.tsbClose.Size = new System.Drawing.Size(40, 22);
             this.tsbClose.Text = "Close";
             this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
@@ -105,7 +105,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(120, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(107, 22);
             this.toolStripLabel1.Text = "Set the SO to State:";
             // 
             // tscbStateList
@@ -120,15 +120,15 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 25);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(959, 595);
+            this.tabControl1.Size = new System.Drawing.Size(959, 647);
             this.tabControl1.TabIndex = 1;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // SoView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 620);
+            this.ClientSize = new System.Drawing.Size(959, 672);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "SoView";

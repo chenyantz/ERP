@@ -27,7 +27,7 @@ namespace AmbleClient.Order.SoMgr
     
     }
 
-    public class SoItems
+    public class SoItems:ICloneable
     {
         public int soItemsId;
         public int soId;
@@ -48,7 +48,13 @@ namespace AmbleClient.Order.SoMgr
         public DateTime? shippedDate;
         public string shippingInstruction;
         public string packingInstruction;
-    
+
+
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 
 

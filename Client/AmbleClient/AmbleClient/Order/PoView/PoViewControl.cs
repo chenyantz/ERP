@@ -214,6 +214,7 @@ namespace AmbleClient.Order.PoView
                     {
                     poItemsStateList[e.RowIndex].state = OrderItemsState.Modified;
                     }
+                    FillTheDataGridPoItems();
                 }
             }
         }
@@ -251,6 +252,63 @@ namespace AmbleClient.Order.PoView
               FillTheDataGridPoItems();
             
           }
+
+
+       }
+
+       private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+       {
+
+       }
+
+       private void btSplit_Click(object sender, EventArgs e)
+       {
+           if (dataGridView1.SelectedRows.Count == 0)
+           {
+               return;
+           }
+           int rowIndex = dataGridView1.SelectedRows[0].Index;
+           int qty = poItemsStateList[rowIndex].poItem.qty.Value;
+
+           ItemSplit itemSplit = new ItemSplit(qty);
+           if (DialogResult.OK == itemSplit.ShowDialog())
+           {
+               //get the first value;
+               int firstValue = itemSplit.GetFirstQty();
+               poItemsStateList[rowIndex].poItem.qty = firstValue;
+               poItemsStateList[rowIndex].state = OrderItemsState.Modified;
+               //set the second one
+
+               var poItemContentAndState = new PoItemContentAndState();
+               //can not be cloned,just assign the value;
+               poItemContentAndState.poItem = new poitems();
+               poItemContentAndState.poItem.currency = poItemsStateList[rowIndex].poItem.currency;
+               poItemContentAndState.poItem.dc = poItemsStateList[rowIndex].poItem.dc;
+               poItemContentAndState.poItem.dueDate = poItemsStateList[rowIndex].poItem.dueDate;
+               poItemContentAndState.poItem.mfg = poItemsStateList[rowIndex].poItem.mfg;
+               poItemContentAndState.poItem.noteToVendor = poItemsStateList[rowIndex].poItem.noteToVendor;
+               poItemContentAndState.poItem.org = poItemsStateList[rowIndex].poItem.org;
+               poItemContentAndState.poItem.partNo = poItemsStateList[rowIndex].poItem.partNo;
+               poItemContentAndState.poItem.qcPending = poItemsStateList[rowIndex].poItem.qcPending;
+               poItemContentAndState.poItem.qtyAccept=poItemsStateList[rowIndex].poItem.qtyAccept;
+               poItemContentAndState.poItem.qtyCorrected = poItemsStateList[rowIndex].poItem.qtyCorrected;
+               poItemContentAndState.poItem.qtyRecd = poItemsStateList[rowIndex].poItem.qtyRecd;
+               poItemContentAndState.poItem.qtyRejected = poItemsStateList[rowIndex].poItem.qtyRejected;
+               poItemContentAndState.poItem.qtyRTV = poItemsStateList[rowIndex].poItem.qtyRTV;
+               poItemContentAndState.poItem.receiveDate = poItemsStateList[rowIndex].poItem.receiveDate;
+               poItemContentAndState.poItem.salesAgent = poItemsStateList[rowIndex].poItem.salesAgent;
+               poItemContentAndState.poItem.stepCode = poItemsStateList[rowIndex].poItem.stepCode;
+               poItemContentAndState.poItem.unitPrice = poItemsStateList[rowIndex].poItem.unitPrice;
+               poItemContentAndState.poItem.vendorIntPartNo = poItemsStateList[rowIndex].poItem.vendorIntPartNo;
+                             
+               poItemContentAndState.poItem.poId = this.poId;
+               poItemContentAndState.poItem.qty = qty - firstValue;
+               poItemContentAndState.state = OrderItemsState.New;
+               poItemsStateList.Insert(rowIndex + 1, poItemContentAndState);
+               FillTheDataGridPoItems();
+           }
+
+
 
 
        }

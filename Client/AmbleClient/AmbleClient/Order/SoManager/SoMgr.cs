@@ -316,8 +316,8 @@ namespace AmbleClient.Order.SoMgr
        public static string GetUpDateSoItemString(SoItems soItem)
        {
 
-          return string.Format("update SoItems set saleType={0},partNo='{1}',mfg='{2}',rohs={3},dc='{4}',intPartNo='{5}',shipFrom='{6}',shipMethod='{7}',trackingNo='{8}',qty={9},qtyShipped={10},currency={11},unitPrice={12},dockDate='{13}',shippedDate='{14}',shippingInstruction='{15}',packingInstruction='{16}' where soItemsId={17} " +
-       soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc,    soItem.intPartNo, soItem.shipFrom, soItem.shipMethod, soItem.trackingNo, soItem.qty, soItem.qtyshipped, soItem.currencyType, soItem.unitPrice, soItem.dockDate.ToShortDateString(), soItem.shippedDate.HasValue ? soItem.shippedDate.Value.ToShortDateString() : "null",
+          return string.Format("update SoItems set saleType={0},partNo='{1}',mfg='{2}',rohs={3},dc='{4}',intPartNo='{5}',shipFrom='{6}',shipMethod='{7}',trackingNo='{8}',qty={9},qtyShipped={10},currency={11},unitPrice={12},dockDate='{13}',shippedDate='{14}',shippingInstruction='{15}',packingInstruction='{16}' where soItemsId={17} ",
+       soItem.saleType, soItem.partNo, soItem.mfg, soItem.rohs, soItem.dc,soItem.intPartNo, soItem.shipFrom, soItem.shipMethod, soItem.trackingNo, soItem.qty, soItem.qtyshipped, soItem.currencyType, soItem.unitPrice, soItem.dockDate.ToShortDateString(), soItem.shippedDate.HasValue ? soItem.shippedDate.Value.ToShortDateString() : "null",
     soItem.shippingInstruction, soItem.packingInstruction,soItem.soItemsId);
 
        }
@@ -340,7 +340,7 @@ namespace AmbleClient.Order.SoMgr
        }
 
 
-       public static void UpdatePoItems(List<SoItemsContentAndState> soItemStateList)
+       public static void UpdateSoItems(List<SoItemsContentAndState> soItemStateList)
        {
            List<string> strSqls = new List<string>();
            
@@ -361,6 +361,11 @@ namespace AmbleClient.Order.SoMgr
 
                }
            }
+           if (strSqls.Count == 0)
+           {
+               return;
+           }
+           
            db.ExecDataBySqls(strSqls);
 
        }

@@ -14,8 +14,6 @@ namespace AmbleClient.SO
     {
         public int rfqId;
 
-        ILog logger = LogManager.GetLogger(typeof(NewSo));
-
         public NewSo()
         {
             InitializeComponent();
@@ -47,7 +45,8 @@ namespace AmbleClient.SO
             }
             catch (Exception ex)
             {
-                logger.Error(ex.StackTrace);
+                Logger.Error(ex.Message);
+                Logger.Error(ex.StackTrace);
                 MessageBox.Show("Save So Error");
                 return;
             }

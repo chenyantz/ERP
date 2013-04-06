@@ -42,6 +42,7 @@ namespace AmbleClient
             catch (Exception ex)
             {
                 MessageBox.Show("Can not connect to the server.Please contact the admin");
+                Logger.Error(ex.Message);
                 Logger.Error(ex.StackTrace);
                 return;
             

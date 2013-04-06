@@ -759,3 +759,4 @@
    at System.Windows.Forms.Application.Run(Form mainForm)
    at AmbleClient.Program.Main() in C:\ERP\Client\AmbleClient\AmbleClient\Program.cs:line 23
 2013-04-04 22:42:41,774 [9] INFO  Amble (null) - 1,0 logged in
+2013-04-05 17:42:07,073 [10] INFO  Amble (null) - 1,0 logged in

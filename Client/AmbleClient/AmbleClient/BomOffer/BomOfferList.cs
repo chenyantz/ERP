@@ -166,6 +166,7 @@ namespace AmbleClient.BomOffer
             }
             catch (Exception ex)
             {
+                Logger.Error(ex.Message);
                 Logger.Error(ex.StackTrace);
                 MessageBox.Show("Met some errors while generating the Excel format file ");
                 return;

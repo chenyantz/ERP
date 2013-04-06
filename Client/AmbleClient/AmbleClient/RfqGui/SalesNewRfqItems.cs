@@ -43,6 +43,8 @@ namespace AmbleClient.RfqGui
             catch (Exception ex)
             {
                 suc = false;
+                Logger.Error(ex.Message);
+
                 Logger.Error(ex.StackTrace);
             
             }

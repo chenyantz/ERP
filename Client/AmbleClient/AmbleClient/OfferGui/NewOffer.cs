@@ -47,6 +47,7 @@ namespace AmbleClient.OfferGui
             }
             catch (Exception ex)
             {
+                Logger.Error(ex.Message);
                 Logger.Error(ex.StackTrace);
                 MessageBox.Show("Save Offer Error");
             
